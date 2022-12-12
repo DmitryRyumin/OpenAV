@@ -3,8 +3,8 @@ __all__ = (
     '__license__', '__copyright__', '__maintainer__ru__', '__maintainer__en__', '__maintainer_email__'
 )
 
-__title__ = 'openav'
-__summary__ = 'openav'
+__title__ = 'OpenAV'
+__summary__ = 'OpenAV'
 __uri__ = 'https://github.com/DmitryRyumin/openav'
 
 __version__ = '1.0'
