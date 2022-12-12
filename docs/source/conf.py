@@ -165,5 +165,5 @@ latex_elements = {
 }
 
 latex_documents = [
-  ('index', 'PDF.tex', u'PDF', u'oceanai', 'manual'),
+  ('index', 'PDF.tex', u'PDF', u'OpenAI', 'manual'),
 ]
