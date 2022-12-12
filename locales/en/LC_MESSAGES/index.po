@@ -1,0 +1,86 @@
+# English translation.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the openav package.
+# Dmitry Ryumin <dl_03.03.1991@mail.ru>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version:  1.0\n"
+"Report-Msgid-Bugs-To: dl_03.03.1991@mail.ru\n"
+"POT-Creation-Date: 2022-12-12 19:18+0300\n"
+"PO-Revision-Date: 2022-12-11 11:33+0300\n"
+"Last-Translator: Dmitry Ryumin <dl_03.03.1991@mail.ru>, Dmitry Ryumin "
+"<dl_03.03.1991@mail.ru>\n"
+"Language-Team: English <dl_03.03.1991@mail.ru>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/index.rst:-1 61d51473c5b64ebe8a7887b0f74b12b0
+msgid ""
+"Библиотека распознавания речевых команд на пользовательском словаре с "
+"использованием аудиовизуальных данных диктора"
+msgstr ""
+"An open-source library for recognition of speech commands in the user "
+"dictionary using audiovisual data of the speaker."
+
+#: ../../source/index.rst:-1 ea697e88be0b49a6aa71ae4c4c4f1073
+msgid ""
+"OpenAV, Lip Reading, Speech Recognition, Signal Processing, Data "
+"Augmentation, Artificial Neural Networks, Deep Machine Learning, Transfer"
+" Learning, Statistics, Computer Vision, Artificial Intelligence, "
+"Preprocessing"
+msgstr ""
+
+#: ../../source/index.rst:9 288eb3b68238404ab26f89bf205145b0
+msgid "Документация библиотеки - ``OpenAV``"
+msgstr "Documentation the library - ``OpenAV``"
+
+#: ../../source/index.rst:11 bb2415872c1d4a20babb9ef81a00e8c5
+msgid ""
+"`OpenAV <https://github.com/DmitryRyumin/openav>`_ - библиотека с "
+"открытым исходным кодом, предназначена для решения задач автоматического "
+"распознавания речевых команд на основе интеллектуального анализа "
+"аудиовизуальных данных."
+msgstr ""
+"`OpenAV <https://github.com/DmitryRyumin/openav>`_ is an open-source "
+"library designed to solve problems of automatic recognition of speech "
+"commands based on the intellectual analysis of audiovisual data."
+
+#: ../../source/index.rst:-1 7417b0d0313041a58addc36de61c3b04
+msgid "PyPI"
+msgstr ""
+
+#: ../../source/index.rst:-1 f89c6d35df4d4614a28f3bc6e3fb8287
+msgid "PyPI - Python Version"
+msgstr ""
+
+#: ../../source/index.rst:-1 ba0aececc4e24d54a9aed34549a26ebc
+msgid "PyPI - Implementation"
+msgstr ""
+
+#: ../../source/index.rst:-1 a96df56511544d0290b5443519d3fcac
+msgid "GitHub repo size"
+msgstr ""
+
+#: ../../source/index.rst:-1 f546694b90cc4762bfcb1e86e472479a
+msgid "PyPI - Status"
+msgstr ""
+
+#: ../../source/index.rst:-1 0c674cc778174250aedb156696f39ca9
+msgid "PyPI - License"
+msgstr ""
+
+#: ../../source/index.rst:-1 a55cf7f8d2b442b7a4b229c4fb90ba62
+msgid "GitHub top language"
+msgstr ""
+
+#: ../../source/index.rst:-1 c8ab7a562810488fa796f8bf01ad1ab0
+msgid "Documentation Status"
+msgstr ""
+
+#: ../../source/index.rst:34 8985d30bb6ba4d1db246b0ded3b22ee9
+msgid "Библиотека в разработке"
+msgstr "The library under development"
