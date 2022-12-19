@@ -1,7 +1,7 @@
 Сообщения
 =========
 
-.. autoclass:: oceanai.modules.core.messages.Messages
+.. autoclass:: openav.modules.core.messages.Messages
    :members:
    :undoc-members:
    :show-inheritance:

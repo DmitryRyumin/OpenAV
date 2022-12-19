@@ -1,7 +1,7 @@
 Определение языка
 =================
 
-.. autoclass:: oceanai.modules.core.language.Language
+.. autoclass:: openav.modules.core.language.Language
    :members:
    :undoc-members:
    :show-inheritance:

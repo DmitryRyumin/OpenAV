@@ -14,7 +14,12 @@ for warn in [UserWarning, FutureWarning]: warnings.filterwarnings('ignore', cate
 
 from dataclasses import dataclass # Класс данных
 
+from datetime import datetime # Работа со временем
+
+from IPython import get_ipython
+
 # Персональные
+from openav.modules.trml.shell import Shell       # Работа с Shell
 from openav.modules.core.settings import Settings # Глобальный файл настроек
 
 # ######################################################################################################################
@@ -53,14 +58,92 @@ class Core(CoreMessages):
     # Свойства
     # ------------------------------------------------------------------------------------------------------------------
 
+    @property
+    def is_notebook(self) -> bool:
+        """Получение результата определения запуска библиотеки в Jupyter или аналогах
+
+        Returns:
+            bool: **True** если библиотека запущена в Jupyter или аналогах, в обратном случае **False**
+        """
+
+        return self.__is_notebook()
+
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (приватные)
     # ------------------------------------------------------------------------------------------------------------------
+
+    @staticmethod
+    def __is_notebook() -> bool:
+        """Определение запуска библиотеки в Jupyter или аналогах
+
+        .. note::
+            private (приватный метод)
+
+        Returns:
+            bool: **True** если библиотека запущена в Jupyter или аналогах, в обратном случае **False**
+        """
+
+        try:
+            # Определение режима запуска библиотеки
+            shell = get_ipython().__class__.__name__
+        except (NameError, Exception): return False # Запуск в Python
+        else:
+            if shell == 'ZMQInteractiveShell' or shell == 'Shell': return True
+            elif shell == 'TerminalInteractiveShell': return False
+            else: return False
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
     # ------------------------------------------------------------------------------------------------------------------
 
     # ------------------------------------------------------------------------------------------------------------------
+    # Внешние методы (сообщения)
+    # ------------------------------------------------------------------------------------------------------------------
+
+    def inv_args(self, class_name: str, build_name: str) -> None:
+        """Сообщение об указании неверных типов аргументов
+
+        Args:
+            class_name (str): Имя класса
+            build_name (str): Имя метода/функции
+
+        Returns:
+            None
+        """
+
+        try:
+            # Проверка аргументов
+            if type(class_name) is not str or not class_name or type(build_name) is not str or not build_name:
+                raise TypeError
+        except TypeError: class_name, build_name = __class__.__name__, self.inv_args.__name__
+
+        inv_args = self._invalid_arguments.format(class_name + '.' + build_name)
+
+        if self.is_notebook is False:
+            print('[{}{}{}] {}'.format(
+                self.color_red, datetime.now().strftime(self._format_time), self.text_end, inv_args
+            ))
+
+    # ------------------------------------------------------------------------------------------------------------------
     # Внешние методы
     # ------------------------------------------------------------------------------------------------------------------
+
+    def clear_shell(self, cls: bool = True, out: bool = True) -> bool:
+        """Очистка консоли
+
+        Args:
+            cls (bool): Очистка консоли
+            out (bool): Печатать процесс выполнения
+
+        Returns:
+             bool: **True** если консоль очищена, в обратном случае **False**
+        """
+
+        # Проверка аргументов
+        if type(cls) is not bool or type(out) is not bool:
+            # Вывод сообщения
+            if out is True: self.inv_args(__class__.__name__, self.clear_shell.__name__)
+            return False
+
+        if cls is True: Shell.clear() # Очистка консоли
+        return True

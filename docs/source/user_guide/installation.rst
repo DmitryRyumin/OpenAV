@@ -29,3 +29,4 @@
    :widths: 30, 30, 30
 
     "ipython", "8.7.0", ".. image:: https://img.shields.io/pypi/v/ipython"
+    "colorama", "0.4.6", ".. image:: https://img.shields.io/pypi/v/colorama"

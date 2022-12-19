@@ -1,13 +1,13 @@
 Аудио
 =====
 
-.. autoclass:: oceanai.modules.lab.audio.AudioMessages
+.. autoclass:: openav.modules.lab.audio.AudioMessages
    :members:
    :undoc-members:
    :show-inheritance:
    :private-members:
 
-.. autoclass:: oceanai.modules.lab.audio.Audio
+.. autoclass:: openav.modules.lab.audio.Audio
    :members:
    :undoc-members:
    :show-inheritance:

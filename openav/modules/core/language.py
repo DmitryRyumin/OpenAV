@@ -24,7 +24,15 @@
 import warnings
 for warn in [UserWarning, FutureWarning]: warnings.filterwarnings('ignore', category = warn)
 
-from dataclasses import dataclass # Класс данных
+from dataclasses import dataclass, field # Класс данных
+
+import os      # Взаимодействие с файловой системой
+import gettext # Формирование языковых пакетов
+import inspect # Инспектор
+
+# Типы данных
+from typing import List, Dict, Optional
+from types import MethodType
 
 # ######################################################################################################################
 # Константы
@@ -47,31 +55,141 @@ class Language:
     # Конструктор
     # ------------------------------------------------------------------------------------------------------------------
 
-    lang: str = LANG
-    """
-    str: Язык, доступные варианты:
+    lang: str
+    __lang: str = field(default = LANG, init = False, repr = False)
+    """Язык
 
-        * ``"ru"`` - Русский язык (``по умолчанию``)
-        * ``"en"`` - Английский язык
+    .. note::
+        private (приватный аргумент)
     """
 
     def __post_init__(self):
-        pass
+        self.__i18n: Dict[str, MethodType] = self.__get_locales() # Получение языковых пакетов
+        self._: MethodType = self.__set_locale(self.lang) # Установка языка
 
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
     # ------------------------------------------------------------------------------------------------------------------
 
-    LANG: str = 'ru' # Язык
+    @property
+    def lang(self) -> str:
+        """Получение/установка текущего языка
+
+        Args:
+            (str): Язык, доступные варианты:
+
+                * ``"ru"`` - Русский язык (``по умолчанию``)
+                * ``"en"`` - Английский язык
+
+        Returns:
+            str: Язык
+        """
+
+        return self.__lang
+
+    @lang.setter
+    def lang(self, lang: str):
+        """Установка текущего языка"""
+
+        try:
+            # Проверка аргументов
+            if type(lang) is not str or not lang or (lang in self.locales) is False: raise TypeError
+        except TypeError: pass
+        else: self.__lang = lang
+
+    @property
+    def locales(self) -> List[str]:
+        """Получение поддерживаемых языков
+
+        Returns:
+            List[str]: Список поддерживаемых языков
+        """
+
+        return self.__get_languages() # Поддерживаемые языки
+
+    @property
+    def path_to_locales(self) -> str:
+        """Получение директории с языковыми пакетами
+
+        Returns:
+            str: Директория с языковыми пакетами
+        """
+
+        # Нормализация пути
+        return os.path.normpath(
+            os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'locales'))
+        )
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (приватные)
     # ------------------------------------------------------------------------------------------------------------------
 
-    # ------------------------------------------------------------------------------------------------------------------
-    # Внутренние методы (защищенные)
-    # ------------------------------------------------------------------------------------------------------------------
+    def __get_languages(self) -> List[Optional[str]]:
+        """Получение поддерживаемых языков
 
-    # ------------------------------------------------------------------------------------------------------------------
-    # Внешние методы
-    # ------------------------------------------------------------------------------------------------------------------
+        .. note::
+            private (приватный метод)
+
+        Returns:
+            List[Optional[str]]: Список поддерживаемых языков
+        """
+
+        # Директория с языками найдена
+        if os.path.exists(self.path_to_locales):
+            # Формирование списка с подерживаемыми языками
+            return next(os.walk(self.path_to_locales))[1]
+
+        return []
+
+    def __get_locales(self) -> Dict[str, MethodType]:
+        """Получение языковых пакетов
+
+        .. note::
+            private (приватный метод)
+
+        Returns:
+             Dict[str, MethodType]: Словарь с языковыми пакетами
+        """
+
+        trs_base = {} # Языки
+
+        # Проход по всем языкам
+        for curr_lang in self.locales:
+            trs_base[curr_lang] = gettext.translation(
+                'base', # Домен
+                localedir = self.path_to_locales, # Директория с поддерживаемыми языками
+                languages = [curr_lang], # Язык
+                fallback = True # Отключение ошибки
+            ).gettext
+
+        return trs_base
+
+    def __set_locale(self, lang: str = '') -> MethodType:
+        """Установка языка
+
+        .. note::
+            private (приватный метод)
+
+        Args:
+            lang (str): Язык
+
+        Returns:
+             MethodType: MethodType перевода строк на один из поддерживаемых языков если метод запущен через конструктор
+        """
+
+        try:
+            # Проверка аргументов
+            if type(lang) is not str: raise TypeError
+        except TypeError: pass
+        else:
+            # Проход по всем поддерживаемым языкам
+            for curr_lang in self.locales:
+                # В аргументах метода не найден язык
+                if lang != curr_lang: continue
+
+                self.lang = curr_lang # Изменение языка
+
+            # Метод запущен в конструкторе
+            if inspect.stack()[1].function == "__init__" or inspect.stack()[1].function == "__post_init__":
+                return self.__i18n[self.lang]
+            else: self._ = self.__i18n[self.lang] # Установка языка

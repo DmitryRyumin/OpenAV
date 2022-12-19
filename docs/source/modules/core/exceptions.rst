@@ -1,7 +1,7 @@
 Пользовательские исключения
 ===========================
 
-.. automodule:: oceanai.modules.core.exceptions
+.. automodule:: openav.modules.core.exceptions
    :members:
    :undoc-members:
    :show-inheritance:

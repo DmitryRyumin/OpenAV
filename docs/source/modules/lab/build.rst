@@ -1,7 +1,7 @@
 Сборка
 ======
 
-.. autoclass:: oceanai.modules.lab.build.Run
+.. autoclass:: openav.modules.lab.build.Run
    :members:
    :undoc-members:
    :show-inheritance:

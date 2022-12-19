@@ -11,6 +11,7 @@ import openav
 
 REQUIRED_PACKAGES = [
     'ipython >= 8.7.0',
+    'colorama >= 0.4.6'
 ]
 
 CLASSIFIERS = """\
