@@ -14,6 +14,9 @@ for warn in [UserWarning, FutureWarning]: warnings.filterwarnings('ignore', cate
 
 from dataclasses import dataclass # Класс данных
 
+# Типы данных
+from typing import List
+
 # Персональные
 from openav.modules.core.language import Language # Определение языка
 
@@ -34,6 +37,12 @@ class Messages(Language):
 
     def __post_init__(self):
         super().__post_init__() # Выполнение конструктора из суперкласса
+
+        self._metadata: List[str] = [
+            self._('OpenAV - библиотека распознавания речевых команд на пользовательском словаре с использованием '
+                   'аудиовизуальных данных диктора'),
+            self._('Авторы'), self._('Сопровождающие'), self._('Версия'), self._('Лицензия')
+        ]
 
         self._format_time: str = '%Y-%m-%d %H:%M:%S' # Формат времени
 

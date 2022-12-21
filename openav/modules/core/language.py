@@ -26,9 +26,11 @@ for warn in [UserWarning, FutureWarning]: warnings.filterwarnings('ignore', cate
 
 from dataclasses import dataclass, field # Класс данных
 
-import os      # Взаимодействие с файловой системой
-import gettext # Формирование языковых пакетов
-import inspect # Инспектор
+import os       # Взаимодействие с файловой системой
+import sys      # Доступ к некоторым переменным и функциям Python
+import gettext  # Формирование языковых пакетов
+import inspect  # Инспектор
+import argparse # Парсинг аргументов и параметров командной строки
 
 # Типы данных
 from typing import List, Dict, Optional
@@ -64,8 +66,11 @@ class Language:
     """
 
     def __post_init__(self):
-        self.__i18n: Dict[str, MethodType] = self.__get_locales() # Получение языковых пакетов
+        # Получение языковых пакетов
+        self.__i18n: List[Dict[str, MethodType]] = self.__get_locales()
         self._: MethodType = self.__set_locale(self.lang) # Установка языка
+
+        argparse._ = self.__i18n[1][self.lang] # Установка языка для парсинга аргументов и параметров командной строки
 
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
@@ -116,9 +121,7 @@ class Language:
         """
 
         # Нормализация пути
-        return os.path.normpath(
-            os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'locales'))
-        )
+        return os.path.normpath(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'locales')))
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (приватные)
@@ -141,20 +144,29 @@ class Language:
 
         return []
 
-    def __get_locales(self) -> Dict[str, MethodType]:
+    def __get_locales(self) -> List[Dict[str, MethodType]]:
         """Получение языковых пакетов
 
         .. note::
             private (приватный метод)
 
         Returns:
-             Dict[str, MethodType]: Словарь с языковыми пакетами
+             List[Dict[str, MethodType]]: Список словарей с языковыми пакетами
         """
 
-        trs_base = {} # Языки
+        # Языки
+        tr_argparse = {}
+        trs_base = {}
 
         # Проход по всем языкам
         for curr_lang in self.locales:
+            tr_argparse[curr_lang] = gettext.translation(
+                'argparse', # Домен
+                localedir = self.path_to_locales, # Директория с поддерживаемыми языками
+                languages = [curr_lang], # Язык
+                fallback = True # Отключение ошибки
+            ).gettext
+
             trs_base[curr_lang] = gettext.translation(
                 'base', # Домен
                 localedir = self.path_to_locales, # Директория с поддерживаемыми языками
@@ -162,9 +174,9 @@ class Language:
                 fallback = True # Отключение ошибки
             ).gettext
 
-        return trs_base
+        return trs_base, tr_argparse
 
-    def __set_locale(self, lang: str = '') -> MethodType:
+    def __set_locale(self, lang: str = LANG) -> MethodType:
         """Установка языка
 
         .. note::
@@ -184,12 +196,14 @@ class Language:
         else:
             # Проход по всем поддерживаемым языкам
             for curr_lang in self.locales:
-                # В аргументах метода не найден язык
-                if lang != curr_lang: continue
+                # В аргументах командной строки не найден язык
+                if curr_lang not in sys.argv:
+                    # В аргументах метода не найден язык
+                    if lang != curr_lang: continue
 
                 self.lang = curr_lang # Изменение языка
 
             # Метод запущен в конструкторе
             if inspect.stack()[1].function == "__init__" or inspect.stack()[1].function == "__post_init__":
-                return self.__i18n[self.lang]
-            else: self._ = self.__i18n[self.lang] # Установка языка
+                return self.__i18n[0][self.lang]
+            else: self._ = self.__i18n[0][self.lang]

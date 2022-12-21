@@ -14,6 +14,114 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.5\n"
 
+#: openav/api/vad.py:48
+msgid "Детектирование речевой активности в аудиовизуальном сигнале"
+msgstr "Detection of speech activity in an audiovisual signal"
+
+#: openav/api/vad.py:51
+msgid "Проверка данных на валидность"
+msgstr ""
+
+#: openav/api/vad.py:88
+msgid "ФАЙЛ"
+msgstr ""
+
+#: openav/api/vad.py:89
+msgid "Путь к конфигурационному файлу"
+msgstr ""
+
+#: openav/api/vad.py:92
+msgid "Автоматическая проверка конфигурационного файла в момент работы программы (работает при заданном"
+msgstr ""
+
+#: openav/api/vad.py:95
+msgid "Не очищать консоль перед выполнением"
+msgstr ""
+
 #: openav/modules/core/messages.py:42
+msgid "OpenAV - библиотека распознавания речевых команд на пользовательском словаре с использованием аудиовизуальных данных диктора"
+msgstr ""
+
+#: openav/modules/core/messages.py:44
+msgid "Авторы"
+msgstr ""
+
+#: openav/modules/core/messages.py:44
+msgid "Версия"
+msgstr ""
+
+#: openav/modules/core/messages.py:44
+msgid "Лицензия"
+msgstr ""
+
+#: openav/modules/core/messages.py:44
+msgid "Сопровождающие"
+msgstr ""
+
+#: openav/modules/core/messages.py:51
 msgid "Неверные типы или значения аргументов в \"{}\""
-msgstr "Invalid argument types or values in \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:40
+msgid "Необходимо указать название файла с расширением \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:41
+msgid "Вместо файла передана директория"
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:42
+msgid "Поиск \"{}\" файла"
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:44
+msgid "Расширение файла должно быть \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:45
+msgid "Файл \"{}\" не найден, но был создан"
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:46
+msgid "Файл \"{}\" не найден"
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:47
+msgid "Необходимо указать название директории"
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:48
+msgid "Поиск файлов с расширениями \"{}\" в директории \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:49
+msgid "В указанной директории необходимые файлы не найдены"
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:50
+msgid "Очистка директории \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:51
+msgid "Директория \"{}\" не найдена"
+msgstr ""
+
+#: openav/modules/file_manager/json_manager.py:40
+msgid "Загрузка данных из файла \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/json_manager.py:41
+msgid "Данные не загружены"
+msgstr ""
+
+#: openav/modules/file_manager/json_manager.py:42
+msgid "Файл пуст"
+msgstr ""
+
+#: openav/modules/file_manager/json_manager.py:43
+msgid "Загрузка данных из ресурсов \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/json_manager.py:44
+msgid "Ресурс не найден"
+msgstr ""
