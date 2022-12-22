@@ -30,3 +30,6 @@
 
     "ipython", "8.7.0", ".. image:: https://img.shields.io/pypi/v/ipython"
     "colorama", "0.4.6", ".. image:: https://img.shields.io/pypi/v/colorama"
+    "numpy", "1.24.0", ".. image:: https://img.shields.io/pypi/v/numpy"
+    "pandas", "1.5.2", ".. image:: https://img.shields.io/pypi/v/pandas"
+    "prettytable", "3.5.0", ".. image:: https://img.shields.io/pypi/v/prettytable"

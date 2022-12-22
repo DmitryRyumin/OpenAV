@@ -7,3 +7,6 @@ nbsphinx==0.8.10
 sphinx-copybutton==0.5.1
 ipython>=8.7.0
 colorama>=0.4.6
+numpy>=1.24.0
+pandas>=1.5.2
+prettytable>=3.5.0

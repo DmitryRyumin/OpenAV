@@ -14,9 +14,15 @@ for warn in [UserWarning, FutureWarning]: warnings.filterwarnings('ignore', cate
 
 from dataclasses import dataclass # Класс данных
 
-import argparse # Парсинг аргументов и параметров командной строки
+import argparse     # Парсинг аргументов и параметров командной строки
+import numpy as np  # Научные вычисления
+import pandas as pd # Обработка и анализ данных
+import prettytable  # Отображение таблиц в терминале
+import colorama     # Цветной текст терминала
+import IPython      # Интерактивная оболочка для языка программирования
 
-from datetime import datetime # Работа со временем
+from datetime import datetime       # Работа со временем
+from prettytable import PrettyTable # Отображение таблиц в терминале
 
 from IPython import get_ipython
 
@@ -42,6 +48,9 @@ class CoreMessages(Settings):
     def __post_init__(self):
         super().__post_init__() # Выполнение конструктора из суперкласса
 
+        self._libs_vers: str = self._('Версии установленных библиотек') + self._em
+        self._package: str = self._('Пакет')
+
 # ######################################################################################################################
 # Ядро модулей
 # ######################################################################################################################
@@ -61,6 +70,8 @@ class Core(CoreMessages):
 
         self._space: int = 4 # Значение для количества пробелов в начале текста
 
+        self._df_pkgs: pd.DataFrame = pd.DataFrame() # DataFrame c версиями установленных библиотек
+
         # ----------------------- Только для внутреннего использования внутри класса
 
         self.__max_space: int = 24 # Максимальное значение для количества пробелов в начале текста
@@ -78,6 +89,16 @@ class Core(CoreMessages):
         """
 
         return self.__is_notebook()
+
+    @property
+    def df_pkgs(self) -> pd.DataFrame:
+        """Получение DataFrame c версиями установленных библиотек
+
+        Returns:
+            pd.DataFrame: **DataFrame** c версиями установленных библиотек
+        """
+
+        return self._df_pkgs
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (приватные)
@@ -119,10 +140,12 @@ class Core(CoreMessages):
             None
         """
 
+        if type(out) is not bool: out = True
+
         try:
             # Проверка аргументов
-            if (type(class_name) is not str or not class_name or type(build_name) is not str or not build_name or
-                    type(out) is not bool): raise TypeError
+            if type(class_name) is not str or not class_name or type(build_name) is not str or not build_name:
+                raise TypeError
         except TypeError: class_name, build_name = __class__.__name__, self.inv_args.__name__
 
         inv_args = self._invalid_arguments.format(class_name + '.' + build_name)
@@ -145,10 +168,11 @@ class Core(CoreMessages):
             None
         """
 
+        if type(out) is not bool: out = True
+
         try:
             # Проверка аргументов
-            if type(message) is not str or not message or not (0 <= space <= self.__max_space) or type(out) is not bool:
-                raise TypeError
+            if type(message) is not str or not message or not (0 <= space <= self.__max_space): raise TypeError
         except TypeError: self.inv_args(__class__.__name__, self.message_error.__name__, out = out); return None
 
         if self.is_notebook is False:
@@ -169,10 +193,12 @@ class Core(CoreMessages):
             None
         """
 
+        if type(out) is not bool: out = True
+
         try:
             # Проверка аргументов
             if (type(message) is not str or not message or type(space) is not int
-                or not (0 <= space <= self.__max_space) or type(out) is not bool): raise TypeError
+                or not (0 <= space <= self.__max_space)): raise TypeError
         except TypeError: self.inv_args(__class__.__name__, self.message_info.__name__, out = out); return None
 
         if self.is_notebook is False:
@@ -187,6 +213,8 @@ class Core(CoreMessages):
         Returns:
             None
         """
+
+        if type(out) is not bool: out = True
 
         if self.is_notebook is False:
             space = " " * self._space
@@ -216,6 +244,47 @@ class Core(CoreMessages):
     # ------------------------------------------------------------------------------------------------------------------
     # Внешние методы
     # ------------------------------------------------------------------------------------------------------------------
+
+    def libs_vers(self, out: bool = True) -> bool:
+        """Получение и отображение версий установленных библиотек
+
+        Args:
+            out (bool): Отображение
+
+        Returns:
+            bool: **True** если версии установленных библиотек отображены, в обратном случае **False**
+        """
+
+        # Сброс
+        self._df_pkgs = pd.DataFrame() # Пустой DataFrame
+
+        try:
+            # Проверка аргументов
+            if type(out) is not bool: raise TypeError
+        except TypeError: self.inv_args(__class__.__name__, self.libs_vers.__name__, out = out); return False
+        else:
+            pkgs = {
+                'Package': [
+                    'NumPy', 'Pandas', 'IPython', 'Colorama', 'Prettytable'
+                ],
+                'Version': [i.__version__ for i in [
+                    np, pd, IPython, colorama, prettytable
+                ]]
+            }
+
+            self._df_pkgs = pd.DataFrame(data = pkgs) # Версии используемых библиотек
+            self._df_pkgs.index += 1
+
+            if self.is_notebook is False:
+                # Вывод сообщения
+                if out is True:
+                    table_terminal = PrettyTable()
+                    table_terminal.add_column(self._package, self._df_pkgs['Package'].values)
+                    table_terminal.add_column(self._metadata[3], self._df_pkgs['Version'].values)
+                    table_terminal.align = 'l'
+
+                    self.message_info(self._libs_vers, space = 0, out = out)
+                    print(table_terminal)
 
     def build_args(self, description: str, conv_to_dict: bool = True, out: bool = True) -> Dict[str, Any]:
         """Построение аргументов командной строки

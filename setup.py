@@ -11,7 +11,10 @@ import openav
 
 REQUIRED_PACKAGES = [
     'ipython >= 8.7.0',
-    'colorama >= 0.4.6'
+    'colorama >= 0.4.6',
+    'numpy >= 1.24.0',
+    'pandas >= 1.5.2',
+    'prettytable >= 3.5.0'
 ]
 
 CLASSIFIERS = """\

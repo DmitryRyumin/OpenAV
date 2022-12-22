@@ -64,7 +64,7 @@ class RunVAD(MessagesVAD):
     def __post_init__(self):
         super().__post_init__() # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_json = 1 # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_json = 2 # Общее количество настроек в конфигурационном файле
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
@@ -126,7 +126,8 @@ class RunVAD(MessagesVAD):
         # Проход по всем разделам конфигурационного файла
         for key, val in config.items():
             # 1. Скрытие метаданных
-            if key == 'hide_metadata':
+            # 2. Скрытие версий установленных библиотек
+            if key == 'hide_metadata' or key == 'hide_libs_vers':
                 # Проверка значения
                 if type(val) is not bool: continue
 
@@ -213,10 +214,14 @@ class RunVAD(MessagesVAD):
         # Вывод сообщения
         if out is True: Shell.add_line() # Добавление линии во весь экран
 
-        # Запуск
+        # Информация об библиотеке
         if self._args['hide_metadata'] is False and out is True:
-            self.message_metadata_info(out)
+            self.message_metadata_info(out = out)
+            Shell.add_line() # Добавление линии во весь экран
 
+        # Версии установленных библиотек
+        if self._args['hide_libs_vers'] is False and out is True:
+            self.libs_vers(out = out)
             Shell.add_line() # Добавление линии во весь экран
 
         return True
