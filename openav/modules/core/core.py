@@ -14,12 +14,19 @@ for warn in [UserWarning, FutureWarning]: warnings.filterwarnings('ignore', cate
 
 from dataclasses import dataclass # Класс данных
 
+import os           # Взаимодействие с файловой системой
+import sys          # Доступ к некоторым переменным и функциям Python
 import argparse     # Парсинг аргументов и параметров командной строки
 import numpy as np  # Научные вычисления
 import pandas as pd # Обработка и анализ данных
 import prettytable  # Отображение таблиц в терминале
 import colorama     # Цветной текст терминала
 import IPython      # Интерактивная оболочка для языка программирования
+import torch        # Машинное обучение от Facebook
+import torchaudio   # Работа с аудио от Facebook
+import torchvision  # Работа с видео от Facebook
+import av           # Работа с FFmpeg
+import filetype     # Определение типа файла и типа MIME
 
 from datetime import datetime       # Работа со временем
 from prettytable import PrettyTable # Отображение таблиц в терминале
@@ -27,12 +34,18 @@ from prettytable import PrettyTable # Отображение таблиц в т�
 from IPython import get_ipython
 
 # Типы данных
-from typing import Dict, Any, Optional
+from typing import List, Dict, Union, Any, Optional
 
 # Персональные
 import openav                                     # Библиотека в целом
+from openav.modules.core.exceptions import TypeMessagesError
 from openav.modules.trml.shell import Shell       # Работа с Shell
 from openav.modules.core.settings import Settings # Глобальный файл настроек
+
+# ######################################################################################################################
+# Константы
+# ######################################################################################################################
+TYPE_MESSAGES: List[str] = ['info', 'correct', 'error'] # Типы возможных сообщений
 
 # ######################################################################################################################
 # Сообщения
@@ -50,6 +63,14 @@ class CoreMessages(Settings):
 
         self._libs_vers: str = self._('Версии установленных библиотек') + self._em
         self._package: str = self._('Пакет')
+
+        self._trac_file: str = self._('Файл')
+        self._trac_line: str = self._('Линия')
+        self._trac_method: str = self._('Метод')
+        self._trac_type_err: str = self._('Тип ошибки')
+
+        self._undefined_message: str = '... ' + self._('неопределенное сообщение') + ' ...'
+        self._wrong_type_messages: str = self._('Тип сообщения должен быть одним из "{}"') + self._em
 
 # ######################################################################################################################
 # Ядро модулей
@@ -125,6 +146,32 @@ class Core(CoreMessages):
             else: return False
 
     # ------------------------------------------------------------------------------------------------------------------
+    # Внутренние методы (защищенные)
+    # ------------------------------------------------------------------------------------------------------------------
+
+    @staticmethod
+    def _traceback() -> Dict[str, Union[str, int]]:
+        """Трассировка исключений
+
+        .. note::
+            protected (защищенный метод)
+
+        Returns:
+            Dict[str, Union[str, int]]: Словарь с описанием исключения
+        """
+
+        exc_type, exc_value, exc_traceback = sys.exc_info() # Получение информации об ошибке
+
+        _trac = {
+            'filename': exc_traceback.tb_frame.f_code.co_filename,
+            'lineno': exc_traceback.tb_lineno,
+            'name': exc_traceback.tb_frame.f_code.co_name,
+            'type': exc_type.__name__
+        }
+
+        return _trac
+
+    # ------------------------------------------------------------------------------------------------------------------
     # Внешние методы (сообщения)
     # ------------------------------------------------------------------------------------------------------------------
 
@@ -142,6 +189,8 @@ class Core(CoreMessages):
 
         if type(out) is not bool: out = True
 
+        trac = self._traceback() # Трассировка исключений
+
         try:
             # Проверка аргументов
             if type(class_name) is not str or not class_name or type(build_name) is not str or not build_name:
@@ -155,6 +204,16 @@ class Core(CoreMessages):
                 print('[{}{}{}] {}'.format(
                     self.color_red, datetime.now().strftime(self._format_time), self.text_end, inv_args
                 ))
+
+                indent = ('\r' + ' ' * self._space + '{}\n') * 4
+
+                sys.stdout.write(indent.format(
+                    f'{self._trac_file}: {trac["filename"]}',
+                    f'{self._trac_line}: {trac["lineno"]}',
+                    f'{self._trac_method}: {trac["name"]}',
+                    f'{self._trac_type_err}: {trac["type"]}'
+                ))
+                sys.stdout.flush()
 
     def message_error(self, message: str, space: int = 0, out: bool = True) -> None:
         """Сообщение об ошибке
@@ -204,6 +263,46 @@ class Core(CoreMessages):
         if self.is_notebook is False:
             if out is True: print(' ' * space + '[{}] {}'.format(datetime.now().strftime(self._format_time), message))
 
+    def message_line(self, message: str, type_message: str = TYPE_MESSAGES[0], out: bool = True) -> str:
+        """Информационное сообщение (в виде одной строки)
+
+        Args:
+            message (str): Сообщение
+            type_message (str): Тип сообщения
+            out (bool): Отображение
+
+        Returns:
+            str: Информационное сообщение (в виде одной строки)
+        """
+
+        if type(out) is not bool: out = True
+
+        try:
+            # Проверка аргументов
+            if type(message) is not str or not message: raise TypeError
+        except TypeError:
+            self.inv_args(__class__.__name__, self.message_line.__name__, out = out)
+            return self._undefined_message
+        else:
+            try:
+                # Проверка типа сообщения
+                if type(type_message) is not str or (type_message in TYPE_MESSAGES) is False: raise TypeMessagesError
+            except TypeMessagesError:
+                self.message_error(self._wrong_type_messages.format(
+                    ', '.join(x.replace('.', '') for x in TYPE_MESSAGES)
+                ), out = out); self._undefined_message
+            else:
+                # Тип сообщения
+                if type_message == TYPE_MESSAGES[0]: tm = self.color_blue
+                elif type_message == TYPE_MESSAGES[1]: tm = self.color_green
+                elif type_message == TYPE_MESSAGES[2]: tm = self.color_red
+                else: tm = self.text_bold
+
+                if self.is_notebook is False:
+                    if out is True: return ('{}' * 3).format(tm, message, self.text_end)
+
+                return self._undefined_message
+
     def message_metadata_info(self, out: bool = True) -> None:
         """Информация об библиотеке
 
@@ -241,6 +340,40 @@ class Core(CoreMessages):
                     f'{space}{self._metadata[4]}: {openav.__license__}'
                 ))
 
+    def message_progressbar(self, message: str = '', space: int = 0, close: bool = False, out: bool = True) -> str:
+        """Информационный индикатор выполнения
+
+        Args:
+            message (str): Сообщение
+            space (int): Количество пробелов в начале текста
+            close (bool): Закрыть информационный индикатор
+            out (bool): Отображение
+
+        Returns:
+            None
+        """
+
+        if type(out) is not bool: out = True
+        if type(close) is not bool: close = False
+
+        if close is True: message = 'Закрыть'
+
+        try:
+            # Проверка аргументов
+            if (type(message) is not str or not message or type(space) is not int
+                or not (0 <= space <= self.__max_space)): raise TypeError
+        except TypeError: self.inv_args(__class__.__name__, self.message_progressbar.__name__, out = out); return None
+
+        if self.is_notebook is False:
+            if out is True:
+                message = '\r' + self.clear_line + (' ' * space) + '[{}] {}'.format(
+                    datetime.now().strftime(self._format_time), message
+                )
+                if close is True: message = '\n'
+
+                sys.stdout.write(message)
+                sys.stdout.flush()
+
     # ------------------------------------------------------------------------------------------------------------------
     # Внешние методы
     # ------------------------------------------------------------------------------------------------------------------
@@ -265,10 +398,11 @@ class Core(CoreMessages):
         else:
             pkgs = {
                 'Package': [
-                    'NumPy', 'Pandas', 'IPython', 'Colorama', 'Prettytable'
+                    'PyTorch', 'TorchAudio', 'TorchVision', 'NumPy', 'Pandas', 'PyAV', 'FileType', 'IPython',
+                    'Colorama', 'Prettytable'
                 ],
                 'Version': [i.__version__ for i in [
-                    np, pd, IPython, colorama, prettytable
+                    torch, torchaudio, torchvision, np, pd, av, filetype, IPython, colorama, prettytable
                 ]]
             }
 

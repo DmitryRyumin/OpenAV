@@ -1,4 +1,17 @@
 {
     "hide_metadata": false,
-    "hide_libs_vers": false
+    "hide_libs_vers": false,
+    "type_encode": "crf",
+    "presets_crf_encode": "medium",
+    "sr_input_type": "audio",
+    "path_to_save_models": "./models",
+    "path_to_dataset": "/Users/dl/@DmitryRyumin/Databases/LRW_TEST",
+    "path_to_dataset_vad": "./dataset_vad",
+    "dir_va_names": {
+        "video": "Video",
+        "audio": "Audio"
+    },
+    "force_reload": true,
+    "depth": 1,
+    "ext_search_files": ["mov", "mp4", "wav"]
 }

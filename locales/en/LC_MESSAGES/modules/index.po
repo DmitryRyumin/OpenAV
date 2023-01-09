@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/modules/index.rst:4
+msgid "Содержание:"
+msgstr ""
+
+#: ../../source/modules/index.rst:2 afd1271c1bf94f5a8eba011f63eb614d
+msgid "Модули"
+msgstr ""
+
+#: ../../source/modules/index.rst:21 9ab65e9c0b5a4ffb8015111ac00df39d
+msgid ":doc:`trml/shell`"
+msgstr ""
+
+#: ../../source/modules/index.rst:21 71d7969096af45e59813f41b98f218d0
+msgid "Документация для файла ``modules/trml/shell.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:24 4d3c7f4b56254eabb46c47785c16f89b
+msgid ":doc:`core/exceptions`"
+msgstr ""
+
+#: ../../source/modules/index.rst:24 8b99922c23144914b887a9fc3757821b
+msgid "Документация для файла ``modules/core/exceptions.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:27 d383d01e70684deea8e7fc3e9c6997ad
+msgid ":doc:`core/language`"
+msgstr ""
+
+#: ../../source/modules/index.rst:27 acba7f4552be4be1872ee91978c586b3
+msgid "Документация для файла ``modules/core/language.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:30 3c728d704ea342cba739aa51ab0cdea2
+msgid ":doc:`core/messages`"
+msgstr ""
+
+#: ../../source/modules/index.rst:30 ff14e71285304cbeb2896da21dc8d59c
+msgid "Документация для файла ``modules/core/messages.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:33 1a1d4e535cac45989f145e1e787ac84b
+msgid ":doc:`core/settings`"
+msgstr ""
+
+#: ../../source/modules/index.rst:33 ab247b0fd8c845929e5840bb0d68ac8b
+msgid "Документация для файла ``modules/core/settings.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:36 a5f8d700db7c4ff8a0482c57ac8686ab
+msgid ":doc:`core/core`"
+msgstr ""
+
+#: ../../source/modules/index.rst:36 7e19365a061d4af397c117f4a16457a2
+msgid "Документация для файла ``modules/core/core.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:39 297a8ffb772e42ca8a6354552340cf29
+msgid ":doc:`lab/audio`"
+msgstr ""
+
+#: ../../source/modules/index.rst:39 724599b3369b4b34acda7aa2e43ee305
+msgid "Документация для файла ``modules/lab/audio.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:42 77f48efa07e249b197b19325c359e9a4
+msgid ":doc:`lab/video`"
+msgstr ""
+
+#: ../../source/modules/index.rst:42 46aee29c4b9f4c608d70a9f31f51484c
+msgid "Документация для файла ``modules/lab/video.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:45 2b244ae67bfd4252b8f786b3450b1668
+msgid ":doc:`lab/audiovisual`"
+msgstr ""
+
+#: ../../source/modules/index.rst:45 01048fbcf7f24bb0b31960ed652c5e61
+msgid "Документация для файла ``modules/lab/audiovisual.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:47 c86bd2b9ba0842cb9891c62414b43515
+msgid ":doc:`lab/build`"
+msgstr ""
+
+#: ../../source/modules/index.rst:48 7b5ae4bf367342c58630801bcbefba2c
+msgid "Документация для файла ``modules/lab/build.py``"
+msgstr ""
+

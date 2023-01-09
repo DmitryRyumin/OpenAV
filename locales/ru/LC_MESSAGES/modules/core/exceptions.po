@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/modules/core/exceptions.rst:2 95455b8dfa394d8984d9c33e295c4762
+msgid "Пользовательские исключения"
+msgstr ""
+
+#: eaf80200def74eef99907b7a7d93ab0e of
+#: openav.modules.core.exceptions.CustomException:1
+msgid "Базовые классы: :py:class:`Exception`"
+msgstr ""
+
+#: c77e4e3f0f9f4d238af2eed72eb65e80 of
+#: openav.modules.core.exceptions.CustomException:1
+msgid "Класс для всех пользовательских исключений"
+msgstr ""
+
+#: 2234f35991804ee78267bef49187c56f 816415c86c3f4bf1bfba3a6ba55fd084
+#: 9e0b1ec383b3439b80d683a35be1a4f3 a42f163a352e47fb87e0ba12a7a1008b of
+#: openav.modules.core.exceptions.PresetCFREncodeVideoError:1
+#: openav.modules.core.exceptions.SRInputTypeError:1
+#: openav.modules.core.exceptions.TypeEncodeVideoError:1
+#: openav.modules.core.exceptions.TypeMessagesError:1
+msgid ""
+"Базовые классы: "
+":py:class:`~openav.modules.core.exceptions.CustomException`"
+msgstr ""
+
+#: 6dfca5fbb20f498ebd85044ba7a85390 of
+#: openav.modules.core.exceptions.PresetCFREncodeVideoError:1
+msgid ""
+"Указан неподдерживаемый параметр обеспечивающий определенную скорость "
+"кодирования и сжатия видео"
+msgstr ""
+
+#: 3550570d39794d7d869576782eb91429 of
+#: openav.modules.core.exceptions.SRInputTypeError:1
+msgid "Указан неподдерживаемый тип файла для распознавания речи"
+msgstr ""
+
+#: c2c0a184b9b6426aa3c5f74c6946a4ac of
+#: openav.modules.core.exceptions.TypeEncodeVideoError:1
+msgid "Указан неподдерживаемый тип кодирования видео"
+msgstr ""
+
+#: f49530a72ec5458798af2b165f817d2a of
+#: openav.modules.core.exceptions.TypeMessagesError:1
+msgid "Указан неподдерживаемый тип сообщения"
+msgstr ""
+

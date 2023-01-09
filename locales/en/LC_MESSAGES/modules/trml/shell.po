@@ -1,0 +1,41 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/modules/trml/shell.rst:2 8122be9379cc497387071ee18d64f50d
+msgid "Работа с Shell"
+msgstr ""
+
+#: 38c459a041ac4e47b465191de4f81594 of openav.modules.trml.shell.Shell:1
+msgid "Базовые классы: :py:class:`object`"
+msgstr ""
+
+#: f5a371988cfd41ecbdd7699f7f8b4a42 of openav.modules.trml.shell.Shell:1
+msgid "Класс для работы с Shell"
+msgstr ""
+
+#: da7c64a569ad4a5399437377868c4f83 of
+#: openav.modules.trml.shell.Shell.add_line:1
+msgid "Добавление линии во весь экран"
+msgstr ""
+
+#: 9da842449d6b4157a86c646a6463a10b of openav.modules.trml.shell.Shell.clear:1
+msgid "Очистка консоли"
+msgstr ""
+

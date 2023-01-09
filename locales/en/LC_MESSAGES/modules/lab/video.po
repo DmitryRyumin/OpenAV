@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/modules/lab/video.rst:2 ac62dd9e764e484091786137f926d8dc
+msgid "Видео"
+msgstr ""
+
+#: 68df0c05dcc3473b88f0c9de9c78d080 of openav.modules.lab.video.VideoMessages:1
+msgid "Базовые классы: :py:class:`~openav.modules.file_manager.json_manager.Json`"
+msgstr ""
+
+#: d26fc73a50674a3ab049c970ad11bd43 of openav.modules.lab.video.VideoMessages:1
+msgid "Класс для сообщений"
+msgstr ""
+
+#: 4cceb42730ed417ead0da2893fe6de4d b18677e9ceaa4d7e93cfb8ab4a7d3047 of
+#: openav.modules.lab.video.Video openav.modules.lab.video.VideoMessages
+msgid "Параметры"
+msgstr ""
+
+#: ../../../docstring 8cf76fe04b034e9a9f1a2b1afcb9192b
+#: b04adbf4a715436ea33655ae76fb35c3 of openav.modules.lab.video.Video.__lang:1
+#: openav.modules.lab.video.VideoMessages.__lang:1
+msgid "Язык"
+msgstr ""
+
+#: ../../../docstring 61d782ca801f47a1b82f1321efb5deaf
+#: 647ae914a4ed47e9a94c4b1148af9f95 8dd3068da5264b34bdd0c4f69390a585
+#: da50eb875b57448ca930039c69fba5d4 of openav.modules.lab.video.Video.__lang:4
+#: openav.modules.lab.video.Video.__path_to_save:4
+#: openav.modules.lab.video.VideoMessages.__lang:4
+#: openav.modules.lab.video.VideoMessages.__path_to_save:4
+msgid "private (приватный аргумент)"
+msgstr ""
+
+#: ../../../docstring 176df237fea24d48a616a521d004d9c2
+#: 9a1ff28653804e78b6e2846c12c161b4 of
+#: openav.modules.lab.video.Video.__path_to_save:1
+#: openav.modules.lab.video.VideoMessages.__path_to_save:1
+msgid "Путь к директории для сохранения данных"
+msgstr ""
+
+#: dff11a01ba394154a7fbb1bc8cf32639 of openav.modules.lab.video.Video:1
+msgid "Базовые классы: :py:class:`~openav.modules.lab.video.VideoMessages`"
+msgstr ""
+
+#: 68ec20253fe54186b5775cafc1e4080e of openav.modules.lab.video.Video:1
+msgid "Класс для обработки видеомодальности"
+msgstr ""
+

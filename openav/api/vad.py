@@ -31,6 +31,9 @@ from openav.modules.trml.shell import Shell # Работа с Shell
 from openav.modules.lab.build import Run    # Сборка библиотеки
 from openav import rsrs                     # Ресурсы библиотеки
 
+from openav.modules.core.settings import EXT_SEARCH_FILES
+from openav.modules.lab.audio import TYPES_ENCODE, PRESETS_CRF_ENCODE, SR_INPUT_TYPES
+
 # ######################################################################################################################
 # Сообщения
 # ######################################################################################################################
@@ -64,7 +67,7 @@ class RunVAD(MessagesVAD):
     def __post_init__(self):
         super().__post_init__() # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_json = 2 # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_json = 12 # Общее количество настроек в конфигурационном файле
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
@@ -127,11 +130,85 @@ class RunVAD(MessagesVAD):
         for key, val in config.items():
             # 1. Скрытие метаданных
             # 2. Скрытие версий установленных библиотек
-            if key == 'hide_metadata' or key == 'hide_libs_vers':
+            # 3. Принудительная загрузка модели из сети
+            if key == 'hide_metadata' or key == 'hide_libs_vers' or key == 'force_reload':
                 # Проверка значения
                 if type(val) is not bool: continue
 
                 curr_valid_layer += 1
+
+            # Тип кодирования
+            if key == 'type_encode':
+                # Проверка значения
+                if type(val) is not str or (val in TYPES_ENCODE) is False: continue
+
+                curr_valid_layer += 1
+
+            # Скорость кодирования и сжатия
+            if key == 'presets_crf_encode':
+                # Проверка значения
+                if type(val) is not str or (val in PRESETS_CRF_ENCODE) is False: continue
+
+                curr_valid_layer += 1
+
+            # Тип файлов для распознавания речи
+            if key == 'sr_input_type':
+                # Проверка значения
+                if type(val) is not str or (val in SR_INPUT_TYPES) is False: continue
+
+                curr_valid_layer += 1
+
+            # 1. Путь к директории для сохранения моделей
+            # 2. Путь к директории набора данных
+            # 3. Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала
+            if key == 'path_to_save_models' or key == 'path_to_dataset' or key == 'path_to_dataset_vad':
+                # Проверка значения
+                if type(val) is not str or not val: continue
+
+                curr_valid_layer += 1
+
+            # Глубина иерархии для получения данных
+            if key == 'depth':
+                # Проверка значения
+                if type(val) is not int or not (1 <= val <= 10):
+                    continue
+
+                curr_valid_layer += 1
+
+            # Названия директорий для видео и аудио
+            if key == 'dir_va_names':
+                all_layer_2 = 2 # Общее количество подразделов в текущем разделе
+                curr_valid_layer_2 = 0 # Валидное количество подразделов в текущем разделе
+
+                # Проверка значения
+                if type(val) is not dict or len(val) == 0: continue
+
+                # Проход по всем подразделам текущего раздела
+                for k, v in val.items():
+                    # Проверка значения
+                    if type(v) is not str or not v: continue
+
+                    # 1. Директории с разделенными видеофрагментами
+                    # 2. Директории с разделенными аудиофрагментами
+                    if k == 'video' or k == 'audio': curr_valid_layer_2 += 1
+
+                if all_layer_2 == curr_valid_layer_2: curr_valid_layer += 1
+
+            # Расширения искомых файлов
+            if key == 'ext_search_files':
+                curr_valid_layer_2 = 0 # Валидное количество подразделов в текущем разделе
+
+                # Проверка значения
+                if type(val) is not list or len(val) == 0: continue
+
+                # Проход по всем подразделам текущего раздела
+                for v in val:
+                    # Проверка значения
+                    if type(v) is not str or not v: continue
+
+                    curr_valid_layer_2 += 1
+
+                if curr_valid_layer_2 > 0: curr_valid_layer += 1
 
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
         if self._all_layer_in_json != curr_valid_layer:
@@ -194,7 +271,7 @@ class RunVAD(MessagesVAD):
 
         # Проверка аргументов
         if not isinstance(metadata, ModuleType) or not isinstance(resources, ModuleType) or type(out) is not bool:
-            self.inv_args(__class__.__name__, RunVAD.run.__name__, out = out); return False
+            self.inv_args(__class__.__name__, self.run.__name__, out = out); return False
 
         self._args = self._build_args(self._description) # Построение аргументов командной строки
 
@@ -224,12 +301,44 @@ class RunVAD(MessagesVAD):
             self.libs_vers(out = out)
             Shell.add_line() # Добавление линии во весь экран
 
+        # self.path_to_save_models = self._args['path_to_save_models']
+        # self.path_to_dataset = self._args['path_to_dataset']
+
+        # VAD
+        # self.vad(
+        #     depth = self._args['depth'],                           # Глубина иерархии для получения данных
+        #     type_encode = self._args['type_encode'],               # Тип кодирования
+        #     presets_crf_encode = self._args['presets_crf_encode'], # Скорость кодирования и сжатия
+        #     sr_input_type = self._args['sr_input_type'],           # Тип файлов для распознавания речи
+        #     force_reload = self._args['force_reload'],             # Принудительная загрузка модели из сети
+        #     out = out
+        # )
+
+        self.path_to_save_models = './models'
+        self.path_to_dataset = '/Users/dl/@DmitryRyumin/Databases/LRW_TEST'
+        self.path_to_dataset_vad = './dataset_vad'
+        self.dir_va_names = ['Video', 'Audio'] # Названия директорий для видео и аудио
+        self.ext_search_files = ['mov', 'mp4', 'jpg'] # Названия директорий для видео и аудио
+
+        self.vad(
+            depth = 3,  # Глубина иерархии для получения данных
+            type_encode = 'crf',  # Тип кодирования
+            presets_crf_encode = 'medium',  # Скорость кодирования и сжатия
+            sr_input_type = 'audio',  # Тип файлов для распознавания речи
+            sampling_rate = 16001,
+            force_reload = True,  # Принудительная загрузка модели из сети
+            clear_dirvad = True,
+            out = out
+        )
+
         return True
 
 def main():
     # Запуск детектирования речевой активности в аудиовизуальном сигнале
-    vad = RunVAD(lang = 'ru')
-    vad.run()
+    vad = RunVAD(
+        lang = 'ru'
+    )
+    vad.run(out = True)
 
 
 if __name__ == "__main__":

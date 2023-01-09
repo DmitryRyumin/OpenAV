@@ -1,0 +1,131 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/modules/core/settings.rst:2 109c2cce56fb4ab9afe124b92bef2a0a
+msgid "Настройки"
+msgstr ""
+
+#: 39449eda292d4bfe91251c3b70c17c56 of openav.modules.core.settings.Settings:1
+msgid "Базовые классы: :py:class:`~openav.modules.core.messages.Messages`"
+msgstr ""
+
+#: de45ee592c3b423aa3fd5877f3977ae0 of openav.modules.core.settings.Settings:1
+msgid "Класс для настроек"
+msgstr ""
+
+#: 03c937b413374b76ac4c237013168957 da40185a3a80420ab98d54a384baf35c of
+#: openav.modules.core.settings.Settings
+#: openav.modules.core.settings.Settings.path_to_save
+msgid "Параметры"
+msgstr ""
+
+#: ../../../docstring 2129b3a3bad44d3ba0e834d932aaf96d
+#: a033331f45a9464f86f1e4822ab641e5 of openav.modules.core.settings.Settings:3
+#: openav.modules.core.settings.Settings.__path_to_save:1
+msgid "Путь к директории для сохранения данных"
+msgstr ""
+
+#: ../../../docstring 25f1f1db6cfd454c94b7fe59de85d6f3 of
+#: openav.modules.core.settings.Settings.__path_to_save:4
+msgid "private (приватный аргумент)"
+msgstr ""
+
+#: a55a8318d9684ea19052cb4d3395ac75 of
+#: openav.modules.core.settings.Settings.color_blue:1
+msgid "Получение синего цвета текста в терминале"
+msgstr ""
+
+#: 37727893727948e6bc691a84ec4d338d 3ab63d5371d0435eb726557a88bda2fc
+#: 9ac6e9aa016e4f10b82b0c01138428ca c9a0738b8aaa47a3bcf8fa5f12d8f86a
+#: e293cea9a6b345d8868f547840014e6c fa4a87cfec014e6ca6b5466c7f46e3cb of
+#: openav.modules.core.settings.Settings.color_blue
+#: openav.modules.core.settings.Settings.color_green
+#: openav.modules.core.settings.Settings.color_red
+#: openav.modules.core.settings.Settings.path_to_save
+#: openav.modules.core.settings.Settings.text_bold
+#: openav.modules.core.settings.Settings.text_end
+msgid "Результат"
+msgstr ""
+
+#: 12150457bd364046a6bafacfee2a6403 5832251d634a48eeb667c6437cb8abbd
+#: 62c101edc19841a9a6830f851a0ca8ae of
+#: openav.modules.core.settings.Settings.color_blue:3
+#: openav.modules.core.settings.Settings.color_green:3
+#: openav.modules.core.settings.Settings.color_red:3
+msgid "Цвет текста в терминале"
+msgstr ""
+
+#: 2efd6e9c1d754e3ca9d01ff528ddc806 48a0c04b3dc143c391623bec11d9778b
+#: 53109b91e619488a81cac1ee1d76b365 8f4c75274e0b478eb9633513057f1d73
+#: b8762e610140411f87096d08aac72566 fccbf874015140acb7440629739a92e6 of
+#: openav.modules.core.settings.Settings.color_blue
+#: openav.modules.core.settings.Settings.color_green
+#: openav.modules.core.settings.Settings.color_red
+#: openav.modules.core.settings.Settings.path_to_save
+#: openav.modules.core.settings.Settings.text_bold
+#: openav.modules.core.settings.Settings.text_end
+msgid "Тип результата"
+msgstr ""
+
+#: b7b40fbd479847ddae82632be396d7ec of
+#: openav.modules.core.settings.Settings.color_green:1
+msgid "Получение зеленого цвета текста в терминале"
+msgstr ""
+
+#: db7878abebb84a0787785cf7484291f8 of
+#: openav.modules.core.settings.Settings.color_red:1
+msgid "Получение красного цвета текста в терминале"
+msgstr ""
+
+#: 2ff5d0911a404040a7158562d33468de of
+#: openav.modules.core.settings.Settings.path_to_save:1
+msgid "Получение/установка пути к директории для сохранения данных"
+msgstr ""
+
+#: e543e995a773439aad48a6404c3f5d4c of
+#: openav.modules.core.settings.Settings.path_to_save:3
+msgid "путь"
+msgstr ""
+
+#: 90a07027e38f460baea261f7a7764a19 of
+#: openav.modules.core.settings.Settings.path_to_save:5
+msgid "Язык"
+msgstr ""
+
+#: 335216b08eae48cf96dd55b527b5b965 of
+#: openav.modules.core.settings.Settings.text_bold:1
+msgid "Получение жирного начертания текста в терминале"
+msgstr ""
+
+#: 52c1012aaf5f41af85a40fd6de267588 of
+#: openav.modules.core.settings.Settings.text_bold:3
+msgid "Жирное начертание текста в терминале"
+msgstr ""
+
+#: 47b5fef8f8594c2d9ece88c03bacc7b2 of
+#: openav.modules.core.settings.Settings.text_end:1
+msgid "Получение сброса оформления текста в терминале"
+msgstr ""
+
+#: 66f3677f3a3a4e0aa0830ec39121e7ff of
+#: openav.modules.core.settings.Settings.text_end:3
+msgid "Сброс оформления текста в терминале"
+msgstr ""
+

@@ -176,3 +176,4 @@ docs/source/user_guide/notebooks/logs
 openav/__garbage__.py
 openav/samples/__test__.py
 jlab/
+models/

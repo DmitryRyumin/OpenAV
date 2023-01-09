@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/user_guide/installation.rst:4
+msgid "Содержание:"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:2 1ecb61664bd8419eaf362ff8c23a7d04
+msgid "Установка и обновление"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:10 315916d3256b4fc3bc7129284ecd3a26
+msgid "Установка с помощью `PyPi <https://pypi.org/project/openav/>`_"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:12 f62d717e8cb34abcbd105eaf45a0eeb3
+msgid "pip install openav"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:17 cc1e61602bcb40209e849f837851e9c2
+msgid "Обновление с помощью `PyPi <https://pypi.org/project/openav/>`_"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:19 43d4ae74482d41369e540b289e2303cf
+msgid "pip install --upgrade openav"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:24 2c3a799e242f45139324db82b9b3f359
+msgid "Зависимости"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:26 576e9051a0fa4b06ade21d2d0d6cb805
+msgid "Устанавливаются автоматически"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 e6d631e12f6247e6880aa9f20237acbe
+msgid "Библиотека"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 bb4aedd5dfd9417bb29d58237ba97007
+msgid "Рекомендуемая версия"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 f75b7934b079461f9d97314171944afc
+msgid "Текущая версия"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 962e3407571041478521f1aa4d9eabe7
+msgid "ipython"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 65d36342e0be4b2ab4cb54adc6cc5da8
+msgid "8.7.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 052dfe6db44e4a4d8630776a8a2413e2
+msgid "colorama"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 1b3470dd257a4143ba6c44fe3c48b679
+msgid "0.4.6"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 741ff4cce92e474a9664f8f74ef59619
+msgid "numpy"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 7350b5803ed24422aa37a603abc9c8f4
+msgid "1.24.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 971cf87f82b24e2c9e55d2a6695511ed
+msgid "pandas"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 c932d861a625432bbc48fe29e6d710fb
+msgid "1.5.2"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 20570f11437a4a329709056272a0349c
+msgid "prettytable"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 c6d68595d6a24a9db5e8757fe56e5b3a
+msgid "3.5.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 207266d1f3164aa0bb982df30f52df69
+msgid "torch"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 9bb880f09ba34292a8975876322e5d46
+msgid "1.13.1"
+msgstr ""
+

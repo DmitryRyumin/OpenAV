@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/modules/lab/audio.rst:2 9c622cbb8fcc4a9c978a0b3d60f27cd3
+msgid "Аудио"
+msgstr ""
+
+#: 2b67069cc20a40f8a4ce24f93f48f983 of openav.modules.lab.audio.AudioMessages:1
+msgid "Базовые классы: :py:class:`~openav.modules.file_manager.json_manager.Json`"
+msgstr ""
+
+#: 542deaab6d25406eb545b51c9a48e7fd of openav.modules.lab.audio.AudioMessages:1
+msgid "Класс для сообщений"
+msgstr ""
+
+#: 53c51125c1e44376b817114113ad004b 693507440d134ddba5d6ef87ae5a8f26
+#: ea061e2fcd1d46daa3a0e889417a5730 of openav.modules.lab.audio.Audio
+#: openav.modules.lab.audio.Audio.vad openav.modules.lab.audio.AudioMessages
+msgid "Параметры"
+msgstr ""
+
+#: ../../../docstring 7de0ed70271647b8885c2f3732242ad0
+#: 7e0c7dd18bd341f2b0942dbbfe353103 of openav.modules.lab.audio.Audio.__lang:1
+#: openav.modules.lab.audio.AudioMessages.__lang:1
+msgid "Язык"
+msgstr ""
+
+#: ../../../docstring 225e9ca6c0d247879e77423b5ce922db
+#: 8af2d52cc1f246a899e602c5544ad5fa 8c51e66d609b4b7e97981f743f02ae60
+#: 9cb797d38c0340669c6b3ba169d98680 of openav.modules.lab.audio.Audio.__lang:4
+#: openav.modules.lab.audio.Audio.__path_to_save:4
+#: openav.modules.lab.audio.AudioMessages.__lang:4
+#: openav.modules.lab.audio.AudioMessages.__path_to_save:4
+msgid "private (приватный аргумент)"
+msgstr ""
+
+#: ../../../docstring 207e79322fa84f4d9a5be27d6932cb03
+#: 361ab6a2ba6347ce93062e97ef06e06a of
+#: openav.modules.lab.audio.Audio.__path_to_save:1
+#: openav.modules.lab.audio.AudioMessages.__path_to_save:1
+msgid "Путь к директории для сохранения данных"
+msgstr ""
+
+#: 8477aab120a643ca96d4355c6e79215d of openav.modules.lab.audio.Audio:1
+msgid "Базовые классы: :py:class:`~openav.modules.lab.audio.AudioMessages`"
+msgstr ""
+
+#: 6b97f1bf4143421ba148aee66728ff3d of openav.modules.lab.audio.Audio:1
+msgid "Класс для обработки аудиомодальности"
+msgstr ""
+
+#: d0df49e42bf04fe58d9f70df02410759 of openav.modules.lab.audio.Audio.vad:1
+msgid "VAD (Voice Activity Detector) или (детектирование голосовой активности)"
+msgstr ""
+
+#: b5a4310ac863479282186cb31a0fa8e8 of openav.modules.lab.audio.Audio.vad:3
+msgid "Тип кодирования"
+msgstr ""
+
+#: 060fd329ae104a2cb31036122daaf132 of openav.modules.lab.audio.Audio.vad:5
+msgid "Скорость кодирования и сжатия"
+msgstr ""
+
+#: 4286872fa6674538acdfcd5a09fcef63 of openav.modules.lab.audio.Audio.vad:7
+msgid "Тип файлов для распознавания речи"
+msgstr ""
+
+#: a1692e5d0ca84df1b0f14f3aa73f00aa of openav.modules.lab.audio.Audio.vad:9
+msgid "Отображение"
+msgstr ""
+
+#: 5047e791becd4b719891b6d017c0ad8d of openav.modules.lab.audio.Audio.vad
+msgid "Результат"
+msgstr ""
+
+#: ecf430ea1afd4458ac819e07dcac8caa of openav.modules.lab.audio.Audio.vad:12
+msgid ""
+"**True** если детектирование голосовой активности произведено, в обратном"
+" случае **False**"
+msgstr ""
+
+#: b2961ed8d7524f1ca55eb5f6344f041d of openav.modules.lab.audio.Audio.vad
+msgid "Тип результата"
+msgstr ""
+
