@@ -22,7 +22,6 @@ class Shell:
     #  Внешние методы
     # ------------------------------------------------------------------------------------------------------------------
 
-    # Очистка консоли
     @staticmethod
     def clear():
         """Очистка консоли"""
@@ -36,7 +35,6 @@ class Shell:
 
         if command_shell is not None: subprocess.call(command_shell, shell = True) # Очистка Shell
 
-    # Добавление линии во весь экран
     @staticmethod
     def add_line():
         """Добавление линии во весь экран"""

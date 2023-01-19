@@ -25,6 +25,10 @@ class SamplingRateError(CustomException):
     """Указана неподдерживаемая частота дискретизации речевого сигнала"""
     pass
 
+class WindowSizeSamplesError(CustomException):
+    """Указано неподдерживаемое количество выборок в каждом окне"""
+    pass
+
 class IsNestedCatalogsNotFoundError(CustomException):
     """Вложенные директории, где хранятся данные не найдены"""
     pass

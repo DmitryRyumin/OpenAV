@@ -21,6 +21,8 @@ for warn in [UserWarning, FutureWarning]: warnings.filterwarnings('ignore', cate
 
 from dataclasses import dataclass # Класс данных
 
+import itertools # Функции создающие итераторы для эффективного цикла
+
 # Типы данных
 from typing import Dict, Union, Any
 from types import ModuleType
@@ -32,7 +34,8 @@ from openav.modules.lab.build import Run    # Сборка библиотеки
 from openav import rsrs                     # Ресурсы библиотеки
 
 from openav.modules.core.settings import EXT_SEARCH_FILES
-from openav.modules.lab.audio import TYPES_ENCODE, PRESETS_CRF_ENCODE, SR_INPUT_TYPES
+from openav.modules.lab.audio import TYPES_ENCODE, PRESETS_CRF_ENCODE, SR_INPUT_TYPES, SAMPLING_RATE_VAD, \
+                                     WINDOW_SIZE_SAMPLES_VAD
 
 # ######################################################################################################################
 # Сообщения
@@ -67,7 +70,7 @@ class RunVAD(MessagesVAD):
     def __post_init__(self):
         super().__post_init__() # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_json = 12 # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_json = 20 # Общее количество настроек в конфигурационном файле
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
@@ -131,7 +134,8 @@ class RunVAD(MessagesVAD):
             # 1. Скрытие метаданных
             # 2. Скрытие версий установленных библиотек
             # 3. Принудительная загрузка модели из сети
-            if key == 'hide_metadata' or key == 'hide_libs_vers' or key == 'force_reload':
+            # 4. Очистка директории для сохранения фрагментов аудиовизуального сигнала
+            if key == 'hide_metadata' or key == 'hide_libs_vers' or key == 'force_reload' or key == 'clear_dirvad':
                 # Проверка значения
                 if type(val) is not bool: continue
 
@@ -141,6 +145,13 @@ class RunVAD(MessagesVAD):
             if key == 'type_encode':
                 # Проверка значения
                 if type(val) is not str or (val in TYPES_ENCODE) is False: continue
+
+                curr_valid_layer += 1
+
+            # Качество кодирования
+            if key == 'crf_value':
+                # Проверка значения
+                if type(val) is not int or not (0 <= val <= 51): continue
 
                 curr_valid_layer += 1
 
@@ -170,8 +181,39 @@ class RunVAD(MessagesVAD):
             # Глубина иерархии для получения данных
             if key == 'depth':
                 # Проверка значения
-                if type(val) is not int or not (1 <= val <= 10):
-                    continue
+                if type(val) is not int or not (1 <= val <= 10): continue
+
+                curr_valid_layer += 1
+
+            # Частота дискретизации
+            if key == 'sampling_rate':
+                # Проверка значения
+                if type(val) is not int or (val in SAMPLING_RATE_VAD) is False: continue
+
+                curr_valid_layer += 1
+
+            # Порог вероятности речи
+            if key == 'threshold':
+                # Проверка значения
+                if type(val) is not float or not (0.0 <= val <= 1.0): continue
+
+                curr_valid_layer += 1
+
+            # 1. Минимальная длительность речевого фрагмента в миллисекундах
+            # 2. Минимальная длительность тишины в выборках между отдельными речевыми фрагментами
+            # 3. Внутренние отступы для итоговых речевых фрагментов
+            if key == 'min_speech_duration_ms' or key == 'min_silence_duration_ms' or key == 'speech_pad_ms':
+                # Проверка значения
+                if type(val) is not int or not 1 <= val: continue
+
+                curr_valid_layer += 1
+
+            # Количество выборок в каждом окне
+            if key == 'window_size_samples':
+                # Проверка значения
+                if (type(val) is not int
+                    or (val in set(itertools.chain.from_iterable(WINDOW_SIZE_SAMPLES_VAD.values()))) is False
+                ): continue
 
                 curr_valid_layer += 1
 
@@ -301,33 +343,31 @@ class RunVAD(MessagesVAD):
             self.libs_vers(out = out)
             Shell.add_line() # Добавление линии во весь экран
 
-        # self.path_to_save_models = self._args['path_to_save_models']
-        # self.path_to_dataset = self._args['path_to_dataset']
-
-        # VAD
-        # self.vad(
-        #     depth = self._args['depth'],                           # Глубина иерархии для получения данных
-        #     type_encode = self._args['type_encode'],               # Тип кодирования
-        #     presets_crf_encode = self._args['presets_crf_encode'], # Скорость кодирования и сжатия
-        #     sr_input_type = self._args['sr_input_type'],           # Тип файлов для распознавания речи
-        #     force_reload = self._args['force_reload'],             # Принудительная загрузка модели из сети
-        #     out = out
-        # )
-
-        self.path_to_save_models = './models'
-        self.path_to_dataset = '/Users/dl/@DmitryRyumin/Databases/LRW_TEST'
-        self.path_to_dataset_vad = './dataset_vad'
-        self.dir_va_names = ['Video', 'Audio'] # Названия директорий для видео и аудио
-        self.ext_search_files = ['mov', 'mp4', 'jpg'] # Названия директорий для видео и аудио
+        self.path_to_save_models = self._args['path_to_save_models'] # Путь к директории для сохранения моделей
+        self.path_to_dataset = self._args['path_to_dataset']         # Путь к директории набора данных
+        # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала
+        self.path_to_dataset_vad = self._args['path_to_dataset_vad']
+        self.dir_va_names = self._args['dir_va_names']               # Названия директорий для видео и аудио
+        self.ext_search_files = self._args['ext_search_files']       # Названия директорий для видео и аудио
 
         self.vad(
-            depth = 3,  # Глубина иерархии для получения данных
-            type_encode = 'crf',  # Тип кодирования
-            presets_crf_encode = 'medium',  # Скорость кодирования и сжатия
-            sr_input_type = 'audio',  # Тип файлов для распознавания речи
-            sampling_rate = 16001,
-            force_reload = True,  # Принудительная загрузка модели из сети
-            clear_dirvad = True,
+            depth = self._args['depth'],                                     # Глубина иерархии для получения данных
+            type_encode = self._args['type_encode'],                         # Тип кодирования
+            crf_value = self._args['crf_value'],                             # Качество кодирования
+            presets_crf_encode = self._args['presets_crf_encode'],           # Скорость кодирования и сжатия
+            sr_input_type = self._args['sr_input_type'],                     # Тип файлов для распознавания речи
+            sampling_rate = self._args['sampling_rate'],                     # Частота дискретизации
+            threshold = self._args['threshold'],                             # Порог вероятности речи
+            # Минимальная длительность речевого фрагмента в миллисекундах
+            min_speech_duration_ms = self._args['min_speech_duration_ms'],
+            # Минимальная длительность тишины в выборках между отдельными речевыми фрагментами
+            min_silence_duration_ms = self._args['min_silence_duration_ms'],
+            window_size_samples = self._args['window_size_samples'],         # Количество выборок в каждом окне
+            # Внутренние отступы для итоговых речевых фрагментов
+            speech_pad_ms = self._args['speech_pad_ms'],
+            force_reload = self._args['force_reload'],                       # Принудительная загрузка модели из сети
+            # Очистка директории для сохранения фрагментов аудиовизуального сигнала
+            clear_dirvad = self._args['clear_dirvad'],
             out = out
         )
 
