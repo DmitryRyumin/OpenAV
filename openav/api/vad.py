@@ -91,7 +91,7 @@ class RunVAD(MessagesVAD):
         super().build_args(description = description, conv_to_dict = False, out = out)
 
         # Добавление аргументов в парсер командной строки
-        self._ap.add_argument('--config', metavar = self._('ФАЙЛ'),
+        self._ap.add_argument('--config', required = True, metavar = self._('ФАЙЛ'),
                               help = self._('Путь к конфигурационному файлу'))
 
         self._ap.add_argument('--automatic_update', action = 'store_true',

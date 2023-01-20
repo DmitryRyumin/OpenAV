@@ -114,7 +114,7 @@ autoclass_content = 'both'
 autodoc_default_options = {
     'members': True,
     'undoc-members': True,
-    'private-members': True,
+    'private-members': False,
     'inherited-members': False,
     'show-inheritance': True
 }

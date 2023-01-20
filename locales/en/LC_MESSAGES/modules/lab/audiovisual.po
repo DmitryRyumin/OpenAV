@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"POT-Creation-Date: 2023-01-19 20:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,56 +18,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/modules/lab/audiovisual.rst:2 f76f1eb3b732447cbb30de2e3f2b2522
+#: ../../source/modules/lab/audiovisual.rst:2 b45cf19b17114155b1f45178ac36ccb2
 msgid "Мультимодальное объединение аудио- и видеомодальностей"
 msgstr ""
 
-#: 82a5a8c252e84edeb3d7cfefc38444d9 of
+#: ca4d83dfb4ef4e97b73f860f240c827b of
 #: openav.modules.lab.audiovisual.AVMessages:1
 msgid ""
 "Базовые классы: :py:class:`~openav.modules.lab.audio.Audio`, "
 ":py:class:`~openav.modules.lab.video.Video`"
 msgstr ""
 
-#: 8fac1966f2c443439cbd4af63aa6fd0b of
+#: 1f968c60c9e84adfaaace852196b91b3 of
 #: openav.modules.lab.audiovisual.AVMessages:1
 msgid "Класс для сообщений"
 msgstr ""
 
-#: 62940cc6a4ff40ab9ea81ab170c04fb9 f8365b4b72064c71b2d6b8af6814b1f3 of
+#: 1078089f20704cb4865c3c55e0e1eb81 14f5ed5f58d24098a760952da77a3ba8 of
 #: openav.modules.lab.audiovisual.AV openav.modules.lab.audiovisual.AVMessages
 msgid "Параметры"
 msgstr ""
 
-#: ../../../docstring 7dbe5921b7264c4082870c4f295e0efe
-#: 9411f61233024ad2a89eeedd5722dddd of
+#: ../../../docstring 80505eebc2e64b1daff53abf8b780bbb
+#: f6fef8f2cfd442a0a2c2f1a8db5c3b68 of
 #: openav.modules.lab.audiovisual.AV.__lang:1
 #: openav.modules.lab.audiovisual.AVMessages.__lang:1
 msgid "Язык"
 msgstr ""
 
-#: ../../../docstring 0e0883cccb4b4471bcaf1496a5185d03
-#: 66fb685524f74340ad35296adc0a741c cc0a129db0644e8aa116be58afa7acf8
-#: edfe209d8fce4e2b9c85a42fe136cca7 of
+#: ../../../docstring 570cb255ccd1469f9445a60e17383daf
+#: 5d8e708680314b13883d518e5bbc1668 of
 #: openav.modules.lab.audiovisual.AV.__lang:4
-#: openav.modules.lab.audiovisual.AV.__path_to_save:4
 #: openav.modules.lab.audiovisual.AVMessages.__lang:4
-#: openav.modules.lab.audiovisual.AVMessages.__path_to_save:4
 msgid "private (приватный аргумент)"
 msgstr ""
 
-#: ../../../docstring 059f59c3ef43426d8d8c08390c00a2b0
-#: a92ddf28fe19403badb2626f36e76cc4 of
-#: openav.modules.lab.audiovisual.AV.__path_to_save:1
-#: openav.modules.lab.audiovisual.AVMessages.__path_to_save:1
-msgid "Путь к директории для сохранения данных"
-msgstr ""
-
-#: 233b01ac26d74f1f8130e8989d9eb061 of openav.modules.lab.audiovisual.AV:1
+#: af9834db81174328a5ebc3d91784ae7e of openav.modules.lab.audiovisual.AV:1
 msgid "Базовые классы: :py:class:`~openav.modules.lab.audiovisual.AVMessages`"
 msgstr ""
 
-#: c93de8bad1c545b98e27439d2a25f51a of openav.modules.lab.audiovisual.AV:1
+#: ba98810ef5ea4b1a8ecbe192621239f6 of openav.modules.lab.audiovisual.AV:1
 msgid "Класс для мультимодального объединения аудио- и видеомодальностей"
 msgstr ""
+
+#~ msgid "Путь к директории для сохранения данных"
+#~ msgstr ""
 

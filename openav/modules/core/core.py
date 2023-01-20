@@ -52,7 +52,11 @@ TYPE_MESSAGES: List[str] = ['info', 'correct', 'error'] # Типы возмож�
 # ######################################################################################################################
 @dataclass
 class CoreMessages(Settings):
-    """Класс для сообщений"""
+    """Класс для сообщений
+
+    Args:
+        lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
+    """
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
@@ -77,7 +81,11 @@ class CoreMessages(Settings):
 # ######################################################################################################################
 @dataclass
 class Core(CoreMessages):
-    """Класс-ядро модулей"""
+    """Класс-ядро модулей
+
+    Args:
+        lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
+    """
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
@@ -238,6 +246,32 @@ class Core(CoreMessages):
             if out is True:
                 print(' ' * space + '[{}{}{}] {}'.format(
                     self.color_red, datetime.now().strftime(self._format_time), self.text_end, message
+                ))
+
+    def message_true(self, message: str, space: int = 0, out: bool = True) -> None:
+        """Сообщение с положительной информацией
+
+        Args:
+            message (str): Сообщение
+            space (int): Количество пробелов в начале текста
+            out (bool): Отображение
+
+        Returns:
+            None
+        """
+
+        if type(out) is not bool: out = True
+
+        try:
+            # Проверка аргументов
+            if (type(message) is not str or not message or type(space) is not int
+                or not (0 <= space <= self.__max_space)): raise TypeError
+        except TypeError: self.inv_args(__class__.__name__, self.message_true.__name__, out = out); return None
+
+        if self.is_notebook is False:
+            if out is True:
+                print(' ' * space + '[{}{}{}] {}'.format(
+                    self.color_green, datetime.now().strftime(self._format_time), self.text_end, message
                 ))
 
     def message_info(self, message: str, space: int = 0, out: bool = True) -> None:

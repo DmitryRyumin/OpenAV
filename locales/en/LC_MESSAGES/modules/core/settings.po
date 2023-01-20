@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"POT-Creation-Date: 2023-01-19 20:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,114 +18,201 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/modules/core/settings.rst:2 109c2cce56fb4ab9afe124b92bef2a0a
+#: ../../source/modules/core/settings.rst:2 be2b1cf5c10145ef87e0e97c31a836b9
 msgid "Настройки"
 msgstr ""
 
-#: 39449eda292d4bfe91251c3b70c17c56 of openav.modules.core.settings.Settings:1
+#: f7d76a3eec6a4d41a50b9ba496d53a9b of openav.modules.core.settings.Settings:1
 msgid "Базовые классы: :py:class:`~openav.modules.core.messages.Messages`"
 msgstr ""
 
-#: de45ee592c3b423aa3fd5877f3977ae0 of openav.modules.core.settings.Settings:1
+#: a03322589cc64246af87117b81505aae of openav.modules.core.settings.Settings:1
 msgid "Класс для настроек"
 msgstr ""
 
-#: 03c937b413374b76ac4c237013168957 da40185a3a80420ab98d54a384baf35c of
-#: openav.modules.core.settings.Settings
-#: openav.modules.core.settings.Settings.path_to_save
+#: 0a4c7bfeb31f4eb08fb19aeee7048fdf 5935571cfd7d450d969ced332eb420fc
+#: 5d38cb312f7e40a6bafb048df27b27ae 61c32ee61b4943bc888c0c37498f5d57
+#: 8583b12e2087467db30061ae8937630f b0a2f34574414d28895a3a40bd322f1d
+#: ba92d8acd39c4af391c213313910092e of openav.modules.core.settings.Settings
+#: openav.modules.core.settings.Settings.dir_va_names
+#: openav.modules.core.settings.Settings.ext_search_files
+#: openav.modules.core.settings.Settings.ignore_dirs
+#: openav.modules.core.settings.Settings.path_to_dataset
+#: openav.modules.core.settings.Settings.path_to_dataset_vad
+#: openav.modules.core.settings.Settings.path_to_save_models
 msgid "Параметры"
 msgstr ""
 
-#: ../../../docstring 2129b3a3bad44d3ba0e834d932aaf96d
-#: a033331f45a9464f86f1e4822ab641e5 of openav.modules.core.settings.Settings:3
-#: openav.modules.core.settings.Settings.__path_to_save:1
-msgid "Путь к директории для сохранения данных"
+#: ../../../docstring 4058a23fa6194040812495464385c0a4 of
+#: openav.modules.core.settings.Settings.__lang:1
+msgid "Язык"
 msgstr ""
 
-#: ../../../docstring 25f1f1db6cfd454c94b7fe59de85d6f3 of
-#: openav.modules.core.settings.Settings.__path_to_save:4
+#: ../../../docstring 52456229fd9a40eeb27c8320403b71da of
+#: openav.modules.core.settings.Settings.__lang:4
 msgid "private (приватный аргумент)"
 msgstr ""
 
-#: a55a8318d9684ea19052cb4d3395ac75 of
-#: openav.modules.core.settings.Settings.color_blue:1
-msgid "Получение синего цвета текста в терминале"
+#: 99598a9d40f149c086afb1f60e6674c4 of
+#: openav.modules.core.settings.Settings.clear_line:1
+msgid "Получение очистки линии в терминале"
 msgstr ""
 
-#: 37727893727948e6bc691a84ec4d338d 3ab63d5371d0435eb726557a88bda2fc
-#: 9ac6e9aa016e4f10b82b0c01138428ca c9a0738b8aaa47a3bcf8fa5f12d8f86a
-#: e293cea9a6b345d8868f547840014e6c fa4a87cfec014e6ca6b5466c7f46e3cb of
+#: 04dec381f1174ddb8c401de7dfaa5fe8 2e143eecf0db477d9087b4f28406c538
+#: 4dbd3ae705aa4416a4069ee2cc02e9eb 7f7d1742e7ab410eb7896e9d31ec4aa3
+#: 8aaa714731ba47f8b0aad66e2316630b 8db2be13beee49e9ad6892da1319342a
+#: bc528f2323094e6982733005c150255a c304c4b52aa3471bba6705ae7ce41fce
+#: c634467da63c49eeb5f18da97b9448da dd3b9a83a92542a7bd2a9b83e39fde34
+#: e618391876244445aab98f714f238137 ec7acbebac2d44198337d854bdc65267 of
+#: openav.modules.core.settings.Settings.clear_line
 #: openav.modules.core.settings.Settings.color_blue
 #: openav.modules.core.settings.Settings.color_green
 #: openav.modules.core.settings.Settings.color_red
-#: openav.modules.core.settings.Settings.path_to_save
+#: openav.modules.core.settings.Settings.dir_va_names
+#: openav.modules.core.settings.Settings.ext_search_files
+#: openav.modules.core.settings.Settings.ignore_dirs
+#: openav.modules.core.settings.Settings.path_to_dataset
+#: openav.modules.core.settings.Settings.path_to_dataset_vad
+#: openav.modules.core.settings.Settings.path_to_save_models
 #: openav.modules.core.settings.Settings.text_bold
 #: openav.modules.core.settings.Settings.text_end
 msgid "Результат"
 msgstr ""
 
-#: 12150457bd364046a6bafacfee2a6403 5832251d634a48eeb667c6437cb8abbd
-#: 62c101edc19841a9a6830f851a0ca8ae of
+#: 386421d196c94582829b721a018dda0a of
+#: openav.modules.core.settings.Settings.clear_line:3
+msgid "Очистка линии в терминале"
+msgstr ""
+
+#: 0f4eafa3c30a4e51a6cb7ec8181dbc61 40f44dc82bf542cda98b68d3cd0e28bf
+#: 480ad3745df346488edee9d72103060c 524d8fff12b7452da86a7ac1d5d8c1b5
+#: 62590655f2674a4385f9bf3627e1c880 63ba5d4bdb314554a2d6bddb29f23328
+#: 6bc2411a69d54554aa177442685d5486 6caf109f71a74d889c484a4cf5b3c40e
+#: ba1f27487aa544ad9908783f074b74c6 cbc4fc00cc9d4ae2b3ebc76e2a6cab82
+#: e2adab7e5ed8488c896c086e14c160a0 f1a1e5a451e744acbcad962605c50727 of
+#: openav.modules.core.settings.Settings.clear_line
+#: openav.modules.core.settings.Settings.color_blue
+#: openav.modules.core.settings.Settings.color_green
+#: openav.modules.core.settings.Settings.color_red
+#: openav.modules.core.settings.Settings.dir_va_names
+#: openav.modules.core.settings.Settings.ext_search_files
+#: openav.modules.core.settings.Settings.ignore_dirs
+#: openav.modules.core.settings.Settings.path_to_dataset
+#: openav.modules.core.settings.Settings.path_to_dataset_vad
+#: openav.modules.core.settings.Settings.path_to_save_models
+#: openav.modules.core.settings.Settings.text_bold
+#: openav.modules.core.settings.Settings.text_end
+msgid "Тип результата"
+msgstr ""
+
+#: 8a69f2a1e00a4fccb592407cd51d3f37 of
+#: openav.modules.core.settings.Settings.color_blue:1
+msgid "Получение синего цвета текста в терминале"
+msgstr ""
+
+#: 7b547f873f6e4fa49f11ec8986f486f3 85d0e523f87d497f834d23d01401b915
+#: c5b6105130dd489ba668496efbb163f4 of
 #: openav.modules.core.settings.Settings.color_blue:3
 #: openav.modules.core.settings.Settings.color_green:3
 #: openav.modules.core.settings.Settings.color_red:3
 msgid "Цвет текста в терминале"
 msgstr ""
 
-#: 2efd6e9c1d754e3ca9d01ff528ddc806 48a0c04b3dc143c391623bec11d9778b
-#: 53109b91e619488a81cac1ee1d76b365 8f4c75274e0b478eb9633513057f1d73
-#: b8762e610140411f87096d08aac72566 fccbf874015140acb7440629739a92e6 of
-#: openav.modules.core.settings.Settings.color_blue
-#: openav.modules.core.settings.Settings.color_green
-#: openav.modules.core.settings.Settings.color_red
-#: openav.modules.core.settings.Settings.path_to_save
-#: openav.modules.core.settings.Settings.text_bold
-#: openav.modules.core.settings.Settings.text_end
-msgid "Тип результата"
-msgstr ""
-
-#: b7b40fbd479847ddae82632be396d7ec of
+#: 16137a00e5a34d0c807c8f4a9698ad58 of
 #: openav.modules.core.settings.Settings.color_green:1
 msgid "Получение зеленого цвета текста в терминале"
 msgstr ""
 
-#: db7878abebb84a0787785cf7484291f8 of
+#: 1a69004e083e439ea3fbda7e46f149e7 of
 #: openav.modules.core.settings.Settings.color_red:1
 msgid "Получение красного цвета текста в терминале"
 msgstr ""
 
-#: 2ff5d0911a404040a7158562d33468de of
-#: openav.modules.core.settings.Settings.path_to_save:1
-msgid "Получение/установка пути к директории для сохранения данных"
+#: fbd5d653785547a3b8fa9ee8a46a0a15 of
+#: openav.modules.core.settings.Settings.dir_va_names:1
+msgid "Получение/установка списка с названиями директорий для видео и аудио"
 msgstr ""
 
-#: e543e995a773439aad48a6404c3f5d4c of
-#: openav.modules.core.settings.Settings.path_to_save:3
-msgid "путь"
+#: 2701e0504ee64ffa99bae2239da8de16 5230e6bdd75440cea8a8d3d641b1f3e3
+#: 9019e45483f244eba3ebf4d4badf2c90 f5899ea6b9684cd9b4ae85f093ffc42d of
+#: openav.modules.core.settings.Settings.dir_va_names:3
+#: openav.modules.core.settings.Settings.dir_va_names:5
+#: openav.modules.core.settings.Settings.ignore_dirs:3
+#: openav.modules.core.settings.Settings.ignore_dirs:5
+msgid "Список с директориями"
 msgstr ""
 
-#: 90a07027e38f460baea261f7a7764a19 of
-#: openav.modules.core.settings.Settings.path_to_save:5
-msgid "Язык"
+#: 09a66b69779f45d0bd9054254b30b7ab of
+#: openav.modules.core.settings.Settings.ext_search_files:1
+msgid "Получение/установка списка с расширениями искомых файлов"
 msgstr ""
 
-#: 335216b08eae48cf96dd55b527b5b965 of
+#: 01c90d257254404b9525ff88ac0b136b 9e9eddacabda44cda84242899e5e6efd of
+#: openav.modules.core.settings.Settings.ext_search_files:3
+#: openav.modules.core.settings.Settings.ext_search_files:5
+msgid "Список с расширениями искомых файлов"
+msgstr ""
+
+#: 179686c32a8f4081a4196ad7de9fd141 of
+#: openav.modules.core.settings.Settings.ignore_dirs:1
+msgid "Получение/установка списка с директориями не входящими в выборку"
+msgstr ""
+
+#: 38476adb3c554d41b37b9501a5b3c8a2 of
+#: openav.modules.core.settings.Settings.path_to_dataset:1
+msgid "Получение/установка пути к директории набора данных"
+msgstr ""
+
+#: 0c73cf37f74242c6b16a17d53c831b32 4d2793f9adfb42179587b2c6e57c9d59
+#: 701b6fafa56e4aee94861d12f611de08 87fcbf16bb9c4c28aa856fb9a8810f65
+#: af9267b5523a4c5ead389158d9fc7b9a d25203c447944aa1888ef5680940d04a of
+#: openav.modules.core.settings.Settings.path_to_dataset:3
+#: openav.modules.core.settings.Settings.path_to_dataset:5
+#: openav.modules.core.settings.Settings.path_to_dataset_vad:3
+#: openav.modules.core.settings.Settings.path_to_dataset_vad:5
+#: openav.modules.core.settings.Settings.path_to_save_models:3
+#: openav.modules.core.settings.Settings.path_to_save_models:5
+msgid "Путь"
+msgstr ""
+
+#: f21965393e2f4bf8bc0ca8914e265c95 of
+#: openav.modules.core.settings.Settings.path_to_dataset_vad:1
+msgid ""
+"Получение/установка пути к директории набора данных состоящего из "
+"фрагментов аудиовизуального сигнала"
+msgstr ""
+
+#: eab89e5dbf0748f2a79d53d6bf83a814 of
+#: openav.modules.core.settings.Settings.path_to_save_models:1
+msgid "Получение/установка пути к директории для сохранения моделей"
+msgstr ""
+
+#: c80e635d66e6439d82ef4a91e4ec5f28 of
 #: openav.modules.core.settings.Settings.text_bold:1
 msgid "Получение жирного начертания текста в терминале"
 msgstr ""
 
-#: 52c1012aaf5f41af85a40fd6de267588 of
+#: bf905e308a124ac8a4e1853f51503369 of
 #: openav.modules.core.settings.Settings.text_bold:3
 msgid "Жирное начертание текста в терминале"
 msgstr ""
 
-#: 47b5fef8f8594c2d9ece88c03bacc7b2 of
+#: 55d245b6dd8141b3b97c56ceab9d6841 of
 #: openav.modules.core.settings.Settings.text_end:1
 msgid "Получение сброса оформления текста в терминале"
 msgstr ""
 
-#: 66f3677f3a3a4e0aa0830ec39121e7ff of
+#: bc8271975ac64a199e8abdbbf1fa5062 of
 #: openav.modules.core.settings.Settings.text_end:3
 msgid "Сброс оформления текста в терминале"
 msgstr ""
+
+#~ msgid "Путь к директории для сохранения данных"
+#~ msgstr ""
+
+#~ msgid "Получение/установка пути к директории для сохранения данных"
+#~ msgstr ""
+
+#~ msgid "путь"
+#~ msgstr ""
 

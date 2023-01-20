@@ -17,6 +17,7 @@ from dataclasses import dataclass # Класс данных
 import os           # Взаимодействие с файловой системой
 import re           # Регулярные выражения
 import subprocess   # Работа с процессами
+import numpy as np  # Научные вычисления
 import torch        # Машинное обучение от Facebook
 import torchvision  # Работа с видео от Facebook
 import torchaudio   # Работа с аудио от Facebook
@@ -25,7 +26,7 @@ import filetype     # Определение типа файла и типа MIM
 
 from IPython.utils import io             # Подавление вывода
 from pathlib import Path, PosixPath      # Работа с путями в файловой системе
-from datetime import datetime, timedelta # Работа со временем
+from datetime import timedelta           # Работа со временем
 
 # Типы данных
 from typing import List, Dict, Union, Optional
@@ -65,7 +66,11 @@ EXT_AUDIO: str = 'wav' # Расширение для сохраняемого а
 # ######################################################################################################################
 @dataclass
 class  AudioMessages(Json):
-    """Класс для сообщений"""
+    """Класс для сообщений
+
+    Args:
+        lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
+    """
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
@@ -101,12 +106,18 @@ class  AudioMessages(Json):
         self._url_error: str = self._('Не удалось скачать модель{}') + self._em
         self._url_error_code: str = self._(' (ошибка {})')
 
+        self._vad_true: str = self._('Все файлы успешно проанализированы') + self._em
+
 # ######################################################################################################################
 # Аудио
 # ######################################################################################################################
 @dataclass
 class Audio(AudioMessages):
-    """Класс для обработки аудиомодальности"""
+    """Класс для обработки аудиомодальности
+
+    Args:
+        lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
+    """
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
@@ -550,3 +561,9 @@ class Audio(AudioMessages):
 
                                 self.__audio_analysis() # Анализ аудиодорожки
                         self.message_progressbar(close = True, out = out)
+
+                        # Файлы на которых VAD не отработал
+                        unprocessed_files_unique = np.unique(np.array(self.__unprocessed_files)).tolist()
+
+                        if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
+                            self.message_true(self._vad_true, space = self._space, out = out); return True

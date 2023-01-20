@@ -89,7 +89,9 @@ with open('README.md', 'r') as fh:
         classifiers = [_f for _f in CLASSIFIERS.split('\n') if _f],
         python_requires = '>=3.9, <4',
         entry_points = {
-            'console_scripts': [],
+            'console_scripts': [
+                'openav_vad = openav.api.vad:main',
+            ],
         },
         project_urls = {
             'Bug Reports': 'https://github.com/DmitryRyumin/openav/issues',
