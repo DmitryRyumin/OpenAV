@@ -1,0 +1,35 @@
+.rst-content table.docutils td {
+    padding: 8px;
+    white-space: pre-line;
+}
+.rst-content table.docutils th {
+    padding: 8px;
+    white-space: pre-line;
+}
+.custom-table {
+    table-layout: fixed;
+    width: 100%;
+}
+.custom-table th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.shell-table tr td:nth-child(2) {
+    text-align: center;
+}
+.filesystem-table tr td:nth-child(2) {
+    text-align: center;
+}
+.vad-table tr td:nth-child(2) {
+    text-align: center;
+}
+.shell-table tr td:nth-child(3) {
+    text-align: center;
+}
+.filesystem-table tr td:nth-child(3) {
+    text-align: center;
+}
+.vad-table tr td:nth-child(3) {
+    text-align: center;
+}

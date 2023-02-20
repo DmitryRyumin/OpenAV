@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"POT-Creation-Date: 2023-02-16 16:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,139 +18,111 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/modules/core/language.rst:2 a983e4ea2b7042c88addbb7403a5b59a
+#: ../../source/modules/core/language.rst:2 b5e84da97a2b4af0823b7ec1768e902c
 msgid "Определение языка"
 msgstr ""
 
-#: fd316b8fa36a46349f27d8268226140f of openav.modules.core.language.Language:1
+#: 70f37729df5e44b48af797231274310a of openav.modules.core.language.Language:1
 msgid "Базовые классы: :py:class:`object`"
 msgstr ""
 
-#: b597c62dd5cc4715bfde9a06f62169f7 of openav.modules.core.language.Language:1
+#: 585e0a95b70b4994924005b666368acd of openav.modules.core.language.Language:1
 msgid "Класс для интернационализации (I18N) и локализации (L10N)"
 msgstr ""
 
-#: 093615b756324601a8fdd1d20fff77f2 87d70f55d5874fd2820b2486fb3c83c9
-#: f4cfa0f532e54bf09b66bd1be0204794 of openav.modules.core.language.Language
-#: openav.modules.core.language.Language.__set_locale
+#: bc24fe71444a4f3f98f139379b718b07 e6620c7f60ac40f3ba44e9466664eb14 of
+#: openav.modules.core.language.Language
 #: openav.modules.core.language.Language.lang
 msgid "Параметры"
 msgstr ""
 
-#: ../../../docstring 3cd82b3bee8442d49e1a1ecee5b5ac5c
-#: 528503618aa34d90953329b957cc3986 5b18619b40154497b7d38b9af32a7608
-#: c01cd1ca33b448d1ae04104d5426956e of openav.modules.core.language.Language:3
-#: openav.modules.core.language.Language.__lang:1
-#: openav.modules.core.language.Language.__set_locale:6
+#: 78239be1a65e4cc281701598a2dfa6ab 841a75520f3f49ad8800444b8803a871 of
+#: openav.modules.core.language.Language:3
 #: openav.modules.core.language.Language.lang:8
 msgid "Язык"
 msgstr ""
 
-#: 4c9a4e89ef30439fbaa1c48dd1ad33c3 b3a0914767cb40929a784c8cb51f30ca of
-#: openav.modules.core.language.Language.__get_languages:1
-#: openav.modules.core.language.Language.locales:1
-msgid "Получение поддерживаемых языков"
-msgstr ""
-
-#: 28a3318dd1124ef1a29027c209ae2967 881a14e2eeee4adc96c6ed057a3ce3bc
-#: b99577569c5f4a6ca0c7ba331c7b3eac of
-#: openav.modules.core.language.Language.__get_languages:4
-#: openav.modules.core.language.Language.__get_locales:4
-#: openav.modules.core.language.Language.__set_locale:4
-msgid "private (приватный метод)"
-msgstr ""
-
-#: 031d360acda746b3a0c4ad0d5b17c11a 079a927f21fe48e0ab34192c48e76290
-#: 1b59ef8289e240e2a2ec7a42773fe090 585210ec24a24555942c88fc57d92d33
-#: baa4bda511e34d4881cf96acf2ded4f1 f9d48ac3e6f846be9e41b4bc4b86873e of
-#: openav.modules.core.language.Language.__get_languages
-#: openav.modules.core.language.Language.__get_locales
-#: openav.modules.core.language.Language.__set_locale
-#: openav.modules.core.language.Language.lang
-#: openav.modules.core.language.Language.locales
-#: openav.modules.core.language.Language.path_to_locales
-msgid "Результат"
-msgstr ""
-
-#: 1def08f8c0f94409b3d1a3554e67391e 9ebdc5c55a354daea4485d04fa67c076 of
-#: openav.modules.core.language.Language.__get_languages:6
-#: openav.modules.core.language.Language.locales:3
-msgid "Список поддерживаемых языков"
-msgstr ""
-
-#: 48559541cc5140dabf033e060a2d9095 528ebd9469e840a89744220790b15afb
-#: 770fa281b3414d0ea1758cd3f411eba1 e67246bcd6704d53bb859752fe9e51ac
-#: f7994ac34a7f43a9af7ca58374c46f24 f9116631d1ff4d9f9cea3181ea8d49e6 of
-#: openav.modules.core.language.Language.__get_languages
-#: openav.modules.core.language.Language.__get_locales
-#: openav.modules.core.language.Language.__set_locale
-#: openav.modules.core.language.Language.lang
-#: openav.modules.core.language.Language.locales
-#: openav.modules.core.language.Language.path_to_locales
-msgid "Тип результата"
-msgstr ""
-
-#: 516eb2040744409bba86f6c9268c5625 of
-#: openav.modules.core.language.Language.__get_locales:1
-msgid "Получение языковых пакетов"
-msgstr ""
-
-#: 10738d23e1aa47d7bf6f43af53609a30 of
-#: openav.modules.core.language.Language.__get_locales:6
-msgid "Список словарей с языковыми пакетами"
-msgstr ""
-
-#: ../../../docstring 4e846a0415054ac2bfaa3a193aba1617 of
-#: openav.modules.core.language.Language.__lang:4
-msgid "private (приватный аргумент)"
-msgstr ""
-
-#: 9e759f25a27d4097a31db7cd83848b09 of
-#: openav.modules.core.language.Language.__set_locale:1
-msgid "Установка языка"
-msgstr ""
-
-#: b720c190213047028b879041a9b1afa2 of
-#: openav.modules.core.language.Language.__set_locale:9
-msgid ""
-"MethodType перевода строк на один из поддерживаемых языков если метод "
-"запущен через конструктор"
-msgstr ""
-
-#: 3ffb0732574f4b10a2323f55c0567a26 of
+#: 11e5ca36b13d4aa2809dfd53eeb9baa7 of
 #: openav.modules.core.language.Language.lang:1
 msgid "Получение/установка текущего языка"
 msgstr ""
 
-#: 263628b02b1d4011b7fd3facb4b19a40 of
+#: e57f06a5fce440dc8ebcb26385b5733b of
 #: openav.modules.core.language.Language.lang:3
 msgid ""
 "Язык, доступные варианты:  * ``\"ru\"`` - Русский язык (``по умолчанию``)"
 " * ``\"en\"`` - Английский язык"
 msgstr ""
 
-#: d8a4387aeb0c46779db0251512cdf5c9 of
+#: 0a313965ffdc47659ba0c987e01b6fe9 of
 #: openav.modules.core.language.Language.lang:3
 msgid "Язык, доступные варианты:"
 msgstr ""
 
-#: f70af9fed6594779923e090387d9ba68 of
+#: 5b0fee06c52748f58eb8e8da4a609281 of
 #: openav.modules.core.language.Language.lang:5
 msgid "``\"ru\"`` - Русский язык (``по умолчанию``)"
 msgstr ""
 
-#: 46e12d3b9e9143f5aec2dba16c5d3872 of
+#: 7161da3e9eb543d38d682f0263ee0d41 of
 #: openav.modules.core.language.Language.lang:6
 msgid "``\"en\"`` - Английский язык"
 msgstr ""
 
-#: 864c54ff03f444baa9e380990f0a5fad of
+#: 30dc3cb849e24c078280883c68556ea2 98ee2a99f86b4be5896e52829c276c2e
+#: fa448dcac0624b12821ffd453e032450 of
+#: openav.modules.core.language.Language.lang
+#: openav.modules.core.language.Language.locales
+#: openav.modules.core.language.Language.path_to_locales
+msgid "Результат"
+msgstr ""
+
+#: 4c9f9af5101a403d840bbbc2f0e5a360 62fb700cac894f37836291b1ec251044
+#: f99656167d544254a3f16496825cbdee of
+#: openav.modules.core.language.Language.lang
+#: openav.modules.core.language.Language.locales
+#: openav.modules.core.language.Language.path_to_locales
+msgid "Тип результата"
+msgstr ""
+
+#: 939b5a29cdd647a49ef81e6c3aa1eb96 of
+#: openav.modules.core.language.Language.locales:1
+msgid "Получение поддерживаемых языков"
+msgstr ""
+
+#: ab76df6be3a142f9a0433ba236fd2838 of
+#: openav.modules.core.language.Language.locales:3
+msgid "Список поддерживаемых языков"
+msgstr ""
+
+#: 816e705bbb554477b2c37b0d6532f972 of
 #: openav.modules.core.language.Language.path_to_locales:1
 msgid "Получение директории с языковыми пакетами"
 msgstr ""
 
-#: 994c366a532c42e4a51ef31930b14b4c of
+#: e58efb04532343a19924cbb929b225ed of
 #: openav.modules.core.language.Language.path_to_locales:3
 msgid "Директория с языковыми пакетами"
 msgstr ""
+
+#~ msgid "private (приватный метод)"
+#~ msgstr ""
+
+#~ msgid "Получение языковых пакетов"
+#~ msgstr ""
+
+#~ msgid "Список словарей с языковыми пакетами"
+#~ msgstr ""
+
+#~ msgid "private (приватный аргумент)"
+#~ msgstr ""
+
+#~ msgid "Установка языка"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "MethodType перевода строк на один из "
+#~ "поддерживаемых языков если метод запущен "
+#~ "через конструктор"
+#~ msgstr ""
 
