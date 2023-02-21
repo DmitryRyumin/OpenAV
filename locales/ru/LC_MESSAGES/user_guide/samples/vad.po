@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-20 15:48+0300\n"
+"POT-Creation-Date: 2023-02-21 11:09+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -21,75 +21,78 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/user_guide/samples/vad.rst:15
+#: ../../source/user_guide/samples/vad.rst:16
 msgid "Содержание:"
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:2 74c7d8a43fea4923aea728e9c0bed3c6
-msgid "Детектирование речевой активности в аудиовизуальном сигнале"
-msgstr ""
-
-#: ../../source/user_guide/samples/vad.rst:3 0def24c0686a4d8d8ddbbc54ce8300ee
-#: bc809540ea564cde8442f4d7d5372a5f
+#: ../../source/user_guide/samples/vad.rst:1 0def24c0686a4d8d8ddbbc54ce8300ee
 msgid "</br>"
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:7 870b23b9f95d424d975ee8c4500a97ad
-#: d8f3cb23eb24478383335c1f2d6214d5
+#: ../../source/user_guide/samples/vad.rst:5 d8f3cb23eb24478383335c1f2d6214d5
 msgid "<b>"
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:11 a3bca1fc550f41ae80ba472483cd4f10
-#: d0729a5025414f72884d45eac5b75515
+#: ../../source/user_guide/samples/vad.rst:9 a3bca1fc550f41ae80ba472483cd4f10
 msgid "</b>"
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:20 12edd6ce126641d899abef365c6d3a24
+#: ../../source/user_guide/samples/vad.rst:14 74c7d8a43fea4923aea728e9c0bed3c6
+msgid "Детектирование речевой активности в аудиовизуальном сигнале"
+msgstr ""
+
+#: ../../source/user_guide/samples/vad.rst:21 12edd6ce126641d899abef365c6d3a24
 msgid ""
 "Команда для запуска детектирования речевой активности в аудиовизуальном "
 "сигнале:"
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:22 d9d9c8a474794388982e94e002730b95
+#: ../../source/user_guide/samples/vad.rst:23 d9d9c8a474794388982e94e002730b95
 msgid ""
 "python ./openav/api/vad.py --config "
 "<путь_к_вашему_конфигурационному_файлу>.json"
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:28 9a032f8cc1964891b036459f86ce61b1
+#: ../../source/user_guide/samples/vad.rst:29 9a032f8cc1964891b036459f86ce61b1
 msgid ""
 "Для запуска команды необходимо обязательно указать путь к "
 "конфигурационному файлу. Запускать программу необходимо из директории, "
 "где она расположена."
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:31 1dc6246d08b9424abd7ae4ed93ef31c6
+#: ../../source/user_guide/samples/vad.rst:32 1dc6246d08b9424abd7ae4ed93ef31c6
 msgid "Конфигурационный файл"
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:33 1d6210ef1588454fb257750c616c7d68
+#: ../../source/user_guide/samples/vad.rst:34 1d6210ef1588454fb257750c616c7d68
 msgid "Конфигурационный файл включает в себя следующие настройки:"
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:35 5b81b809ab6f404ca07cd02d79cdfa7c
+#: ../../source/user_guide/samples/vad.rst:36 5b81b809ab6f404ca07cd02d79cdfa7c
 msgid "Отображение процесса выполнения программы в терминале (командной строке)"
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:36
-#: ../../source/user_guide/samples/vad.rst:54 7a8f97642a314e6798bd4a3955828793
+#: ../../source/user_guide/samples/vad.rst:37
+#: ../../source/user_guide/samples/vad.rst:59 7a8f97642a314e6798bd4a3955828793
 msgid "Работа с файловой системой"
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:37
-#: ../../source/user_guide/samples/vad.rst:73 522d5225b9054196a2a49673e528023f
+#: ../../source/user_guide/samples/vad.rst:38
+#: ../../source/user_guide/samples/vad.rst:78 522d5225b9054196a2a49673e528023f
 msgid "Параметры детектора голосовой активности (VAD)"
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:38 578f099edab94b2696c9a00b5dc70e0b
+#: ../../source/user_guide/samples/vad.rst:39 578f099edab94b2696c9a00b5dc70e0b
 msgid "Параметры кодировки выходного файла"
 msgstr ""
 
-#: ../../source/user_guide/samples/vad.rst:41 da6959324edb4a549e9a60fbeb82d404
+#: ../../source/user_guide/samples/vad.rst:43 0503b6f2866b4fe1b314b85e25d93fac
+msgid ""
+"`Пример конфигурационного файла "
+"<https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.json>`_"
+msgstr ""
+
+#: ../../source/user_guide/samples/vad.rst:46 da6959324edb4a549e9a60fbeb82d404
 msgid "Отображение процесса выполнения команды в терминале"
 msgstr ""
 
