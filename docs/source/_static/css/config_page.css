@@ -20,6 +20,10 @@
 .vad-table tr td:nth-child(2) {
     text-align: center;
 }
+.encode-table tr td:nth-child(2) {
+    text-align: center;
+}
+
 .shell-table tr td:nth-child(3) {
     text-align: center;
 }
@@ -29,6 +33,10 @@
 .vad-table tr td:nth-child(3) {
     text-align: center;
 }
+.encode-table tr td:nth-child(3) {
+    text-align: center;
+}
+
 .config-link {
     display: flex;
     justify-content: center;
