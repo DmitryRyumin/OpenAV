@@ -18,6 +18,14 @@
 
    <div class="item-desc">
 
+.. |div_photo| raw:: html
+
+   <div class="photo">
+
+.. |div_no_photo| raw:: html
+
+   <div class="no-photo">
+
 .. |/div| raw:: html
 
    </div>
@@ -27,6 +35,7 @@
 .. |Маркитантов_Максим| image:: _static/img/Markitantov.jpg
 .. |Рюмин_Дмитрий| image:: _static/img/Ryumin.jpg
 .. |Шилов_Николай| image:: _static/img/non-photo.svg
+.. |no_photo| image:: _static/img/non-photo.svg
 
 Команда разработчиков
 =====================
@@ -35,7 +44,9 @@
 
 |div_cards|
 |div_card_item|
+|div_photo|
 |Иванько_Денис|
+|/div|
 |div_item_about|
 |div_item_header|
 Иванько Денис
@@ -46,7 +57,9 @@
 |/div|
 |/div|
 |div_card_item|
+|div_photo|
 |Рюмин_Дмитрий|
+|/div|
 |div_item_about|
 |div_item_header|
 Рюмин Дмитрий
@@ -57,7 +70,9 @@
 |/div|
 |/div|
 |div_card_item|
+|div_photo|
 |Маркитантов_Максим|
+|/div|
 |div_item_about|
 |div_item_header|
 Маркитантов Максим
@@ -68,7 +83,9 @@
 |/div|
 |/div|
 |div_card_item|
-|Шилов_Николай|
+|div_no_photo|
+|no_photo|
+|/div|
 |div_item_about|
 |div_item_header|
 Шилов Николай
@@ -79,7 +96,9 @@
 |/div|
 |/div|
 |div_card_item|
+|div_photo|
 |Карпов_Алексей|
+|/div|
 |div_item_about|
 |div_item_header|
 Карпов Алексей
