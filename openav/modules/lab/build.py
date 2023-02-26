@@ -10,12 +10,15 @@
 # ######################################################################################################################
 # Подавление Warning
 import warnings
-for warn in [UserWarning, FutureWarning]: warnings.filterwarnings('ignore', category = warn)
 
-from dataclasses import dataclass # Класс данных
+for warn in [UserWarning, FutureWarning]:
+    warnings.filterwarnings("ignore", category=warn)
+
+from dataclasses import dataclass  # Класс данных
 
 # Персональные
-from openav.modules.lab.audiovisual import AV # Мультимодальное объединение аудио- и видеомодальностей
+from openav.modules.lab.audiovisual import AV  # Мультимодальное объединение аудио- и видеомодальностей
+
 
 # ######################################################################################################################
 # Сборка
@@ -33,4 +36,4 @@ class Run(AV):
     # ------------------------------------------------------------------------------------------------------------------
 
     def __post_init__(self):
-        super().__post_init__() # Выполнение конструктора из суперкласса
+        super().__post_init__()  # Выполнение конструктора из суперкласса

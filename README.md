@@ -13,7 +13,7 @@
 
 ---
 
->  **[OpenAV](https://github.com/DmitryRyumin/openav)** is an open-source library for recognition of speech commands in the user dictionary using audiovisual data of the speaker.
+> **[OpenAV](https://github.com/DmitryRyumin/openav)** is an open-source library for recognition of speech commands in the user dictionary using audiovisual data of the speaker.
 
 ---
 

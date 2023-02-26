@@ -22,27 +22,30 @@
 
 # Подавление Warning
 import warnings
-for warn in [UserWarning, FutureWarning]: warnings.filterwarnings('ignore', category = warn)
 
-from dataclasses import dataclass, field # Класс данных
+for warn in [UserWarning, FutureWarning]:
+    warnings.filterwarnings("ignore", category=warn)
 
-import os       # Взаимодействие с файловой системой
-import sys      # Доступ к некоторым переменным и функциям Python
+from dataclasses import dataclass, field  # Класс данных
+
+import os  # Взаимодействие с файловой системой
+import sys  # Доступ к некоторым переменным и функциям Python
 import gettext  # Формирование языковых пакетов
 import inspect  # Инспектор
-import argparse # Парсинг аргументов и параметров командной строки
+import argparse  # Парсинг аргументов и параметров командной строки
 
 # Типы данных
 from typing import List, Dict, Optional
 from types import MethodType
 
 # Персональные
-from openav.modules.core.logging import Logging # Логирование
+from openav.modules.core.logging import Logging  # Логирование
 
 # ######################################################################################################################
 # Константы
 # ######################################################################################################################
-LANG: str = 'ru' # Язык
+LANG: str = "ru"  # Язык
+
 
 # ######################################################################################################################
 # Интернационализация (I18N) и локализация (L10N)
@@ -60,7 +63,7 @@ class Language(Logging):
     # ------------------------------------------------------------------------------------------------------------------
 
     lang: str
-    __lang: str = field(default = LANG, init = False, repr = False)
+    __lang: str = field(default=LANG, init=False, repr=False)
     """Язык
 
     .. note::
@@ -68,13 +71,12 @@ class Language(Logging):
     """
 
     def __post_init__(self):
-        super().__post_init__() # Выполнение конструктора из суперкласса
+        super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        # Получение языковых пакетов
-        self.__i18n: List[Dict[str, MethodType]] = self.__get_locales()
-        self._: MethodType = self.__set_locale(self.lang) # Установка языка
+        self.__i18n: List[Dict[str, MethodType]] = self.__get_locales()  # Получение языковых пакетов
+        self._: MethodType = self.__set_locale(self.lang)  # Установка языка
 
-        argparse._ = self.__i18n[1][self.lang] # Установка языка для парсинга аргументов и параметров командной строки
+        argparse._ = self.__i18n[1][self.lang]  # Установка языка для парсинга аргументов и параметров командной строки
 
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
@@ -102,9 +104,12 @@ class Language(Logging):
 
         try:
             # Проверка аргументов
-            if type(lang) is not str or not lang or (lang in self.locales) is False: raise TypeError
-        except TypeError: pass
-        else: self.__lang = lang
+            if type(lang) is not str or not lang or (lang in self.locales) is False:
+                raise TypeError
+        except TypeError:
+            pass
+        else:
+            self.__lang = lang
 
     @property
     def locales(self) -> List[str]:
@@ -114,7 +119,7 @@ class Language(Logging):
             List[str]: Список поддерживаемых языков
         """
 
-        return self.__get_languages() # Поддерживаемые языки
+        return self.__get_languages()  # Поддерживаемые языки
 
     @property
     def path_to_locales(self) -> str:
@@ -125,7 +130,7 @@ class Language(Logging):
         """
 
         # Нормализация пути
-        return os.path.normpath(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'locales')))
+        return os.path.normpath(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "locales")))
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (приватные)
@@ -155,7 +160,7 @@ class Language(Logging):
             private (приватный метод)
 
         Returns:
-             List[Dict[str, MethodType]]: Список словарей с языковыми пакетами
+            List[Dict[str, MethodType]]: Список словарей с языковыми пакетами
         """
 
         # Языки
@@ -165,20 +170,20 @@ class Language(Logging):
         # Проход по всем языкам
         for curr_lang in self.locales:
             tr_argparse[curr_lang] = gettext.translation(
-                'argparse', # Домен
-                localedir = self.path_to_locales, # Директория с поддерживаемыми языками
-                languages = [curr_lang], # Язык
-                fallback = True # Отключение ошибки
+                "argparse",  # Домен
+                localedir=self.path_to_locales,  # Директория с поддерживаемыми языками
+                languages=[curr_lang],  # Язык
+                fallback=True,  # Отключение ошибки
             ).gettext
 
             trs_base[curr_lang] = gettext.translation(
-                'base', # Домен
-                localedir = self.path_to_locales, # Директория с поддерживаемыми языками
-                languages = [curr_lang], # Язык
-                fallback = True # Отключение ошибки
+                "base",  # Домен
+                localedir=self.path_to_locales,  # Директория с поддерживаемыми языками
+                languages=[curr_lang],  # Язык
+                fallback=True,  # Отключение ошибки
             ).gettext
 
-        return trs_base, tr_argparse
+        return [trs_base, tr_argparse]
 
     def __set_locale(self, lang: str = LANG) -> MethodType:
         """Установка языка
@@ -190,24 +195,28 @@ class Language(Logging):
             lang (str): Язык
 
         Returns:
-             MethodType: MethodType перевода строк на один из поддерживаемых языков если метод запущен через конструктор
+            MethodType: MethodType перевода строк на один из поддерживаемых языков если метод запущен через конструктор
         """
 
         try:
             # Проверка аргументов
-            if type(lang) is not str: raise TypeError
-        except TypeError: pass
+            if type(lang) is not str:
+                raise TypeError
+        except TypeError:
+            pass
         else:
             # Проход по всем поддерживаемым языкам
             for curr_lang in self.locales:
                 # В аргументах командной строки не найден язык
                 if curr_lang not in sys.argv:
                     # В аргументах метода не найден язык
-                    if lang != curr_lang: continue
+                    if lang != curr_lang:
+                        continue
 
-                self.lang = curr_lang # Изменение языка
+                self.lang = curr_lang  # Изменение языка
 
             # Метод запущен в конструкторе
             if inspect.stack()[1].function == "__init__" or inspect.stack()[1].function == "__post_init__":
                 return self.__i18n[0][self.lang]
-            else: self._ = self.__i18n[0][self.lang]
+            else:
+                self._ = self.__i18n[0][self.lang]

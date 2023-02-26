@@ -8,33 +8,44 @@
 # ######################################################################################################################
 # Импорт необходимых инструментов
 # ######################################################################################################################
-# Подавление Warning
-import warnings
-for warn in [UserWarning, FutureWarning]: warnings.filterwarnings('ignore', category = warn)
+import warnings  # Подавление Warning
 
-import os # Взаимодействие с файловой системой
+for warn in [UserWarning, FutureWarning]:
+    warnings.filterwarnings("ignore", category=warn)
 
-from dataclasses import dataclass # Класс данных
+import os  # Взаимодействие с файловой системой
 
-from colorama import init # Цветной текст терминала
+from dataclasses import dataclass  # Класс данных
+
+from colorama import init  # Цветной текст терминала
 
 # Типы данных
 from typing import List
 
 # Персональные
-from openav.modules.core.messages import Messages # Сообщения
+from openav.modules.core.messages import Messages  # Сообщения
 
 # ######################################################################################################################
 # Константы
 # ######################################################################################################################
-PATH_TO_SAVE_MODELS: str = './models' # Путь к директории для сохранения моделей
-PATH_TO_DATASET: str = './dataset' # Путь к директории набора данных
+PATH_TO_SAVE_MODELS: str = "./models"  # Путь к директории для сохранения моделей
+PATH_TO_DATASET: str = "./dataset"  # Путь к директории набора данных
 # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала
-PATH_TO_DATASET_VAD: str = './dataset_vad'
-IGNORE_DIRS: List[str] = [] # Директории не входящие в выборку
-DIR_VA_NAMES: List[str] = ['Video', 'Audio'] # Названия директорий для видео и аудио
-EXT_SEARCH_FILES: List[str] = ['mov', 'mp4', 'wav'] # Расширения искомых файлов
-CHUNK_SIZE: int = 1000000 # Размер загрузки файла из сети за 1 шаг
+PATH_TO_DATASET_VAD: str = "./dataset_vad"
+IGNORE_DIRS: List[str] = []  # Директории не входящие в выборку
+# Названия директорий для видео и аудио
+DIR_VA_NAMES: List[str] = [
+    "Video",
+    "Audio",
+]
+# Расширения искомых файлов
+EXT_SEARCH_FILES: List[str] = [
+    "mov",
+    "mp4",
+    "wav",
+]
+CHUNK_SIZE: int = 1000000  # Размер загрузки файла из сети за 1 шаг
+
 
 # ######################################################################################################################
 # Настройки
@@ -52,25 +63,25 @@ class Settings(Messages):
     # ------------------------------------------------------------------------------------------------------------------
 
     def __post_init__(self):
-        super().__post_init__() # Выполнение конструктора из суперкласса
+        super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        init() # Инициализация терминала с возможностью цветного текста
+        init()  # Инициализация терминала с возможностью цветного текста
 
-        self.__color_green: str = '\033[92m' # Зеленый
-        self.__color_red: str = '\033[91m'   # Красный
-        self.__color_blue: str = '\033[94m'  # Синий
-        self.__text_bold: str = '\033[1m'    # Жирный
-        self.__clear_line: str = '\x1b[2K'   # Очистка линии в терминале
-        self.__text_end: str = '\033[0m'     # Выход
+        self.__color_green: str = "\033[92m"  # Зеленый
+        self.__color_red: str = "\033[91m"  # Красный
+        self.__color_blue: str = "\033[94m"  # Синий
+        self.__text_bold: str = "\033[1m"  # Жирный
+        self.__clear_line: str = "\x1b[2K"  # Очистка линии в терминале
+        self.__text_end: str = "\033[0m"  # Выход
 
-        self.path_to_save_models: str = PATH_TO_SAVE_MODELS # Путь к директории для сохранения моделей
-        self.path_to_dataset: str = PATH_TO_DATASET # Путь к директории набора данных
+        self.path_to_save_models: str = PATH_TO_SAVE_MODELS  # Путь к директории для сохранения моделей
+        self.path_to_dataset: str = PATH_TO_DATASET  # Путь к директории набора данных
         # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала
         self.path_to_dataset_vad: str = PATH_TO_DATASET_VAD
-        self.ignore_dirs: List[str] = IGNORE_DIRS # Директории не входящие в выборку
-        self.dir_va_names: List[str] = DIR_VA_NAMES # Названия директорий для видео и аудио
-        self.ext_search_files: List[str] = EXT_SEARCH_FILES # Расширения искомых файлов
-        self.chunk_size: int = CHUNK_SIZE # Размер загрузки файла из сети за 1 шаг
+        self.ignore_dirs: List[str] = IGNORE_DIRS  # Директории не входящие в выборку
+        self.dir_va_names: List[str] = DIR_VA_NAMES  # Названия директорий для видео и аудио
+        self.ext_search_files: List[str] = EXT_SEARCH_FILES  # Расширения искомых файлов
+        self.chunk_size: int = CHUNK_SIZE  # Размер загрузки файла из сети за 1 шаг
 
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
@@ -155,9 +166,12 @@ class Settings(Messages):
 
         try:
             # Проверка аргументов
-            if type(path) is not str or not path: raise TypeError
-        except TypeError: pass
-        else: self.__path_to_save_models = os.path.normpath(path.strip())
+            if type(path) is not str or not path:
+                raise TypeError
+        except TypeError:
+            pass
+        else:
+            self.__path_to_save_models = os.path.normpath(path.strip())
 
     @property
     def path_to_dataset(self) -> str:
@@ -178,9 +192,12 @@ class Settings(Messages):
 
         try:
             # Проверка аргументов
-            if type(path) is not str or not path: raise TypeError
-        except TypeError: pass
-        else: self.__path_to_dataset = os.path.normpath(path.strip())
+            if type(path) is not str or not path:
+                raise TypeError
+        except TypeError:
+            pass
+        else:
+            self.__path_to_dataset = os.path.normpath(path.strip())
 
     @property
     def path_to_dataset_vad(self) -> str:
@@ -201,9 +218,12 @@ class Settings(Messages):
 
         try:
             # Проверка аргументов
-            if type(path) is not str or not path: raise TypeError
-        except TypeError: pass
-        else: self.__path_to_dataset_vad = os.path.normpath(path.strip())
+            if type(path) is not str or not path:
+                raise TypeError
+        except TypeError:
+            pass
+        else:
+            self.__path_to_dataset_vad = os.path.normpath(path.strip())
 
     @property
     def ignore_dirs(self) -> List[str]:
@@ -223,8 +243,10 @@ class Settings(Messages):
         """Установка списка с директориями не входящими в выборку"""
 
         if type(l) is list:
-            try: self.__ignore_dirs = [x.strip() for x in l]
-            except Exception: pass
+            try:
+                self.__ignore_dirs = [x.strip() for x in l]
+            except Exception:
+                pass
 
     @property
     def dir_va_names(self) -> List[str]:
@@ -244,8 +266,10 @@ class Settings(Messages):
         """Установка списка с названиями директорий для видео и аудио"""
 
         if type(l) is list and len(l) == 2:
-            try: self.__dir_va_names = [x.strip() for x in l]
-            except Exception: pass
+            try:
+                self.__dir_va_names = [x.strip() for x in l]
+            except Exception:
+                pass
 
     @property
     def ext_search_files(self) -> List[str]:
@@ -265,8 +289,10 @@ class Settings(Messages):
         """Установка списка с расширениями искомых файлов"""
 
         if type(l) is list and len(l) > 0:
-            try: self.__ext_search_files = ['.' + x.strip().lower() for x in l]
-            except Exception: pass
+            try:
+                self.__ext_search_files = ["." + x.strip().lower() for x in l]
+            except Exception:
+                pass
 
     @property
     def chunk_size(self) -> int:
@@ -285,4 +311,5 @@ class Settings(Messages):
     def chunk_size(self, size: int) -> None:
         """Установка директории для сохранения данных"""
 
-        if type(size) is int and size > 0: self.__chunk_size = size
+        if type(size) is int and size > 0:
+            self.__chunk_size = size

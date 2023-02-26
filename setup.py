@@ -1,27 +1,35 @@
 import sys
 
-from setuptools import setup, find_packages
+from setuptools import (
+    setup,
+    find_packages,
+)
 
 MIN_PYTHON_VERSION = (3, 9)
 
 if sys.version_info[:2] < MIN_PYTHON_VERSION:
-    raise RuntimeError('Python version required = {}.{}'.format(MIN_PYTHON_VERSION[0], MIN_PYTHON_VERSION[1]))
+    raise RuntimeError(
+        "Python version required = {}.{}".format(
+            MIN_PYTHON_VERSION[0],
+            MIN_PYTHON_VERSION[1],
+        )
+    )
 
 import openav
 
 REQUIRED_PACKAGES = [
-    'ipython >= 8.7.0',
-    'colorama >= 0.4.6',
-    'numpy >= 1.24.0',
-    'pandas >= 1.5.2',
-    'prettytable >= 3.5.0',
-    'torch >= 1.13.1',
-    'torchaudio >= 0.13.1',
-    'torchvision >= 0.14.1',
-    'av >= 10.0.0',
-    'filetype >= 1.2.0',
-    'vosk >= 0.3.44',
-    'requests >= 2.28.2',
+    "ipython >= 8.10.0",
+    "colorama >= 0.4.6",
+    "numpy >= 1.24.2",
+    "pandas >= 1.5.3",
+    "prettytable >= 3.6.0",
+    "torch >= 1.13.1",
+    "torchaudio >= 0.13.1",
+    "torchvision >= 0.14.1",
+    "av >= 10.0.0",
+    "filetype >= 1.2.0",
+    "vosk >= 0.3.44",
+    "requests >= 2.28.2",
 ]
 
 CLASSIFIERS = """\
@@ -65,41 +73,50 @@ Framework :: Jupyter :: JupyterLab :: 4
 Framework :: Sphinx
 """
 
-with open('README.md', 'r') as fh:
+with open("README.md", "r") as fh:
     long_description = fh.read()
 
     setup(
-        name = openav.__name__,
-        packages = find_packages(),
-        license = openav.__license__,
-        version = openav.__release__,
-        author = openav.__author__en__,
-        author_email = openav.__email__,
-        maintainer = openav.__maintainer__en__,
-        maintainer_email = openav.__maintainer_email__,
-        url = openav.__uri__,
-        description = openav.__summary__,
-        long_description = long_description,
-        long_description_content_type = 'text/markdown',
+        name=openav.__name__,
+        packages=find_packages(),
+        license=openav.__license__,
+        version=openav.__release__,
+        author=openav.__author__en__,
+        author_email=openav.__email__,
+        maintainer=openav.__maintainer__en__,
+        maintainer_email=openav.__maintainer_email__,
+        url=openav.__uri__,
+        description=openav.__summary__,
+        long_description=long_description,
+        long_description_content_type="text/markdown",
         install_requires=REQUIRED_PACKAGES,
-        keywords = [
-            'OpenAV', 'LipReading', 'SpeechRecognition', 'SignalProcessing', 'DataAugmentation',
-            'ArtificialNeuralNetworks', 'DeepMachineLearning', 'TransferLearning', 'Statistics', 'ComputerVision',
-            'ArtificialIntelligence', 'Preprocessing'
+        keywords=[
+            "OpenAV",
+            "LipReading",
+            "SpeechRecognition",
+            "SignalProcessing",
+            "DataAugmentation",
+            "ArtificialNeuralNetworks",
+            "DeepMachineLearning",
+            "TransferLearning",
+            "Statistics",
+            "ComputerVision",
+            "ArtificialIntelligence",
+            "Preprocessing",
         ],
-        include_package_data = True,
-        classifiers = [_f for _f in CLASSIFIERS.split('\n') if _f],
-        python_requires = '>=3.9, <4',
-        entry_points = {
-            'console_scripts': [
-                'openav_vad = openav.api.vad:main',
-                'openav_vosk_sr = openav.api.vosk_sr:main',
+        include_package_data=True,
+        classifiers=[_f for _f in CLASSIFIERS.split("\n") if _f],
+        python_requires=">=3.9, <4",
+        entry_points={
+            "console_scripts": [
+                "openav_vad = openav.api.vad:main",
+                "openav_vosk_sr = openav.api.vosk_sr:main",
             ],
         },
-        project_urls = {
-            'Bug Reports': 'https://github.com/DmitryRyumin/openav/issues',
-            'Documentation': 'https://openav.readthedocs.io',
-            'Source Code': 'https://github.com/DmitryRyumin/openav/tree/main/openav',
-            'Download': 'https://github.com/DmitryRyumin/openav/tags',
+        project_urls={
+            "Bug Reports": "https://github.com/DmitryRyumin/openav/issues",
+            "Documentation": "https://openav.readthedocs.io",
+            "Source Code": "https://github.com/DmitryRyumin/openav/tree/main/openav",
+            "Download": "https://github.com/DmitryRyumin/openav/tags",
         },
     )

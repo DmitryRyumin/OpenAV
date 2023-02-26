@@ -10,15 +10,17 @@
 # ######################################################################################################################
 # Подавление Warning
 import warnings
-for warn in [UserWarning, FutureWarning]: warnings.filterwarnings('ignore', category = warn)
+
+for warn in [UserWarning, FutureWarning]:
+    warnings.filterwarnings("ignore", category=warn)
 
 import os  # Взаимодействие с файловой системой
-import sys # Доступ к некоторым переменным и функциям Python
+import sys  # Доступ к некоторым переменным и функциям Python
 import re  # Регулярные выражения
 
-from dataclasses import dataclass, field # Класс данных
+from dataclasses import dataclass, field  # Класс данных
 
-import logging # Логирование
+import logging  # Логирование
 
 # Типы данных
 from typing import Optional
@@ -29,9 +31,10 @@ from openav import __title__
 # ######################################################################################################################
 # Константы
 # ######################################################################################################################
-ARG_PATH_TO_LOGS = '--path_to_logs' # Аргумент в парсере командной строки
-PATH_TO_LOGS: str = os.path.normpath('./logs') # Путь к директории для сохранения LOG файлов
-NAME_LOG: str = __title__ + '.log' # Имя LOG файла
+ARG_PATH_TO_LOGS = "--path_to_logs"  # Аргумент в парсере командной строки
+PATH_TO_LOGS: str = os.path.normpath("./logs")  # Путь к директории для сохранения LOG файлов
+NAME_LOG: str = __title__ + ".log"  # Имя LOG файла
+
 
 # ######################################################################################################################
 # Логирование
@@ -49,7 +52,7 @@ class Logging:
     # ------------------------------------------------------------------------------------------------------------------
 
     path_to_logs: str
-    __path_to_logs: str = field(default = PATH_TO_LOGS, init = False, repr = False)
+    __path_to_logs: str = field(default=PATH_TO_LOGS, init=False, repr=False)
     """Путь к директории для сохранения LOG файлов
 
     .. note::
@@ -57,10 +60,10 @@ class Logging:
     """
 
     def __post_init__(self):
-        self.path_to_logs = self.__get_arg() # Установка пути к директории для сохранения LOG файлов
+        self.path_to_logs = self.__get_arg()  # Установка пути к директории для сохранения LOG файлов
 
-        self._logger_handler: Optional[logging.NullHandler] = None # Обработчик логирования
-        self.__logger: bool = self.__create_logging() # Создание регистратора и обработчика для логирования
+        self._logger_handler: Optional[logging.NullHandler] = None  # Обработчик логирования
+        self.__logger: bool = self.__create_logging()  # Создание регистратора и обработчика для логирования
 
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
@@ -85,8 +88,10 @@ class Logging:
 
         try:
             # Проверка аргументов
-            if type(path) is not str or not path: raise TypeError
-        except TypeError: pass
+            if type(path) is not str or not path:
+                raise TypeError
+        except TypeError:
+            pass
         else:
             self.__path_to_logs = os.path.normpath(path.strip())
 
@@ -117,9 +122,11 @@ class Logging:
 
         for cnt, arg in enumerate(sys.argv):
             if arg == ARG_PATH_TO_LOGS:
-                try: return sys.argv[cnt + 1]
-                except IndexError: return ''
-        return ''
+                try:
+                    return sys.argv[cnt + 1]
+                except IndexError:
+                    return ""
+        return ""
 
     def __create_logging(self) -> bool:
         """Создание регистратора и обработчика для логирования
@@ -132,30 +139,34 @@ class Logging:
         """
 
         if not os.path.exists(self.path_to_logs):
-            try: os.makedirs(self.path_to_logs)
-            except Exception: return False
+            try:
+                os.makedirs(self.path_to_logs)
+            except Exception:
+                return False
 
         try:
             # Создание регистратора
             logging.basicConfig(
-                filename = os.path.join(self.path_to_logs, NAME_LOG),
-                encoding = 'utf-8',
-                filemode = 'w',
-                format = '%(asctime)s.%(msecs)03d - %(name)s:%(funcName)s:%(lineno)d - %(levelname)s - %(message)s',
-                datefmt = '%Y-%m-%d %H:%M:%S',
-                level = logging.DEBUG
+                filename=os.path.join(self.path_to_logs, NAME_LOG),
+                encoding="utf-8",
+                filemode="w",
+                format="%(asctime)s.%(msecs)03d - %(name)s:%(funcName)s:%(lineno)d - %(levelname)s - %(message)s",
+                datefmt="%Y-%m-%d %H:%M:%S",
+                level=logging.DEBUG,
             )
-        except FileNotFoundError: return False
-        except Exception: return False
+        except FileNotFoundError:
+            return False
+        except Exception:
+            return False
         else:
             # Создание обработчика
             self._logger_handler = logging.NullHandler()
 
             self._logger_handler.setLevel(logging.DEBUG)
 
-            logging.getLogger('requests').setLevel(logging.CRITICAL)
-            logging.getLogger('urllib3').setLevel(logging.CRITICAL)
-            logging.getLogger('').addHandler(self._logger_handler)
+            logging.getLogger("requests").setLevel(logging.CRITICAL)
+            logging.getLogger("urllib3").setLevel(logging.CRITICAL)
+            logging.getLogger("").addHandler(self._logger_handler)
 
             return True
 
@@ -175,6 +186,7 @@ class Logging:
         """
 
         # Проверка аргументов
-        if type(path) is not str or not path: return ''
+        if type(path) is not str or not path:
+            return ""
 
-        return re.sub('[\\/:"*?<>|]+', '', path)
+        return re.sub('[\\/:"*?<>|]+', "", path)

@@ -6,7 +6,7 @@
   "presets_crf_encode": "medium",
   "sr_input_type": "audio",
   "path_to_save_models": "./models",
-  "path_to_dataset": "C:/Prgrm/_datasets/",
+  "path_to_dataset": "/Users/dl/@DmitryRyumin/Databases/LRW_TEST",
   "path_to_dataset_vad": "./dataset_vad",
   "dir_va_names": {
     "video": "Video",
@@ -14,8 +14,12 @@
   },
   "force_reload": false,
   "clear_dirvad": true,
-  "depth": 1,
-  "ext_search_files": ["mov", "mp4", "wav"],
+  "depth": 3,
+  "ext_search_files": [
+    "mov",
+    "mp4",
+    "wav"
+  ],
   "sampling_rate": 16000,
   "threshold": 0.16,
   "min_speech_duration_ms": 1000,
