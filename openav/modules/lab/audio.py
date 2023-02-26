@@ -360,7 +360,7 @@ class Audio(AudioMessages):
                         return False
 
                 # Проход по всем найденным меткам
-                for (cnt, curr_timestamps) in enumerate(speech_timestamps):
+                for cnt, curr_timestamps in enumerate(speech_timestamps):
                     # Начальное время
                     start_time = timedelta(seconds=curr_timestamps["start"] / self.__file_metadata["audio_fps"])
                     # Конечное время
@@ -745,7 +745,7 @@ class Audio(AudioMessages):
                         )
 
                         # Проход по всем найденным аудиовизуальных файлам
-                        for (i, path) in enumerate(paths):
+                        for i, path in enumerate(paths):
                             self.__curr_path = path  # Текущий аудиовизуальный файл
                             self.__i = i + 1  # Счетчик
 
