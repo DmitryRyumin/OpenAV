@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 20:08+0300\n"
+"POT-Creation-Date: 2023-02-16 16:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,43 +18,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/modules/lab/video.rst:2 eb2dd22143fa4b459dc516d78983a554
+#: ../../source/modules/lab/video.rst:2 7b944664bb224c06a8ca69f1d9cef5fd
 msgid "Видео"
 msgstr ""
 
-#: 44303007f9694f45b86ee15c3340540e of openav.modules.lab.video.VideoMessages:1
+#: cde99dc6d0354182898292ae80c9e899 of openav.modules.lab.video.VideoMessages:1
 msgid "Базовые классы: :py:class:`~openav.modules.file_manager.json_manager.Json`"
 msgstr ""
 
-#: 5291e765498545eba70c8fab90848cb0 of openav.modules.lab.video.VideoMessages:1
+#: 473753454beb40ca8d3e5e5235b00652 of openav.modules.lab.video.VideoMessages:1
 msgid "Класс для сообщений"
 msgstr ""
 
-#: 54da2b20be634fdbbee8e98be067e153 5db91f8ba2ff45449ac7d5c5aa4b8cc7 of
+#: 6b716b51cca9430a976c0df0e563f263 bacfd223a94f43f096e590980a6e3865 of
 #: openav.modules.lab.video.Video openav.modules.lab.video.VideoMessages
 msgid "Параметры"
 msgstr ""
 
-#: ../../../docstring 899ce934940e424ba64ed32e4825c719
-#: a941fb3cbbd2497cb0c87c8de150a441 of openav.modules.lab.video.Video.__lang:1
-#: openav.modules.lab.video.VideoMessages.__lang:1
-msgid "Язык"
+#: 38426a3ac7fb4e2993cf1cf8f14fa3c6 df2936a9ef9f4be5998fe6441bcce432 of
+#: openav.modules.lab.video.Video:3 openav.modules.lab.video.VideoMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
 msgstr ""
 
-#: ../../../docstring 862793ab872f4dababa9858c9830f36a
-#: ed16c741157d4485b491754a9985f747 of openav.modules.lab.video.Video.__lang:4
-#: openav.modules.lab.video.VideoMessages.__lang:4
-msgid "private (приватный аргумент)"
-msgstr ""
-
-#: d19abb1dab2b409681409f2c991d1e2f of openav.modules.lab.video.Video:1
+#: 6f018bea8828486c9f64d17c45aca51a of openav.modules.lab.video.Video:1
 msgid "Базовые классы: :py:class:`~openav.modules.lab.video.VideoMessages`"
 msgstr ""
 
-#: 561d1b5ab7c1486bb552899698271328 of openav.modules.lab.video.Video:1
+#: 517375d2a976430f93b59803140c32b7 of openav.modules.lab.video.Video:1
 msgid "Класс для обработки видеомодальности"
 msgstr ""
 
 #~ msgid "Путь к директории для сохранения данных"
+#~ msgstr ""
+
+#~ msgid "Язык"
+#~ msgstr ""
+
+#~ msgid "private (приватный аргумент)"
 #~ msgstr ""
 

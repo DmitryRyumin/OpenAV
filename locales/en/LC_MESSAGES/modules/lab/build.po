@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 20:08+0300\n"
+"POT-Creation-Date: 2023-02-16 16:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,32 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/modules/lab/build.rst:2 08030a9971044b44b612d55489684abc
+#: ../../source/modules/lab/build.rst:2 ba6a9a76adc54fa9bee38b4a73d0ebfc
 msgid "Сборка"
 msgstr ""
 
-#: b50258e3e77b40b8b36f3b8c1380ca21 of openav.modules.lab.build.Run:1
+#: 4b71553230b745d888662fa7384381e5 of openav.modules.lab.build.Run:1
 msgid "Базовые классы: :py:class:`~openav.modules.lab.audiovisual.AV`"
 msgstr ""
 
-#: d6a665230b1549c9a917ab73bf17a6fa of openav.modules.lab.build.Run:1
+#: 592b87c2b25a4872ad694d85acfb5499 of openav.modules.lab.build.Run:1
 msgid "Класс для сборки библиотеки"
 msgstr ""
 
-#: be64f635d8e7445786f9bc1e55bf3211 of openav.modules.lab.build.Run
+#: d53a04bd114446bb96a43131a1c42c0f of openav.modules.lab.build.Run
 msgid "Параметры"
 msgstr ""
 
-#: ../../../docstring 277820ed295d4ccfa98d2c36501e01c8 of
-#: openav.modules.lab.build.Run.__lang:1
-msgid "Язык"
-msgstr ""
-
-#: ../../../docstring e7df98abc3574e92896ac2123cf230b3 of
-#: openav.modules.lab.build.Run.__lang:4
-msgid "private (приватный аргумент)"
+#: f9c3782a65e04f508b2cb4caf0c26d4c of openav.modules.lab.build.Run:3
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
 msgstr ""
 
 #~ msgid "Путь к директории для сохранения данных"
+#~ msgstr ""
+
+#~ msgid "Язык"
+#~ msgstr ""
+
+#~ msgid "private (приватный аргумент)"
 #~ msgstr ""
 

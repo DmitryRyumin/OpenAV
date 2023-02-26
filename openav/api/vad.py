@@ -105,7 +105,7 @@ class RunVAD(MessagesVAD):
 
         self._ap.add_argument('--automatic_update', action = 'store_true',
                               help = self._('Автоматическая проверка конфигурационного файла в момент работы программы '
-                                            '(работает при заданном') + ' --config')
+                                            '(работает при заданном') + ' --config)')
         self._ap.add_argument('--no_clear_shell', action = 'store_false',
                               help = self._('Не очищать консоль перед выполнением'))
 
@@ -361,7 +361,7 @@ class RunVAD(MessagesVAD):
         # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала
         self.path_to_dataset_vad = self._args['path_to_dataset_vad']
         self.dir_va_names = self._args['dir_va_names']               # Названия директорий для видео и аудио
-        self.ext_search_files = self._args['ext_search_files']       # Названия директорий для видео и аудио
+        self.ext_search_files = self._args['ext_search_files']       # Расширения искомых файлов
 
         self.vad(
             depth = self._args['depth'],                                     # Глубина иерархии для получения данных
