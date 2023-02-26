@@ -14,7 +14,6 @@ for warn in [UserWarning, FutureWarning]: warnings.filterwarnings('ignore', cate
 
 from dataclasses import dataclass # Класс данных
 
-import os           # Взаимодействие с файловой системой
 import sys          # Доступ к некоторым переменным и функциям Python
 import argparse     # Парсинг аргументов и параметров командной строки
 import numpy as np  # Научные вычисления
@@ -27,9 +26,11 @@ import torchaudio   # Работа с аудио от Facebook
 import torchvision  # Работа с видео от Facebook
 import av           # Работа с FFmpeg
 import filetype     # Определение типа файла и типа MIME
+import logging      # Логирование
 
 from datetime import datetime       # Работа со временем
 from prettytable import PrettyTable # Отображение таблиц в терминале
+import pkg_resources                # Работа с ресурсами внутри пакетов
 
 from IPython import get_ipython
 
@@ -101,9 +102,17 @@ class Core(CoreMessages):
 
         self._df_pkgs: pd.DataFrame = pd.DataFrame() # DataFrame c версиями установленных библиотек
 
+        #  Регистратор логирования с указанным именем
+        self._logger_core: logging.Logger = logging.getLogger(__class__.__name__)
+
         # ----------------------- Только для внутреннего использования внутри класса
 
         self.__max_space: int = 24 # Максимальное значение для количества пробелов в начале текста
+
+        # Список цветов для удаления из LOG файлов
+        self.__list_of_chars: List[str] = [
+            self.color_green, self.color_red, self.color_blue, self.text_bold, self.clear_line, self.text_end
+        ]
 
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
@@ -215,13 +224,19 @@ class Core(CoreMessages):
 
                 indent = ('\r' + ' ' * self._space + '{}\n') * 4
 
-                sys.stdout.write(indent.format(
+                trac_text = lambda ind: ind.format(
                     f'{self._trac_file}: {trac["filename"]}',
                     f'{self._trac_line}: {trac["lineno"]}',
                     f'{self._trac_method}: {trac["name"]}',
                     f'{self._trac_type_err}: {trac["type"]}'
-                ))
+                )
+
+                sys.stdout.write(trac_text(indent))
                 sys.stdout.flush()
+
+                indent = ('\r' + ' ' * self._space + '{}') * 4
+
+                self._logger_core.error(inv_args + trac_text(indent))
 
     def message_error(self, message: str, space: int = 0, out: bool = True) -> None:
         """Сообщение об ошибке
@@ -247,6 +262,7 @@ class Core(CoreMessages):
                 print(' ' * space + '[{}{}{}] {}'.format(
                     self.color_red, datetime.now().strftime(self._format_time), self.text_end, message
                 ))
+                self._logger_core.error(message)
 
     def message_true(self, message: str, space: int = 0, out: bool = True) -> None:
         """Сообщение с положительной информацией
@@ -273,6 +289,7 @@ class Core(CoreMessages):
                 print(' ' * space + '[{}{}{}] {}'.format(
                     self.color_green, datetime.now().strftime(self._format_time), self.text_end, message
                 ))
+                self._logger_core.info(message)
 
     def message_info(self, message: str, space: int = 0, out: bool = True) -> None:
         """Информационное сообщение
@@ -295,7 +312,11 @@ class Core(CoreMessages):
         except TypeError: self.inv_args(__class__.__name__, self.message_info.__name__, out = out); return None
 
         if self.is_notebook is False:
-            if out is True: print(' ' * space + '[{}] {}'.format(datetime.now().strftime(self._format_time), message))
+            if out is True:
+                print(' ' * space + '[{}] {}'.format(datetime.now().strftime(self._format_time), message))
+
+                for character in self.__list_of_chars: message = message.replace(character, '')
+                self._logger_core.info(message)
 
     def message_line(self, message: str, type_message: str = TYPE_MESSAGES[0], out: bool = True) -> str:
         """Информационное сообщение (в виде одной строки)
@@ -366,13 +387,18 @@ class Core(CoreMessages):
             )
 
             if out is True:
-                print(('{}' * 5).format(
-                    f'[{datetime.now().strftime(self._format_time)}] {self._metadata[0]}:\n',
+                metadata = lambda: ('{}' * 5).format(
+                    f'{self._metadata[0]}:\n',
                     f'{space}{self._metadata[1]}:\n{author}',
                     f'{space}{self._metadata[2]}:\n{maintainer}',
                     f'{space}{self._metadata[3]}: {openav.__release__}\n',
                     f'{space}{self._metadata[4]}: {openav.__license__}'
+                )
+
+                print('{}'.format(
+                    f'[{datetime.now().strftime(self._format_time)}] {metadata()}'
                 ))
+                self._logger_core.info(metadata())
 
     def message_progressbar(self, message: str = '', space: int = 0, close: bool = False, out: bool = True) -> str:
         """Информационный индикатор выполнения
@@ -400,6 +426,11 @@ class Core(CoreMessages):
 
         if self.is_notebook is False:
             if out is True:
+                if close is False:
+                    message_log = message
+                    for character in self.__list_of_chars: message_log = message_log.replace(character, '')
+                    self._logger_core.info(message_log)
+
                 message = '\r' + self.clear_line + (' ' * space) + '[{}] {}'.format(
                     datetime.now().strftime(self._format_time), message
                 )
@@ -433,12 +464,13 @@ class Core(CoreMessages):
             pkgs = {
                 'Package': [
                     'PyTorch', 'TorchAudio', 'TorchVision', 'NumPy', 'Pandas', 'PyAV', 'FileType', 'IPython',
-                    'Colorama', 'Prettytable'
+                    'Colorama', 'Prettytable', 'Vosk'
                 ],
                 'Version': [i.__version__ for i in [
                     torch, torchaudio, torchvision, np, pd, av, filetype, IPython, colorama, prettytable
                 ]]
             }
+            pkgs['Version'].append(pkg_resources.get_distribution('vosk').version)
 
             self._df_pkgs = pd.DataFrame(data = pkgs) # Версии используемых библиотек
             self._df_pkgs.index += 1
@@ -451,8 +483,9 @@ class Core(CoreMessages):
                     table_terminal.add_column(self._metadata[3], self._df_pkgs['Version'].values)
                     table_terminal.align = 'l'
 
-                    self.message_info(self._libs_vers, space = 0, out = out)
-                    print(table_terminal)
+                    table_terminal = '\r\n' + table_terminal.__str__()
+
+                    self.message_info(self._libs_vers + table_terminal, space = 0, out = out)
 
     def build_args(self, description: str, conv_to_dict: bool = True, out: bool = True) -> Dict[str, Any]:
         """Построение аргументов командной строки
@@ -466,15 +499,17 @@ class Core(CoreMessages):
             Dict[str, Any]: Словарь со списком аргументов командной стройки
         """
 
-        # Проверка аргументов
-        if type(description) is not str or not description or type(conv_to_dict) is not bool or type(out) is not bool:
-            self.inv_args(__class__.__name__, self.build_args.__name__, out = out); return {}
+        try:
+            # Проверка аргументов
+            if (type(description) is not str or not description or type(conv_to_dict) is not bool
+                or type(out) is not bool): raise TypeError
+        except TypeError: self.inv_args(__class__.__name__, self.build_args.__name__, out = out); return {}
+        else:
+            # Парсер для параметров командной строки
+            self._ap = argparse.ArgumentParser(description = description)
 
-        # Парсер для параметров командной строки
-        self._ap = argparse.ArgumentParser(description = description)
-
-        if conv_to_dict is True:
-            return vars(self._ap.parse_args()) # Преобразование списка аргументов командной строки в словарь
+            if conv_to_dict is True:
+                return vars(self._ap.parse_args()) # Преобразование списка аргументов командной строки в словарь
 
     def clear_shell(self, cls: bool = True, out: bool = True) -> bool:
         """Очистка консоли
@@ -487,9 +522,10 @@ class Core(CoreMessages):
              bool: **True** если консоль очищена, в обратном случае **False**
         """
 
-        # Проверка аргументов
-        if type(cls) is not bool or type(out) is not bool:
-            self.inv_args(__class__.__name__, self.clear_shell.__name__, out = out); return False
-
-        if cls is True: Shell.clear() # Очистка консоли
-        return True
+        try:
+            # Проверка аргументов
+            if type(cls) is not bool or type(out) is not bool: raise TypeError
+        except TypeError: self.inv_args(__class__.__name__, self.clear_shell.__name__, out = out); return False
+        else:
+            if cls is True: Shell.clear() # Очистка консоли
+            return True

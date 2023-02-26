@@ -36,5 +36,7 @@
     "torch", "1.13.1", ".. image:: https://img.shields.io/pypi/v/torch"
     "torchaudio", "0.13.1", ".. image:: https://img.shields.io/pypi/v/torchaudio"
     "torchvision", "0.14.1", ".. image:: https://img.shields.io/pypi/v/torchvision"
+    "vosk", "0.3.44", ".. image:: https://img.shields.io/pypi/v/vosk"
     "av", "10.0.0", ".. image:: https://img.shields.io/pypi/v/av"
     "filetype", "1.2.0", ".. image:: https://img.shields.io/pypi/v/filetype"
+    "requests", "2.28.2", ".. image:: https://img.shields.io/pypi/v/requests"

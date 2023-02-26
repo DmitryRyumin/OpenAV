@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Детектирование речевой активности в аудиовизуальном сигнале
+Детектирование речевой активности и распознавание речи в аудиовизуальном сигнале
 """
 
 import os
@@ -42,7 +42,7 @@ from openav.modules.lab.audio import TYPES_ENCODE, PRESETS_CRF_ENCODE, SR_INPUT_
 # Сообщения
 # ######################################################################################################################
 @dataclass
-class MessagesVAD(Run):
+class MessagesVoskSR(Run):
     """Класс для сообщений"""
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -52,7 +52,8 @@ class MessagesVAD(Run):
     def __post_init__(self):
         super().__post_init__() # Выполнение конструктора из суперкласса
 
-        self._description: str = self._('Детектирование речевой активности в аудиовизуальном сигнале')
+        self._description: str = self._('Детектирование речевой активности и распознавание речи в аудиовизуальном '
+                                        'сигнале')
         self._description_time: str = '{}' * 2 + self._description + self._em + '{}'
 
         self._check_config_file_valid = self._('Проверка данных на валидность') + self._em
@@ -61,8 +62,8 @@ class MessagesVAD(Run):
 # Выполняем только в том случае, если файл запущен сам по себе
 # ######################################################################################################################
 @dataclass
-class RunVAD(MessagesVAD):
-    """Класс для детектирования речевой активности в аудиовизуальном сигнале"""
+class RunVoskSR(MessagesVoskSR):
+    """Класс для детектирования речевой активности и распознавание речи в аудиовизуальном сигнале"""
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
@@ -74,7 +75,7 @@ class RunVAD(MessagesVAD):
         self._all_layer_in_json = 20 # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
-        self._logger_runvad: logging.Logger = logging.getLogger(__class__.__name__)
+        self._logger_run_vosk_sr: logging.Logger = logging.getLogger(__class__.__name__)
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
@@ -267,7 +268,7 @@ class RunVAD(MessagesVAD):
 
         return True # Результат
 
-    def _load_config_json(self, resources: ModuleType = rsrs, config = 'vad.json', out: bool = True) -> bool:
+    def _load_config_json(self, resources: ModuleType = rsrs, config = 'vosk_sr.json', out: bool = True) -> bool:
         """Загрузка и проверка конфигурационного файла
 
         Args:
@@ -309,7 +310,7 @@ class RunVAD(MessagesVAD):
     # ------------------------------------------------------------------------------------------------------------------
 
     def run(self, metadata: ModuleType = openav, resources: ModuleType = rsrs, out: bool = True) -> bool:
-        """Запуск детектирования речевой активности в аудиовизуальном сигнале
+        """Запуск детектирования речевой активности и распознавания речи в аудиовизуальном сигнале
 
         Args:
             metadata (ModuleType): Модуль из которого необходимо извлечь информацию
@@ -337,7 +338,7 @@ class RunVAD(MessagesVAD):
             # Приветствие
             Shell.add_line() # Добавление линии во весь экран
             print(self._description_time.format(self.text_bold, self.color_blue, self.text_end))
-            self._logger_runvad.info(self._description)
+            self._logger_run_vosk_sr.info(self._description)
             Shell.add_line() # Добавление линии во весь экран
 
         # Загрузка и проверка конфигурационного файла
@@ -363,24 +364,8 @@ class RunVAD(MessagesVAD):
         self.dir_va_names = self._args['dir_va_names']               # Названия директорий для видео и аудио
         self.ext_search_files = self._args['ext_search_files']       # Названия директорий для видео и аудио
 
-        self.vad(
-            depth = self._args['depth'],                                     # Глубина иерархии для получения данных
-            type_encode = self._args['type_encode'],                         # Тип кодирования
-            crf_value = self._args['crf_value'],                             # Качество кодирования
-            presets_crf_encode = self._args['presets_crf_encode'],           # Скорость кодирования и сжатия
-            sr_input_type = self._args['sr_input_type'],                     # Тип файлов для распознавания речи
-            sampling_rate = self._args['sampling_rate'],                     # Частота дискретизации
-            threshold = self._args['threshold'],                             # Порог вероятности речи
-            # Минимальная длительность речевого фрагмента в миллисекундах
-            min_speech_duration_ms = self._args['min_speech_duration_ms'],
-            # Минимальная длительность тишины в выборках между отдельными речевыми фрагментами
-            min_silence_duration_ms = self._args['min_silence_duration_ms'],
-            window_size_samples = self._args['window_size_samples'],         # Количество выборок в каждом окне
-            # Внутренние отступы для итоговых речевых фрагментов
-            speech_pad_ms = self._args['speech_pad_ms'],
-            force_reload = self._args['force_reload'],                       # Принудительная загрузка модели из сети
-            # Очистка директории для сохранения фрагментов аудиовизуального сигнала
-            clear_dirvad = self._args['clear_dirvad'],
+        self.vosk_sr(
+            force_reload = self._args['force_reload'], # Принудительная загрузка модели из сети
             out = out
         )
 
@@ -388,7 +373,7 @@ class RunVAD(MessagesVAD):
 
 def main():
     # Запуск детектирования речевой активности в аудиовизуальном сигнале
-    vad = RunVAD(
+    vad = RunVoskSR(
         lang = 'ru',
         path_to_logs = './openav/logs'
     )

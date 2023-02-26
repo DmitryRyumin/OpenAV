@@ -20,6 +20,8 @@ REQUIRED_PACKAGES = [
     'torchvision >= 0.14.1',
     'av >= 10.0.0',
     'filetype >= 1.2.0',
+    'vosk >= 0.3.44',
+    'requests >= 2.28.2',
 ]
 
 CLASSIFIERS = """\
@@ -91,6 +93,7 @@ with open('README.md', 'r') as fh:
         entry_points = {
             'console_scripts': [
                 'openav_vad = openav.api.vad:main',
+                'openav_vosk_sr = openav.api.vosk_sr:main',
             ],
         },
         project_urls = {

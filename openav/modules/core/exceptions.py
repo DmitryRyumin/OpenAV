@@ -40,3 +40,7 @@ class IsNestedDirectoryVNotFoundError(CustomException):
 class IsNestedDirectoryANotFoundError(CustomException):
     """Вложенная директория, для аудиофрагментов не найдена"""
     pass
+
+class InvalidContentLength(CustomException):
+    """Не определен размер файла для загрузки"""
+    pass

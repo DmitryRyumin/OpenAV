@@ -34,6 +34,7 @@ PATH_TO_DATASET_VAD: str = './dataset_vad'
 IGNORE_DIRS: List[str] = [] # Директории не входящие в выборку
 DIR_VA_NAMES: List[str] = ['Video', 'Audio'] # Названия директорий для видео и аудио
 EXT_SEARCH_FILES: List[str] = ['mov', 'mp4', 'wav'] # Расширения искомых файлов
+CHUNK_SIZE: int = 1000000 # Размер загрузки файла из сети за 1 шаг
 
 # ######################################################################################################################
 # Настройки
@@ -69,6 +70,7 @@ class Settings(Messages):
         self.ignore_dirs: List[str] = IGNORE_DIRS # Директории не входящие в выборку
         self.dir_va_names: List[str] = DIR_VA_NAMES # Названия директорий для видео и аудио
         self.ext_search_files: List[str] = EXT_SEARCH_FILES # Расширения искомых файлов
+        self.chunk_size: int = CHUNK_SIZE # Размер загрузки файла из сети за 1 шаг
 
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
@@ -265,3 +267,22 @@ class Settings(Messages):
         if type(l) is list and len(l) > 0:
             try: self.__ext_search_files = ['.' + x.strip().lower() for x in l]
             except Exception: pass
+
+    @property
+    def chunk_size(self) -> int:
+        """Получение/установка размера загрузки файла из сети за 1 шаг
+
+        Args:
+            (int): Размер загрузки файла из сети за 1 шаг
+
+        Returns:
+            int: Размер загрузки файла из сети за 1 шаг
+        """
+
+        return self.__chunk_size
+
+    @chunk_size.setter
+    def chunk_size(self, size: int) -> None:
+        """Установка директории для сохранения данных"""
+
+        if type(size) is int and size > 0: self.__chunk_size = size

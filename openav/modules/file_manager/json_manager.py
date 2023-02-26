@@ -11,8 +11,6 @@
 import os    # Работа с файловой системой
 import json  # Кодирование и декодирование данные в удобном формате
 
-from datetime import datetime               # Работа со временем
-from types import ModuleType                # Тип модуля
 import importlib.resources as pkg_resources # Работа с ресурсами внутри пакетов
 
 from dataclasses import dataclass # Класс данных
@@ -21,13 +19,13 @@ from typing import Dict, Union # Типы данных
 from types import ModuleType
 
 # Персональные
-from openav.modules.file_manager.file_manager import FileManager # Работа с файлами
+from openav.modules.file_manager.download import Download # Загрузка файлов
 
 # ######################################################################################################################
 # Сообщения
 # ######################################################################################################################
 @dataclass
-class JsonMessages(FileManager):
+class JsonMessages(Download):
     """Класс для сообщений"""
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -86,7 +84,10 @@ class Json(JsonMessages):
         path_to_file = os.path.normpath(path_to_file)
 
         # Вывод сообщения
-        self.message_info(self._load_data.format(os.path.basename(path_to_file)), space = self._space, out = out)
+        self.message_info(
+            self._load_data.format(self.message_line(os.path.basename(path_to_file))),
+            space = self._space, out = out
+        )
 
         # Открытие файла
         with open(path_to_file, mode = 'r', encoding = 'utf-8') as json_data_file:
@@ -119,7 +120,7 @@ class Json(JsonMessages):
             self.inv_args(__class__.__name__, self.load_json_resources.__name__, out = out); return {}
 
         # Вывод сообщения
-        self.message_info(self._load_data_resources.format(module.__name__), out = out)
+        self.message_info(self._load_data_resources.format(self.message_line(module.__name__)), out = out)
 
         # Ресурс с JSON файлом не найден
         if pkg_resources.is_resource(module, path_to_file) is False:

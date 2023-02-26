@@ -162,7 +162,7 @@ class FileManager(FileManagerMessages):
         if os.path.isdir(path_to_file) is True: self.message_error(self._dir_found, out = out); return False
 
         # Вывод сообщения
-        self.message_info(self._file_find.format(os.path.basename(path_to_file)), out = out)
+        self.message_info(self._file_find.format(self.message_line(os.path.basename(path_to_file))), out = out)
 
         self._file_load = self._file_find_hide # Установка сообщения в исходное состояние
 

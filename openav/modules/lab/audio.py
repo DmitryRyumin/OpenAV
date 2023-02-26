@@ -21,12 +21,17 @@ import numpy as np  # Научные вычисления
 import torch        # Машинное обучение от Facebook
 import torchvision  # Работа с видео от Facebook
 import torchaudio   # Работа с аудио от Facebook
-import urllib.parse # Парсинг URL
 import filetype     # Определение типа файла и типа MIME
+
+# Парсинг URL
+import urllib.parse
+import urllib.error
 
 from IPython.utils import io             # Подавление вывода
 from pathlib import Path, PosixPath      # Работа с путями в файловой системе
-from datetime import timedelta           # Работа со временем
+from datetime import datetime, timedelta # Работа со временем
+
+from vosk import Model, KaldiRecognizer, SetLogLevel # Распознавание речи
 
 # Типы данных
 from typing import List, Dict, Union, Optional
@@ -60,6 +65,8 @@ SPEECH_PAD_MS: int = 150 # Внутренние отступы для итого
 # Суффиксы каналов аудиофрагментов
 FRONT: Dict[str, List[str]] = {'mono': ['_mono'], 'stereo': ['_left', '_right']}
 EXT_AUDIO: str = 'wav' # Расширение для сохраняемого аудио
+VOSK_SUPPORTED_LANGUAGES: List[str] = ['ru', 'en'] # Поддерживаемые языки (Vosk)
+VOSK_SUPPORTED_DICTS: List[str] = ['small', 'big'] # Размеры словарей (Vosk)
 
 # ######################################################################################################################
 # Сообщения
@@ -90,6 +97,9 @@ class  AudioMessages(Json):
         ) + self._em
 
         self._download_model_from_repo: str = self._('Загрузка VAD модели "{}" из репозитория {}') + self._em
+
+        # Переопределение
+        self._automatic_download: str = self._('Загрузка Vosk модели') + ' "{}"' + self._em
 
         self._subfolders_search: str = self._(
             'Поиск вложенных директорий в директории "{}" (глубина вложенности: {})'
@@ -129,6 +139,32 @@ class Audio(AudioMessages):
         self._github_repo_vad: str = 'snakers4/silero-vad' # Репозиторий для загрузки VAD
         self._vad_model: str = 'silero_vad' # VAD модель
 
+        # Пути к моделям распознавания речи
+        self._vosk_models_url: Dict = {
+            'vosk': 'https://alphacephei.com/vosk/models/'
+        }
+
+        # Модели для распознавания речи
+        self._vosk_models_for_sr: Dict = {
+            'vosk': {
+                'languages': VOSK_SUPPORTED_LANGUAGES, # Поддерживаемые языки
+                'dicts': VOSK_SUPPORTED_DICTS, # Размеры словарей
+                # Русский язык
+                'ru': {
+                    'big': 'vosk-model-ru-0.22.zip',
+                    'small': 'vosk-model-small-ru-0.22.zip'
+                },
+                # Английский язык
+                'en': {
+                    'big': 'vosk-model-en-us-0.22.zip',
+                    'small': 'vosk-model-small-en-us-0.15.zip'
+                }
+            },
+        }
+
+        self.vosk_language_sr: str = VOSK_SUPPORTED_LANGUAGES[0] # Язык для распознавания речи (Vosk)
+        self.vosk_dict_language_sr: str = VOSK_SUPPORTED_DICTS[1] # Размер словаря для распознавания речи (Vosk)
+
         # ----------------------- Только для внутреннего использования внутри класса
 
         self.__model_vad: Optional[torch.jit._script.RecursiveScriptModule] = None # VAD модель
@@ -165,9 +201,57 @@ class Audio(AudioMessages):
         self.__part_video_path: str = '' # Путь до видеофрагмента
         self.__part_audio_path: str = '' # Путь до аудиофрагмента
 
+        self.__curr_ts: str = '' # Текущее время (TimeStamp)
+
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
     # ------------------------------------------------------------------------------------------------------------------
+
+    @property
+    def vosk_language_sr(self) -> str:
+        """Получение/установка языка для распознавания речи
+
+        Args:
+            (str): Язык
+
+        Returns:
+            str: Язык
+        """
+
+        return self.__language_sr
+
+    @vosk_language_sr.setter
+    def vosk_language_sr(self, lang: str):
+        """Установка языка для распознавания речи"""
+
+        try:
+            # Проверка аргументов
+            if type(lang) is not str or (lang in VOSK_SUPPORTED_LANGUAGES) is False: raise TypeError
+        except TypeError: pass
+        else: self.__language_sr = lang
+
+    @property
+    def vosk_dict_language_sr(self) -> str:
+        """Получение/установка размера словаря для распознавания речи
+
+        Args:
+            (str): Размер словаря
+
+        Returns:
+            str: Размер словаря
+        """
+
+        return self.__dict_language_sr
+
+    @vosk_dict_language_sr.setter
+    def vosk_dict_language_sr(self, dict_size: str):
+        """Установка размера словаря для распознавания речи"""
+
+        try:
+            # Проверка аргументов
+            if type(dict_size) is not str or (dict_size in VOSK_SUPPORTED_DICTS) is False: raise TypeError
+        except TypeError: pass
+        else: self.__dict_language_sr = dict_size
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (приватные)
@@ -189,6 +273,10 @@ class Audio(AudioMessages):
 
         # Тип файла
         kind = filetype.guess(self.__curr_path)
+
+        # Текущее время (TimeStamp)
+        # см. datetime.fromtimestamp()
+        self.__curr_ts = str(datetime.now().timestamp()).replace('.', '_')
 
         # Проход по всем каналам
         for channel in range(0, channels_audio):
@@ -248,7 +336,8 @@ class Audio(AudioMessages):
                     # Путь до аудиофрагмента
                     self.__part_audio_path = os.path.join(
                         self.__dataset_audio_vad[-1],
-                        Path(self.__curr_path).stem + '_' + str(cnt) + self.__front[channel] + '.' + EXT_AUDIO
+                        Path(self.__curr_path).stem + '_' + str(cnt) + self.__front[channel] \
+                        + '_' + self.__curr_ts + '.' + EXT_AUDIO
                     )
 
                     # Видео
@@ -256,7 +345,8 @@ class Audio(AudioMessages):
                         # Путь до видеофрагмента
                         self.__part_video_path = os.path.join(
                             self.__dataset_video_vad[-1],
-                            Path(self.__curr_path).stem + '_' + str(cnt) + Path(self.__curr_path).suffix.lower()
+                            Path(self.__curr_path).stem + '_' + str(cnt) + '_' + self.__curr_ts \
+                            + Path(self.__curr_path).suffix.lower()
                         )
 
                     not_saved_files = lambda: self.__not_saved_files.append([self.__curr_path, start_time, end_time])
@@ -266,7 +356,7 @@ class Audio(AudioMessages):
                     try:
                         # Видео
                         if kind.mime.startswith('video/') is True:
-                            if channel == 1:
+                            if channel == 0:
                                 # Варианты кодирования
                                 if self.__type_encode == TYPES_ENCODE[0]:
                                     # https://trac.ffmpeg.org/wiki/Encode/MPEG-4
@@ -305,7 +395,7 @@ class Audio(AudioMessages):
                     except Exception: not_saved_files()
                     else:
                         # Видео
-                        if kind.mime.startswith('video/') is True and channel == 1:
+                        if kind.mime.startswith('video/') is True and channel == 0:
                             call_video = subprocess.call(ff_v, shell = True)
                         # Аудио
                         call_audio = subprocess.call(ff_a, shell = True)
@@ -314,6 +404,15 @@ class Audio(AudioMessages):
                             if call_audio == 1 or call_video == 1: raise OSError
                         except OSError: not_saved_files()
                         except Exception: not_saved_files()
+                        else:
+                            try:
+                                # Видео
+                                if kind.mime.startswith('video/') is True:
+                                    # Чтение файла
+                                    _, _, _ = torchvision.io.read_video(self.__part_video_path)
+                                _, _ = torchaudio.load(self.__part_audio_path)
+                            except Exception:
+                                not_saved_files()
         return True
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -567,3 +666,62 @@ class Audio(AudioMessages):
 
                         if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
                             self.message_true(self._vad_true, space = self._space, out = out); return True
+
+    def vosk(self, force_reload: bool = True, out: bool = True) -> bool:
+        """Загрузка и активация модели Vosk для детектирования голосовой активности и распознавания речи
+
+        Args:
+            force_reload (bool): Принудительная загрузка модели из сети
+            out (bool) Отображение
+
+        Returns:
+            bool: **True** если модель Vosk загружена и активирована, в обратном случае **False**
+        """
+
+        try:
+            # Проверка аргументов
+            if type(force_reload) is not bool or type(out) is not bool: raise TypeError
+        except TypeError: self.inv_args(__class__.__name__, self.vosk.__name__, out = out); return False
+        else:
+            name = 'vosk' # Модель для распознавания речи
+
+            SetLogLevel(-1) # Уровень LOG
+
+            lsr = self.vosk_language_sr # Язык для распознавания речи
+            dlsr = self.vosk_dict_language_sr # Размер словаря для распознавания речи
+
+            url = urllib.parse.urljoin(self._vosk_models_url[name], self._vosk_models_for_sr[name][lsr][dlsr])
+
+            try:
+                # Загрузка файла из URL
+                res_download_file_from_url = self.download_file_from_url(
+                    url = url, force_reload = force_reload, out = out
+                )
+            except Exception:
+                self.message_error(self._unknown_err, space = self._space, out = out); return False
+            else:
+                pass
+
+    def vosk_sr(
+        self, force_reload: bool = True, out: bool = True
+    ) -> bool:
+        """ VAD + SR (Voice Activity Detector + Speech Recognition) или (детектирование голосовой активности и
+        распознавание речи)
+
+        Args:
+
+
+        Returns:
+            bool: **True** если детектирование голосовой активности и распознавание речи произведено, в обратном случае
+            **False**
+        """
+
+        try:
+            # Проверка аргументов
+            if type(force_reload) is not bool or type(out) is not bool: raise TypeError
+        except TypeError: self.inv_args(__class__.__name__, self.vosk_sr.__name__, out = out); return False
+        else:
+            # Загрузка и активация модели Vosk для распознавания речи
+            if self.vosk(force_reload = force_reload, out = out) is False: return False
+
+            print(2)
