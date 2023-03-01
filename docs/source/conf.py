@@ -81,6 +81,8 @@ extensions = [
     'sphinx_toolbox.code',            # https://sphinx-toolbox.readthedocs.io/en/latest/index.html
     'sphinx_toolbox.sidebar_links',
     'sphinx_toolbox.github',
+    'sphinx_toolbox.changeset',       # Отлеживание версий
+    "sphinx_github_changelog",        # Автопубликация релизов с GIT
     'sphinx_design',
     'nbsphinx',
     'sphinx_copybutton',

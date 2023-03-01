@@ -356,6 +356,14 @@ class Audio(AudioMessages):
 
         Returns:
             bool: **True** если детектирование голосовой активности произведено, в обратном случае **False**
+
+        .. versionadded:: 0.1.0
+
+        .. versionchanged:: 0.1.1
+
+        .. deprecated:: 0.1.0
+
+
         """
 
         try:
