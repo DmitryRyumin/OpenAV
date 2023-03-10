@@ -87,6 +87,8 @@ extensions = [
     "sphinx_toolbox.code",  # https://sphinx-toolbox.readthedocs.io/en/latest/index.html
     "sphinx_toolbox.sidebar_links",
     "sphinx_toolbox.github",
+    "sphinx_toolbox.changeset",  # Отлеживание версий
+    "sphinx_github_changelog",  # Автопубликация релизов с GIT
     "sphinx_design",
     "nbsphinx",
     "sphinx_copybutton",
@@ -115,7 +117,7 @@ exclude_patterns = ["../build"]
 templates_path = ["_templates"]
 
 # Минимальная версия Sphinx
-needs_sphinx = "5.3.0"
+needs_sphinx = "6.1.3"
 
 # Способ представления подсказок
 autodoc_typehints = "both"

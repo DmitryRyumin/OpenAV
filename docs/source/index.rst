@@ -40,3 +40,4 @@
    modules/class_diagram
    about
    faq
+   changelog
