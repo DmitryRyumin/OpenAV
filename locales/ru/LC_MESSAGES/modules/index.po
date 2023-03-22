@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"POT-Creation-Date: 2023-03-22 14:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,87 +22,90 @@ msgstr ""
 msgid "Содержание:"
 msgstr ""
 
-#: ../../source/modules/index.rst:2 afd1271c1bf94f5a8eba011f63eb614d
-msgid "Модули"
+#: ../../source/modules/index.rst:2 63d04aa182604707be9f5f50bdd04385
+msgid "API"
 msgstr ""
 
-#: ../../source/modules/index.rst:21 9ab65e9c0b5a4ffb8015111ac00df39d
+#: ../../source/modules/index.rst:21 0901146c099b4b92ae444c2f69a8eb4a
 msgid ":doc:`trml/shell`"
 msgstr ""
 
-#: ../../source/modules/index.rst:21 71d7969096af45e59813f41b98f218d0
+#: ../../source/modules/index.rst:21 1640a1cf3e9249ebb903adddfa11453f
 msgid "Документация для файла ``modules/trml/shell.py``"
 msgstr ""
 
-#: ../../source/modules/index.rst:24 4d3c7f4b56254eabb46c47785c16f89b
+#: ../../source/modules/index.rst:24 d64fd72ef4b44972b92c47fd238397f3
 msgid ":doc:`core/exceptions`"
 msgstr ""
 
-#: ../../source/modules/index.rst:24 8b99922c23144914b887a9fc3757821b
+#: ../../source/modules/index.rst:24 7d7310ecc49e436eb54c50f8fb67faa7
 msgid "Документация для файла ``modules/core/exceptions.py``"
 msgstr ""
 
-#: ../../source/modules/index.rst:27 d383d01e70684deea8e7fc3e9c6997ad
+#: ../../source/modules/index.rst:27 1bdfd8e16b6d40e29442ccc52a5e8e64
 msgid ":doc:`core/language`"
 msgstr ""
 
-#: ../../source/modules/index.rst:27 acba7f4552be4be1872ee91978c586b3
+#: ../../source/modules/index.rst:27 cde29f9feff94e3a8c1c1f991c09814d
 msgid "Документация для файла ``modules/core/language.py``"
 msgstr ""
 
-#: ../../source/modules/index.rst:30 3c728d704ea342cba739aa51ab0cdea2
+#: ../../source/modules/index.rst:30 4b1dbd9b90b14b1a9c37c59c2a32a861
 msgid ":doc:`core/messages`"
 msgstr ""
 
-#: ../../source/modules/index.rst:30 ff14e71285304cbeb2896da21dc8d59c
+#: ../../source/modules/index.rst:30 e5b08cf7a8e74192ae5cfff282ef4b78
 msgid "Документация для файла ``modules/core/messages.py``"
 msgstr ""
 
-#: ../../source/modules/index.rst:33 1a1d4e535cac45989f145e1e787ac84b
+#: ../../source/modules/index.rst:33 29036ad94e594f78ae917088710ad700
 msgid ":doc:`core/settings`"
 msgstr ""
 
-#: ../../source/modules/index.rst:33 ab247b0fd8c845929e5840bb0d68ac8b
+#: ../../source/modules/index.rst:33 4113e62bb973499b8122e32b94932ef1
 msgid "Документация для файла ``modules/core/settings.py``"
 msgstr ""
 
-#: ../../source/modules/index.rst:36 a5f8d700db7c4ff8a0482c57ac8686ab
+#: ../../source/modules/index.rst:36 aedf481dcc7948ce9b58ac427a14b11b
 msgid ":doc:`core/core`"
 msgstr ""
 
-#: ../../source/modules/index.rst:36 7e19365a061d4af397c117f4a16457a2
+#: ../../source/modules/index.rst:36 360ccf20e4594849835dbf8ee7ecf6e1
 msgid "Документация для файла ``modules/core/core.py``"
 msgstr ""
 
-#: ../../source/modules/index.rst:39 297a8ffb772e42ca8a6354552340cf29
+#: ../../source/modules/index.rst:39 b7ceda7d96c44bf7b5b6d4a0064bcb04
 msgid ":doc:`lab/audio`"
 msgstr ""
 
-#: ../../source/modules/index.rst:39 724599b3369b4b34acda7aa2e43ee305
+#: ../../source/modules/index.rst:39 45da5c5e67494ec194f03577c2cdec9e
 msgid "Документация для файла ``modules/lab/audio.py``"
 msgstr ""
 
-#: ../../source/modules/index.rst:42 77f48efa07e249b197b19325c359e9a4
+#: ../../source/modules/index.rst:42 b6a30512cbfe415eaaf97c88b52598ba
 msgid ":doc:`lab/video`"
 msgstr ""
 
-#: ../../source/modules/index.rst:42 46aee29c4b9f4c608d70a9f31f51484c
+#: ../../source/modules/index.rst:42 5984ecdd294041308b42408355fed3ea
 msgid "Документация для файла ``modules/lab/video.py``"
 msgstr ""
 
-#: ../../source/modules/index.rst:45 2b244ae67bfd4252b8f786b3450b1668
+#: ../../source/modules/index.rst:45 d28b51bb29de409e87e74fb4fb92bccd
 msgid ":doc:`lab/audiovisual`"
 msgstr ""
 
-#: ../../source/modules/index.rst:45 01048fbcf7f24bb0b31960ed652c5e61
+#: ../../source/modules/index.rst:45 b5875525382a4188963f1de3c488a822
 msgid "Документация для файла ``modules/lab/audiovisual.py``"
 msgstr ""
 
-#: ../../source/modules/index.rst:47 c86bd2b9ba0842cb9891c62414b43515
+#: ../../source/modules/index.rst:47 76f6a1fc310741a084d73077a1cc342d
 msgid ":doc:`lab/build`"
 msgstr ""
 
-#: ../../source/modules/index.rst:48 7b5ae4bf367342c58630801bcbefba2c
+#: ../../source/modules/index.rst:48 4a44b2c6839f47cf8902b60c4dd7843a
 msgid "Документация для файла ``modules/lab/build.py``"
 msgstr ""
+
+#~ msgid "Модули"
+#~ msgstr ""
 
