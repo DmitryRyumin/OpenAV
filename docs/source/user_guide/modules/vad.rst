@@ -10,9 +10,16 @@
 
    </b>
 
+.. |a_config| raw:: html
+
+   <a href="https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.json" target="_blank">
+
+.. |/a| raw:: html
+
+   </a>
+
 Модуль детектирования речевой активности
 ========================================
-
 Команда для запуска детектирования речевой активности в аудиовизуальном сигнале:
 
 .. code-block:: sh
@@ -34,7 +41,9 @@
 
 .. rst-class:: config-link
 
-`Пример конфигурационного файла <https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.json>`_
+|a_config|
+Пример конфигурационного файла
+|/a|
 
 Отображение процесса выполнения команды в терминале
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
