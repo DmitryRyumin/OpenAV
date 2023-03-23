@@ -8,6 +8,13 @@
     white-space: pre-line;
 }
 
+.rst-content .important {
+    background: #ffedcc;
+}
+.rst-content .important .admonition-title {
+    background: #ff9a17;
+}
+
 .custom-table th {
     text-align: center;
     vertical-align: middle;
