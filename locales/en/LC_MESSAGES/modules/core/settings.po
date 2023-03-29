@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-16 16:21+0300\n"
+"POT-Creation-Date: 2023-03-10 15:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,22 +18,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/modules/core/settings.rst:2 8249727062d74203b3930795e8a91772
+#: ../../source/modules/core/settings.rst:2 be2b1cf5c10145ef87e0e97c31a836b9
 msgid "Настройки"
 msgstr ""
 
-#: 987df2f524854073ba735391bbacaad4 of openav.modules.core.settings.Settings:1
+#: f7d76a3eec6a4d41a50b9ba496d53a9b of openav.modules.core.settings.Settings:1
 msgid "Базовые классы: :py:class:`~openav.modules.core.messages.Messages`"
 msgstr ""
 
-#: d60484bf58374a5ebc0b321f91f8e84a of openav.modules.core.settings.Settings:1
+#: a03322589cc64246af87117b81505aae of openav.modules.core.settings.Settings:1
 msgid "Класс для настроек"
 msgstr ""
 
-#: 572d4348e71241299a5c30524bf169ca 873de1af6bb14adfb749ce0b9b50a51b
-#: 97c5b9c39903421491d1e94847ff2496 9b482b19e69942c49cb052adb9740880
-#: a44343aeaef440b3b303c3ee11773923 a9de775d73d744ea973bbb64842acf04
-#: e9009a63f2214885888ba997f9930a56 of openav.modules.core.settings.Settings
+#: 0a4c7bfeb31f4eb08fb19aeee7048fdf b0a2f34574414d28895a3a40bd322f1d of
+#: openav.modules.core.settings.Settings
+#: openav.modules.core.settings.Settings.chunk_size
 #: openav.modules.core.settings.Settings.dir_va_names
 #: openav.modules.core.settings.Settings.ext_search_files
 #: openav.modules.core.settings.Settings.ignore_dirs
@@ -43,21 +42,27 @@ msgstr ""
 msgid "Параметры"
 msgstr ""
 
-#: 893371600a48487d85e75661c0ca0bf0 of openav.modules.core.settings.Settings:3
+#: 248cddb3c02b4b84a333b37e2aee6ad7 of openav.modules.core.settings.Settings:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 248cddb3c02b4b84a333b37e2aee6ad7 of openav.modules.core.settings.Settings:5
 msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
 msgstr ""
 
-#: a94fdb9a8b97495bafa5eabccb5a775d of
-#: openav.modules.core.settings.Settings.clear_line:1
-msgid "Получение очистки линии в терминале"
+#: 09a66b69779f45d0bd9054254b30b7ab of
+#: openav.modules.core.settings.Settings.chunk_size:1
+msgid "Получение/установка размера загрузки файла из сети за 1 шаг"
 msgstr ""
 
-#: 048dc6d68b7f403492a75530c97e990a 2cbe758cd2874a32b690fbc4b7d2c235
-#: 3a99b9835e5c4d5d967501d560c3a74e 41d25ec3c137417b9255c9f0cf8bb41f
-#: 552d205f8d8d420b85219e13fda01f54 a2d5d42f5dd948ce981879abd0da935f
-#: b9b307b1689b4cf380c66a8f34bae50a b9cfeddad95a45a4aa0d66ac9fdf54cf
-#: bc207d87fc9d456aa4ca8c3a9288cc7f c4da5d4f87e5403b89b367196d2f84e1
-#: e9e98be6f52b494dbb46a5730b2d25da eb15891b3ef64eedac3b2bd52af9ed6b of
+#: 21e52d91a6ff4def80cadf71c30f1e68 f0e457f59b7a48bf81e3fd76196cd8cb of
+#: openav.modules.core.settings.Settings.chunk_size:3
+#: openav.modules.core.settings.Settings.chunk_size:5
+msgid "Размер загрузки файла из сети за 1 шаг"
+msgstr ""
+
+#: c634467da63c49eeb5f18da97b9448da of
+#: openav.modules.core.settings.Settings.chunk_size
 #: openav.modules.core.settings.Settings.clear_line
 #: openav.modules.core.settings.Settings.color_blue
 #: openav.modules.core.settings.Settings.color_green
@@ -73,17 +78,8 @@ msgstr ""
 msgid "Результат"
 msgstr ""
 
-#: a89311416a9040399fe760dd31a5ffae of
-#: openav.modules.core.settings.Settings.clear_line:3
-msgid "Очистка линии в терминале"
-msgstr ""
-
-#: 088272de812241c1b9d0887dae5112ac 2c07839a270c4b5ea9fdf130c943df49
-#: 3b29a8cc8fd34509a112a7a3cf624d1f 4e3b9dfa438b4d2aa9e680810af25571
-#: 63bdf1e765744fe992410e2cd1292fd1 781801a2aeab484da7e77ef40ee74340
-#: 80e1bd189f6241439776132535d6dc1e 8e0d9df3775c4dfba92b47d1a424b523
-#: 9667afd48ae14bb09b0e5bbcdd4d8988 9a275c74a3184372bd8a6cbfe840159c
-#: 9e8a39251bf84ad8ae5ac45ae266382d f37fb99226ed4cbea614247a7931e8ee of
+#: 6caf109f71a74d889c484a4cf5b3c40e of
+#: openav.modules.core.settings.Settings.chunk_size
 #: openav.modules.core.settings.Settings.clear_line
 #: openav.modules.core.settings.Settings.color_blue
 #: openav.modules.core.settings.Settings.color_green
@@ -99,36 +95,44 @@ msgstr ""
 msgid "Тип результата"
 msgstr ""
 
-#: 24b822a6868749c5b32475e340fcb60b of
+#: 99598a9d40f149c086afb1f60e6674c4 of
+#: openav.modules.core.settings.Settings.clear_line:1
+msgid "Получение очистки линии в терминале"
+msgstr ""
+
+#: 386421d196c94582829b721a018dda0a of
+#: openav.modules.core.settings.Settings.clear_line:3
+msgid "Очистка линии в терминале"
+msgstr ""
+
+#: 8a69f2a1e00a4fccb592407cd51d3f37 of
 #: openav.modules.core.settings.Settings.color_blue:1
 msgid "Получение синего цвета текста в терминале"
 msgstr ""
 
-#: 2a780c74d2c245b48302faa5c31d8c6e 70bf86758c424f0e876e8907807033bf
-#: e0282c9078524bf68e6f2edfca371c8c of
+#: 85d0e523f87d497f834d23d01401b915 of
 #: openav.modules.core.settings.Settings.color_blue:3
 #: openav.modules.core.settings.Settings.color_green:3
 #: openav.modules.core.settings.Settings.color_red:3
 msgid "Цвет текста в терминале"
 msgstr ""
 
-#: 65042a09a3b14523886a9002a720829d of
+#: 16137a00e5a34d0c807c8f4a9698ad58 of
 #: openav.modules.core.settings.Settings.color_green:1
 msgid "Получение зеленого цвета текста в терминале"
 msgstr ""
 
-#: b90e3bd74f124d3ea85f3dbbbe357e5f of
+#: 1a69004e083e439ea3fbda7e46f149e7 of
 #: openav.modules.core.settings.Settings.color_red:1
 msgid "Получение красного цвета текста в терминале"
 msgstr ""
 
-#: b2a9b3c16edd4ffcb457418fd9ff3e89 of
+#: fbd5d653785547a3b8fa9ee8a46a0a15 of
 #: openav.modules.core.settings.Settings.dir_va_names:1
 msgid "Получение/установка списка с названиями директорий для видео и аудио"
 msgstr ""
 
-#: 24ac49c0ae834734b04c3c1055e3ce40 3a2b5326120840118ad164da01a50edb
-#: 8b56aa353f5b45cba36656bee10efa4b ed3cde7292ec455bbabb52dfddcfe837 of
+#: 5230e6bdd75440cea8a8d3d641b1f3e3 f5899ea6b9684cd9b4ae85f093ffc42d of
 #: openav.modules.core.settings.Settings.dir_va_names:3
 #: openav.modules.core.settings.Settings.dir_va_names:5
 #: openav.modules.core.settings.Settings.ignore_dirs:3
@@ -136,30 +140,28 @@ msgstr ""
 msgid "Список с директориями"
 msgstr ""
 
-#: 9bc8e62992124d85b1474653b2c5008c of
+#: 09a66b69779f45d0bd9054254b30b7ab of
 #: openav.modules.core.settings.Settings.ext_search_files:1
 msgid "Получение/установка списка с расширениями искомых файлов"
 msgstr ""
 
-#: 021375cab60f4802bae578c4600619af c975d0830c8d4ceeac128bd69a39eda6 of
+#: 01c90d257254404b9525ff88ac0b136b 9e9eddacabda44cda84242899e5e6efd of
 #: openav.modules.core.settings.Settings.ext_search_files:3
 #: openav.modules.core.settings.Settings.ext_search_files:5
 msgid "Список с расширениями искомых файлов"
 msgstr ""
 
-#: 2416a59b564b4279849884b9cae58409 of
+#: 179686c32a8f4081a4196ad7de9fd141 of
 #: openav.modules.core.settings.Settings.ignore_dirs:1
 msgid "Получение/установка списка с директориями не входящими в выборку"
 msgstr ""
 
-#: eaaa02006a5f43eea3719ffcb9230c9f of
+#: 38476adb3c554d41b37b9501a5b3c8a2 of
 #: openav.modules.core.settings.Settings.path_to_dataset:1
 msgid "Получение/установка пути к директории набора данных"
 msgstr ""
 
-#: 011cc575847743f985a0efb8e6e82908 333be3c90c124fe6bf437d00246f216c
-#: 582e5d3557c642aab43fd7e9a2929555 5d728595360744ae93d604cb634d3fba
-#: 92b320e7333e4069a112880a2fe63fcf d8e83a661fe446c78c3b4d5d7cf740c3 of
+#: 701b6fafa56e4aee94861d12f611de08 af9267b5523a4c5ead389158d9fc7b9a of
 #: openav.modules.core.settings.Settings.path_to_dataset:3
 #: openav.modules.core.settings.Settings.path_to_dataset:5
 #: openav.modules.core.settings.Settings.path_to_dataset_vad:3
@@ -169,34 +171,34 @@ msgstr ""
 msgid "Путь"
 msgstr ""
 
-#: 7392ca6d370b4adcbdad5f4b566827a2 of
+#: f21965393e2f4bf8bc0ca8914e265c95 of
 #: openav.modules.core.settings.Settings.path_to_dataset_vad:1
 msgid ""
 "Получение/установка пути к директории набора данных состоящего из "
 "фрагментов аудиовизуального сигнала"
 msgstr ""
 
-#: f3964cac7414431ca668136e6d6a70f4 of
+#: eab89e5dbf0748f2a79d53d6bf83a814 of
 #: openav.modules.core.settings.Settings.path_to_save_models:1
 msgid "Получение/установка пути к директории для сохранения моделей"
 msgstr ""
 
-#: f2b84cfd097c45f69adc9e08f8835736 of
+#: c80e635d66e6439d82ef4a91e4ec5f28 of
 #: openav.modules.core.settings.Settings.text_bold:1
 msgid "Получение жирного начертания текста в терминале"
 msgstr ""
 
-#: c55df16d9ae14e0d8dac00736d2bf1dd of
+#: bf905e308a124ac8a4e1853f51503369 of
 #: openav.modules.core.settings.Settings.text_bold:3
 msgid "Жирное начертание текста в терминале"
 msgstr ""
 
-#: 15e2e54ec53d4ff3a45cd8a036a2ab83 of
+#: 55d245b6dd8141b3b97c56ceab9d6841 of
 #: openav.modules.core.settings.Settings.text_end:1
 msgid "Получение сброса оформления текста в терминале"
 msgstr ""
 
-#: f67eb02e9c2041d0845889f3d7532efa of
+#: bc8271975ac64a199e8abdbbf1fa5062 of
 #: openav.modules.core.settings.Settings.text_end:3
 msgid "Сброс оформления текста в терминале"
 msgstr ""

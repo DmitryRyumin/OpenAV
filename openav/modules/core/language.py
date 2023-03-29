@@ -13,11 +13,11 @@
 #     - brew link gettext --force
 #     1. gettext --help
 #     2. locate pygettext.py
-#     3. /usr/local/Cellar/python@3.9/3.9.13_4/Frameworks/Python.framework/Versions/3.9/share/doc/python3.9/examples/
+#     3. /usr/local/Cellar/python@3.9/3.9.16/Frameworks/Python.framework/Versions/3.9/share/doc/python3.9/examples/
 #        Tools/i18n/pygettext.py -d openav -o openav/modules/locales/base.pot openav
 #     4. msgfmt --help
 #     5. locate msgfmt.py
-#     6. /usr/local/Cellar/python@3.9/3.9.13_4/Frameworks/Python.framework/Versions/3.9/share/doc/python3.9/examples/
+#     6. /usr/local/Cellar/python@3.9/3.9.16/Frameworks/Python.framework/Versions/3.9/share/doc/python3.9/examples/
 #        Tools/i18n/msgfmt.py openav/modules/locales/en/LC_MESSAGES/base.po openav/modules/locales/en/LC_MESSAGES/base
 
 # Подавление Warning
@@ -55,6 +55,7 @@ class Language(Logging):
     """Класс для интернационализации (I18N) и локализации (L10N)
 
     Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
         lang (str): Язык
     """
 

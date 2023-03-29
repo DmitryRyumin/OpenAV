@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 20:08+0300\n"
+"POT-Creation-Date: 2023-03-11 15:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,7 +67,7 @@ msgid "ipython"
 msgstr ""
 
 #: ../../source/user_guide/installation.rst:1 341e5c5793204fff98227a1916f0e9c7
-msgid "8.7.0"
+msgid "8.10.0"
 msgstr ""
 
 #: ../../source/user_guide/installation.rst:1 0a48f5ed098e4cbfb403f9338a0e9d60
@@ -83,7 +83,7 @@ msgid "numpy"
 msgstr ""
 
 #: ../../source/user_guide/installation.rst:1 4b5f726f168049a88e3f5a96f914efdf
-msgid "1.24.0"
+msgid "1.24.2"
 msgstr ""
 
 #: ../../source/user_guide/installation.rst:1 d438b2cbdc82477390fc8321e90f44b2
@@ -91,7 +91,7 @@ msgid "pandas"
 msgstr ""
 
 #: ../../source/user_guide/installation.rst:1 cdd961d7a6c645aaaecbf8d30c3832d5
-msgid "1.5.2"
+msgid "1.5.3"
 msgstr ""
 
 #: ../../source/user_guide/installation.rst:1 8117b571c7334c82a8b7de2b49d1e932
@@ -99,7 +99,7 @@ msgid "prettytable"
 msgstr ""
 
 #: ../../source/user_guide/installation.rst:1 fc7023e65a644e4a989fe013d7a98043
-msgid "3.5.0"
+msgid "3.6.0"
 msgstr ""
 
 #: ../../source/user_guide/installation.rst:1 80dffe1d974c40d5b497b920e612fed9
@@ -126,6 +126,14 @@ msgstr ""
 msgid "0.14.1"
 msgstr ""
 
+#: ../../source/user_guide/installation.rst:1 71509b2681b949098721bef2836f9247
+msgid "vosk"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 fb797904bbd343bbade9c51d4af53819
+msgid "0.3.44"
+msgstr ""
+
 #: ../../source/user_guide/installation.rst:1 d1e4806f9f19459da7df72f16cf9af19
 msgid "av"
 msgstr ""
@@ -141,4 +149,40 @@ msgstr ""
 #: ../../source/user_guide/installation.rst:1 4970850cf1ba4b55aec4ce7c0b9a6edc
 msgid "1.2.0"
 msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 d39ce8fa5bcc443cb13feef38759e586
+msgid "requests"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 4b5f726f168049a88e3f5a96f914efdf
+msgid "2.28.2"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 840cbee9f7cf4b15b45a90239325193c
+msgid "pyyaml"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 f3aa925f753d44978f5d962ec70be11b
+msgid "6.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 b0cfa25d3c5340b5bce29d3fd4aebb60
+msgid "streamlit"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 cd1f402867ab425fa1d4c5b93c24705f
+msgid "1.20.0"
+msgstr ""
+
+#~ msgid "8.7.0"
+#~ msgstr ""
+
+#~ msgid "1.24.0"
+#~ msgstr ""
+
+#~ msgid "1.5.2"
+#~ msgstr ""
+
+#~ msgid "3.5.0"
+#~ msgstr ""
 

@@ -11,10 +11,7 @@ import sys
 PATH_TO_SOURCE = os.path.abspath(os.path.dirname(__file__))
 PATH_TO_ROOT = os.path.join(PATH_TO_SOURCE, "..", "..")
 
-sys.path.insert(
-    0,
-    os.path.abspath(PATH_TO_ROOT),
-)
+sys.path.insert(0, os.path.abspath(PATH_TO_ROOT))
 
 # ######################################################################################################################
 # Импорт необходимых инструментов
@@ -22,45 +19,25 @@ sys.path.insert(
 # Подавление Warning
 import warnings
 
-for warn in [
-    UserWarning,
-    FutureWarning,
-]:
-    warnings.filterwarnings(
-        "ignore",
-        category=warn,
-    )
+for warn in [UserWarning, FutureWarning]:
+    warnings.filterwarnings("ignore", category=warn)
 
-from dataclasses import (
-    dataclass,
-)  # Класс данных
+from dataclasses import dataclass  # Класс данных
 
 import logging  # Логирование
 import itertools  # Функции создающие итераторы для эффективного цикла
 
 # Типы данных
-from typing import (
-    Dict,
-    Union,
-    Any,
-)
+from typing import Dict, Union, Any
 from types import ModuleType
 
 # Персональные
 import openav  # Библиотека в целом
-from openav.modules.trml.shell import (
-    Shell,
-)  # Работа с Shell
-from openav.modules.lab.build import (
-    Run,
-)  # Сборка библиотеки
-from openav import (
-    rsrs,
-)  # Ресурсы библиотеки
+from openav.modules.trml.shell import Shell  # Работа с Shell
+from openav.modules.lab.build import Run  # Сборка библиотеки
+from openav import rsrs  # Ресурсы библиотеки
 
-from openav.modules.core.logging import (
-    ARG_PATH_TO_LOGS,
-)
+from openav.modules.core.logging import ARG_PATH_TO_LOGS
 from openav.modules.lab.audio import (
     TYPES_ENCODE,
     PRESETS_CRF_ENCODE,
@@ -104,7 +81,7 @@ class RunVAD(MessagesVAD):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_json = 20  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 20  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_runvad: logging.Logger = logging.getLogger(__class__.__name__)
@@ -113,12 +90,7 @@ class RunVAD(MessagesVAD):
     # Внутренние методы (защищенные)
     # ------------------------------------------------------------------------------------------------------------------
 
-    def _build_args(
-        self,
-        description: str,
-        conv_to_dict: bool = True,
-        out=True,
-    ) -> Dict[str, Any]:
+    def _build_args(self, description: str, conv_to_dict: bool = True, out=True) -> Dict[str, Any]:
         """
         Args:
             description (str): Описание парсера командной строки
@@ -130,21 +102,14 @@ class RunVAD(MessagesVAD):
         """
 
         # Выполнение функции из суперкласса
-        super().build_args(
-            description=description,
-            conv_to_dict=False,
-            out=out,
-        )
+        super().build_args(description=description, conv_to_dict=False, out=out)
 
         if self._ap is None:
             return {}
 
         # Добавление аргументов в парсер командной строки
         self._ap.add_argument(
-            "--config",
-            required=True,
-            metavar=self._("ФАЙЛ"),
-            help=self._("Путь к конфигурационному файлу"),
+            "--config", required=True, metavar=self._("ФАЙЛ"), help=self._("Путь к конфигурационному файлу")
         )
 
         self._ap.add_argument(
@@ -158,41 +123,24 @@ class RunVAD(MessagesVAD):
             "--automatic_update",
             action="store_true",
             help=self._(
-                "Автоматическая проверка конфигурационного файла в момент работы программы " "(работает при заданном"
+                "Автоматическая проверка конфигурационного файла в момент работы программы (работает при заданном"
             )
             + " --config)",
         )
         self._ap.add_argument(
-            "--no_clear_shell",
-            action="store_false",
-            help=self._("Не очищать консоль перед выполнением"),
+            "--no_clear_shell", action="store_false", help=self._("Не очищать консоль перед выполнением")
         )
 
         # Преобразование списка аргументов командной строки в словарь
         if conv_to_dict is True:
-            (
-                args,
-                _,
-            ) = self._ap.parse_known_args()
+            args, _ = self._ap.parse_known_args()
             return vars(args)  # Преобразование списка аргументов командной строки в словарь
 
-    def _valid_json_config(
-        self,
-        config: Dict[
-            str,
-            Union[
-                str,
-                bool,
-                int,
-                float,
-            ],
-        ],
-        out: bool = True,
-    ) -> bool:
-        """Проверка настроек JSON на валидность
+    def _valid_yaml_config(self, config: Dict[str, Union[str, bool, int, float]], out: bool = True) -> bool:
+        """Проверка настроек YAML на валидность
 
         Args:
-            config (Dict[str, Union[str, bool, int, float]]): Словарь из JSON файла
+            config (Dict[str, Union[str, bool, int, float]]): Словарь из YAML файла
             out (bool): Печатать процесс выполнения
 
         Returns:
@@ -203,37 +151,22 @@ class RunVAD(MessagesVAD):
         if type(config) is not dict or type(out) is not bool:
             try:
                 raise TypeError
-            except:
-                self.inv_args(
-                    __class__.__name__,
-                    self._valid_json_config.__name__,
-                    out=out,
-                )
+            except TypeError:
+                self.inv_args(__class__.__name__, self._valid_yaml_config.__name__, out=out)
                 return False
 
         # Конфигурационный файл пуст
         if not config:
-            self.message_error(
-                self._config_empty,
-                space=self._space,
-                out=out,
-            )
+            self.message_error(self._config_empty, space=self._space, out=out)
             return False
 
         # Вывод сообщения
-        self.message_info(
-            self._check_config_file_valid,
-            space=self._space,
-            out=out,
-        )
+        self.message_info(self._check_config_file_valid, space=self._space, out=out)
 
         curr_valid_layer = 0  # Валидное количество разделов
 
         # Проход по всем разделам конфигурационного файла
-        for (
-            key,
-            val,
-        ) in config.items():
+        for (key, val) in config.items():
             # 1. Скрытие метаданных
             # 2. Скрытие версий установленных библиотек
             # 3. Принудительная загрузка модели из сети
@@ -342,10 +275,7 @@ class RunVAD(MessagesVAD):
                     continue
 
                 # Проход по всем подразделам текущего раздела
-                for (
-                    k,
-                    v,
-                ) in val.items():
+                for (k, v) in val.items():
                     # Проверка значения
                     if type(v) is not str or not v:
                         continue
@@ -378,22 +308,13 @@ class RunVAD(MessagesVAD):
                     curr_valid_layer += 1
 
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
-        if self._all_layer_in_json != curr_valid_layer:
-            self.message_error(
-                self._invalid_file,
-                space=self._space,
-                out=out,
-            )
+        if self._all_layer_in_yaml != curr_valid_layer:
+            self.message_error(self._invalid_file, space=self._space, out=out)
             return False
 
         return True  # Результат
 
-    def _load_config_json(
-        self,
-        resources: ModuleType = rsrs,
-        config="vad.json",
-        out: bool = True,
-    ) -> bool:
+    def _load_config_yaml(self, resources: ModuleType = rsrs, config="vad.yaml", out: bool = True) -> bool:
         """Загрузка и проверка конфигурационного файла
 
         Args:
@@ -406,55 +327,32 @@ class RunVAD(MessagesVAD):
         """
 
         # Проверка аргументов
-        if (
-            not isinstance(
-                resources,
-                ModuleType,
-            )
-            or type(config) is not str
-            or not config
-            or type(out) is not bool
-        ):
+        if not isinstance(resources, ModuleType) or type(config) is not str or not config or type(out) is not bool:
             try:
                 raise TypeError
-            except:
-                self.inv_args(
-                    __class__.__name__,
-                    self._load_config_json.__name__,
-                    out=out,
-                )
+            except TypeError:
+                self.inv_args(__class__.__name__, self._load_config_yaml.__name__, out=out)
                 return False
 
         # Конфигурационный файл передан
         if self._args["config"] is not None:
-            config_json = self.load_json(
-                self._args["config"],
-                False,
-                out,
-            )  # Загрузка JSON файла
+            config_yaml = self.load_yaml(self._args["config"], False, out)  # Загрузка YAML файла
         else:
-            config_json = self.load_json_resources(
-                resources,
-                config,
-                out,
-            )  # Загрузка JSON файла из ресурсов модуля
+            config_yaml = self.load_yaml_resources(resources, config, out)  # Загрузка YAML файла из ресурсов модуля
 
         # Конфигурационный файл не загружен
-        if not config_json:
+        if not config_yaml:
             return False
 
         # Проверка конфигурационного файла на валидность
-        res_valid_json_config = self._valid_json_config(config_json, out)
+        res_valid_yaml_config = self._valid_yaml_config(config_yaml, out)
 
         # Конфигурационный файл не валидный
-        if res_valid_json_config is False:
+        if res_valid_yaml_config is False:
             return False
 
         # Проход по всем разделам конфигурационного файла
-        for (
-            k,
-            v,
-        ) in config_json.items():
+        for (k, v) in config_yaml.items():
             self._args[k] = v  # Добавление значения из конфигурационного файла в словарь аргументов командной строки
 
         return True
@@ -463,12 +361,7 @@ class RunVAD(MessagesVAD):
     #  Внешние методы
     # ------------------------------------------------------------------------------------------------------------------
 
-    def run(
-        self,
-        metadata: ModuleType = openav,
-        resources: ModuleType = rsrs,
-        out: bool = True,
-    ) -> bool:
+    def run(self, metadata: ModuleType = openav, resources: ModuleType = rsrs, out: bool = True) -> bool:
         """Запуск детектирования речевой активности в аудиовизуальном сигнале
 
         Args:
@@ -482,25 +375,11 @@ class RunVAD(MessagesVAD):
         """
 
         # Проверка аргументов
-        if (
-            not isinstance(
-                metadata,
-                ModuleType,
-            )
-            or not isinstance(
-                resources,
-                ModuleType,
-            )
-            or type(out) is not bool
-        ):
+        if not isinstance(metadata, ModuleType) or not isinstance(resources, ModuleType) or type(out) is not bool:
             try:
                 raise TypeError
-            except:
-                self.inv_args(
-                    __class__.__name__,
-                    self.run.__name__,
-                    out=out,
-                )
+            except TypeError:
+                self.inv_args(__class__.__name__, self.run.__name__, out=out)
                 return False
 
         self._args = self._build_args(self._description)  # Построение аргументов командной строки
@@ -508,37 +387,19 @@ class RunVAD(MessagesVAD):
             return False
 
         # Очистка консоли перед выполнением
-        if (
-            self.clear_shell(
-                cls=self._args["no_clear_shell"],
-                out=True,
-            )
-            is False
-        ):
+        if self.clear_shell(cls=self._args["no_clear_shell"], out=True) is False:
             return False
 
         # Вывод сообщения
         if out is True:
             # Приветствие
             Shell.add_line()  # Добавление линии во весь экран
-            print(
-                self._description_time.format(
-                    self.text_bold,
-                    self.color_blue,
-                    self.text_end,
-                )
-            )
+            print(self._description_time.format(self.text_bold, self.color_blue, self.text_end))
             self._logger_runvad.info(self._description)
             Shell.add_line()  # Добавление линии во весь экран
 
         # Загрузка и проверка конфигурационного файла
-        if (
-            self._load_config_json(
-                resources,
-                out=out,
-            )
-            is False
-        ):
+        if self._load_config_yaml(resources, out=out) is False:
             return False
 
         # Вывод сообщения
@@ -588,10 +449,7 @@ class RunVAD(MessagesVAD):
 
 def main():
     # Запуск детектирования речевой активности в аудиовизуальном сигнале
-    vad = RunVAD(
-        lang="ru",
-        path_to_logs="./openav/logs",
-    )
+    vad = RunVAD(lang="ru", path_to_logs="./openav/logs")
     vad.run(out=True)
 
 

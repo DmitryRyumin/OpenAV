@@ -23,7 +23,7 @@ from dataclasses import dataclass, field  # Класс данных
 import logging  # Логирование
 
 # Типы данных
-from typing import Optional
+from typing import List, Optional
 
 # Персональные
 from openav import __title__
@@ -65,6 +65,9 @@ class Logging:
         self._logger_handler: Optional[logging.NullHandler] = None  # Обработчик логирования
         self.__logger: bool = self.__create_logging()  # Создание регистратора и обработчика для логирования
 
+        self.logger_gui: bool = False  # Логирование GUI
+        self._logger_messages_gui: List[str] = []  # Сообщения для логирования в режиме GUI
+
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
     # ------------------------------------------------------------------------------------------------------------------
@@ -104,6 +107,32 @@ class Logging:
         """
 
         return self.__logger
+
+    @property
+    def logger_gui(self) -> bool:
+        """Получение/установка логирования GUI
+
+        Args:
+            (bool): **True** если запущен GUI, в обратном случае **False**
+
+        Returns:
+            bool: **True** если запущен GUI, в обратном случае **False**
+        """
+
+        return self.__logger_gui
+
+    @logger_gui.setter
+    def logger_gui(self, run_gui: bool):
+        """Установка логирования GUI"""
+
+        try:
+            # Проверка аргументов
+            if type(run_gui) is not bool:
+                raise TypeError
+        except TypeError:
+            pass
+        else:
+            self.__logger_gui = run_gui
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (приватные)
@@ -171,6 +200,46 @@ class Logging:
             return True
 
     # ------------------------------------------------------------------------------------------------------------------
+    # Внутренние методы (защищенные)
+    # ------------------------------------------------------------------------------------------------------------------
+
+    def _get_logger_messages_gui(self) -> List[str]:
+        """Получение сообщений для логирования в режиме GUI
+
+        .. note::
+            protected (защищенный метод)
+
+        Returns:
+            List[str]: Сообщения
+        """
+
+        return self._logger_messages_gui
+
+    def _add_logger_messages_gui(self, message: str, last: bool = False) -> None:
+        """Добавление сообщения для логирования в режиме GUI
+
+        .. note::
+            protected (защищенный метод)
+
+        Args:
+            message (str): Сообщение
+            last (bool): Замена последнего сообщения
+
+        Returns:
+            None
+        """
+
+        if last is True:
+            try:
+                self._logger_messages_gui[-1] = message
+            except Exception:
+                pass
+            else:
+                return None
+
+        self._logger_messages_gui.append(message)
+
+    # ------------------------------------------------------------------------------------------------------------------
     # Внешние методы
     # ------------------------------------------------------------------------------------------------------------------
 
@@ -179,7 +248,7 @@ class Logging:
         """Удаление недопустимых символов из пути
 
         Args:
-            (str): Путь
+            path (str): Путь
 
         Returns:
             str: Путь

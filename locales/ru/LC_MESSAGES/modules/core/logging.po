@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-10 15:21+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/modules/core/logging.rst:2 b5ee2c498ee84b32bc30267f12b38476
+msgid "Логирование"
+msgstr ""
+
+#: 535a815567ac4af2a015c6f6cda10282 of openav.modules.core.logging.Logging:1
+msgid "Базовые классы: :py:class:`object`"
+msgstr ""
+
+#: f308abbb3e2a412caa6f4f33011182dc of openav.modules.core.logging.Logging:1
+msgid "Класс для логирования"
+msgstr ""
+
+#: 0c7de75d976841c0b287ec7d7baa8b7c 2d49ee5e463f4dacb98f72ded13edd84
+#: df299ccecb4e49059618c6a912db02b1 of openav.modules.core.logging.Logging
+#: openav.modules.core.logging.Logging.path_to_logs
+#: openav.modules.core.logging.Logging.re_inv_chars
+msgid "Параметры"
+msgstr ""
+
+#: 134c6bfacddf4638b567a7d682939f0b of openav.modules.core.logging.Logging:3
+msgid "Путь к директории для сохранения LOG файлов"
+msgstr ""
+
+#: 886360a5bf10498bba578932a74c32b8 of
+#: openav.modules.core.logging.Logging.check_create_logger:1
+msgid "Получение создания регистратора и обработчика для логирования"
+msgstr ""
+
+#: 0154a0a5aa6b47cf91f66de5e4014f2b 7cdf7195c3294f0d92e294d9b33513f6
+#: a49850aaf446497cbbda512cd57fb304 of
+#: openav.modules.core.logging.Logging.check_create_logger
+#: openav.modules.core.logging.Logging.path_to_logs
+#: openav.modules.core.logging.Logging.re_inv_chars
+msgid "Результат"
+msgstr ""
+
+#: 8659301ce57e4a9c991e807b0e9778da of
+#: openav.modules.core.logging.Logging.check_create_logger:3
+msgid ""
+"**True** если регистратор и обработчик созданы, в обратном случае "
+"**False**"
+msgstr ""
+
+#: 78d11a86b8244babb9a9eb96f0ffeb81 9fdc5db9c5654b908a739ab3cfd716cd
+#: d6cb53aa494648c9998a7df5d90185c4 of
+#: openav.modules.core.logging.Logging.check_create_logger
+#: openav.modules.core.logging.Logging.path_to_logs
+#: openav.modules.core.logging.Logging.re_inv_chars
+msgid "Тип результата"
+msgstr ""
+
+#: b685bfdf14b74492982dc6bd302e8d07 of
+#: openav.modules.core.logging.Logging.path_to_logs:1
+msgid "Получение/установка пути к директории для сохранения LOG файлов"
+msgstr ""
+
+#: 36346689d41e4557b66ec128a4b894c1 7ba81cec7c724d8686d89b11029426e6
+#: d890cb3e55b840d7ad6281553ef4a714 ddadf3c8b6c14b058d39d4dd63b1b3a9 of
+#: openav.modules.core.logging.Logging.path_to_logs:3
+#: openav.modules.core.logging.Logging.path_to_logs:5
+#: openav.modules.core.logging.Logging.re_inv_chars:3
+#: openav.modules.core.logging.Logging.re_inv_chars:5
+msgid "Путь"
+msgstr ""
+
+#: 735633f030384cc1954f9c04357f08c4 of
+#: openav.modules.core.logging.Logging.re_inv_chars:1
+msgid "Удаление недопустимых символов из пути"
+msgstr ""
+

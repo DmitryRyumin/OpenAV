@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 20:08+0300\n"
+"POT-Creation-Date: 2023-02-26 20:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,11 +32,12 @@ msgstr ""
 msgid "Класс для всех пользовательских исключений"
 msgstr ""
 
-#: 28630a7c702749e6b58f01d6911816ce 4338ccde18c74ec7b88f935c8726de3e
-#: 6096f94cae364ae99aedc0b188af27f1 a1caaa4f4e924b81b76bdecdf3b040ca
-#: a5365d36508e4e83afd48cfee2c32f85 b22488c4dc924cd8bd4bae0aa78778ae
-#: db6be105a1284161b8b5c73b016dc139 e22bc100110444c9984e1c8067fcd299
-#: f4fea0578b10463cbcd8cc73f8a3a569 of
+#: 28630a7c702749e6b58f01d6911816ce 29d8915ba3e9411ba96d80c7c4af5416
+#: 4338ccde18c74ec7b88f935c8726de3e 6096f94cae364ae99aedc0b188af27f1
+#: a1caaa4f4e924b81b76bdecdf3b040ca a5365d36508e4e83afd48cfee2c32f85
+#: b22488c4dc924cd8bd4bae0aa78778ae db6be105a1284161b8b5c73b016dc139
+#: e22bc100110444c9984e1c8067fcd299 f4fea0578b10463cbcd8cc73f8a3a569 of
+#: openav.modules.core.exceptions.InvalidContentLength:1
 #: openav.modules.core.exceptions.IsNestedCatalogsNotFoundError:1
 #: openav.modules.core.exceptions.IsNestedDirectoryANotFoundError:1
 #: openav.modules.core.exceptions.IsNestedDirectoryVNotFoundError:1
@@ -49,6 +50,11 @@ msgstr ""
 msgid ""
 "Базовые классы: "
 ":py:class:`~openav.modules.core.exceptions.CustomException`"
+msgstr ""
+
+#: 5aa0a8a680d14b16815f5bade076d9f2 of
+#: openav.modules.core.exceptions.InvalidContentLength:1
+msgid "Не определен размер файла для загрузки"
 msgstr ""
 
 #: d4eb5b60dce542fc979d79ad5feba5cb of

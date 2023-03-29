@@ -32,7 +32,12 @@ from openav.modules.core.core import Core  # Ядро
 # ######################################################################################################################
 @dataclass
 class FileManagerMessages(Core):
-    """Класс для сообщений"""
+    """Класс для сообщений
+
+    Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
+        lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
+    """
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
@@ -63,7 +68,12 @@ class FileManagerMessages(Core):
 # ######################################################################################################################
 @dataclass
 class FileManager(FileManagerMessages):
-    """Класс для работы с файлами"""
+    """Класс для работы с файлами
+
+    Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
+        lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
+    """
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор

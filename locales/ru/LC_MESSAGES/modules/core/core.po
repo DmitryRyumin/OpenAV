@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-16 16:21+0300\n"
+"POT-Creation-Date: 2023-03-10 15:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,25 +18,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/modules/core/core.rst:2 4c934ea3e88840eab3c2e8a783195311
+#: ../../source/modules/core/core.rst:2 f0aa6a106b224484a4eda81452a10515
 msgid "Ядро"
 msgstr ""
 
-#: c32e77c115ed464f93f4e31b3256c4ab of openav.modules.core.core.CoreMessages:1
+#: c20f26b847724f62b860af763194ce54 of openav.modules.core.core.CoreMessages:1
 msgid "Базовые классы: :py:class:`~openav.modules.core.settings.Settings`"
 msgstr ""
 
-#: 03a37206612b41f99dc3507b82f8b132 of openav.modules.core.core.CoreMessages:1
+#: 00d05b7345864641b948a42b68d935a8 of openav.modules.core.core.CoreMessages:1
 msgid "Класс для сообщений"
 msgstr ""
 
-#: 03ee9123f9064365b5f90a454051ab14 10be2237e28447d5b5db3d5aac3bd064
-#: 18a6dfe2b6ca4865bb9aec582ab3e5d3 44ac14425b1146c9997d5d13c21b3049
-#: 53089aaa62bd40d4b63811c35e901a70 5ef7cae720c4406a96e998fe42922279
-#: 7eb927d677564f45a31638d9b520a7bc 858a1c1dc9d7413292bcf4f6fce3a6a4
-#: 9628f6b1a9be4bfe929be02c2d37586a a0dfb05d38ee4d45b2651199dbaa2dec
-#: b3e857437b2b4d6e82d17d5fd65f757a da13406593474675b662e8bc782c6c57 of
-#: openav.modules.core.core.Core openav.modules.core.core.Core.build_args
+#: f2dc219da03648768092b2655e545cfb of openav.modules.core.core.Core
+#: openav.modules.core.core.Core.build_args
 #: openav.modules.core.core.Core.clear_shell
 #: openav.modules.core.core.Core.inv_args
 #: openav.modules.core.core.Core.libs_vers
@@ -50,49 +45,47 @@ msgstr ""
 msgid "Параметры"
 msgstr ""
 
-#: cf61ad914ed44bf7b99ee9696db246a3 fb68469576eb4a12b71b8a6fdb970d6e of
-#: openav.modules.core.core.Core:3 openav.modules.core.core.CoreMessages:3
+#: c20f26b847724f62b860af763194ce54 of openav.modules.core.core.Core:3
+#: openav.modules.core.core.CoreMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: c20f26b847724f62b860af763194ce54 of openav.modules.core.core.Core:5
+#: openav.modules.core.core.CoreMessages:5
 msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
 msgstr ""
 
-#: 141f06f867d44de7a58086cdfdce2ba0 of openav.modules.core.core.Core:1
+#: d82c83c8b7ee45b9adc950b90c7deba1 of openav.modules.core.core.Core:1
 msgid "Базовые классы: :py:class:`~openav.modules.core.core.CoreMessages`"
 msgstr ""
 
-#: b78b74da65b24a2680b77d9d25d7ae7a of openav.modules.core.core.Core:1
+#: 763702b776a44a229ed20f3abc8fb5ef of openav.modules.core.core.Core:1
 msgid "Класс-ядро модулей"
 msgstr ""
 
-#: 2d46f29c50e44c539ab5a4c0e66dc0f5 of
+#: edf7d6e98930455989b6cd01bc8226ee of
 #: openav.modules.core.core.Core.build_args:1
 msgid "Построение аргументов командной строки"
 msgstr ""
 
-#: 95435f22120e439ba254a1e602bb3ad8 of
+#: 7a2fc10c83fe4edc81725de5c685b59d of
 #: openav.modules.core.core.Core.build_args:3
 msgid "Описание парсера командной строки"
 msgstr ""
 
-#: 0019ae99467943109172259ff32737c2 of
+#: 5afeaabb9231432ea442b6afaa307867 of
 #: openav.modules.core.core.Core.build_args:5
 msgid "Преобразование списка аргументов командной строки в словарь"
 msgstr ""
 
-#: 38dee365e95746769a603c62a6162c67 4a13e44a8a62453dbfec9d47c8d17497
-#: cacf5164a35448ffa3fc22739b4c6172 of
+#: 1f056b3309024702aa3a5c22785ae7fc of
 #: openav.modules.core.core.Core.build_args:7
 #: openav.modules.core.core.Core.clear_shell:5
 #: openav.modules.core.core.Core.inv_args:7
 msgid "Печатать процесс выполнения"
 msgstr ""
 
-#: 1c4ebd465c564b78ac8decd3818dbc0a 406888cbff2e49099e29756eadfa9a4d
-#: 588a405eb1064f079a103160b36e9ab4 5f5d53655b474c8f8abf863e64b4f1b5
-#: 75f01fb3384a4bdd92506d80a2b447d9 7edc59cc7aef488c8064ec85f39b74ec
-#: 8775e0125d7a4b40b2025430c6bc98f7 9633e10ca57d401cae898bdf7bde7038
-#: b7e1a04e661c409b8fae59c941398b49 e44f2c79cad04fed9de232e27a3df072
-#: edf16b786f8d4554b50362915aa1de6e ef8c40bc352b4257852256b49f0ded65 of
-#: openav.modules.core.core.Core.build_args
+#: 2e26c057567944699fbba7a1c62fdc2b of openav.modules.core.core.Core.build_args
 #: openav.modules.core.core.Core.clear_shell
 #: openav.modules.core.core.Core.df_pkgs openav.modules.core.core.Core.inv_args
 #: openav.modules.core.core.Core.is_notebook
@@ -106,18 +99,12 @@ msgstr ""
 msgid "Результат"
 msgstr ""
 
-#: 8cc8b8b491204727b38360aa4f2f8ce2 of
+#: 0b05669cefc94c5e96411e90d5bc23dc of
 #: openav.modules.core.core.Core.build_args:10
 msgid "Словарь со списком аргументов командной стройки"
 msgstr ""
 
-#: 038e2c32c1294555b286db643fb77749 099a1fa1e660433190fe32f6ff1e6776
-#: 106b97ef720845e49588552c3e2e9044 226a8b16417d4a8e9ac46d1c7149614c
-#: 4034d705b76e41de8acdc4c023daf1e9 405f050f59e4452d9954b72c7b5b7a7a
-#: 4b469ba3a5234108bdfb9ef798dc8236 59d086cf14e0472c91f0f1fb2fb2b413
-#: 60e5dd712a754820986d6f769d17fc77 d1bd1f464fc243feb83e9f154dc60582
-#: f6216e1973af4b3ca4729e028cb66070 f6fa307e58794f2b9bd78d45a70e7457 of
-#: openav.modules.core.core.Core.build_args
+#: 6b7431f8d3194262a98f146655075543 of openav.modules.core.core.Core.build_args
 #: openav.modules.core.core.Core.clear_shell
 #: openav.modules.core.core.Core.df_pkgs openav.modules.core.core.Core.inv_args
 #: openav.modules.core.core.Core.is_notebook
@@ -131,40 +118,38 @@ msgstr ""
 msgid "Тип результата"
 msgstr ""
 
-#: 236dfa064d694beba7999761300017b9 de25e842d8c346e78d3048a045fe07ce of
+#: 87b4a2cff0ff4c7d8c5c8fa2df30e6e0 of
 #: openav.modules.core.core.Core.clear_shell:1
 #: openav.modules.core.core.Core.clear_shell:3
 msgid "Очистка консоли"
 msgstr ""
 
-#: 5142fe3561fa4524b87852b4a37b13c2 of
+#: 5b30cb98030b48df9024d9ec1e93a094 of
 #: openav.modules.core.core.Core.clear_shell:8
 msgid "**True** если консоль очищена, в обратном случае **False**"
 msgstr ""
 
-#: ae73f872c24a486ba45f3a098fae7a10 of openav.modules.core.core.Core.df_pkgs:1
+#: 872d1579524547b896f4454a9c71fad4 of openav.modules.core.core.Core.df_pkgs:1
 msgid "Получение DataFrame c версиями установленных библиотек"
 msgstr ""
 
-#: 2fab90676f944ce28e8d0a1598786eed of openav.modules.core.core.Core.df_pkgs:3
+#: fae7e02348f1477f877d7e41a650c7b7 of openav.modules.core.core.Core.df_pkgs:3
 msgid "**DataFrame** c версиями установленных библиотек"
 msgstr ""
 
-#: 463848b4551543fb820f67ba6157c84e of openav.modules.core.core.Core.inv_args:1
+#: 7f549761849d451ca1c48c089b497ee4 of openav.modules.core.core.Core.inv_args:1
 msgid "Сообщение об указании неверных типов аргументов"
 msgstr ""
 
-#: 6a420df9a90b4111abe121d7b8754dc8 of openav.modules.core.core.Core.inv_args:3
+#: 39b8baf1f7e749d6a71e6e15157d261b of openav.modules.core.core.Core.inv_args:3
 msgid "Имя класса"
 msgstr ""
 
-#: 864346f9683044a89ad73a00722ef273 of openav.modules.core.core.Core.inv_args:5
+#: 91e8480a18d74b61b77bbfe0bcc72ff2 of openav.modules.core.core.Core.inv_args:5
 msgid "Имя метода/функции"
 msgstr ""
 
-#: 1dbcc4b036924f4098ab80159c7ce8ca 1ea922057f3949f384850b62e8c36913
-#: 5899617d5d28448e9d13c6dbc130db09 a850e087da06475a83f1b00be150acf7
-#: b6aec22c02064f9fbbe48741f815aadf c5ed6bc49deb4b40856e914fa96ff12f of
+#: 3585120172f94c5bae8934e133750c41 of
 #: openav.modules.core.core.Core.inv_args:10
 #: openav.modules.core.core.Core.message_error:10
 #: openav.modules.core.core.Core.message_info:10
@@ -174,27 +159,24 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: 6e3baab17e974bb5ad5f4c999befd024 of
+#: 7450a27375994ae69adca20ddd27c4aa of
 #: openav.modules.core.core.Core.is_notebook:1
 msgid "Получение результата определения запуска библиотеки в Jupyter или аналогах"
 msgstr ""
 
-#: 77590d9b639e4e59ad113a31bffae62d of
+#: 55970a3278f446699706add47390aeda of
 #: openav.modules.core.core.Core.is_notebook:3
 msgid ""
 "**True** если библиотека запущена в Jupyter или аналогах, в обратном "
 "случае **False**"
 msgstr ""
 
-#: 49ec21b9d3c54adebbb9af5daecb9d4c of
+#: ad97aea8f5f940918fabc3402d55d497 of
 #: openav.modules.core.core.Core.libs_vers:1
 msgid "Получение и отображение версий установленных библиотек"
 msgstr ""
 
-#: 064e81e426bf42b4a1f4f1c40f8b42c1 107033de52c744d68a2541423055f26c
-#: 1c765525d37f410180486ded0faf3f4e 2b063edebb764ee39be2144dfb45e8aa
-#: 5a22b786d6a94b8a8edc3c1dd69ed40a 7182f4db36e346a194c15ef2efae9c23
-#: ae501852ca0f4ce48649babad44aaa32 of
+#: 579ea0f966df487c9fd57453726f6d6b of
 #: openav.modules.core.core.Core.libs_vers:3
 #: openav.modules.core.core.Core.message_error:7
 #: openav.modules.core.core.Core.message_info:7
@@ -205,21 +187,19 @@ msgstr ""
 msgid "Отображение"
 msgstr ""
 
-#: 250ad92dba464da3acc3d71351cea76e of
+#: 90278393d0584ec18dba8ecf744d115c of
 #: openav.modules.core.core.Core.libs_vers:6
 msgid ""
 "**True** если версии установленных библиотек отображены, в обратном "
 "случае **False**"
 msgstr ""
 
-#: 132e32b32fc14857966b88b11fe3cbe9 of
+#: a486adf260dc4f39bc53bc1f72a8087a of
 #: openav.modules.core.core.Core.message_error:1
 msgid "Сообщение об ошибке"
 msgstr ""
 
-#: 0762b2f9c7c44fd6b267d966b1087812 72c66a65fe604d37bf1acdc2b09a9d20
-#: b553ebd1a91445dc9b0759a562e510da ce8c45addec24648ae8eb182a532cd62
-#: f2e76bea20a342efa43a01adad9f0773 of
+#: 52fdd3440807458abbe64cafcef1b873 of
 #: openav.modules.core.core.Core.message_error:3
 #: openav.modules.core.core.Core.message_info:3
 #: openav.modules.core.core.Core.message_line:3
@@ -228,8 +208,7 @@ msgstr ""
 msgid "Сообщение"
 msgstr ""
 
-#: 6b0893361f8542fcb646bab6a2601899 ecf1bcdf62d84337a952da8e42db708e
-#: f218826a7fd74883895e2fc483d8e553 f220a635789d4446820433e8132c8d12 of
+#: 46f5a2f8ea8845968ab7d515898cd3ed of
 #: openav.modules.core.core.Core.message_error:5
 #: openav.modules.core.core.Core.message_info:5
 #: openav.modules.core.core.Core.message_progressbar:5
@@ -237,38 +216,38 @@ msgstr ""
 msgid "Количество пробелов в начале текста"
 msgstr ""
 
-#: 4bc83cd6851042d7aa6e8c36f071c408 of
+#: 12d3648380364736ae2fc150ba95c812 of
 #: openav.modules.core.core.Core.message_info:1
 msgid "Информационное сообщение"
 msgstr ""
 
-#: 7a98f963b43d4fa7bf4898d207854290 d48c4ac1eed7497280e170dae4a33787 of
+#: 3fd38edc42ff45468cfc4108ccab3c0d of
 #: openav.modules.core.core.Core.message_line:1
 #: openav.modules.core.core.Core.message_line:10
 msgid "Информационное сообщение (в виде одной строки)"
 msgstr ""
 
-#: c392578c5ff643ff82e2905f4452125b of
+#: 466e4b28d16b4b88ab613ff78ef051a2 of
 #: openav.modules.core.core.Core.message_line:5
 msgid "Тип сообщения"
 msgstr ""
 
-#: 226a572b0908432f97557cd78d3ee102 of
+#: ecc68e71389b41d5bde5ab6c1e9b6b39 of
 #: openav.modules.core.core.Core.message_metadata_info:1
 msgid "Информация об библиотеке"
 msgstr ""
 
-#: 3b7de3072875437fa7c62f38401cdfa1 of
+#: d2c40d26307b44448a7b1e76ae0902e0 of
 #: openav.modules.core.core.Core.message_progressbar:1
 msgid "Информационный индикатор выполнения"
 msgstr ""
 
-#: 7385b7a8e8d848dbb172b3a794fe9768 of
+#: 72c24bcd57fb4770889de5e5fd9ea390 of
 #: openav.modules.core.core.Core.message_progressbar:7
 msgid "Закрыть информационный индикатор"
 msgstr ""
 
-#: 426d3ac09dab467891d3a1d13cef29f0 of
+#: 7f549761849d451ca1c48c089b497ee4 of
 #: openav.modules.core.core.Core.message_true:1
 msgid "Сообщение с положительной информацией"
 msgstr ""

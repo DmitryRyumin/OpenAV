@@ -51,7 +51,7 @@ from openav.modules.core.exceptions import (
     SamplingRateError,
     WindowSizeSamplesError,
 )
-from openav.modules.file_manager.json_manager import Json  # Класс для работы с Json
+from openav.modules.file_manager.yaml_manager import Yaml  # Класс для работы с YAML
 
 # ######################################################################################################################
 # Константы
@@ -92,10 +92,11 @@ VOSK_SUPPORTED_DICTS: List[str] = ["small", "big"]  # Размеры слова�
 # Сообщения
 # ######################################################################################################################
 @dataclass
-class AudioMessages(Json):
+class AudioMessages(Yaml):
     """Класс для сообщений
 
     Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
         lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
     """
 
@@ -149,6 +150,7 @@ class Audio(AudioMessages):
     """Класс для обработки аудиомодальности
 
     Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
         lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
     """
 
@@ -532,8 +534,6 @@ class Audio(AudioMessages):
         .. versionchanged:: 0.1.1
 
         .. deprecated:: 0.1.0
-
-
         """
 
         try:

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-16 16:21+0300\n"
+"POT-Creation-Date: 2023-03-10 15:41+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,23 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/modules/core/messages.rst:2 ba74a895a75e4a2595a599fe57fbf477
+#: ../../source/modules/core/messages.rst:2 eaf33ee91d6847ff86e568885fdfc895
 msgid "Сообщения"
 msgstr ""
 
-#: ea24a5e1ea814b3bba16419a34292947 of openav.modules.core.messages.Messages:1
+#: dba4c8ff96e04ec890dd240d5c80b454 of openav.modules.core.messages.Messages:1
 msgid "Базовые классы: :py:class:`~openav.modules.core.language.Language`"
 msgstr ""
 
-#: 87f9c6748be84d5481a4e74d2184e1a9 of openav.modules.core.messages.Messages:1
+#: 07fa0e2d478e46a7a75afd1f4b958509 of openav.modules.core.messages.Messages:1
 msgid "Класс для сообщений"
 msgstr ""
 
-#: 0d43ebe84fe0497da06b0d642ad6e779 of openav.modules.core.messages.Messages
+#: 7889c3165a404008923d814a7f6c669c of openav.modules.core.messages.Messages
 msgid "Параметры"
 msgstr ""
 
-#: 554c03d809304a96863bc8528e6b7686 of openav.modules.core.messages.Messages:3
+#: f03e96d5b9f64b9d82a8cad7bbeb4642 of openav.modules.core.messages.Messages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: f03e96d5b9f64b9d82a8cad7bbeb4642 of openav.modules.core.messages.Messages:5
 msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
 msgstr ""
 

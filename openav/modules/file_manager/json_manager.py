@@ -27,7 +27,12 @@ from openav.modules.file_manager.download import Download  # Загрузка ф
 # ######################################################################################################################
 @dataclass
 class JsonMessages(Download):
-    """Класс для сообщений"""
+    """Класс для сообщений
+
+    Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
+        lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
+    """
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
@@ -48,7 +53,12 @@ class JsonMessages(Download):
 # ######################################################################################################################
 @dataclass
 class Json(JsonMessages):
-    """Класс для работы с JSON"""
+    """Класс для работы с JSON
+
+    Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
+        lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
+    """
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор

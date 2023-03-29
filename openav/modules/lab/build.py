@@ -28,6 +28,7 @@ class Run(AV):
     """Класс для сборки библиотеки
 
     Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
         lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
     """
 

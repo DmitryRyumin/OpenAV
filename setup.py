@@ -1,19 +1,11 @@
 import sys
 
-from setuptools import (
-    setup,
-    find_packages,
-)
+from setuptools import setup, find_packages
 
 MIN_PYTHON_VERSION = (3, 9)
 
 if sys.version_info[:2] < MIN_PYTHON_VERSION:
-    raise RuntimeError(
-        "Python version required = {}.{}".format(
-            MIN_PYTHON_VERSION[0],
-            MIN_PYTHON_VERSION[1],
-        )
-    )
+    raise RuntimeError("Python version required = {}.{}".format(MIN_PYTHON_VERSION[0], MIN_PYTHON_VERSION[1]))
 
 import openav
 
@@ -30,6 +22,9 @@ REQUIRED_PACKAGES = [
     "filetype >= 1.2.0",
     "vosk >= 0.3.44",
     "requests >= 2.28.2",
+    "pyyaml >= 6.0",
+    "streamlit >= 1.20.0",
+    "watchdog >= 2.3.1",
 ]
 
 CLASSIFIERS = """\

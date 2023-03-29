@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-16 16:21+0300\n"
+"POT-Creation-Date: 2023-03-10 17:09+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,114 +18,182 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/modules/lab/audio.rst:2 73d16f3bf1814ea4a7cc65306ace9bf2
+#: ../../source/modules/lab/audio.rst:2 e2661fa3b4f0427383886b649faf3280
 msgid "Аудио"
 msgstr ""
 
-#: 7b72c2de752c46e7bfe14ed192a54b20 of openav.modules.lab.audio.AudioMessages:1
-msgid "Базовые классы: :py:class:`~openav.modules.file_manager.json_manager.Json`"
+#: aea159dc60774fae96803ea97ad42ab8 of openav.modules.lab.audio.AudioMessages:1
+msgid "Базовые классы: :py:class:`~openav.modules.file_manager.yaml_manager.Yaml`"
 msgstr ""
 
-#: 4e0953f2669e4eb999d0149dc71da2fa of openav.modules.lab.audio.AudioMessages:1
+#: a4b9c1fa67714a50ac805051a65a1083 of openav.modules.lab.audio.AudioMessages:1
 msgid "Класс для сообщений"
 msgstr ""
 
-#: 36da99ba92244e23b191a0ad07673259 c22096bf0058479bab67fb6e7eb9fd3e
-#: ffcffe9e11a54d23a214b10873a2d96a of openav.modules.lab.audio.Audio
-#: openav.modules.lab.audio.Audio.vad openav.modules.lab.audio.AudioMessages
+#: 79d57eabb21d4e81b865fe26f1866c91 97365236bbfb404799e6ba50ed8b32e5 of
+#: openav.modules.lab.audio.Audio openav.modules.lab.audio.Audio.vad
+#: openav.modules.lab.audio.Audio.vosk
+#: openav.modules.lab.audio.Audio.vosk_dict_language_sr
+#: openav.modules.lab.audio.Audio.vosk_language_sr
+#: openav.modules.lab.audio.Audio.vosk_sr
+#: openav.modules.lab.audio.AudioMessages
 msgid "Параметры"
 msgstr ""
 
-#: 30c25f22a6204879b1b358321a5b750d 50843c50aed0479093e8c02796e5bfd9 of
-#: openav.modules.lab.audio.Audio:3 openav.modules.lab.audio.AudioMessages:3
+#: 393695270a194c12a5607dfe501d0add of openav.modules.lab.audio.Audio:3
+#: openav.modules.lab.audio.AudioMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 393695270a194c12a5607dfe501d0add of openav.modules.lab.audio.Audio:5
+#: openav.modules.lab.audio.AudioMessages:5
 msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
 msgstr ""
 
-#: a4a3c60615ea490cb9c1b6aa75d48f28 of openav.modules.lab.audio.Audio:1
+#: 393695270a194c12a5607dfe501d0add of openav.modules.lab.audio.Audio:1
 msgid "Базовые классы: :py:class:`~openav.modules.lab.audio.AudioMessages`"
 msgstr ""
 
-#: 2e15ee0718a047a0824740722b6ee20a of openav.modules.lab.audio.Audio:1
+#: e0a378ed216743e8a3daf43b1c5bb0d4 of openav.modules.lab.audio.Audio:1
 msgid "Класс для обработки аудиомодальности"
 msgstr ""
 
-#: 657c89f57621470d89682c68a74f834c of openav.modules.lab.audio.Audio.vad:1
+#: b760309c105d4d2c92ee1a02aa06dff2 of openav.modules.lab.audio.Audio.vad:1
 msgid "VAD (Voice Activity Detector) или (детектирование голосовой активности)"
 msgstr ""
 
-#: 17b8c71e6c524d328ca1e0bf19ab9a57 of openav.modules.lab.audio.Audio.vad:3
+#: ab3fc1ffe9704864af349548aa22131c of openav.modules.lab.audio.Audio.vad:3
 msgid "Глубина иерархии для получения данных"
 msgstr ""
 
-#: 268128a484f944c782564799260fe287 of openav.modules.lab.audio.Audio.vad:5
+#: 7d238357e98449f887094f48a9e3aceb of openav.modules.lab.audio.Audio.vad:5
 msgid "Тип кодирования"
 msgstr ""
 
-#: 6303c4f01b264c06aa218d2d7f431c4d of openav.modules.lab.audio.Audio.vad:7
+#: 7f9f6d55bcd84ce8b1416f9303429545 of openav.modules.lab.audio.Audio.vad:7
 msgid "Качество кодирования (от **0** до **51**)"
 msgstr ""
 
-#: e4e97022608a4ac18bdd4533f802e53e of openav.modules.lab.audio.Audio.vad:9
+#: 3a4788f5993145e6b134202fa8abf122 of openav.modules.lab.audio.Audio.vad:9
 msgid "Скорость кодирования и сжатия"
 msgstr ""
 
-#: fc143047c18f45b29f68d2704a419381 of openav.modules.lab.audio.Audio.vad:11
+#: bd90dad1aba94c79b4a583baf308fc3a of openav.modules.lab.audio.Audio.vad:11
 msgid "Тип файлов для распознавания речи"
 msgstr ""
 
-#: 52faf4d8857f4a08ae3c81c1b695d224 of openav.modules.lab.audio.Audio.vad:13
+#: f365b31ede4a49e2a97463672c16d283 of openav.modules.lab.audio.Audio.vad:13
 msgid "Частота дискретизации (**8000** или **16000**)"
 msgstr ""
 
-#: f01ece0f9b9843bda1b12ad249dfc619 of openav.modules.lab.audio.Audio.vad:15
+#: 1e2d7363c8284b67b87aa5eecfaf7971 of openav.modules.lab.audio.Audio.vad:15
 msgid "Порог вероятности речи (от **0.0** до **1.0**)"
 msgstr ""
 
-#: 699aea5873aa4c308167b66a8590b272 of openav.modules.lab.audio.Audio.vad:17
+#: 64b8eb6635fb4e6dad2e410a4924836e of openav.modules.lab.audio.Audio.vad:17
 msgid "Минимальная длительность речевого фрагмента в миллисекундах"
 msgstr ""
 
-#: 03b5a6ea169b4d5289038009da0a86dd of openav.modules.lab.audio.Audio.vad:19
+#: 015fa5c0523649a98b5dd718008516b5 of openav.modules.lab.audio.Audio.vad:19
 msgid ""
 "Минимальная длительность тишины в выборках между отдельными речевыми "
 "фрагментами"
 msgstr ""
 
-#: a6b1e711412041509d7248007583df4d of openav.modules.lab.audio.Audio.vad:22
+#: d78fa535666140278af4c9ab2910e1eb of openav.modules.lab.audio.Audio.vad:22
 msgid ""
 "Количество выборок в каждом окне (**512**, **1024**, **1536** для частоты"
 " дискретизации **16000** или **256**, **512**, **768** для частоты "
 "дискретизации **8000**)"
 msgstr ""
 
-#: f7319ab9c3ce4c1a97ed7a71c35b72a2 of openav.modules.lab.audio.Audio.vad:26
+#: dfea4bc0e00b45cf9cbae0b2ef932aa4 of openav.modules.lab.audio.Audio.vad:26
 msgid "Внутренние отступы для итоговых речевых фрагментов"
 msgstr ""
 
-#: a7586acd9c3d4d858157e7e0c1496b6a of openav.modules.lab.audio.Audio.vad:28
+#: 98d6b9c86e5c4754966b5242d9ad38dd of openav.modules.lab.audio.Audio.vad:28
+#: openav.modules.lab.audio.Audio.vosk:3
 msgid "Принудительная загрузка модели из сети"
 msgstr ""
 
-#: 872b9ea17b4f417a8ef427cd27d67de6 of openav.modules.lab.audio.Audio.vad:30
+#: beaf3413e4544d58bc86178ddc8325fe of openav.modules.lab.audio.Audio.vad:30
 msgid "Очистка директории для сохранения фрагментов аудиовизуального сигнала"
 msgstr ""
 
-#: 842aabef9cef4ffda170be345bf299d8 of openav.modules.lab.audio.Audio.vad:32
+#: dd32e42abb044874bc87a5ca2bf08c51 of openav.modules.lab.audio.Audio.vad:32
 msgid "Отображение"
 msgstr ""
 
-#: f486f612c3764547811075d956f2c270 of openav.modules.lab.audio.Audio.vad
+#: 7341db4b669140c98264aff3f9f91017 of openav.modules.lab.audio.Audio.vad
+#: openav.modules.lab.audio.Audio.vosk
+#: openav.modules.lab.audio.Audio.vosk_dict_language_sr
+#: openav.modules.lab.audio.Audio.vosk_language_sr
+#: openav.modules.lab.audio.Audio.vosk_sr
 msgid "Результат"
 msgstr ""
 
-#: e93492e27ae040078883642be4328d16 of openav.modules.lab.audio.Audio.vad:35
+#: d0795b848743465fa079850bb507c111 of openav.modules.lab.audio.Audio.vad:35
 msgid ""
 "**True** если детектирование голосовой активности произведено, в обратном"
 " случае **False**"
 msgstr ""
 
-#: a77b2e4696f14538a9db6312c613cdab of openav.modules.lab.audio.Audio.vad
+#: 784d62e2f09441a4854d4017f6a13bce of openav.modules.lab.audio.Audio.vad
+#: openav.modules.lab.audio.Audio.vosk
+#: openav.modules.lab.audio.Audio.vosk_dict_language_sr
+#: openav.modules.lab.audio.Audio.vosk_language_sr
+#: openav.modules.lab.audio.Audio.vosk_sr
 msgid "Тип результата"
+msgstr ""
+
+#: 29542ee0876a49608403a88426bbb0ec of openav.modules.lab.audio.Audio.vosk:1
+msgid ""
+"Загрузка и активация модели Vosk для детектирования голосовой активности "
+"и распознавания речи"
+msgstr ""
+
+#: d0795b848743465fa079850bb507c111 of openav.modules.lab.audio.Audio.vosk:8
+msgid ""
+"**True** если модель Vosk загружена и активирована, в обратном случае "
+"**False**"
+msgstr ""
+
+#: d7b0e2608904482b866ed780b53f1b42 of
+#: openav.modules.lab.audio.Audio.vosk_dict_language_sr:1
+msgid "Получение/установка размера словаря для распознавания речи"
+msgstr ""
+
+#: 45951f5736154d9d936a4ea0a0594709 5ffe2f9cdd5e41f782a7f4548ff7d4df of
+#: openav.modules.lab.audio.Audio.vosk_dict_language_sr:3
+#: openav.modules.lab.audio.Audio.vosk_dict_language_sr:5
+msgid "Размер словаря"
+msgstr ""
+
+#: 59bee3d2e8fb453a8146349e4e6837b1 of
+#: openav.modules.lab.audio.Audio.vosk_language_sr:1
+msgid "Получение/установка языка для распознавания речи"
+msgstr ""
+
+#: a041f2b7641b4ffcaa0e738374fcad29 of
+#: openav.modules.lab.audio.Audio.vosk_language_sr:3
+#: openav.modules.lab.audio.Audio.vosk_language_sr:5
+msgid "Язык"
+msgstr ""
+
+#: efe6b9254df6449eb82fb6f5ffb4977c of openav.modules.lab.audio.Audio.vosk_sr:1
+msgid ""
+"VAD + SR (Voice Activity Detector + Speech Recognition) или "
+"(детектирование голосовой активности и распознавание речи)"
+msgstr ""
+
+#: e06fa1020eeb4c80bf46297c94be8bbc of openav.modules.lab.audio.Audio.vosk_sr:4
+msgid "Args:"
+msgstr ""
+
+#: d0795b848743465fa079850bb507c111 of openav.modules.lab.audio.Audio.vosk_sr:7
+msgid ""
+"**True** если детектирование голосовой активности и распознавание речи "
+"произведено, в обратном случае **False**"
 msgstr ""
 
 #~ msgid "Путь к директории для сохранения данных"
@@ -143,5 +211,10 @@ msgstr ""
 #~ msgid ""
 #~ "**True** если анализ аудиодорожки произведен,"
 #~ " в обратном случае **False**"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Базовые классы: "
+#~ ":py:class:`~openav.modules.file_manager.json_manager.Json`"
 #~ msgstr ""
 

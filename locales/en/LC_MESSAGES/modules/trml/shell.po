@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"POT-Creation-Date: 2023-03-10 15:15+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,24 +18,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/modules/trml/shell.rst:2 8122be9379cc497387071ee18d64f50d
+#: ../../source/modules/trml/shell.rst:2 94318878e611439284282a74f32a9129
 msgid "Работа с Shell"
 msgstr ""
 
-#: 38c459a041ac4e47b465191de4f81594 of openav.modules.trml.shell.Shell:1
+#: 8d426bc2862147d6ab900f1238cbaaa0 of openav.modules.trml.shell.Shell:1
 msgid "Базовые классы: :py:class:`object`"
 msgstr ""
 
-#: f5a371988cfd41ecbdd7699f7f8b4a42 of openav.modules.trml.shell.Shell:1
+#: f76621f308294b01aeea7d046edcfc29 of openav.modules.trml.shell.Shell:1
 msgid "Класс для работы с Shell"
 msgstr ""
 
-#: da7c64a569ad4a5399437377868c4f83 of
+#: 33123aed07fe4005b8bbfb6d43f539f5 of
 #: openav.modules.trml.shell.Shell.add_line:1
 msgid "Добавление линии во весь экран"
 msgstr ""
 
-#: 9da842449d6b4157a86c646a6463a10b of openav.modules.trml.shell.Shell.clear:1
+#: 85fc7151e5b948218b36fa42a0e0db19 of openav.modules.trml.shell.Shell.clear:1
 msgid "Очистка консоли"
 msgstr ""
+
+#~ msgid "Очистка консоли"
+#~ msgstr ""
+
+#~ msgid "Очистка консоли 2"
+#~ msgstr ""
 

@@ -28,6 +28,7 @@ class VideoMessages(Json):
     """Класс для сообщений
 
     Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
         lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
     """
 
@@ -47,6 +48,7 @@ class Video(VideoMessages):
     """Класс для обработки видеомодальности
 
     Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
         lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
     """
 

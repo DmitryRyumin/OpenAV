@@ -8,10 +8,15 @@ API
 
    trml/shell
    core/exceptions
+   core/logging
    core/language
    core/messages
    core/settings
    core/core
+   file_manager/file_manager
+   file_manager/download
+   file_manager/json_manager
+   file_manager/yaml_manager
    lab/audio
    lab/video
    lab/audiovisual
@@ -22,6 +27,9 @@ API
 
 :doc:`core/exceptions`
    Документация для файла ``modules/core/exceptions.py``
+
+:doc:`core/logging`
+   Документация для файла ``modules/core/logging.py``
 
 :doc:`core/language`
    Документация для файла ``modules/core/language.py``
@@ -34,6 +42,18 @@ API
 
 :doc:`core/core`
    Документация для файла ``modules/core/core.py``
+
+:doc:`file_manager/file_manager`
+   Документация для файла ``modules/file_manager/file_manager.py``
+
+:doc:`file_manager/download`
+   Документация для файла ``modules/file_manager/download.py``
+
+:doc:`file_manager/json_manager`
+   Документация для файла ``modules/file_manager/json_manager.py``
+
+:doc:`file_manager/yaml_manager`
+   Документация для файла ``modules/file_manager/yaml_manager.py``
 
 :doc:`lab/audio`
    Документация для файла ``modules/lab/audio.py``

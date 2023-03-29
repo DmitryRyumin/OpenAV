@@ -37,10 +37,7 @@ class Shell:
 
         if command_shell is not None:
             # Очистка Shell
-            subprocess.call(
-                command_shell,
-                shell=True,
-            )
+            subprocess.call(command_shell, shell=True)
 
     @staticmethod
     def add_line():
@@ -58,7 +55,4 @@ class Shell:
         if len(commands_shell) > 0:
             for command in commands_shell:
                 # Добавление линии в Shell
-                subprocess.call(
-                    command,
-                    shell=True,
-                )
+                subprocess.call(command, shell=True)

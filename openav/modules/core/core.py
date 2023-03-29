@@ -29,6 +29,7 @@ import torchvision  # Работа с видео от Facebook
 import av  # Работа с FFmpeg
 import filetype  # Определение типа файла и типа MIME
 import logging  # Логирование
+import yaml  # Кодирование и декодирование данные в удобном формате
 
 from datetime import datetime  # Работа со временем
 from prettytable import PrettyTable  # Отображение таблиц в терминале
@@ -45,6 +46,8 @@ from openav.modules.core.exceptions import TypeMessagesError
 from openav.modules.trml.shell import Shell  # Работа с Shell
 from openav.modules.core.settings import Settings  # Глобальный файл настроек
 
+from openav.modules.core.settings import COLOR_INFO, COLOR_SIMPLE, COLOR_ERR, COLOR_TRUE
+
 # ######################################################################################################################
 # Константы
 # ######################################################################################################################
@@ -59,6 +62,7 @@ class CoreMessages(Settings):
     """Класс для сообщений
 
     Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
         lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
     """
 
@@ -89,6 +93,7 @@ class Core(CoreMessages):
     """Класс-ядро модулей
 
     Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
         lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
     """
 
@@ -255,6 +260,24 @@ class Core(CoreMessages):
                 indent = ("\r" + " " * self._space + "{}") * 4
 
                 self._logger_core.error(inv_args + trac_text(indent))
+
+            # if self.logger_gui is True:
+            #     cr = COLOR_SIMPLE
+
+            #     message = "{}[{}{}{}] {}{}{}{}{}{}".format(
+            #         f'<p style="display:block; margin:0; color:{cr}"><strong>',
+            #         f'</span><span style="color:{COLOR_ERR}">',
+            #         datetime.now().strftime(self._format_time),
+            #         f'</span><span style="color:{cr}">',
+            #         inv_args,
+            #         "</strong></p>",
+            #         f'<p><span style="color:{cr}; padding-left:24px">{self._trac_file}: <u>{trac["filename"]}</u></span>',
+            #         f'<br /><span style="color:{cr}; padding-left:24px">{self._trac_line}: <u>{trac["lineno"]}</u></span>',
+            #         f'<br /><span style="color:{cr}; padding-left:24px">{self._trac_method}: <u>{trac["name"]}</u></span>',
+            #         f'<br /><span style="color:{cr}; padding-left:24px">{self._trac_type_err}: <u>{trac["type"]}</u></span></p>',
+            #     )
+
+            #     self._add_logger_messages_gui(message)
 
     def message_error(self, message: str, space: int = 0, out: bool = True) -> None:
         """Сообщение об ошибке
@@ -548,13 +571,28 @@ class Core(CoreMessages):
                     "IPython",
                     "Colorama",
                     "Prettytable",
+                    "PyYAML",
+                    "Streamlit",
                     "Vosk",
                 ],
                 "Version": [
                     i.__version__
-                    for i in [torch, torchaudio, torchvision, np, pd, av, filetype, IPython, colorama, prettytable]
+                    for i in [
+                        torch,
+                        torchaudio,
+                        torchvision,
+                        np,
+                        pd,
+                        av,
+                        filetype,
+                        IPython,
+                        colorama,
+                        prettytable,
+                        yaml,
+                    ]
                 ],
             }
+            pkgs["Version"].append(pkg_resources.get_distribution("streamlit").version)
             pkgs["Version"].append(pkg_resources.get_distribution("vosk").version)
 
             self._df_pkgs = pd.DataFrame(data=pkgs)  # Версии используемых библиотек

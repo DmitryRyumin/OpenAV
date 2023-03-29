@@ -34,7 +34,12 @@ from openav.modules.file_manager.file_manager import FileManager  # Работа
 # ######################################################################################################################
 @dataclass
 class DownloadMessages(FileManager):
-    """Класс для сообщений"""
+    """Класс для сообщений
+
+    Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
+        lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
+    """
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
@@ -55,7 +60,12 @@ class DownloadMessages(FileManager):
 # Загрузка файлов
 # ######################################################################################################################
 class Download(DownloadMessages):
-    """Класс для загрузки файлов"""
+    """Класс для загрузки файлов
+
+    Args:
+        path_to_logs (str): Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`
+        lang (str): Смотреть :attr:`~openav.modules.core.language.Language.lang`
+    """
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
