@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-31 12:36+0300\n"
+"POT-Creation-Date: 2023-03-31 14:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -20,20 +20,95 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
+#: ../../source/user_guide/modules/recorder.rst:1
+#: 78a40282f2b8432caa2dff81e87ebfe3 8acc199a576a43cb9a182a2b5bba13cf
+#: 947ff31fa9394821955d5c94bf906f87
+msgid "<b>"
+msgstr ""
+
 #: ../../source/user_guide/modules/recorder.rst:5
+#: 4183233025f247d18f35db8dab939d30 b78d2114732f4888a4f3dadfaa608134
+#: bc593297b2cf4639a4d2e3013f240712
+msgid "</b>"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:10
 #: f10ea9a5abfb4e7d9c0165887fd975ef
 msgid "Модуль записи речевых аудиовизуальных данных"
 msgstr ""
 
-#: ../../source/user_guide/modules/recorder.rst:7
+#: ../../source/user_guide/modules/recorder.rst:12
 #: 51d7d0f2af7a4698b04e885d58a4bd9e
 msgid ""
 "Модуль предназначен для записи аудиовизуальных данных с последующей "
 "сортировкой по заданному словарю."
 msgstr ""
 
-#: ../../source/user_guide/modules/recorder.rst:-1
-#: 5c026447407e415cae82c26d8596e4ff
-msgid "Альтернативный текст"
+#: ../../source/user_guide/modules/recorder.rst:14
+#: c6d00bbeac074d70bd4a18b12a6a885d
+msgid "Интерфейс модуля для состоит из двух частей:"
 msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:16
+#: ea46f1f777fb4e41a73bd4bc008dbed2
+msgid ""
+"В левой части представлено изображение, получаемое с подключенной камеры "
+"и кнопка начать запись (Rec)"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:17
+#: 889e81140f674c4cb08e82e6a6f0e662
+msgid ""
+"В правой части располагается блок управление словарем. В этом блоке "
+"отображаются следующие элементы:"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:19
+#: 144d8d2dad934d99a339420ebe87442b
+msgid "Цифра в круге означает порядковый номер фразы в словаре"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:20
+#: 8c0bb4fd180e4298a5952a07697ed2ef
+msgid "Фраза из словаря"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:21
+#: a10f3942eeef471287dfa7d7335402b8
+msgid ""
+"Кнопки переключения элементов словаря |b| prev |/b| и |b| next |/b|, "
+"после нажатия на которые отображают предыдущую или следующую фразу "
+"соответственно"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:27
+#: ../../source/user_guide/modules/recorder.rst:36
+#: 5de7d42f4732403ebcc5d83cd4d28480 8f99fd61bed243c883624c0524d3ec29
+#: e0fa0f6fb3ae48c2b092ca7cd6d77103
+msgid "Интерфейс модуля для записи данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:29
+#: 2aa64066c3234f3b834bb41ed794f4bc
+msgid ""
+"Нажатие на кнопку записи (Rec) начинает процесс записи данных После "
+"нажатия на кнопку, она изменяет свой цвет, что означает об успешном "
+"запуске записи:"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:36
+#: 5430024daff8488d84c0bd1558d4f389
+msgid "Активная кнопка записи"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:38
+#: 0474248bbea9432ba36a0261c9bddf8a
+msgid ""
+"Повторное нажатие на кнопку записи завершает процесс. Записанный файл "
+"сохраняется по пути, указанному в конфигурационном файле. Изменить "
+"словарь словарь также можно в конфигурационном файле."
+msgstr ""
+
+#~ msgid "Альтернативный текст"
+#~ msgstr ""
 
