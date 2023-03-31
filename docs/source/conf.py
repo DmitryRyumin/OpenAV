@@ -90,7 +90,7 @@ extensions = [
     "sphinx_rtd_theme",
     "sphinx_toolbox.changeset",  # Отлеживание версий
     "sphinx_github_changelog",  # Автопубликация релизов с GIT
-    "sphinx_design",
+    # "sphinx_design",
     "nbsphinx",
     "sphinx_copybutton",
     "IPython.sphinxext.ipython_console_highlighting",
