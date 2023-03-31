@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-22 15:03+0300\n"
+"POT-Creation-Date: 2023-03-31 12:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -35,63 +35,72 @@ msgstr ""
 msgid "</b>"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad.rst:14 084d0fc9680341188295be3d391f581b
+#: ../../source/user_guide/modules/vad.rst:13 6b103fea34a14f04b900d72053df65ba
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.json\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:17 c9ce33d0e801492ca996631cd12bf132
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:22 084d0fc9680341188295be3d391f581b
 msgid "Модуль детектирования речевой активности"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad.rst:16 084d0fc9680341188295be3d391f581b
+#: ../../source/user_guide/modules/vad.rst:23 084d0fc9680341188295be3d391f581b
 msgid ""
 "Команда для запуска детектирования речевой активности в аудиовизуальном "
 "сигнале:"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad.rst:18 9c4466466a0741ba9d6809f167b963fa
+#: ../../source/user_guide/modules/vad.rst:25 9c4466466a0741ba9d6809f167b963fa
 msgid ""
 "python ./openav/api/vad.py --config "
 "<путь_к_вашему_конфигурационному_файлу>.json"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad.rst:23 5395495dc9a3499baff19844eeffb154
+#: ../../source/user_guide/modules/vad.rst:30 5395495dc9a3499baff19844eeffb154
 msgid ""
 "Для запуска команды необходимо обязательно указать путь к "
 "конфигурационному файлу. Запускать программу необходимо из директории, "
 "где она расположена."
 msgstr ""
 
-#: ../../source/user_guide/modules/vad.rst:26 290181d4dcc5415dbadf7e69d892d5a0
+#: ../../source/user_guide/modules/vad.rst:33 290181d4dcc5415dbadf7e69d892d5a0
 msgid "Конфигурационный файл"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad.rst:28 2279b46521c742faa53dd3b736deddba
+#: ../../source/user_guide/modules/vad.rst:35 2279b46521c742faa53dd3b736deddba
 msgid "Конфигурационный файл включает в себя следующие настройки:"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad.rst:30 d2e2f0666bbc44158ed3b36c0780714f
+#: ../../source/user_guide/modules/vad.rst:37 d2e2f0666bbc44158ed3b36c0780714f
 msgid "Отображение процесса выполнения программы в терминале (командной строке)"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad.rst:31
-#: ../../source/user_guide/modules/vad.rst:53 7bcbc096da62440a95a72d54ad8bdbe5
+#: ../../source/user_guide/modules/vad.rst:38
+#: ../../source/user_guide/modules/vad.rst:62 7bcbc096da62440a95a72d54ad8bdbe5
 msgid "Работа с файловой системой"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad.rst:32
-#: ../../source/user_guide/modules/vad.rst:72 171e3029ef244b92816199dcd8655209
+#: ../../source/user_guide/modules/vad.rst:39
+#: ../../source/user_guide/modules/vad.rst:81 171e3029ef244b92816199dcd8655209
 msgid "Параметры детектора голосовой активности (VAD)"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad.rst:33
-#: ../../source/user_guide/modules/vad.rst:88 05b3ad5c68044e0f9b996a95125dc675
+#: ../../source/user_guide/modules/vad.rst:40
+#: ../../source/user_guide/modules/vad.rst:97 05b3ad5c68044e0f9b996a95125dc675
 msgid "Параметры кодирования выходного файла"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad.rst:37 6b103fea34a14f04b900d72053df65ba
-msgid ""
-"`Пример конфигурационного файла "
-"<https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.json>`_"
+#: ../../source/user_guide/modules/vad.rst:44 8d6549f9db9b4e998937ef12d58e02fe
+msgid "|a_config| Пример конфигурационного файла |/a|"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad.rst:40 738b4d9aa22c41b29c4af9f70b36707f
+#: ../../source/user_guide/modules/vad.rst:49 738b4d9aa22c41b29c4af9f70b36707f
 msgid "Отображение процесса выполнения команды в терминале"
 msgstr ""
 
@@ -418,5 +427,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Детектирование речевой активности в аудиовизуальном сигнале"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Пример конфигурационного файла "
+#~ "<https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.json>`_"
 #~ msgstr ""
 

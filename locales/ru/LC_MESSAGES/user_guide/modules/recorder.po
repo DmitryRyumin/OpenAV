@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-22 15:03+0300\n"
+"POT-Creation-Date: 2023-03-31 12:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -21,8 +21,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/user_guide/modules/recorder.rst:2
+#: ../../source/user_guide/modules/recorder.rst:5
 #: f10ea9a5abfb4e7d9c0165887fd975ef
 msgid "Модуль записи речевых аудиовизуальных данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:7
+#: 51d7d0f2af7a4698b04e885d58a4bd9e
+msgid ""
+"Модуль предназначен для записи аудиовизуальных данных с последующей "
+"сортировкой по заданному словарю."
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:-1
+#: 5c026447407e415cae82c26d8596e4ff
+msgid "Альтернативный текст"
 msgstr ""
 

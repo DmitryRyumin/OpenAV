@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-11 15:44+0300\n"
+"POT-Creation-Date: 2023-03-31 12:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,156 +22,164 @@ msgstr ""
 msgid "Содержание:"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:2 cf1fef97b66a42ba85896b0dbd7d90bb
+#: ../../source/user_guide/installation.rst:2 f17876dc528143c2ba355f73b5be416d
 msgid "Установка и обновление"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:10 5d8a7fc8e6044f209927beb0abc44a44
+#: ../../source/user_guide/installation.rst:10 d14537244a054f93b57bffc933358018
 msgid "Установка с помощью `PyPi <https://pypi.org/project/openav/>`_"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:12 ca00f463eba2433a875abd22f20aa9e4
+#: ../../source/user_guide/installation.rst:12 8498a95b25d04b47a9206f0b525b7ccc
 msgid "pip install openav"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:17 1191eaf460af48f3ad3f30f57a74603e
+#: ../../source/user_guide/installation.rst:17 3a0e2aef530f421792eb7db87c982146
 msgid "Обновление с помощью `PyPi <https://pypi.org/project/openav/>`_"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:19 560fd02c88434ce7bbcb0ff65ec97d4f
+#: ../../source/user_guide/installation.rst:19 1b8e74f642134130bd605d7f7a2ff84f
 msgid "pip install --upgrade openav"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:24 459199c2467c43c6a6b9ceadcda5de7a
+#: ../../source/user_guide/installation.rst:24 b438148ddd914a0e831d63b56cc98e6c
 msgid "Зависимости"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:26 d26414cf896a478785c047f9f189b298
+#: ../../source/user_guide/installation.rst:26 b6b7d29a11214c9abfe06a5488826fa6
 msgid "Устанавливаются автоматически"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 0aea197c99184100b5e31312bc41810b
+#: ../../source/user_guide/installation.rst:1 ebc018aba36a46cb95c2233392fcb151
 msgid "Библиотека"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 6a163697bbdd47e99839a66f99825973
+#: ../../source/user_guide/installation.rst:1 6e5273ee3b384ba88b7b81cfb902213f
 msgid "Рекомендуемая версия"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 2e8336d64b614cfe82dbb7bba566970e
+#: ../../source/user_guide/installation.rst:1 882938db47524898bf8bbe1495b1ed60
 msgid "Текущая версия"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 63ce82fe093c4f95938a960d85a62838
+#: ../../source/user_guide/installation.rst:1 b10cac4dcea347e7b91eef759ceeb684
 msgid "ipython"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 341e5c5793204fff98227a1916f0e9c7
+#: ../../source/user_guide/installation.rst:1 a4fecbfc577b4e35aceb9d07cc68263e
 msgid "8.10.0"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 0a48f5ed098e4cbfb403f9338a0e9d60
+#: ../../source/user_guide/installation.rst:1 138314277b9d4b56bb2196bab8caae4a
 msgid "colorama"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 b174ed62885342bb8aa6863a423a7896
+#: ../../source/user_guide/installation.rst:1 368d0bd4851f4de3879dc0e908cf4bb9
 msgid "0.4.6"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 229321f266934a41be30d2db8bc72661
+#: ../../source/user_guide/installation.rst:1 336134a07db4494fa48e1daed0cd3405
 msgid "numpy"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 4b5f726f168049a88e3f5a96f914efdf
+#: ../../source/user_guide/installation.rst:1 07b40ce9143d49f89b3e532acb94c10c
 msgid "1.24.2"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 d438b2cbdc82477390fc8321e90f44b2
+#: ../../source/user_guide/installation.rst:1 c9c0d96aae904d3180d3c1370cec869f
 msgid "pandas"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 cdd961d7a6c645aaaecbf8d30c3832d5
+#: ../../source/user_guide/installation.rst:1 c4c0ab01816e43e38058884798921d54
 msgid "1.5.3"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 8117b571c7334c82a8b7de2b49d1e932
+#: ../../source/user_guide/installation.rst:1 51b3d0aea3fc470290e47cf3ad4f75cd
 msgid "prettytable"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 fc7023e65a644e4a989fe013d7a98043
+#: ../../source/user_guide/installation.rst:1 f533262b5ca84e91a623b7bc56169900
 msgid "3.6.0"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 80dffe1d974c40d5b497b920e612fed9
+#: ../../source/user_guide/installation.rst:1 db3ee5e0f3e746fca2725fb931706113
 msgid "torch"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 1b3259a43bd94a37a71ebb16fbbe6f4b
+#: ../../source/user_guide/installation.rst:1 33ba9d9a8e8f492fba4ed5651cb4917d
 msgid "1.13.1"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 bac9046bd04d49fdbf9aff4cd634c00c
+#: ../../source/user_guide/installation.rst:1 1b01f570609f41848e189177955941ea
 msgid "torchaudio"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 90bb6037fc0945ce9c860bacd37ebca2
+#: ../../source/user_guide/installation.rst:1 ce1b1006449a410dba7166f517e13ea6
 msgid "0.13.1"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 b0002121757e4d1f9b7c4a83865ea0bc
+#: ../../source/user_guide/installation.rst:1 e685c7647db8468d8f1192bff2a319e0
 msgid "torchvision"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 700bbd84bc8b4c98b1489de43b45626e
+#: ../../source/user_guide/installation.rst:1 97b6e92494084cf9a78695e78be3cdb5
 msgid "0.14.1"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 71509b2681b949098721bef2836f9247
+#: ../../source/user_guide/installation.rst:1 5017bd9effa24fed891b370783aff038
 msgid "vosk"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 fb797904bbd343bbade9c51d4af53819
+#: ../../source/user_guide/installation.rst:1 e4188e7eb0664a0181f77d36dea36d48
 msgid "0.3.44"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 d1e4806f9f19459da7df72f16cf9af19
+#: ../../source/user_guide/installation.rst:1 aaa151f7d47541daaf332092ef9ddc72
 msgid "av"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 c31c1052f4de4ea89998384f9211ab12
+#: ../../source/user_guide/installation.rst:1 f4a33036f7d74b1db3fdb882ce647465
 msgid "10.0.0"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 3e02578e474745af8b552ae5d3ab668f
+#: ../../source/user_guide/installation.rst:1 44717540bd69482da858a0b4a3849cb7
 msgid "filetype"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 4970850cf1ba4b55aec4ce7c0b9a6edc
+#: ../../source/user_guide/installation.rst:1 e57adf3fefae4f1ea598a9df2165289e
 msgid "1.2.0"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 d39ce8fa5bcc443cb13feef38759e586
+#: ../../source/user_guide/installation.rst:1 424f3fe8f586472eb5bec42ee122c775
 msgid "requests"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 4b5f726f168049a88e3f5a96f914efdf
+#: ../../source/user_guide/installation.rst:1 07b40ce9143d49f89b3e532acb94c10c
 msgid "2.28.2"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 840cbee9f7cf4b15b45a90239325193c
+#: ../../source/user_guide/installation.rst:1 d90feb4a82424f5dba9f3dda293d78c3
 msgid "pyyaml"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 f3aa925f753d44978f5d962ec70be11b
+#: ../../source/user_guide/installation.rst:1 a4fecbfc577b4e35aceb9d07cc68263e
 msgid "6.0"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 b0cfa25d3c5340b5bce29d3fd4aebb60
+#: ../../source/user_guide/installation.rst:1 70343d97d17f47cda19caec253a0aedc
 msgid "streamlit"
 msgstr ""
 
-#: ../../source/user_guide/installation.rst:1 cd1f402867ab425fa1d4c5b93c24705f
+#: ../../source/user_guide/installation.rst:1 07b40ce9143d49f89b3e532acb94c10c
 msgid "1.20.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 9a24a23679ee4f1ebfc66e3c67a2088b
+msgid "watchdog"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 a4fecbfc577b4e35aceb9d07cc68263e
+msgid "2.3.1"
 msgstr ""
 
 #~ msgid "8.7.0"

@@ -6,7 +6,7 @@
   "presets_crf_encode": "medium",
   "sr_input_type": "audio",
   "path_to_save_models": "./models",
-  "path_to_dataset": "/Users/dl/@DmitryRyumin/Databases/LRW_TEST",
+  "path_to_dataset": "C:/Prgrm/_datasets/",
   "path_to_dataset_vad": "./dataset_vad",
   "dir_va_names": {
     "video": "Video",

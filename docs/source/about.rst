@@ -30,12 +30,12 @@
 
    </div>
 
-.. |Иванько_Денис| image:: _static/img/Ivanko.jpg
-.. |Карпов_Алексей| image:: _static/img/Karpov.jpg
-.. |Маркитантов_Максим| image:: _static/img/Markitantov.jpg
-.. |Рюмин_Дмитрий| image:: _static/img/Ryumin.jpg
-.. |Шилов_Николай| image:: _static/img/non-photo.svg
-.. |no_photo| image:: _static/img/non-photo.svg
+.. |Иванько_Денис| image:: _static/img/team/Ivanko.jpg
+.. |Карпов_Алексей| image:: _static/img/team/Karpov.jpg
+.. |Маркитантов_Максим| image:: _static/img/team/Markitantov.jpg
+.. |Рюмин_Дмитрий| image:: _static/img/team/Ryumin.jpg
+.. |Шилов_Николай| image:: _static/img/team/non-photo.svg
+.. |no_photo| image:: _static/img/team/non-photo.svg
 
 Команда разработчиков
 =====================

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 15:21+0300\n"
+"POT-Creation-Date: 2023-03-31 12:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -21,72 +21,87 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/modules/core/logging.rst:2 b5ee2c498ee84b32bc30267f12b38476
+#: ../../source/modules/core/logging.rst:2 af9334af3f974bddb7a92a4ee7ceb413
 msgid "Логирование"
 msgstr ""
 
-#: 535a815567ac4af2a015c6f6cda10282 of openav.modules.core.logging.Logging:1
+#: 392b515799764f8e91b5ac53e34349b6 of openav.modules.core.logging.Logging:1
 msgid "Базовые классы: :py:class:`object`"
 msgstr ""
 
-#: f308abbb3e2a412caa6f4f33011182dc of openav.modules.core.logging.Logging:1
+#: 535e0b6f4fea4e87b8b4e67427f4e096 of openav.modules.core.logging.Logging:1
 msgid "Класс для логирования"
 msgstr ""
 
-#: 0c7de75d976841c0b287ec7d7baa8b7c 2d49ee5e463f4dacb98f72ded13edd84
-#: df299ccecb4e49059618c6a912db02b1 of openav.modules.core.logging.Logging
+#: 0753c8704c5a4a04b8bc60ddbd97cae4 9ed79798a0fe4f96ada3b3bb7d9bf96c
+#: a3d2e004a52049d19046c14f2cd1918a cecc7d5f29f84cb88e4cf2ec99768aaa of
+#: openav.modules.core.logging.Logging
+#: openav.modules.core.logging.Logging.logger_gui
 #: openav.modules.core.logging.Logging.path_to_logs
 #: openav.modules.core.logging.Logging.re_inv_chars
 msgid "Параметры"
 msgstr ""
 
-#: 134c6bfacddf4638b567a7d682939f0b of openav.modules.core.logging.Logging:3
+#: a9aef761e7054b57ac51cc832cc8d498 of openav.modules.core.logging.Logging:3
 msgid "Путь к директории для сохранения LOG файлов"
 msgstr ""
 
-#: 886360a5bf10498bba578932a74c32b8 of
+#: a6e5a50bed50483da6127669d6d5e0d6 of
 #: openav.modules.core.logging.Logging.check_create_logger:1
 msgid "Получение создания регистратора и обработчика для логирования"
 msgstr ""
 
-#: 0154a0a5aa6b47cf91f66de5e4014f2b 7cdf7195c3294f0d92e294d9b33513f6
-#: a49850aaf446497cbbda512cd57fb304 of
+#: 19d4d9386b554ca09b46045f9512420c 43bf4bac8c4b47cea70f360138df458c
+#: c56d87bb410c4fb58a7680d4d1b6311f d8f3999f0d37497d9e75c8e4a6c74219 of
 #: openav.modules.core.logging.Logging.check_create_logger
+#: openav.modules.core.logging.Logging.logger_gui
 #: openav.modules.core.logging.Logging.path_to_logs
 #: openav.modules.core.logging.Logging.re_inv_chars
 msgid "Результат"
 msgstr ""
 
-#: 8659301ce57e4a9c991e807b0e9778da of
+#: a6ce99e610c14a56aea1450d71fed043 of
 #: openav.modules.core.logging.Logging.check_create_logger:3
 msgid ""
 "**True** если регистратор и обработчик созданы, в обратном случае "
 "**False**"
 msgstr ""
 
-#: 78d11a86b8244babb9a9eb96f0ffeb81 9fdc5db9c5654b908a739ab3cfd716cd
-#: d6cb53aa494648c9998a7df5d90185c4 of
+#: 3335ea81a78749a5919066239d7d3d0f 52777742936540c994fb99520944048f
+#: b7931b66d45e4ccd9ffc99febfd4dc75 e738b256275d4cabbe463a3a19dc1478 of
 #: openav.modules.core.logging.Logging.check_create_logger
+#: openav.modules.core.logging.Logging.logger_gui
 #: openav.modules.core.logging.Logging.path_to_logs
 #: openav.modules.core.logging.Logging.re_inv_chars
 msgid "Тип результата"
 msgstr ""
 
-#: b685bfdf14b74492982dc6bd302e8d07 of
+#: 42fd2542229f4e3fb3585f99eb363bf6 of
+#: openav.modules.core.logging.Logging.logger_gui:1
+msgid "Получение/установка логирования GUI"
+msgstr ""
+
+#: 0259cb1e0df94cdb8588fd144c54f049 62407e3d8c43426a855458a02ff6a4eb of
+#: openav.modules.core.logging.Logging.logger_gui:3
+#: openav.modules.core.logging.Logging.logger_gui:5
+msgid "**True** если запущен GUI, в обратном случае **False**"
+msgstr ""
+
+#: 61e72d9b00234ca1acb3ae54b40e0775 of
 #: openav.modules.core.logging.Logging.path_to_logs:1
 msgid "Получение/установка пути к директории для сохранения LOG файлов"
 msgstr ""
 
-#: 36346689d41e4557b66ec128a4b894c1 7ba81cec7c724d8686d89b11029426e6
-#: d890cb3e55b840d7ad6281553ef4a714 ddadf3c8b6c14b058d39d4dd63b1b3a9 of
+#: 727e584f2d3c40f3975f5da398c17d2c 92eac2ff8a58465a871b6aa3cab20630
+#: c09bce41a23a4a7386ce79fa81ecb754 d0fbd3845317437f9f7b2370b94dbfad of
 #: openav.modules.core.logging.Logging.path_to_logs:3
 #: openav.modules.core.logging.Logging.path_to_logs:5
 #: openav.modules.core.logging.Logging.re_inv_chars:3
-#: openav.modules.core.logging.Logging.re_inv_chars:5
+#: openav.modules.core.logging.Logging.re_inv_chars:6
 msgid "Путь"
 msgstr ""
 
-#: 735633f030384cc1954f9c04357f08c4 of
+#: 9a39960dccfe4d9ca7791b17da760382 of
 #: openav.modules.core.logging.Logging.re_inv_chars:1
 msgid "Удаление недопустимых символов из пути"
 msgstr ""
