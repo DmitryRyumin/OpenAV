@@ -30,6 +30,7 @@ import av  # Работа с FFmpeg
 import filetype  # Определение типа файла и типа MIME
 import logging  # Логирование
 import yaml  # Кодирование и декодирование данные в удобном формате
+import pymediainfo  # Получение meta данных из медиафайлов
 
 from datetime import datetime  # Работа со временем
 from prettytable import PrettyTable  # Отображение таблиц в терминале
@@ -649,6 +650,7 @@ class Core(CoreMessages):
                     "Colorama",
                     "Prettytable",
                     "PyYAML",
+                    "PyMediaInfo",
                     "Streamlit",
                     "Vosk",
                 ],
@@ -666,6 +668,7 @@ class Core(CoreMessages):
                         colorama,
                         prettytable,
                         yaml,
+                        pymediainfo,
                     ]
                 ],
             }

@@ -25,6 +25,7 @@ REQUIRED_PACKAGES = [
     "pyyaml >= 6.0",
     "streamlit >= 1.20.0",
     "watchdog >= 2.3.1",
+    "pymediainfo >= 6.0.1",
 ]
 
 CLASSIFIERS = """\

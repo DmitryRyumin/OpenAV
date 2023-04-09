@@ -33,6 +33,7 @@ import urllib.error
 from IPython.utils import io  # Подавление вывода
 from pathlib import Path, PosixPath  # Работа с путями в файловой системе
 from datetime import datetime, timedelta  # Работа со временем
+from pymediainfo import MediaInfo  # Получение meta данных из медиафайлов
 
 from vosk import Model, KaldiRecognizer, SetLogLevel  # Распознавание речи
 
@@ -678,8 +679,18 @@ class Audio(AudioMessages):
             bool: **True** если анализ аудиодорожки произведен, в обратном случае **False**
         """
 
+        # Тип файла
+        kind = filetype.guess(self.__curr_path)
+
+        # Видео
+        if kind.mime.startswith("video/") is True:
+            track = 2
+        # Аудио
+        if kind.mime.startswith("audio/") is True:
+            track = 1
+
         # Количество каналов в аудиодорожке
-        channels_audio = self.__aframes.shape[0]
+        channels_audio = MediaInfo.parse(self.__curr_path).to_data()["tracks"][track]["channel_s"]
         if channels_audio > 2:
             self.__unprocessed_files.append(self.__curr_path)
             return False
@@ -689,102 +700,47 @@ class Audio(AudioMessages):
         elif channels_audio == 2:
             self.__front = FRONT["stereo"]  # Стерео канал
 
-        # Тип файла
-        kind = filetype.guess(self.__curr_path)
+        # Текущее время (TimeStamp)
+        # см. datetime.fromtimestamp()
+        self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
 
-        return
-
-        data = self.__aframes[0]  # .to(torch.uint8)
-
-        results_recognized = {}  # Результаты распознавания
-        results_recognized[0] = []  # Словарь для результатов определенного канала
-
-        import io
-        import json
-
-        buff = io.BytesIO()
-        torch.save(data, buff)
-        buff.seek(0)  # <--  this is what you were missing
-
-        fragment = []
-        channel = 0
-
-        with subprocess.Popen(
-            [
-                "ffmpeg",
-                "-loglevel",
-                "quiet",
-                "-i",
-                "/Users/dl/@DmitryRyumin/Databases/LRW_TEST/LRW/Test/val/ABSOLUTELY_00001.mp4",
-            ]
-            + fragment
-            + ["-ar", str(self.__freq_sr), "-ac", str(1), "-f", "s16le", "-"],
-            stdout=subprocess.PIPE,
-        ) as process:
-            while True:
-                data = process.stdout.read(4000)
-
-                if len(data) == 0:
-                    break
-
-                curr_res = []  # Текущий результат
-
-                # Распознанная речь
-                if self.__speech_rec.AcceptWaveform(data):
-                    speech_rec_res = json.loads(self.__speech_rec.Result())  # Текущий результат
-
-                    # Детальная информация распознавания
-                    curr_res = self.__speech_rec_result(self.__keys_speech_rec, speech_rec_res)
-                else:
-                    self.__speech_rec.PartialResult()
-
-                if len(curr_res) == 3:
-                    results_recognized[0].append(curr_res)
-
-            speech_rec_fin_res = json.loads(self.__speech_rec.FinalResult())  # Итоговый результат распознавания
-            # Детальная информация распознавания
-            speech_rec_fin_res = self.__speech_rec_result(self.__keys_speech_rec, speech_rec_fin_res)
-
-            print(speech_rec_fin_res)
-
-        return
-
-        while True:
-            data = buff.read(4000)
-            if len(data) == 0:
-                break
-
-            curr_res = []  # Текущий результат
-
-            # Распознанная речь
-            if self.__speech_rec.AcceptWaveform(data):
-                speech_rec_res = json.loads(self.__speech_rec.Result())  # Текущий результат
-
-                # Детальная информация распознавания
-                curr_res = self.__speech_rec_result(self.__keys_speech_rec, speech_rec_res)
-            else:
-                self.__speech_rec.PartialResult()
-
-            if len(curr_res) == 3:
-                results_recognized[0].append(curr_res)
-
-        speech_rec_fin_res = json.loads(self.__speech_rec.FinalResult())  # Итоговый результат распознавания
-        # Детальная информация распознавания
-        speech_rec_fin_res = self.__speech_rec_result(self.__keys_speech_rec, speech_rec_fin_res)
-
-        print(speech_rec_fin_res)
-
-        return
+        # 0:00:01.434667 0:00:02.149333
 
         # Проход по всем каналам
         for channel in range(0, channels_audio):
-            try:
-                pass
-            except Exception:
-                self.__unprocessed_files.append(self.__curr_path)
-                return False
-            else:
-                pass
+
+            def join_path(dir_va):
+                return os.path.join(self.path_to_dataset_vosk_sr, dir_va, self.__splitted_path)
+
+            # Временные метки найдены
+            # if len(self.__subprocess_vosk_sr) > 0:
+            #     # Распознавание речи по видео
+            #     if type(self.__subprocess_vosk_sr) is list:
+            #         res_vosk_sr = res_vosk_sr[0][0].lower()
+
+            #         if res_vosk_sr == "":
+            #             continue  # Речь не найдена
+
+            #         sr_curr_res_true = True  # Речь найдена
+
+            #         self.__sort_file_vad(res_vosk_sr)  # Сортировка файла в зависимости от распознанной речи
+            #     # Распознавание речи по аудио
+            #     elif type(res_vosk_sr) is dict:
+            #         # Пройтись по аудиоканалам
+            #         for key, val in enumerate(res_vosk_sr.items()):
+            #             if len(val[1]) == 0:
+            #                 continue  # Речь не найдена
+
+            #             curr_val = val[1][0][0].lower()  # Текущий результат распознавания
+
+            #             if curr_val == "":
+            #                 continue  # Речь не найдена
+
+            #             sr_curr_res_true = True  # Речь найдена
+
+            #             self.__key_audio_sr = key
+            #             if self.__sort_file_vad(curr_val) is True:
+            #                 break
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
