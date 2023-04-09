@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 15:43+0300\n"
+"POT-Creation-Date: 2023-04-05 16:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,11 +151,11 @@ msgstr ""
 
 #: 3585120172f94c5bae8934e133750c41 of
 #: openav.modules.core.core.Core.inv_args:10
-#: openav.modules.core.core.Core.message_error:10
-#: openav.modules.core.core.Core.message_info:10
+#: openav.modules.core.core.Core.message_error:14
+#: openav.modules.core.core.Core.message_info:14
 #: openav.modules.core.core.Core.message_metadata_info:6
 #: openav.modules.core.core.Core.message_progressbar:12
-#: openav.modules.core.core.Core.message_true:10
+#: openav.modules.core.core.Core.message_true:14
 msgid "None"
 msgstr ""
 
@@ -178,12 +178,12 @@ msgstr ""
 
 #: 579ea0f966df487c9fd57453726f6d6b of
 #: openav.modules.core.core.Core.libs_vers:3
-#: openav.modules.core.core.Core.message_error:7
-#: openav.modules.core.core.Core.message_info:7
+#: openav.modules.core.core.Core.message_error:11
+#: openav.modules.core.core.Core.message_info:11
 #: openav.modules.core.core.Core.message_line:7
 #: openav.modules.core.core.Core.message_metadata_info:3
 #: openav.modules.core.core.Core.message_progressbar:9
-#: openav.modules.core.core.Core.message_true:7
+#: openav.modules.core.core.Core.message_true:11
 msgid "Отображение"
 msgstr ""
 
@@ -214,6 +214,20 @@ msgstr ""
 #: openav.modules.core.core.Core.message_progressbar:5
 #: openav.modules.core.core.Core.message_true:5
 msgid "Количество пробелов в начале текста"
+msgstr ""
+
+#: 3fd38edc42ff45468cfc4108ccab3c0d of
+#: openav.modules.core.core.Core.message_error:7
+#: openav.modules.core.core.Core.message_info:7
+#: openav.modules.core.core.Core.message_true:7
+msgid "Начинать сообщение переходом на новую строку"
+msgstr ""
+
+#: 3fd38edc42ff45468cfc4108ccab3c0d of
+#: openav.modules.core.core.Core.message_error:9
+#: openav.modules.core.core.Core.message_info:9
+#: openav.modules.core.core.Core.message_true:9
+msgid "Заканчивать сообщение переходом на новую строку"
 msgstr ""
 
 #: 12d3648380364736ae2fc150ba95c812 of

@@ -13,6 +13,7 @@ API
    core/messages
    core/settings
    core/core
+   file_manager/unzip
    file_manager/file_manager
    file_manager/download
    file_manager/json_manager
@@ -42,6 +43,9 @@ API
 
 :doc:`core/core`
    Документация для файла ``modules/core/core.py``
+
+:doc:`file_manager/unzip`
+   Документация для файла ``modules/file_manager/unzip.py``
 
 :doc:`file_manager/file_manager`
    Документация для файла ``modules/file_manager/file_manager.py``

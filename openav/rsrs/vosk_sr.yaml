@@ -7,20 +7,17 @@ presets_crf_encode: medium
 sr_input_type: audio
 path_to_save_models: "./models"
 path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
-path_to_dataset_vad: "./dataset_vad"
+path_to_dataset_vosk_sr: "./dataset_vosk"
 dir_va_names:
   video: Video
   audio: Audio
 force_reload: false
-clear_dirvad: true
+folder_name_unzip: vosk
+clear_dirvosk_sr: true
 depth: 3
 ext_search_files:
 - mov
 - mp4
+- webm
 - wav
 sampling_rate: 16000
-threshold: 0.16
-min_speech_duration_ms: 1000
-min_silence_duration_ms: 500
-window_size_samples: 1536
-speech_pad_ms: 400

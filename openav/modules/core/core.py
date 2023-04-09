@@ -279,12 +279,16 @@ class Core(CoreMessages):
 
             #     self._add_logger_messages_gui(message)
 
-    def message_error(self, message: str, space: int = 0, out: bool = True) -> None:
+    def message_error(
+        self, message: str, space: int = 0, start: bool = False, end: bool = True, out: bool = True
+    ) -> None:
         """Сообщение об ошибке
 
         Args:
             message (str): Сообщение
             space (int): Количество пробелов в начале текста
+            start (bool): Начинать сообщение переходом на новую строку
+            end (bool): Заканчивать сообщение переходом на новую строку
             out (bool): Отображение
 
         Returns:
@@ -294,9 +298,18 @@ class Core(CoreMessages):
         if type(out) is not bool:
             out = True
 
+        trac = self._traceback()  # Трассировка исключений
+
         try:
             # Проверка аргументов
-            if type(message) is not str or not message or not (0 <= space <= self.__max_space):
+            if (
+                type(message) is not str
+                or not message
+                or type(space) is not int
+                or not (0 <= space <= self.__max_space)
+                or type(start) is not bool
+                or type(end) is not bool
+            ):
                 raise TypeError
         except TypeError:
             self.inv_args(__class__.__name__, self.message_error.__name__, out=out)
@@ -304,20 +317,53 @@ class Core(CoreMessages):
 
         if self.is_notebook is False:
             if out is True:
+                ns = ""
+                ne = "\n"
+
+                if start is True:
+                    ns = "\n"
+
+                if end is False:
+                    ne = "\r"
+
                 print(
-                    " " * space
+                    ns
+                    + " " * space
                     + "[{}{}{}] {}".format(
                         self.color_red, datetime.now().strftime(self._format_time), self.text_end, message
-                    )
+                    ),
+                    end=ne,
                 )
-                self._logger_core.error(message)
 
-    def message_true(self, message: str, space: int = 0, out: bool = True) -> None:
+                indent = ("\r" + " " * self._space + "{}\n") * 4
+
+                def trac_text(ind):
+                    return ind.format(
+                        f'{self._trac_file}: {trac["filename"]}',
+                        f'{self._trac_line}: {trac["lineno"]}',
+                        f'{self._trac_method}: {trac["name"]}',
+                        f'{self._trac_type_err}: {trac["type"]}',
+                    )
+
+                sys.stdout.write(trac_text(indent))
+                sys.stdout.flush()
+
+                indent = ("\r" + " " * self._space + "{}") * 4
+
+                for character in self.__list_of_chars:
+                    message = message.replace(character, "")
+                self._logger_core.error(message + trac_text(indent))
+
+    def message_true(
+        self, message: str, space: int = 0, start: bool = False, end: bool = True, out: bool = True
+    ) -> None:
         """Сообщение с положительной информацией
 
         Args:
             message (str): Сообщение
             space (int): Количество пробелов в начале текста
+            start (bool): Начинать сообщение переходом на новую строку
+            end (bool): Заканчивать сообщение переходом на новую строку
             out (bool): Отображение
 
         Returns:
@@ -334,6 +380,8 @@ class Core(CoreMessages):
                 or not message
                 or type(space) is not int
                 or not (0 <= space <= self.__max_space)
+                or type(start) is not bool
+                or type(end) is not bool
             ):
                 raise TypeError
         except TypeError:
@@ -342,20 +390,38 @@ class Core(CoreMessages):
 
         if self.is_notebook is False:
             if out is True:
+                ns = ""
+                ne = "\n"
+
+                if start is True:
+                    ns = "\n"
+
+                if end is False:
+                    ne = "\r"
+
                 print(
-                    " " * space
+                    ns
+                    + " " * space
                     + "[{}{}{}] {}".format(
                         self.color_green, datetime.now().strftime(self._format_time), self.text_end, message
-                    )
+                    ),
+                    end=ne,
                 )
+
+                for character in self.__list_of_chars:
+                    message = message.replace(character, "")
                 self._logger_core.info(message)
 
-    def message_info(self, message: str, space: int = 0, out: bool = True) -> None:
+    def message_info(
+        self, message: str, space: int = 0, start: bool = False, end: bool = True, out: bool = True
+    ) -> None:
         """Информационное сообщение
 
         Args:
             message (str): Сообщение
             space (int): Количество пробелов в начале текста
+            start (bool): Начинать сообщение переходом на новую строку
+            end (bool): Заканчивать сообщение переходом на новую строку
             out (bool): Отображение
 
         Returns:
@@ -372,6 +438,8 @@ class Core(CoreMessages):
                 or not message
                 or type(space) is not int
                 or not (0 <= space <= self.__max_space)
+                or type(start) is not bool
+                or type(end) is not bool
             ):
                 raise TypeError
         except TypeError:
@@ -380,7 +448,16 @@ class Core(CoreMessages):
 
         if self.is_notebook is False:
             if out is True:
-                print(" " * space + "[{}] {}".format(datetime.now().strftime(self._format_time), message))
+                ns = ""
+                ne = "\n"
+
+                if start is True:
+                    ns = "\n"
+
+                if end is False:
+                    ne = "\r"
+
+                print(ns + " " * space + "[{}] {}".format(datetime.now().strftime(self._format_time), message), end=ne)
 
                 for character in self.__list_of_chars:
                     message = message.replace(character, "")
