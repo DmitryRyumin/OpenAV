@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-31 14:44+0300\n"
+"POT-Creation-Date: 2023-03-31 16:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -99,7 +99,7 @@ msgstr ""
 
 #: ../../source/user_guide/modules/recorder.rst:36
 #: 5430024daff8488d84c0bd1558d4f389
-msgid "Активная кнопка записи"
+msgid "Активное состояние кнопки записи"
 msgstr ""
 
 #: ../../source/user_guide/modules/recorder.rst:38
@@ -111,5 +111,8 @@ msgid ""
 msgstr ""
 
 #~ msgid "Альтернативный текст"
+#~ msgstr ""
+
+#~ msgid "Активная кнопка записи"
 #~ msgstr ""
 

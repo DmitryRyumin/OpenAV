@@ -153,3 +153,12 @@
     margin-top: 15px;
     line-height: 24px;
 }
+
+.audio-wave {
+    width: 100%;
+}
+
+.audio-capt {
+    text-align: center;
+    font-style: italic;
+}

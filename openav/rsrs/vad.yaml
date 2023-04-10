@@ -6,7 +6,7 @@ crf_value: 23
 presets_crf_encode: medium
 sr_input_type: audio
 path_to_save_models: "./models"
-path_to_dataset: "C:/Prgrm/_datasets/test"
+path_to_dataset: "C:/Prgrm/_datasets/doc_test"
 path_to_dataset_vad: "./dataset_vad"
 dir_va_names:
   video: Video
@@ -20,8 +20,8 @@ ext_search_files:
 - webm
 - wav
 sampling_rate: 16000
-threshold: 0.5
-min_speech_duration_ms: 1000
+threshold: 0.16
+min_speech_duration_ms: 500
 min_silence_duration_ms: 250
 window_size_samples: 1536
 speech_pad_ms: 400

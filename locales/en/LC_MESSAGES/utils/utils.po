@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-10 13:04+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/utils/utils.rst:1 4e06ba6646f7419a8c820ca747e85f2d
+msgid "</br>"
+msgstr ""
+
+#: ../../source/utils/utils.rst:5 b777d4768c0c43c78e71cf95bbba408a
+msgid "<b>"
+msgstr ""
+
+#: ../../source/utils/utils.rst:9 1b1ac69f6a0d44898d2fdb3e2ae411b0
+msgid "</b>"
+msgstr ""
+
+#: ../../source/utils/utils.rst:13 17f302c266304a8a88665a31bf70a803
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.json\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/utils/utils.rst:17 4d397271739049a5b6bbdd072dfef6bb
+msgid "</a>"
+msgstr ""
+
+#: ../../source/utils/utils.rst:21 4e19c72cb0cb49cfbff876bc3d1830cb
+msgid ""
+"<figure>\n"
+"   <figcaption>Аудиозапись до обработки ВАД</figcaption>\n"
+"   <audio controls class=\"audio-wave\">\n"
+"      <source src=\"../../_static/audio/vad/before_vad.wav\" "
+"type=\"audio/wav\">\n"
+"   </audio>\n"
+"</figure>"
+msgstr ""
+
+#: ../../source/utils/utils.rst:31 eb22cc673c45494ca8d169d297e01277
+msgid ""
+"<figure>\n"
+"   <figcaption>Аудиозапись до обработки ВАД</figcaption>\n"
+"   <audio controls class=\"audio-wave\">\n"
+"      <source src=\"../../_static/audio/vad/1.wav\" type=\"audio/wav\">\n"
+"      <source src=\"../../_static/audio/vad/2.wav\" type=\"audio/wav\">\n"
+"      <source src=\"../../_static/audio/vad/3.wav\" type=\"audio/wav\">\n"
+"      <source src=\"../../_static/audio/vad/4.wav\" type=\"audio/wav\">\n"
+"      <source src=\"../../_static/audio/vad/5.wav\" type=\"audio/wav\">\n"
+"   </audio>\n"
+"</figure>"
+msgstr ""
+
