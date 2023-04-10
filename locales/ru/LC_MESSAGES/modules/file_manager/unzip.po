@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-05 16:58+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/modules/file_manager/unzip.rst:2
+#: 6db26b4dc47e4dcebb04da39441c23d4 a10df7a299d74ced9c9121a09a57d644 of
+#: openav.modules.file_manager.unzip.Unzip:1
+msgid "Обработка архивов"
+msgstr ""
+
+#: fbbf5285e9c543309ccfd6c305fbadb2 of
+#: openav.modules.file_manager.unzip.UnzipMessages:1
+msgid "Базовые классы: :py:class:`~openav.modules.core.core.Core`"
+msgstr ""
+
+#: 9feee063993349ba8f0e8fdda809f9ca of
+#: openav.modules.file_manager.unzip.UnzipMessages:1
+msgid "Класс для сообщений"
+msgstr ""
+
+#: 2b528706aec545988fa1b38bf133a39f a8ad46e9b22f4cd9b0c31c43bb1212e7
+#: ee1546257b7146ed9ac35b66ebc3b2fb of openav.modules.file_manager.unzip.Unzip
+#: openav.modules.file_manager.unzip.Unzip.unzip
+#: openav.modules.file_manager.unzip.UnzipMessages
+msgid "Параметры"
+msgstr ""
+
+#: 83c16c39f5f04c3cb0eb7604bf53bc47 of
+#: openav.modules.file_manager.unzip.UnzipMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 75683b751b6f4d559c34467b96a36e87 of
+#: openav.modules.file_manager.unzip.UnzipMessages:5
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
+msgstr ""
+
+#: 81729544b30440bc97e6bb1be1726908 of
+#: openav.modules.file_manager.unzip.Unzip:1
+msgid ""
+"Базовые классы: "
+":py:class:`~openav.modules.file_manager.unzip.UnzipMessages`"
+msgstr ""
+
+#: 86c1d10481a04db7aa19217c547af6fa of
+#: openav.modules.file_manager.unzip.Unzip.unzip:1
+msgid "Распаковка архивов"
+msgstr ""
+
+#: 23385dcabac5434096ab0d5e8e05b162 of
+#: openav.modules.file_manager.unzip.Unzip.unzip:9
+msgid "Аргументы:"
+msgstr ""
+
+#: 7531fef2d3594a94b4728c687aa2fa8d of
+#: openav.modules.file_manager.unzip.Unzip.unzip:4
+msgid ""
+"path_to_zipfile - Путь до архива new_name - Имя директории для "
+"разархивирования force_reload - Принудительное разархивирование out - "
+"Отображение runtime - Подсчет времени выполнения run - Блокировка "
+"выполнения"
+msgstr ""
+
+#: f72f957bbfcf48d89335794f71ed0044 of
+#: openav.modules.file_manager.unzip.Unzip.unzip:11
+msgid ""
+"Возвращает: True если разархивирование прошло успешно, в обратном случае "
+"False"
+msgstr ""
+
+#: c76c1604f0c94166a690e84b684ba211 of
+#: openav.modules.file_manager.unzip.Unzip.unzip
+msgid "Тип результата"
+msgstr ""
+

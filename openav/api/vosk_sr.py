@@ -83,7 +83,7 @@ class RunVoskSR(MessagesVoskSR):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 20  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 16  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_vosk_sr: logging.Logger = logging.getLogger(__class__.__name__)
@@ -173,7 +173,7 @@ class RunVoskSR(MessagesVoskSR):
             # 2. Скрытие версий установленных библиотек
             # 3. Принудительная загрузка модели из сети
             # 4. Очистка директории для сохранения фрагментов аудиовизуального сигнала
-            if key == "hide_metadata" or key == "hide_libs_vers" or key == "force_reload" or key == "clear_dirvad":
+            if key == "hide_metadata" or key == "hide_libs_vers" or key == "force_reload" or key == "clear_dirvosk_sr":
                 # Проверка значения
                 if type(val) is not bool:
                     continue
@@ -215,7 +215,13 @@ class RunVoskSR(MessagesVoskSR):
             # 1. Путь к директории для сохранения моделей
             # 2. Путь к директории набора данных
             # 3. Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала
-            if key == "path_to_save_models" or key == "path_to_dataset" or key == "path_to_dataset_vad":
+            # 4. Имя директории для разархивирования
+            if (
+                key == "path_to_save_models"
+                or key == "path_to_dataset"
+                or key == "path_to_dataset_vosk_sr"
+                or key == "folder_name_unzip"
+            ):
                 # Проверка значения
                 if type(val) is not str or not val:
                     continue
@@ -234,35 +240,6 @@ class RunVoskSR(MessagesVoskSR):
             if key == "sampling_rate":
                 # Проверка значения
                 if type(val) is not int or (val in SAMPLING_RATE_VAD) is False:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Порог вероятности речи
-            if key == "threshold":
-                # Проверка значения
-                if type(val) is not float or not (0.0 <= val <= 1.0):
-                    continue
-
-                curr_valid_layer += 1
-
-            # 1. Минимальная длительность речевого фрагмента в миллисекундах
-            # 2. Минимальная длительность тишины в выборках между отдельными речевыми фрагментами
-            # 3. Внутренние отступы для итоговых речевых фрагментов
-            if key == "min_speech_duration_ms" or key == "min_silence_duration_ms" or key == "speech_pad_ms":
-                # Проверка значения
-                if type(val) is not int or not 1 <= val:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Количество выборок в каждом окне
-            if key == "window_size_samples":
-                # Проверка значения
-                if (
-                    type(val) is not int
-                    or (val in set(itertools.chain.from_iterable(WINDOW_SIZE_SAMPLES_VAD.values()))) is False
-                ):
                     continue
 
                 curr_valid_layer += 1
@@ -421,11 +398,13 @@ class RunVoskSR(MessagesVoskSR):
         self.path_to_save_models = self._args["path_to_save_models"]  # Путь к директории для сохранения моделей
         self.path_to_dataset = self._args["path_to_dataset"]  # Путь к директории набора данных
         # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала
-        self.path_to_dataset_vad = self._args["path_to_dataset_vad"]
+        self.path_to_dataset_vad = self._args["path_to_dataset_vosk_sr"]
         self.dir_va_names = self._args["dir_va_names"]  # Названия директорий для видео и аудио
-        self.ext_search_files = self._args["ext_search_files"]  # Названия директорий для видео и аудио
+        self.ext_search_files = self._args["ext_search_files"]  # Расширения искомых файлов
 
         self.vosk_sr(
+            depth=self._args["depth"],  # Глубина иерархии для получения данных
+            new_name=self._args["folder_name_unzip"],  # Имя директории для разархивирования
             force_reload=self._args["force_reload"],  # Принудительная загрузка модели из сети
             out=out,
         )

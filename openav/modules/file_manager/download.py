@@ -28,6 +28,8 @@ from pathlib import Path  # Работа с путями в файловой с�
 from openav.modules.core.exceptions import InvalidContentLength
 from openav.modules.file_manager.file_manager import FileManager  # Работа с файлами
 
+from openav.modules.core.core import TYPE_MESSAGES  # Типы возможных сообщений
+
 
 # ######################################################################################################################
 # Сообщения
@@ -52,8 +54,9 @@ class DownloadMessages(FileManager):
         self._url_incorrect = self._("URL указан некорректно") + self._em
         self._url_incorrect_content_length = self._("Не определен размер файла для загрузки") + self._em
         self._automatic_download: str = self._("Загрузка файла") + ' "{}"' + self._em
-        self._url_error_code_http: str = "( " + self._("ошибка") + "{})"
-        self._url_error_http: str = self._("не удалось скачать файл") + ' "{}"{}' + self._em
+        self._automatic_download_progress: str = self._automatic_download + self._download_precent + self._em
+        self._url_error_code_http: str = "(" + self._("ошибка") + " {})"
+        self._url_error_http: str = self._("Не удалось скачать файл") + ' "{}" {}' + self._em
 
 
 # ######################################################################################################################
@@ -80,46 +83,6 @@ class Download(DownloadMessages):
         )  # User-Agent
 
         self._url_last_filename: str = ""  # Имя последнего загруженного файла
-
-    # ------------------------------------------------------------------------------------------------------------------
-    # Внутренние методы (приватные)
-    # ------------------------------------------------------------------------------------------------------------------
-
-    def __progressbar_download_file_from_url(
-        self, url_filename: str, progress: float, clear_out: bool = True, last: bool = False, out: bool = True
-    ) -> None:
-        """Индикатор выполнения загрузки файла из URL
-
-        .. note::
-            private (приватный метод)
-        """
-
-        if clear_out is False and last is True:
-            clear_out, last = last, clear_out
-        elif clear_out is False and last is False:
-            clear_out = True
-
-        try:
-            # Проверка аргументов
-            if (
-                type(url_filename) is not str
-                or not url_filename
-                or type(progress) is not float
-                or not (0 <= progress <= 100)
-            ):
-                raise TypeError
-        except TypeError:
-            self._inv_args(__class__.__name__, self.__progressbar_download_file_from_url.__name__, out=out)
-            return None
-
-        self._info(
-            self._automatic_download.format(self._info_wrapper(url_filename)) + self._download_precent.format(progress),
-            last=last,
-            out=False,
-        )
-
-        if out:
-            self.show_notebook_history_output()  # Отображение истории вывода сообщений в ячейке Jupyter
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внешние методы
@@ -204,12 +167,14 @@ class Download(DownloadMessages):
                     self.message_error(self._unknown_err, out=out)
                     return 404
                 else:
-                    # Информационное сообщение
-                    self.message_info(self._automatic_download.format(self.message_line(url_filename)), out=out)
-
                     # Создание директории для сохранения файла
                     if self.create_folder(self.path_to_save_models, out=False) is False:
                         return 404
+
+                    # Информационное сообщение
+                    self.message_info(
+                        self._automatic_download.format(self.message_line(url_filename)), end=False, out=out
+                    )
 
                     local_file = os.path.join(self.path_to_save_models, url_filename)  # Путь к файлу
 
@@ -226,12 +191,14 @@ class Download(DownloadMessages):
                                 except Exception:
                                     raise Exception
                     except Exception:
-                        self.message_error(self._unknown_err, space=self._space, out=out)
+                        self.message_error(self._unknown_err, space=self._space, start=True, out=out)
                         return 404
                     else:
                         # Файл с указанным именем найден локально и принудительная загрузка файла из сети не указана
                         if Path(local_file).is_file() is True and force_reload is False:
                             self._url_last_filename = local_file
+                            if out is True:
+                                print()
                             return 200
                         else:
                             # Ответ получен
@@ -242,7 +209,9 @@ class Download(DownloadMessages):
                                     if total_length == 0:
                                         raise InvalidContentLength
                                 except InvalidContentLength:
-                                    self.message_error(self._url_incorrect_content_length, space=self._space, out=out)
+                                    self.message_error(
+                                        self._url_incorrect_content_length, space=self._space, start=True, out=out
+                                    )
                                     return 404
                                 else:
                                     num_bars = int(np.ceil(total_length / self.chunk_size))  # Количество загрузок
@@ -250,41 +219,42 @@ class Download(DownloadMessages):
                                     try:
                                         # Открытие файла для записи
                                         with open(local_file, "wb") as f:
-                                            # Индикатор выполнения
-                                            self.__progressbar_download_file_from_url(
-                                                url_filename, 0.0, clear_out=True, last=True, out=out
-                                            )
-
                                             # Сохранение файла по частям
-                                            for i, chunk in enumerate(r.iter_content(chunk_size=self.chunk_size_)):
+                                            for i, chunk in enumerate(r.iter_content(chunk_size=self.chunk_size)):
                                                 f.write(chunk)  # Запись в файл
                                                 f.flush()
 
-                                                # Индикатор выполнения
-                                                self.__progressbar_download_file_from_url(
-                                                    url_filename,
-                                                    round(i * 100 / num_bars, 2),
-                                                    clear_out=True,
-                                                    last=True,
+                                                self.message_progressbar(
+                                                    self._automatic_download_progress.format(
+                                                        self.message_line(url_filename), round(i * 100 / num_bars, 2)
+                                                    ),
                                                     out=out,
                                                 )
 
-                                            # Индикатор выполнения
-                                            self.__progressbar_download_file_from_url(
-                                                url_filename, 100.0, clear_out=True, last=True, out=out
+                                            self.message_progressbar(
+                                                self._automatic_download_progress.format(
+                                                    self.message_line(url_filename), 100
+                                                ),
+                                                out=out,
                                             )
                                     except Exception:
-                                        self._other_error(self._unknown_err, out=out)
+                                        self.message_error(self._unknown_err, space=self._space, start=True, out=out)
                                         return 404
                                     else:
                                         self._url_last_filename = local_file
+                                        if out is True:
+                                            print()
                                         return 200
                             else:
-                                self._error(
+                                self.message_error(
                                     self._url_error_http.format(
-                                        self._info_wrapper(url_filename),
-                                        self._url_error_code_http.format(self._error_wrapper(str(r.status_code))),
+                                        self.message_line(url_filename, TYPE_MESSAGES[2]),
+                                        self._url_error_code_http.format(
+                                            self.message_line(str(r.status_code), type_message=TYPE_MESSAGES[2])
+                                        ),
                                     ),
+                                    start=True,
+                                    space=self._space,
                                     out=out,
                                 )
 

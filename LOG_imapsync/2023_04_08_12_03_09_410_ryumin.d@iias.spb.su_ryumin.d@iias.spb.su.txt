@@ -1,0 +1,202 @@
+Here is imapsync 2.229 on host MacBook-Pro-Dmitrij.local, a darwin system with 0.5/16.0 free GiB of RAM, 64.48% used by processes.
+with Perl 5.30.3 and Mail::IMAPClient 3.43
+Transfer started at суббота 08 апреля 2023-04-08 12:03:09 +0300 MSK
+PID is 31632 my PPID is 76459
+Log file is LOG_imapsync/2023_04_08_12_03_09_410_ryumin.d@iias.spb.su_ryumin.d@iias.spb.su.txt ( to change it, use --logfile path ; or use --nolog to turn off logging )
+Load is 3.85 3.56 3.72 on 12 cores
+Current directory is /Users/dl/GitHub/OpenAV
+Real user id is dl (uid 501)
+Effective user id is dl (euid 501)
+$RCSfile: imapsync,v $ $Revision: 2.229 $ $Date: 2022/09/14 18:08:24 $ 
+Command line used, run by /usr/bin/perl5.30:
+/usr/local/Cellar/imapsync/2.229_1/libexec/bin/imapsync --host2 82.179.36.249 --user2 ryumin.d@iias.spb.su --password2 MASKED --host1 imap.yandex.ru --user1 ryumin.d@iias.spb.su --password1 MASKED --ssl1 --ssl2
+Temp directory is /var/folders/gw/w3k5kxtx0s3_nqdqw94zr8yh0000gn/T ( to change it use --tmpdir dirpath )
+kill -QUIT 31632 # special behavior: call to sub catch_exit
+kill -TERM 31632 # special behavior: call to sub catch_exit
+kill -INT 31632 # special behavior: call to sub catch_reconnect
+kill -HUP 31632 # special behavior: call to sub catch_print
+kill -USR1 31632 # special behavior: call to sub toggle_sleep
+File /var/folders/gw/w3k5kxtx0s3_nqdqw94zr8yh0000gn/T/imapsync.pid does not exist
+PID file is /var/folders/gw/w3k5kxtx0s3_nqdqw94zr8yh0000gn/T/imapsync.pid ( to change it, use --pidfile filepath ; to avoid it use --pidfile "" )
+Writing my PID 31632 in /var/folders/gw/w3k5kxtx0s3_nqdqw94zr8yh0000gn/T/imapsync.pid
+Writing also my logfile name in /var/folders/gw/w3k5kxtx0s3_nqdqw94zr8yh0000gn/T/imapsync.pid : LOG_imapsync/2023_04_08_12_03_09_410_ryumin.d@iias.spb.su_ryumin.d@iias.spb.su.txt
+Modules version list ( use --no-modulesversion to turn off printing this Perl modules list ):
+Authen::NTLM         1.09
+CGI                  4.48
+Compress::Zlib       2.084
+Crypt::OpenSSL::RSA  0.31
+Data::Uniqid         0.12
+Digest::HMAC_MD5     1.01
+Digest::HMAC_SHA1    1.03
+Digest::MD5          2.55
+Encode               3.01
+Encode::IMAPUTF7     1.05
+File::Copy::Recursive 0.45
+File::Spec           3.78
+Getopt::Long         2.5
+HTML::Entities       3.69
+IO::Socket           1.40
+IO::Socket::INET     1.40
+IO::Socket::INET6    2.72
+IO::Socket::IP       0.41
+IO::Socket::SSL      2.068
+IO::Tee              0.65
+JSON                 4.09
+JSON::WebToken       0.10
+LWP                  6.44
+MIME::Base64         3.15
+Mail::IMAPClient     3.43
+Net::Ping            2.71
+Net::SSLeay          1.88
+Term::ReadKey        2.38
+Test::MockObject     1.20200122
+Time::HiRes          1.976
+URI::Escape          3.31
+Unicode::String      2.10
+
+Info: will resync flags for already transferred messages. Use --noresyncflags to not resync flags.
+SSL debug mode level is --debugssl 1 (can be set from 0 meaning no debug to 4 meaning max debug)
+Host1: SSL default mode is like --sslargs1 "SSL_verify_mode=0", meaning for host1 SSL_VERIFY_NONE, ie, do not check the server certificate.
+Host1: Use --sslargs1 SSL_verify_mode=1 to have SSL_VERIFY_PEER, ie, check the server certificate. of host1
+Host2: SSL default mode is like --sslargs2 "SSL_verify_mode=0", meaning for host2 SSL_VERIFY_NONE, ie, do not check the server certificate.
+Host2: Use --sslargs2 SSL_verify_mode=1 to have SSL_VERIFY_PEER, ie, check the server certificate. of host2
+Info: turned ON syncinternaldates, will set the internal dates (arrival dates) on host2 same as host1.
+Host1: will try to use LOGIN authentication on host1
+Host2: will try to use LOGIN authentication on host2
+Host1: imap connection timeout is 120 seconds
+Host2: imap connection timeout is 120 seconds
+Host1: imap connection keepalive is on on host1. Use --nokeepalive1 to disable it.
+Host2: imap connection keepalive is on on host2. Use --nokeepalive2 to disable it.
+Host1: IMAP server [imap.yandex.ru] port [993] user [ryumin.d@iias.spb.su]
+Host2: IMAP server [82.179.36.249] port [993] user [ryumin.d@iias.spb.su]
+Host1: connecting and login on host1 [imap.yandex.ru] port [993] with user [ryumin.d@iias.spb.su]
+DEBUG: .../IO/Socket/SSL.pm:1177: global error: Undefined SSL object
+DEBUG: .../IO/Socket/SSL.pm:1177: global error: Undefined SSL object
+Host1 IP address: 77.88.21.125 Local IP address: 10.14.0.2
+Host1 banner: * OK Yandex IMAP4rev1 at xk2oizcz4c67423u.myt.yp-c.yandex.net:993 ready to talk with ::ffff:185.174.159.122:61561, 2023-Apr-08 12:03:10, A3Ojac09a8c0
+Host1 capability before authentication: IMAP4rev1 CHILDREN UNSELECT LITERAL+ NAMESPACE XLIST BINARY UIDPLUS ENABLE ID AUTH=PLAIN AUTH=XOAUTH2 IDLE MOVE AUTH
+Host1: success login on [imap.yandex.ru] with user [ryumin.d@iias.spb.su] auth [LOGIN] or [LOGIN]
+Host2: connecting and login on host2 [82.179.36.249] port [993] with user [ryumin.d@iias.spb.su]
+DEBUG: .../IO/Socket/SSL.pm:1177: global error: Undefined SSL object
+DEBUG: .../IO/Socket/SSL.pm:1177: global error: Undefined SSL object
+Host2 IP address: 82.179.36.249 Local IP address: 10.14.0.2
+Host2 banner: * OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] Dovecot ready.
+Host2 capability before authentication: IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN AUTH
+Host2: 82.179.36.249 says it has CAPABILITY for AUTHENTICATE LOGIN
+Host2: success login on [82.179.36.249] with user [ryumin.d@iias.spb.su] auth [LOGIN] or [LOGIN]
+Host1: state Authenticated
+Host2: state Authenticated
+Host1 capability once authenticated: IMAP4rev1 CHILDREN UNSELECT LITERAL+ NAMESPACE XLIST BINARY UIDPLUS ENABLE ID IDLE MOVE
+Host2 capability once authenticated: IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY PREVIEW=FUZZY PREVIEW STATUS=SIZE SAVEDATE LITERAL+ NOTIFY SPECIAL-USE ACL RIGHTS=texk THREAD I18NLEVEL CONTEXT SNIPPET PREVIEW STATUS RIGHTS
+Host1: found ID capability. Sending/receiving ID, presented in raw IMAP for now.
+In order to avoid sending/receiving ID, use option --noid
+Sending: 4 ID ("name" "imapsync" "version" "2.229" "os" "darwin" "vendor" "Gilles LAMIRAL" "support-url" "https://imapsync.lamiral.info/" "date" "14-Sep-2022 18:08:24 +0000" "side" "host1")
+Sent 182 bytes
+Read: 	* ID ("name" "Yandex Mail" "vendor" "Yandex" "support-url" "http://feedback.yandex.ru/?from=mail")
+Read: 	4 OK ID Completed.
+Host2: found ID capability. Sending/receiving ID, presented in raw IMAP for now.
+In order to avoid sending/receiving ID, use option --noid
+Sending: 4 ID ("name" "imapsync" "version" "2.229" "os" "darwin" "vendor" "Gilles LAMIRAL" "support-url" "https://imapsync.lamiral.info/" "date" "14-Sep-2022 18:08:24 +0000" "side" "host2")
+Sent 182 bytes
+Read: 	* ID ("name" "Dovecot")
+  	4 OK ID completed (0.001 + 0.000 secs).
+Host2: No QUOTA capability found, skipping it.
+Host1: Compression is off. Use --compress1 to allow compression on host1
+Host2: Compression is off. Use --compress2 to allow compression on host2
+Host1: found 7 folders.
+Host2: found 10 folders.
+Host1: guessing separator from folder listing: [/]
+Host1: separator given by NAMESPACE: [|]
+Host2: guessing separator from folder listing: [/]
+Host2: separator given by NAMESPACE: [/]
+Host1: guessing prefix from folder listing: []
+Host1: prefix given by NAMESPACE: []
+Host2: guessing prefix from folder listing: []
+Host2: prefix given by NAMESPACE: []
+Host1: separator and prefix: [|][]
+Host2: separator and prefix: [/][]
+Including all folders found by default. Use --subscribed or --folder or --folderrec or --include to select specific folders. Use --exclude to unselect specific folders.
+Host1: Checking wanted folders exist. Use --nocheckfoldersexist to avoid this check (shared of public namespace targeted).
+Host1: Checking wanted folders are selectable. Use --nocheckselectable to avoid this check.
+Turned off automapping folders ( use --automap to turn on automapping )
+
+++++ Listing folders
+All foldernames are presented between brackets like [X] where X is the foldername.
+When a foldername contains non-ASCII characters it is presented in the form
+[X] = [Y] where
+X is the imap foldername you have to use in command line options and
+Y is the utf8 output just printed for convenience, to recognize it.
+
+Host1: folders list (first the raw imap format then the [X] = [Y]):
+* LIST (\HasChildren \Unmarked \Drafts) "|" Drafts
+* LIST (\HasNoChildren \Unmarked \Templates) "|" "Drafts|template"
+* LIST (\HasNoChildren \Unmarked \NoInferiors) "|" INBOX
+* LIST (\HasNoChildren \Unmarked) "|" Outbox
+* LIST (\HasNoChildren \Unmarked \Sent) "|" Sent
+* LIST (\HasNoChildren \Unmarked \Junk) "|" Spam
+* LIST (\HasNoChildren \Unmarked \Trash) "|" Trash
+16 OK LIST Completed.
+
+[Drafts]
+[Drafts|template]
+[INBOX]
+[Outbox]
+[Sent]
+[Spam]
+[Trash]
+
+Host2: folders list (first the raw imap format then the [X] = [Y]):
+* LIST (\HasNoChildren \Junk) "/" Spam
+* LIST (\HasNoChildren) "/" Outbox
+* LIST (\HasNoChildren) "/" sieve
+* LIST (\HasNoChildren \Trash) "/" Trash
+* LIST (\HasNoChildren \UnMarked \Sent) "/" Sent
+* LIST (\HasNoChildren \UnMarked \Junk) "/" Junk
+* LIST (\HasChildren \UnMarked \Drafts) "/" Drafts
+* LIST (\HasNoChildren \UnMarked) "/" Drafts/template
+* LIST (\HasNoChildren \UnMarked \Archive) "/" Archive
+* LIST (\HasNoChildren) "/" INBOX
+9 OK List completed (0.001 + 0.000 secs).
+
+[Archive]
+[Drafts]
+[Drafts/template]
+[INBOX]
+[Junk]
+[Outbox]
+[Sent]
+[Spam]
+[Trash]
+[sieve]
+
+Folders in host2 not in host1:
+[sieve]
+[Junk]
+[Archive]
+
+Checking SEARCH ALL works on both accounts. To avoid that check, use --nochecknoabletosearch
+Host1: checking if SEARCH ALL works on INBOX
+Host1: folder [INBOX] has 1324 messages mentioned by SELECT
+Host1: folder [INBOX] has 1324 messages found by SEARCH ALL
+Host1: folder [INBOX] has the same messages count (1324) by SELECT and SEARCH ALL
+Host2: checking if SEARCH ALL works on INBOX
+Host2: folder [INBOX] has 1323 messages mentioned by SELECT
+Host2: folder [INBOX] has 1323 messages found by SEARCH ALL
+Host2: folder [INBOX] has the same messages count (1323) by SELECT and SEARCH ALL
+Good! SEARCH ALL works on both accounts.
+
+Folders sizes before the synchronization. It can take some time. Be patient.
+You can remove foldersizes listings by using "--nofoldersizes" and "--nofoldersizesatend"
+but then you will also lose the ETA (Estimation Time of Arrival) given after each message copy.
+Host1 folder     1/7 [Drafts]                            Size:  37433805 Messages:    16 Biggest:  28028510
+Host2 folder     1/7 [Drafts]                            Size:  37433805 Messages:    16 Biggest:  28028510
+Host2-Host1                                                            0               0                  0
+
+Host1 folder     2/7 [Drafts|template]                   Size:         0 Messages:     0 Biggest:         0
+Host2 folder     2/7 [Drafts/template]                   Size:         0 Messages:     0 Biggest:         0
+Host2-Host1                                                            0               0                  0
+
+Host1 folder     3/7 [INBOX]                             Size: 605380026 Messages:  1324 Biggest:  36488116
+Host2 folder     3/7 [INBOX]                             Size: 605233620 Messages:  1323 Biggest:  36488116
+Host2-Host1                                                      -146406              -1                  0
+

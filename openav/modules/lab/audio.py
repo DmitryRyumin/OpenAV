@@ -24,6 +24,7 @@ import torch  # Машинное обучение от Facebook
 import torchvision  # Работа с видео от Facebook
 import torchaudio  # Работа с аудио от Facebook
 import filetype  # Определение типа файла и типа MIME
+import json  # Кодирование и декодирование данных в удобном формате
 
 # Парсинг URL
 import urllib.parse
@@ -32,6 +33,7 @@ import urllib.error
 from IPython.utils import io  # Подавление вывода
 from pathlib import Path, PosixPath  # Работа с путями в файловой системе
 from datetime import datetime, timedelta  # Работа со временем
+from pymediainfo import MediaInfo  # Получение meta данных из медиафайлов
 
 from vosk import Model, KaldiRecognizer, SetLogLevel  # Распознавание речи
 
@@ -124,6 +126,10 @@ class AudioMessages(Yaml):
 
         # Переопределение
         self._automatic_download: str = self._("Загрузка Vosk модели") + ' "{}"' + self._em
+        self._automatic_download_progress: str = self._automatic_download + " {}%" + self._em
+
+        self._vosk_model_activation: str = self._("Активация Vosk модели") + ' "{}"' + self._em
+        self._sr_not_recognized: str = self._("Речь не найдена") + self._em
 
         self._subfolders_search: str = (
             self._('Поиск вложенных директорий в директории "{}" (глубина вложенности: {})') + self._em
@@ -191,13 +197,16 @@ class Audio(AudioMessages):
         self.__curr_path: PosixPath = ""  # Текущий аудиовизуальный файл
         self.__splitted_path: str = ""  # Локальный путь до директории
         self.__i: int = 0  # Счетчик
-        self.__local_path: [[PosixPath], str] = ""  # Локальный путь
+        self.__local_path: List[Union[List[PosixPath], str]] = ""  # Локальный путь
         self.__aframes: torch.Tensor = torch.empty((), dtype=torch.float32)  # Аудиокадры
 
         self.__dataset_video_vad: List[str] = []  # Пути до директорий с разделенными видеофрагментами
         self.__dataset_audio_vad: List[str] = []  # Пути до директорий с разделенными аудиофрагментами
         self.__unprocessed_files: List[str] = []  # Пути к файлам на которых VAD не отработал
         self.__not_saved_files: List[str] = []  # Пути к файлам которые не сохранились при обработке VAD
+
+        # Результат дочернего процесс распознавания речи
+        self.__subprocess_vosk_sr: Union[List[str], Dict[str, List[str]]] = []
 
         self.__type_encode: str = ""  # Тип кодирования
         self.__crf_value: int = 0  # Качество кодирования (от 0 до 51)
@@ -222,6 +231,12 @@ class Audio(AudioMessages):
         self.__part_audio_path: str = ""  # Путь до аудиофрагмента
 
         self.__curr_ts: str = ""  # Текущее время (TimeStamp)
+
+        self.__freq_sr: int = 16000  # Частота дискретизации
+
+        self.__speech_model: Optional[Model] = None  # Модель распознавания речи
+        self.__speech_rec: Optional[KaldiRecognizer] = None  # Активация распознавания речи
+        self.__keys_speech_rec: List[str] = ["result", "text"]  # Ключи из результата распознавания речи
 
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
@@ -283,8 +298,185 @@ class Audio(AudioMessages):
     # Внутренние методы (приватные)
     # ------------------------------------------------------------------------------------------------------------------
 
+    # Детальная информация о текущем процессе распознавания речи (Vosk)
+    @staticmethod
+    def __speech_rec_result(
+        keys: List[str], speech_rec_res: Dict[str, Union[List[Dict[str, Union[float, str]]], str]]
+    ) -> List[Union[str, float]]:
+        """Детальная информация о текущем процессе распознавания речи (Vosk)
+
+        Args:
+            keys (List[str]): Ключи из результата распознавания
+            speech_rec_res (Dict[str, Union[List[Dict[str, Union[float, str]]], str]]): Текущий результат
+
+        Returns:
+            List[Union[str, float]]: Список из текстового представления речи, начала и конца речи
+        """
+
+        # Детальная информация распознавания
+        if keys[0] in speech_rec_res.keys():
+            start = speech_rec_res[keys[0]][0]["start"]  # Начало речи
+
+            if len(speech_rec_res[keys[0]]) == 1:
+                idx = 0  # Индекс
+            else:
+                idx = -1  # Индекс
+
+            end = speech_rec_res[keys[0]][idx]["end"]  # Конец речи
+            curr_text = speech_rec_res[keys[1]]  # Распознанный текст
+
+            return [curr_text, round(start, 2), round(end, 2)]  # Текущий результат
+
+        return []
+
+    def __subprocess_vosk_sr_video(self, out: bool) -> List[str]:
+        """Дочерний процесс распознавания речи (Vosk) - видео
+
+        Args:
+            out (bool) Отображение
+
+        Returns:
+            List[str]: Список с текстовыми представлениями речи, начала и конца речи
+        """
+
+        try:
+            # https://trac.ffmpeg.org/wiki/audio%20types
+            # Выполнение в новом процессе
+            with subprocess.Popen(
+                ["ffmpeg", "-loglevel", "quiet", "-i", self.__curr_path]
+                + ["-ar", str(self.__freq_sr), "-ac", str(1), "-f", "s16le", "-"],
+                stdout=subprocess.PIPE,
+            ) as process:
+                results_recognized = []  # Результаты распознавания
+
+                while True:
+                    data = process.stdout.read(4000)
+                    if len(data) == 0:
+                        break
+
+                    curr_res = []  # Текущий результат
+
+                    # Распознанная речь
+                    if self.__speech_rec.AcceptWaveform(data):
+                        speech_rec_res = json.loads(self.__speech_rec.Result())  # Текущий результат
+
+                        # Детальная информация распознавания
+                        curr_res = self.__speech_rec_result(self.__keys_speech_rec, speech_rec_res)
+                    else:
+                        self.__speech_rec.PartialResult()
+
+                    if len(curr_res) == 3:
+                        results_recognized.append(curr_res)
+
+                speech_rec_fin_res = json.loads(self.__speech_rec.FinalResult())  # Итоговый результат распознавания
+                # Детальная информация распознавания
+                speech_rec_fin_res = self.__speech_rec_result(self.__keys_speech_rec, speech_rec_fin_res)
+
+                # Результат распознавания
+                if len(speech_rec_fin_res) == 3:
+                    results_recognized.append(speech_rec_fin_res)
+
+                if len(results_recognized) == 0:
+                    self.message_error(self._sr_not_recognized, out=out)
+                    return []
+
+                return results_recognized
+        except OSError:
+            self.message_error(self._sr_not_recognized, out=out)
+            return []
+        except Exception:
+            self.message_error(self._unknown_err, out=out)
+            return []
+
+    # Дочерний процесс распознавания речи (Vosk) - аудио
+    def __subprocess_vosk_sr_audio(self, out: bool) -> Dict[str, List[str]]:
+        """Дочерний процесс распознавания речи (Vosk)  - аудио
+
+        Args:
+            out (bool) Отображение
+
+        Returns:
+            Dict[str, List[str]]: Словарь со вложенными списками из текстового представления речи, начала и конца речи
+        """
+
+        # Количество каналов в аудиодорожке
+        channels_audio = self.__aframes.shape[0]
+
+        # Количество каналов больше 2
+        if channels_audio > 2:
+            self.__unprocessed_files.append(self.__curr_path)
+            return {}
+
+        map_channels = {"Mono": "0.0.0"}  # Извлечение моно
+        if channels_audio == 2:
+            map_channels = {"Left": "0.0.0", "Right": "0.0.1"}  # Стерео
+
+        try:
+            results_recognized = {}  # Результаты распознавания
+
+            # Проход по всем каналам
+            for front, channel in map_channels.items():
+                results_recognized[front] = []  # Словарь для результатов определенного канала
+                # https://trac.ffmpeg.org/wiki/audio%20types
+                # Выполнение в новом процессе
+                with subprocess.Popen(
+                    ["ffmpeg", "-loglevel", "quiet", "-i", self.__curr_path]
+                    + [
+                        "-ar",
+                        str(self.__freq_sr),
+                        "-map_channel",
+                        channel,
+                        "-acodec",
+                        "pcm_s16le",
+                        "-ac",
+                        str(1),
+                        "-f",
+                        "s16le",
+                        "-",
+                    ],
+                    stdout=subprocess.PIPE,
+                ) as process:
+                    while True:
+                        data = process.stdout.read(4000)
+                        if len(data) == 0:
+                            break
+
+                        curr_res = []  # Текущий результат
+
+                        # Распознанная речь
+                        if self.__speech_rec.AcceptWaveform(data):
+                            speech_rec_res = json.loads(self.__speech_rec.Result())  # Текущий результат
+
+                            # Детальная информация распознавания
+                            curr_res = self.__speech_rec_result(self.__keys_speech_rec, speech_rec_res)
+                        else:
+                            self.__speech_rec.PartialResult()
+
+                        if len(curr_res) == 3:
+                            results_recognized[front].append(curr_res)
+
+                    speech_rec_fin_res = json.loads(self._speech_rec.FinalResult())  # Итоговый результат распознавания
+                    # Детальная информация распознавания
+                    speech_rec_fin_res = self.__speech_rec_result(self.__keys_speech_rec, speech_rec_fin_res)
+
+                    # Результат распознавания
+                    if len(speech_rec_fin_res) == 3:
+                        results_recognized[front].append(speech_rec_fin_res)
+
+            if bool([l for l in results_recognized.values() if l != []]) is False:
+                self.message_error(self._sr_not_recognized, out=out)
+                return {}
+
+            return results_recognized
+        except OSError:
+            self.message_error(self._sr_not_recognized, out=out)
+            return {}
+        except Exception:
+            self.message_error(self._unknown_err, out=out)
+            return {}
+
     def __audio_analysis(self) -> bool:
-        """Анализ аудиодорожки
+        """Анализ аудиодорожки (VAD)
 
         Returns:
             bool: **True** если анализ аудиодорожки произведен, в обратном случае **False**
@@ -480,6 +672,76 @@ class Audio(AudioMessages):
                                 not_saved_files()
         return True
 
+    def __audio_analysis_vosk_sr(self) -> bool:
+        """Анализ аудиодорожки (Vosk)
+
+        Returns:
+            bool: **True** если анализ аудиодорожки произведен, в обратном случае **False**
+        """
+
+        # Тип файла
+        kind = filetype.guess(self.__curr_path)
+
+        # Видео
+        if kind.mime.startswith("video/") is True:
+            track = 2
+        # Аудио
+        if kind.mime.startswith("audio/") is True:
+            track = 1
+
+        # Количество каналов в аудиодорожке
+        channels_audio = MediaInfo.parse(self.__curr_path).to_data()["tracks"][track]["channel_s"]
+        if channels_audio > 2:
+            self.__unprocessed_files.append(self.__curr_path)
+            return False
+
+        if channels_audio == 1:
+            self.__front = FRONT["mono"]  # Моно канал
+        elif channels_audio == 2:
+            self.__front = FRONT["stereo"]  # Стерео канал
+
+        # Текущее время (TimeStamp)
+        # см. datetime.fromtimestamp()
+        self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
+
+        # 0:00:01.434667 0:00:02.149333
+
+        # Проход по всем каналам
+        for channel in range(0, channels_audio):
+
+            def join_path(dir_va):
+                return os.path.join(self.path_to_dataset_vosk_sr, dir_va, self.__splitted_path)
+
+            # Временные метки найдены
+            # if len(self.__subprocess_vosk_sr) > 0:
+            #     # Распознавание речи по видео
+            #     if type(self.__subprocess_vosk_sr) is list:
+            #         res_vosk_sr = res_vosk_sr[0][0].lower()
+
+            #         if res_vosk_sr == "":
+            #             continue  # Речь не найдена
+
+            #         sr_curr_res_true = True  # Речь найдена
+
+            #         self.__sort_file_vad(res_vosk_sr)  # Сортировка файла в зависимости от распознанной речи
+            #     # Распознавание речи по аудио
+            #     elif type(res_vosk_sr) is dict:
+            #         # Пройтись по аудиоканалам
+            #         for key, val in enumerate(res_vosk_sr.items()):
+            #             if len(val[1]) == 0:
+            #                 continue  # Речь не найдена
+
+            #             curr_val = val[1][0][0].lower()  # Текущий результат распознавания
+
+            #             if curr_val == "":
+            #                 continue  # Речь не найдена
+
+            #             sr_curr_res_true = True  # Речь найдена
+
+            #             self.__key_audio_sr = key
+            #             if self.__sort_file_vad(curr_val) is True:
+            #                 break
+
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
     # ------------------------------------------------------------------------------------------------------------------
@@ -552,8 +814,8 @@ class Audio(AudioMessages):
                 or type(speech_pad_ms) is not int
                 or speech_pad_ms < 1
                 or type(force_reload) is not bool
-                or type(out) is not bool
                 or type(clear_dirvad) is not bool
+                or type(out) is not bool
             ):
                 raise TypeError
         except TypeError:
@@ -812,10 +1074,11 @@ class Audio(AudioMessages):
                             self.message_true(self._vad_true, space=self._space, out=out)
                             return True
 
-    def vosk(self, force_reload: bool = True, out: bool = True) -> bool:
+    def vosk(self, new_name: Optional[str] = None, force_reload: bool = True, out: bool = True) -> bool:
         """Загрузка и активация модели Vosk для детектирования голосовой активности и распознавания речи
 
         Args:
+            new_name (str): Имя директории для разархивирования
             force_reload (bool): Принудительная загрузка модели из сети
             out (bool) Отображение
 
@@ -825,7 +1088,11 @@ class Audio(AudioMessages):
 
         try:
             # Проверка аргументов
-            if type(force_reload) is not bool or type(out) is not bool:
+            if (
+                ((type(new_name) is not str or not new_name) and new_name is not None)
+                or type(force_reload) is not bool
+                or type(out) is not bool
+            ):
                 raise TypeError
         except TypeError:
             self.inv_args(__class__.__name__, self.vosk.__name__, out=out)
@@ -844,17 +1111,64 @@ class Audio(AudioMessages):
                 # Загрузка файла из URL
                 res_download_file_from_url = self.download_file_from_url(url=url, force_reload=force_reload, out=out)
             except Exception:
-                self.message_error(self._unknown_err, space=self._space, out=out)
+                self.message_error(self._unknown_err, start=True, space=self._space, out=out)
                 return False
             else:
-                pass
+                # Файл загружен
+                if res_download_file_from_url == 200:
+                    try:
+                        # Распаковка архива
+                        res_unzip = self.unzip(
+                            path_to_zipfile=os.path.join(
+                                self.path_to_save_models, self._vosk_models_for_sr[name][lsr][dlsr]
+                            ),
+                            new_name=new_name,
+                            force_reload=force_reload,
+                        )
+                    except Exception:
+                        self.message_error(self._unknown_err, start=True, out=out)
+                        return False
+                    else:
+                        # Файл распакован
+                        if res_unzip is True:
+                            try:
+                                # Информационное сообщение
+                                self.message_info(
+                                    self._vosk_model_activation.format(
+                                        self.message_line(Path(self._vosk_models_for_sr[name][lsr][dlsr]).stem)
+                                    ),
+                                    start=True,
+                                    out=out,
+                                )
 
-    def vosk_sr(self, force_reload: bool = True, out: bool = True) -> bool:
+                                self.__speech_model = Model(str(self._path_to_unzip))  # Активация модели
+                                # Активация распознавания речи
+                                self.__speech_rec = KaldiRecognizer(self.__speech_model, self.__freq_sr)
+                                self.__speech_rec.SetWords(True)  # Данные о начале и конце слова/фразы
+                            except Exception:
+                                self.message_error(self._unknown_err, out=out)
+                            else:
+                                return True
+                else:
+                    return False
+
+    def vosk_sr(
+        self,
+        depth: int = 1,
+        new_name: Optional[str] = None,
+        force_reload: bool = True,
+        clear_dirvosk_sr: bool = False,
+        out: bool = True,
+    ) -> bool:
         """VAD + SR (Voice Activity Detector + Speech Recognition) или (детектирование голосовой активности и
         распознавание речи)
 
         Args:
-
+            depth (int): Глубина иерархии для получения данных
+            new_name (str): Имя директории для разархивирования
+            force_reload (bool): Принудительная загрузка модели из сети
+            clear_dirvosk_sr (bool): Очистка директории для сохранения фрагментов аудиовизуального сигнала
+            out (bool) Отображение
 
         Returns:
             bool: **True** если детектирование голосовой активности и распознавание речи произведено, в обратном случае
@@ -863,14 +1177,147 @@ class Audio(AudioMessages):
 
         try:
             # Проверка аргументов
-            if type(force_reload) is not bool or type(out) is not bool:
+            if (
+                type(depth) is not int
+                or depth < 1
+                or ((type(new_name) is not str or not new_name) and new_name is not None)
+                or type(force_reload) is not bool
+                or type(clear_dirvosk_sr) is not bool
+                or type(out) is not bool
+            ):
                 raise TypeError
         except TypeError:
             self.inv_args(__class__.__name__, self.vosk_sr.__name__, out=out)
             return False
         else:
-            # Загрузка и активация модели Vosk для распознавания речи
-            if self.vosk(force_reload=force_reload, out=out) is False:
+            # Информационное сообщение
+            self.message_info(
+                self._subfolders_search.format(
+                    self.message_line(self.path_to_dataset),
+                    self.message_line(str(depth)),
+                ),
+                out=out,
+            )
+
+            # Создание директории, где хранятся данные
+            if self.create_folder(self.path_to_dataset, out=False) is False:
                 return False
 
-            print(2)
+            # Получение вложенных директорий, где хранятся данные
+            nested_paths = self.get_paths(self.path_to_dataset, depth=depth, out=False)
+
+            # Вложенные директории не найдены
+            try:
+                if len(nested_paths) == 0:
+                    raise IsNestedCatalogsNotFoundError
+            except IsNestedCatalogsNotFoundError:
+                self.message_error(self._subfolders_not_found, space=self._space, out=out)
+                return False
+
+            # Информационное сообщение
+            self.message_info(
+                self._files_av_find.format(
+                    self.message_line(", ".join(x.replace(".", "") for x in self.ext_search_files)),
+                    self.message_line(self.path_to_dataset),
+                    self.message_line(str(depth)),
+                ),
+                out=out,
+            )
+
+            paths = []  # Пути до аудиовизуальных файлов
+
+            # Проход по всем вложенным директориям
+            for nested_path in nested_paths:
+                # Формирование списка с видеофайлами
+                for p in Path(nested_path).glob("*"):
+                    # Добавление текущего пути к видеофайлу в список
+                    if p.suffix.lower() in self.ext_search_files:
+                        paths.append(p.resolve())
+
+            # Директория с набором данных не содержит аудиовизуальных файлов с необходимыми расширениями
+            try:
+                self.__len_paths = len(paths)  # Количество аудиовизуальных файлов
+
+                if self.__len_paths == 0:
+                    raise TypeError
+            except TypeError:
+                self.message_error(self._files_not_found, space=self._space, out=out)
+                return False
+            except Exception:
+                self.message_error(self._unknown_err, space=self._space, out=out)
+                return False
+            else:
+                # Очистка директории для сохранения фрагментов аудиовизуального сигнала
+                if clear_dirvosk_sr is True and os.path.exists(self.path_to_dataset_vosk_sr) is True:
+                    if self.clear_folder(self.path_to_dataset_vosk_sr, out=False) is False:
+                        return False
+
+                self.__dataset_video_vad = []  # Пути до директорий с разделенными видеофрагментами
+                self.__dataset_audio_vad = []  # Пути до директорий с разделенными аудиофрагментами
+
+                self.__unprocessed_files = []  # Пути к файлам на которых VAD не отработал
+
+                # Загрузка и активация модели Vosk для распознавания речи
+                if self.vosk(new_name=new_name, force_reload=force_reload, out=out) is False:
+                    return False
+
+                # Информационное сообщение
+                self.message_info(self._files_analysis, out=out)
+
+                # Локальный путь
+                self.__local_path = lambda lp: os.path.join(
+                    *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))) :]
+                )
+
+                # Проход по всем найденным аудиовизуальных файлам
+                for i, path in enumerate(paths):
+                    self.__curr_path = path  # Текущий аудиовизуальный файл
+                    self.__i = i + 1  # Счетчик
+
+                    self.message_progressbar(
+                        self._curr_progress.format(
+                            self.__i,
+                            self.__len_paths,
+                            round(self.__i * 100 / self.__len_paths, 2),
+                            self.message_line(self.__local_path(self.__curr_path)),
+                        ),
+                        space=self._space,
+                        out=out,
+                    )
+
+                    self.__splitted_path = str(self.__curr_path.parent.relative_to(Path(self.path_to_dataset))).strip()
+
+                    self.__curr_path = str(self.__curr_path)
+
+                    # Пропуск невалидных значений
+                    if not self.__splitted_path or re.search(r"\s", self.__splitted_path) is not None:
+                        continue
+
+                    # Тип файла
+                    kind = filetype.guess(self.__curr_path)
+
+                    try:
+                        # Видео
+                        if kind.mime.startswith("video/") is True:
+                            #  Дочерний процесс распознавания речи (Vosk) - видео
+                            self.__subprocess_vosk_sr = self.__subprocess_vosk_sr_video(out=False)
+                        # Аудио
+                        if kind.mime.startswith("audio/") is True:
+                            #  Дочерний процесс распознавания речи (Vosk) - аудио
+                            self.__subprocess_vosk_sr = self.__subprocess_vosk_sr_audio(out=False)
+                    except Exception:
+                        self.__unprocessed_files.append(self.__curr_path)
+                        self.message_progressbar(close=True, out=out)
+                        continue
+                    else:
+                        self.__audio_analysis_vosk_sr()  # Анализ аудиодорожки
+
+                    return
+
+                self.message_progressbar(close=True, out=out)
+
+                # Файлы на которых VAD не отработал
+                unprocessed_files_unique = np.unique(np.array(self.__unprocessed_files)).tolist()
+
+                if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
+                    self.message_true(self._vad_true, space=self._space, out=out)

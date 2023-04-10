@@ -24,14 +24,14 @@ from dataclasses import dataclass  # Класс данных
 from typing import List, Optional, Iterable  # Типы данных
 
 # Персональные
-from openav.modules.core.core import Core  # Ядро
+from openav.modules.file_manager.unzip import Unzip  # Обработка архивов
 
 
 # ######################################################################################################################
 # Сообщения
 # ######################################################################################################################
 @dataclass
-class FileManagerMessages(Core):
+class FileManagerMessages(Unzip):
     """Класс для сообщений
 
     Args:

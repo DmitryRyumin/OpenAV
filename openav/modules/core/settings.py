@@ -30,8 +30,10 @@ from openav.modules.core.messages import Messages  # Сообщения
 # ######################################################################################################################
 PATH_TO_SAVE_MODELS: str = "./models"  # Путь к директории для сохранения моделей
 PATH_TO_DATASET: str = "./dataset"  # Путь к директории набора данных
-# Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала
+# Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VAD)
 PATH_TO_DATASET_VAD: str = "./dataset_vad"
+# Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VOSK)
+PATH_TO_DATASET_VOSK_SR: str = "./dataset_vosk"
 IGNORE_DIRS: List[str] = []  # Директории не входящие в выборку
 # Названия директорий для видео и аудио
 DIR_VA_NAMES: List[str] = [
@@ -82,8 +84,10 @@ class Settings(Messages):
 
         self.path_to_save_models: str = PATH_TO_SAVE_MODELS  # Путь к директории для сохранения моделей
         self.path_to_dataset: str = PATH_TO_DATASET  # Путь к директории набора данных
-        # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала
+        # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VAD)
         self.path_to_dataset_vad: str = PATH_TO_DATASET_VAD
+        # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VOSK)
+        self.path_to_dataset_vosk_sr: str = PATH_TO_DATASET_VOSK_SR
         self.ignore_dirs: List[str] = IGNORE_DIRS  # Директории не входящие в выборку
         self.dir_va_names: List[str] = DIR_VA_NAMES  # Названия директорий для видео и аудио
         self.ext_search_files: List[str] = EXT_SEARCH_FILES  # Расширения искомых файлов
@@ -207,7 +211,7 @@ class Settings(Messages):
 
     @property
     def path_to_dataset_vad(self) -> str:
-        """Получение/установка пути к директории набора данных состоящего из фрагментов аудиовизуального сигнала
+        """Получение/установка пути к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VAD)
 
         Args:
             (str): Путь
@@ -220,7 +224,7 @@ class Settings(Messages):
 
     @path_to_dataset_vad.setter
     def path_to_dataset_vad(self, path: str):
-        """Установка пути к директории набора данных состоящего из фрагментов аудиовизуального сигнала"""
+        """Установка пути к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VAD)"""
 
         try:
             # Проверка аргументов
@@ -230,6 +234,32 @@ class Settings(Messages):
             pass
         else:
             self.__path_to_dataset_vad = os.path.normpath(path.strip())
+
+    @property
+    def path_to_dataset_vosk_sr(self) -> str:
+        """Получение/установка пути к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VOSK)
+
+        Args:
+            (str): Путь
+
+        Returns:
+            str: Путь
+        """
+
+        return self.__path_to_dataset_vosk_sr
+
+    @path_to_dataset_vosk_sr.setter
+    def path_to_dataset_vosk_sr(self, path: str):
+        """Установка пути к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VOSK)"""
+
+        try:
+            # Проверка аргументов
+            if type(path) is not str or not path:
+                raise TypeError
+        except TypeError:
+            pass
+        else:
+            self.__path_to_dataset_vosk_sr = os.path.normpath(path.strip())
 
     @property
     def ignore_dirs(self) -> List[str]:

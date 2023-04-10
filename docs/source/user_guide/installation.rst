@@ -43,3 +43,4 @@
    "pyyaml", "6.0", ".. image:: https://img.shields.io/pypi/v/pyyaml"
    "streamlit", "1.20.0", ".. image:: https://img.shields.io/pypi/v/streamlit"
    "watchdog", "2.3.1", ".. image:: https://img.shields.io/pypi/v/watchdog"
+   "pymediainfo", "6.0.1", ".. image:: https://img.shields.io/pypi/v/pymediainfo"
