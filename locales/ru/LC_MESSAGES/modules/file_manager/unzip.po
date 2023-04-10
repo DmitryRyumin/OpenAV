@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-05 16:58+0300\n"
+"POT-Creation-Date: 2023-04-10 13:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -22,73 +22,120 @@ msgstr ""
 "Generated-By: Babel 2.11.0\n"
 
 #: ../../source/modules/file_manager/unzip.rst:2
-#: 6db26b4dc47e4dcebb04da39441c23d4 a10df7a299d74ced9c9121a09a57d644 of
-#: openav.modules.file_manager.unzip.Unzip:1
+#: 7cd637ff3b30441494c35e5a96cc1d67
 msgid "Обработка архивов"
 msgstr ""
 
-#: fbbf5285e9c543309ccfd6c305fbadb2 of
+#: 3bcbb0ee33854a7c9cd70d0cc2c7d2c3 of
 #: openav.modules.file_manager.unzip.UnzipMessages:1
 msgid "Базовые классы: :py:class:`~openav.modules.core.core.Core`"
 msgstr ""
 
-#: 9feee063993349ba8f0e8fdda809f9ca of
+#: a10c4ff2e2ff42bb93c7b4bd71c97f8c of
 #: openav.modules.file_manager.unzip.UnzipMessages:1
 msgid "Класс для сообщений"
 msgstr ""
 
-#: 2b528706aec545988fa1b38bf133a39f a8ad46e9b22f4cd9b0c31c43bb1212e7
-#: ee1546257b7146ed9ac35b66ebc3b2fb of openav.modules.file_manager.unzip.Unzip
+#: 4fdff55a6f75404dbf55a91bffb8cf26 5786e534ed3b4d29893b066dca55da47
+#: 94bfb2bbfa8b44bca242026ccb48008d of openav.modules.file_manager.unzip.Unzip
 #: openav.modules.file_manager.unzip.Unzip.unzip
 #: openav.modules.file_manager.unzip.UnzipMessages
 msgid "Параметры"
 msgstr ""
 
-#: 83c16c39f5f04c3cb0eb7604bf53bc47 of
+#: 8a2b25992a5f4a23a8b68c689c8b9f18 feb393323ad5493497e2932893435157 of
+#: openav.modules.file_manager.unzip.Unzip:3
 #: openav.modules.file_manager.unzip.UnzipMessages:3
 msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
 msgstr ""
 
-#: 75683b751b6f4d559c34467b96a36e87 of
+#: 4fce3c252a0445029101504b90564771 b5c95a1337244ceb95d754c9385ac20c of
+#: openav.modules.file_manager.unzip.Unzip:5
 #: openav.modules.file_manager.unzip.UnzipMessages:5
 msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
 msgstr ""
 
-#: 81729544b30440bc97e6bb1be1726908 of
+#: c4af0a9c3c634e19bf77814606481e08 of
 #: openav.modules.file_manager.unzip.Unzip:1
 msgid ""
 "Базовые классы: "
 ":py:class:`~openav.modules.file_manager.unzip.UnzipMessages`"
 msgstr ""
 
-#: 86c1d10481a04db7aa19217c547af6fa of
-#: openav.modules.file_manager.unzip.Unzip.unzip:1
-msgid "Распаковка архивов"
+#: 4c0c98d2aba048d0bd3f962f4e0b35e2 of
+#: openav.modules.file_manager.unzip.Unzip:1
+msgid "Класс для обработки архивов"
 msgstr ""
 
-#: 23385dcabac5434096ab0d5e8e05b162 of
-#: openav.modules.file_manager.unzip.Unzip.unzip:9
-msgid "Аргументы:"
+#: 6a6befac25984c2d83879e61dfbab19e of
+#: openav.modules.file_manager.unzip.Unzip.path_to_unzip:1
+msgid "Получение директории для разархивирования"
 msgstr ""
 
-#: 7531fef2d3594a94b4728c687aa2fa8d of
-#: openav.modules.file_manager.unzip.Unzip.unzip:4
-msgid ""
-"path_to_zipfile - Путь до архива new_name - Имя директории для "
-"разархивирования force_reload - Принудительное разархивирование out - "
-"Отображение runtime - Подсчет времени выполнения run - Блокировка "
-"выполнения"
+#: c2b0c99b0ebd450c81d5e3c9ab456f20 fb4a95ccd1ad49a299264b9483435049 of
+#: openav.modules.file_manager.unzip.Unzip.path_to_unzip
+#: openav.modules.file_manager.unzip.Unzip.unzip
+msgid "Результат"
 msgstr ""
 
-#: f72f957bbfcf48d89335794f71ed0044 of
-#: openav.modules.file_manager.unzip.Unzip.unzip:11
-msgid ""
-"Возвращает: True если разархивирование прошло успешно, в обратном случае "
-"False"
+#: 70961ad277974e0a8a0d50e1ab2c6395 of
+#: openav.modules.file_manager.unzip.Unzip.path_to_unzip:3
+msgid "Директория для разархивирования"
 msgstr ""
 
-#: c76c1604f0c94166a690e84b684ba211 of
+#: 6b0fd98541bf4050b22b18d8b00ca93e c72104a366e84d3cba92b4b40331cb9a of
+#: openav.modules.file_manager.unzip.Unzip.path_to_unzip
 #: openav.modules.file_manager.unzip.Unzip.unzip
 msgid "Тип результата"
 msgstr ""
+
+#: c936e159c24f45359e7016c2728b0c23 of
+#: openav.modules.file_manager.unzip.Unzip.unzip:1
+msgid "Разархивирование архива"
+msgstr ""
+
+#: c5fa5b1cc50c4c6fba51e4a77a991cd4 of
+#: openav.modules.file_manager.unzip.Unzip.unzip:3
+msgid "Полный путь до архива"
+msgstr ""
+
+#: b4312d04ece34bbd8ae060fd9d3357f3 of
+#: openav.modules.file_manager.unzip.Unzip.unzip:5
+msgid "Имя директории для разархивирования"
+msgstr ""
+
+#: 51d0cc403d774902a1115a31dd6c4b76 of
+#: openav.modules.file_manager.unzip.Unzip.unzip:7
+msgid "Принудительное разархивирование"
+msgstr ""
+
+#: ebb4ea6c43144ac2a2478c2925974b68 of
+#: openav.modules.file_manager.unzip.Unzip.unzip:9
+msgid "Отображение"
+msgstr ""
+
+#: 803051420a284b11a32ae6a69c6ddf0f of
+#: openav.modules.file_manager.unzip.Unzip.unzip:12
+msgid "**True** если разархивирование прошло успешно, в обратном случае **False**"
+msgstr ""
+
+#~ msgid "Распаковка архивов"
+#~ msgstr ""
+
+#~ msgid "Аргументы:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "path_to_zipfile - Путь до архива "
+#~ "new_name - Имя директории для "
+#~ "разархивирования force_reload - Принудительное "
+#~ "разархивирование out - Отображение runtime "
+#~ "- Подсчет времени выполнения run - "
+#~ "Блокировка выполнения"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Возвращает: True если разархивирование прошло"
+#~ " успешно, в обратном случае False"
+#~ msgstr ""
 

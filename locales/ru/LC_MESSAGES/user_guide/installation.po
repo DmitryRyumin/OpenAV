@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-31 12:36+0300\n"
+"POT-Creation-Date: 2023-04-10 13:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -180,6 +180,14 @@ msgstr ""
 
 #: ../../source/user_guide/installation.rst:1 a4fecbfc577b4e35aceb9d07cc68263e
 msgid "2.3.1"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 febbd51605a5474d9f4b4fbecf52dc33
+msgid "pymediainfo"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 31768f2fd1894cd89328c6074ddf5ff2
+msgid "6.0.1"
 msgstr ""
 
 #~ msgid "8.7.0"
