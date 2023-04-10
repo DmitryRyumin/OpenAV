@@ -808,14 +808,15 @@ class Audio(AudioMessages):
                                     )
                             if channels_audio == 1:  # Моно канал
                                 ff_a = (
-                                    'ffmpeg -loglevel quiet -i "{}" -vn -codec:v copy '
-                                    '-ss {} -to {} -c copy "{}"'.format(
-                                        self.__curr_path, start_time, end_time, self.__part_audio_path
+                                    # 'ffmpeg -loglevel quiet -i "{}" -vn -codec:a copy '
+                                    'ffmpeg -loglevel quiet -i "{}" -vn -codec:a pcm_s16le '
+                                    '-ac {} -ss {} -to {} "{}"'.format(
+                                        self.__curr_path, channels_audio, start_time, end_time, self.__part_audio_path
                                     )
                                 )
                             elif channels_audio == 2:  # Стерео канал
                                 ff_a = (
-                                    'ffmpeg -loglevel quiet -i "{}" -vn -codec:v copy -map_channel 0.1.{} -ss {} '
+                                    'ffmpeg -loglevel quiet -i "{}" -vn -codec:a pcm_s16le -map_channel 0.1.{} -ss {} '
                                     '-to {} "{}"'.format(
                                         self.__curr_path, channel, start_time, end_time, self.__part_audio_path
                                     )
@@ -902,7 +903,7 @@ class Audio(AudioMessages):
                                 )
                             elif channels_audio == 2:  # Стерео канал
                                 ff_a = 'ffmpeg -loglevel quiet -i "{}" -map_channel 0.0.{} -ss {} -to {} "{}"'.format(
-                                    self.__curr_path, channel, start_time, end_time, self.__part_audio_path
+                                    self.__curr_path, key, start_time, end_time, self.__part_audio_path
                                 )
                     except IndexError:
                         not_saved_files()
@@ -1535,6 +1536,7 @@ class Audio(AudioMessages):
                             continue
                         else:
                             self.__audio_analysis_vosk_sr()  # Анализ аудиодорожки
+
                     self.message_progressbar(close=True, out=out)
 
                     # Файлы на которых VAD не отработал

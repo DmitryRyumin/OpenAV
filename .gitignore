@@ -172,8 +172,10 @@ openav/samples/
 openav/models/
 dataset/
 dataset_vad/
+dataset_vosk/
 openav/dataset/
 openav/dataset_vad/
+openav/dataset_vosk/
 docs/source/user_guide/notebooks/models
 docs/source/user_guide/notebooks/logs
 openav/__garbage__.py
