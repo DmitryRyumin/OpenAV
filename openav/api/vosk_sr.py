@@ -404,8 +404,13 @@ class RunVoskSR(MessagesVoskSR):
 
         self.vosk_sr(
             depth=self._args["depth"],  # Глубина иерархии для получения данных
+            type_encode=self._args["type_encode"],  # Тип кодирования
+            crf_value=self._args["crf_value"],  # Качество кодирования
+            presets_crf_encode=self._args["presets_crf_encode"],  # Скорость кодирования и сжатия
             new_name=self._args["folder_name_unzip"],  # Имя директории для разархивирования
             force_reload=self._args["force_reload"],  # Принудительная загрузка модели из сети
+            # Очистка директории для сохранения фрагментов аудиовизуального сигнала
+            clear_dirvosk_sr=self._args["clear_dirvosk_sr"],
             out=out,
         )
 

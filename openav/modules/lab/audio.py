@@ -179,7 +179,7 @@ class Audio(AudioMessages):
                 "languages": VOSK_SUPPORTED_LANGUAGES,  # Поддерживаемые языки
                 "dicts": VOSK_SUPPORTED_DICTS,  # Размеры словарей
                 # Русский язык
-                "ru": {"big": "vosk-model-ru-0.22.zip", "small": "vosk-model-small-ru-0.22.zip"},
+                "ru": {"big": "vosk-model-ru-0.42.zip", "small": "vosk-model-small-ru-0.22.zip"},
                 # Английский язык
                 "en": {"big": "vosk-model-en-us-0.22.zip", "small": "vosk-model-small-en-us-0.15.zip"},
             },
@@ -400,7 +400,7 @@ class Audio(AudioMessages):
         """
 
         # Количество каналов в аудиодорожке
-        channels_audio = self.__aframes.shape[0]
+        channels_audio = MediaInfo.parse(self.__curr_path).to_data()["tracks"][1]["channel_s"]
 
         # Количество каналов больше 2
         if channels_audio > 2:
@@ -455,7 +455,7 @@ class Audio(AudioMessages):
                         if len(curr_res) == 3:
                             results_recognized[front].append(curr_res)
 
-                    speech_rec_fin_res = json.loads(self._speech_rec.FinalResult())  # Итоговый результат распознавания
+                    speech_rec_fin_res = json.loads(self.__speech_rec.FinalResult())  # Итоговый результат распознавания
                     # Детальная информация распознавания
                     speech_rec_fin_res = self.__speech_rec_result(self.__keys_speech_rec, speech_rec_fin_res)
 
@@ -704,43 +704,228 @@ class Audio(AudioMessages):
         # см. datetime.fromtimestamp()
         self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
 
-        # 0:00:01.434667 0:00:02.149333
+        def join_path(dir_va):
+            return os.path.join(self.path_to_dataset_vosk_sr, dir_va, self.__splitted_path)
+
+        # Временные метки найдены
+        if len(self.__subprocess_vosk_sr) > 0:
+            try:
+                # Видео
+                if kind.mime.startswith("video/") is True:
+                    if join_path(self.dir_va_names[0]) not in self.__dataset_video_vad:
+                        # Директория с разделенными видеофрагментами
+                        self.__dataset_video_vad.append(join_path(self.dir_va_names[0]))
+                        if not os.path.exists(self.__dataset_video_vad[-1]):
+                            # Директория не создана
+                            if self.create_folder(self.__dataset_video_vad[-1], out=False) is False:
+                                raise IsNestedDirectoryVNotFoundError
+                # Аудио
+                if join_path(self.dir_va_names[1]) not in self.__dataset_audio_vad:
+                    # Директория с разделенными аудиофрагментами
+                    self.__dataset_audio_vad.append(join_path(self.dir_va_names[1]))
+                    if not os.path.exists(self.__dataset_audio_vad[-1]):
+                        # Директория не создана
+                        if self.create_folder(self.__dataset_audio_vad[-1], out=False) is False:
+                            raise IsNestedDirectoryANotFoundError
+            except (IsNestedDirectoryVNotFoundError, IsNestedDirectoryANotFoundError):
+                self.__unprocessed_files.append(self.__curr_path)
+                return False
+            except Exception:
+                self.__unprocessed_files.append(self.__curr_path)
+                return False
 
         # Проход по всем каналам
         for channel in range(0, channels_audio):
+            # Распознавание речи по видео
+            if type(self.__subprocess_vosk_sr) is list:
+                # Проход по всем найденным меткам
+                for cnt, curr_timestamps in enumerate(self.__subprocess_vosk_sr):
+                    res_vosk_sr = curr_timestamps[0].lower()
 
-            def join_path(dir_va):
-                return os.path.join(self.path_to_dataset_vosk_sr, dir_va, self.__splitted_path)
+                    if res_vosk_sr == "":
+                        continue  # Речь не найдена
 
-            # Временные метки найдены
-            # if len(self.__subprocess_vosk_sr) > 0:
-            #     # Распознавание речи по видео
-            #     if type(self.__subprocess_vosk_sr) is list:
-            #         res_vosk_sr = res_vosk_sr[0][0].lower()
+                    start_time = timedelta(seconds=curr_timestamps[1])  # Начальное время
+                    end_time = timedelta(seconds=curr_timestamps[2])  # Конечное время
 
-            #         if res_vosk_sr == "":
-            #             continue  # Речь не найдена
+                    diff_time = end_time - start_time  # Разница между начальным и конечным временем
 
-            #         sr_curr_res_true = True  # Речь найдена
+                    # Путь до аудиофрагмента
+                    self.__part_audio_path = os.path.join(
+                        self.__dataset_audio_vad[-1],
+                        Path(self.__curr_path).stem
+                        + "_"
+                        + str(cnt)
+                        + self.__front[channel]
+                        + "_"
+                        + self.__curr_ts
+                        + "."
+                        + EXT_AUDIO,
+                    )
 
-            #         self.__sort_file_vad(res_vosk_sr)  # Сортировка файла в зависимости от распознанной речи
-            #     # Распознавание речи по аудио
-            #     elif type(res_vosk_sr) is dict:
-            #         # Пройтись по аудиоканалам
-            #         for key, val in enumerate(res_vosk_sr.items()):
-            #             if len(val[1]) == 0:
-            #                 continue  # Речь не найдена
+                    # Видео
+                    if kind.mime.startswith("video/") is True:
+                        # Путь до видеофрагмента
+                        self.__part_video_path = os.path.join(
+                            self.__dataset_video_vad[-1],
+                            Path(self.__curr_path).stem
+                            + "_"
+                            + str(cnt)
+                            + "_"
+                            + self.__curr_ts
+                            + Path(self.__curr_path).suffix.lower(),
+                        )
 
-            #             curr_val = val[1][0][0].lower()  # Текущий результат распознавания
+                    def not_saved_files():
+                        return self.__not_saved_files.append([self.__curr_path, start_time, end_time])
 
-            #             if curr_val == "":
-            #                 continue  # Речь не найдена
+                    call_audio, call_video = 0, 0
 
-            #             sr_curr_res_true = True  # Речь найдена
+                    try:
+                        # Видео
+                        if kind.mime.startswith("video/") is True:
+                            if channel == 0:
+                                # Варианты кодирования
+                                if self.__type_encode == TYPES_ENCODE[0]:
+                                    # https://trac.ffmpeg.org/wiki/Encode/MPEG-4
+                                    ff_v = 'ffmpeg -loglevel quiet -ss {} -i "{}" -{} 0 -to {} "{}"'.format(
+                                        start_time,
+                                        self.__curr_path,
+                                        self.__type_encode,
+                                        diff_time,
+                                        self.__part_video_path,
+                                    )
+                                elif self.__type_encode == TYPES_ENCODE[1]:
+                                    # https://trac.ffmpeg.org/wiki/Encode/H.264
+                                    ff_v = 'ffmpeg -loglevel quiet -ss {} -i "{}" -{} {} -preset {} -to {} "{}"'.format(
+                                        start_time,
+                                        self.__curr_path,
+                                        self.__type_encode,
+                                        self.__crf_value,
+                                        self.__presets_crf_encode,
+                                        diff_time,
+                                        self.__part_video_path,
+                                    )
+                            if channels_audio == 1:  # Моно канал
+                                ff_a = (
+                                    'ffmpeg -loglevel quiet -i "{}" -vn -codec:v copy '
+                                    '-ss {} -to {} -c copy "{}"'.format(
+                                        self.__curr_path, start_time, end_time, self.__part_audio_path
+                                    )
+                                )
+                            elif channels_audio == 2:  # Стерео канал
+                                ff_a = (
+                                    'ffmpeg -loglevel quiet -i "{}" -vn -codec:v copy -map_channel 0.1.{} -ss {} '
+                                    '-to {} "{}"'.format(
+                                        self.__curr_path, channel, start_time, end_time, self.__part_audio_path
+                                    )
+                                )
 
-            #             self.__key_audio_sr = key
-            #             if self.__sort_file_vad(curr_val) is True:
-            #                 break
+                        # Аудио
+                        if kind.mime.startswith("audio/") is True:
+                            if channels_audio == 1:  # Моно канал
+                                ff_a = 'ffmpeg -loglevel quiet -i "{}" -ss {} -to {} -c copy "{}"'.format(
+                                    self.__curr_path, start_time, end_time, self.__part_audio_path
+                                )
+                            elif channels_audio == 2:  # Стерео канал
+                                ff_a = 'ffmpeg -loglevel quiet -i "{}" -map_channel 0.0.{} -ss {} -to {} "{}"'.format(
+                                    self.__curr_path, channel, start_time, end_time, self.__part_audio_path
+                                )
+                    except IndexError:
+                        not_saved_files()
+                    except Exception:
+                        not_saved_files()
+                    else:
+                        # Видео
+                        if kind.mime.startswith("video/") is True and channel == 0:
+                            call_video = subprocess.call(ff_v, shell=True)
+                        # Аудио
+                        call_audio = subprocess.call(ff_a, shell=True)
+
+                        try:
+                            if call_audio == 1 or call_video == 1:
+                                raise OSError
+                        except OSError:
+                            not_saved_files()
+                        except Exception:
+                            not_saved_files()
+                        else:
+                            try:
+                                # Видео
+                                if kind.mime.startswith("video/") is True:
+                                    # Чтение файла
+                                    _, _, _ = torchvision.io.read_video(self.__part_video_path)
+                                _, _ = torchaudio.load(self.__part_audio_path)
+                            except Exception:
+                                not_saved_files()
+
+        # Распознавание речи по аудио
+        if type(self.__subprocess_vosk_sr) is dict:
+            # Проход по всем найденным меткам
+            for key, val in enumerate(self.__subprocess_vosk_sr.items()):
+                # Проход по всем найденным меткам
+                for cnt, curr_timestamps in enumerate(val[1]):
+                    res_vosk_sr = curr_timestamps[0].lower()
+
+                    if res_vosk_sr == "":
+                        continue  # Речь не найдена
+
+                    start_time = timedelta(seconds=curr_timestamps[1])  # Начальное время
+                    end_time = timedelta(seconds=curr_timestamps[2])  # Конечное время
+
+                    diff_time = end_time - start_time  # Разница между начальным и конечным временем
+
+                    # Путь до аудиофрагмента
+                    self.__part_audio_path = os.path.join(
+                        self.__dataset_audio_vad[-1],
+                        Path(self.__curr_path).stem
+                        + "_"
+                        + str(cnt)
+                        + self.__front[key]
+                        + "_"
+                        + self.__curr_ts
+                        + "."
+                        + EXT_AUDIO,
+                    )
+
+                    def not_saved_files():
+                        return self.__not_saved_files.append([self.__curr_path, start_time, end_time])
+
+                    call_audio = 0
+
+                    try:
+                        # Аудио
+                        if kind.mime.startswith("audio/") is True:
+                            if channels_audio == 1:  # Моно канал
+                                ff_a = 'ffmpeg -loglevel quiet -i "{}" -ss {} -to {} -c copy "{}"'.format(
+                                    self.__curr_path, start_time, end_time, self.__part_audio_path
+                                )
+                            elif channels_audio == 2:  # Стерео канал
+                                ff_a = 'ffmpeg -loglevel quiet -i "{}" -map_channel 0.0.{} -ss {} -to {} "{}"'.format(
+                                    self.__curr_path, channel, start_time, end_time, self.__part_audio_path
+                                )
+                    except IndexError:
+                        not_saved_files()
+                    except Exception:
+                        not_saved_files()
+                    else:
+                        # Аудио
+                        call_audio = subprocess.call(ff_a, shell=True)
+
+                        try:
+                            if call_audio == 1:
+                                raise OSError
+                        except OSError:
+                            not_saved_files()
+                        except Exception:
+                            not_saved_files()
+                        else:
+                            try:
+                                _, _ = torchaudio.load(self.__part_audio_path)
+                            except Exception:
+                                not_saved_files()
+
+        return True
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
@@ -1155,6 +1340,9 @@ class Audio(AudioMessages):
     def vosk_sr(
         self,
         depth: int = 1,
+        type_encode: str = TYPES_ENCODE[1],
+        crf_value: int = CRF_VALUE,
+        presets_crf_encode: str = PRESETS_CRF_ENCODE[5],
         new_name: Optional[str] = None,
         force_reload: bool = True,
         clear_dirvosk_sr: bool = False,
@@ -1165,6 +1353,9 @@ class Audio(AudioMessages):
 
         Args:
             depth (int): Глубина иерархии для получения данных
+            type_encode (str): Тип кодирования
+            crf_value (int): Качество кодирования (от **0** до **51**)
+            presets_crf_encode (str): Скорость кодирования и сжатия
             new_name (str): Имя директории для разархивирования
             force_reload (bool): Принудительная загрузка модели из сети
             clear_dirvosk_sr (bool): Очистка директории для сохранения фрагментов аудиовизуального сигнала
@@ -1180,6 +1371,8 @@ class Audio(AudioMessages):
             if (
                 type(depth) is not int
                 or depth < 1
+                or type(crf_value) is not int
+                or not (0 <= crf_value <= 51)
                 or ((type(new_name) is not str or not new_name) and new_name is not None)
                 or type(force_reload) is not bool
                 or type(clear_dirvosk_sr) is not bool
@@ -1190,134 +1383,162 @@ class Audio(AudioMessages):
             self.inv_args(__class__.__name__, self.vosk_sr.__name__, out=out)
             return False
         else:
-            # Информационное сообщение
-            self.message_info(
-                self._subfolders_search.format(
-                    self.message_line(self.path_to_dataset),
-                    self.message_line(str(depth)),
-                ),
-                out=out,
-            )
-
-            # Создание директории, где хранятся данные
-            if self.create_folder(self.path_to_dataset, out=False) is False:
-                return False
-
-            # Получение вложенных директорий, где хранятся данные
-            nested_paths = self.get_paths(self.path_to_dataset, depth=depth, out=False)
-
-            # Вложенные директории не найдены
             try:
-                if len(nested_paths) == 0:
-                    raise IsNestedCatalogsNotFoundError
-            except IsNestedCatalogsNotFoundError:
-                self.message_error(self._subfolders_not_found, space=self._space, out=out)
+                # Проверка настроек
+                if type(type_encode) is not str or (type_encode in TYPES_ENCODE) is False:
+                    raise TypeEncodeVideoError
+                if type(presets_crf_encode) is not str or (presets_crf_encode in PRESETS_CRF_ENCODE) is False:
+                    raise PresetCFREncodeVideoError
+
+            except TypeEncodeVideoError:
+                self.message_error(
+                    self._wrong_type_encode.format(
+                        self.message_line(", ".join(x.replace(".", "") for x in TYPES_ENCODE))
+                    ),
+                    out=out,
+                )
                 return False
-
-            # Информационное сообщение
-            self.message_info(
-                self._files_av_find.format(
-                    self.message_line(", ".join(x.replace(".", "") for x in self.ext_search_files)),
-                    self.message_line(self.path_to_dataset),
-                    self.message_line(str(depth)),
-                ),
-                out=out,
-            )
-
-            paths = []  # Пути до аудиовизуальных файлов
-
-            # Проход по всем вложенным директориям
-            for nested_path in nested_paths:
-                # Формирование списка с видеофайлами
-                for p in Path(nested_path).glob("*"):
-                    # Добавление текущего пути к видеофайлу в список
-                    if p.suffix.lower() in self.ext_search_files:
-                        paths.append(p.resolve())
-
-            # Директория с набором данных не содержит аудиовизуальных файлов с необходимыми расширениями
-            try:
-                self.__len_paths = len(paths)  # Количество аудиовизуальных файлов
-
-                if self.__len_paths == 0:
-                    raise TypeError
-            except TypeError:
-                self.message_error(self._files_not_found, space=self._space, out=out)
-                return False
-            except Exception:
-                self.message_error(self._unknown_err, space=self._space, out=out)
+            except PresetCFREncodeVideoError:
+                self.message_error(
+                    self._wrong_preset_crf_encode.format(
+                        self.message_line(", ".join(x.replace(".", "") for x in PRESETS_CRF_ENCODE))
+                    ),
+                    out=out,
+                )
                 return False
             else:
-                # Очистка директории для сохранения фрагментов аудиовизуального сигнала
-                if clear_dirvosk_sr is True and os.path.exists(self.path_to_dataset_vosk_sr) is True:
-                    if self.clear_folder(self.path_to_dataset_vosk_sr, out=False) is False:
-                        return False
+                # Только для внутреннего использования внутри класса
+                self.__type_encode = type_encode
+                self.__crf_value = crf_value
+                self.__presets_crf_encode = presets_crf_encode
 
-                self.__dataset_video_vad = []  # Пути до директорий с разделенными видеофрагментами
-                self.__dataset_audio_vad = []  # Пути до директорий с разделенными аудиофрагментами
+                # Информационное сообщение
+                self.message_info(
+                    self._subfolders_search.format(
+                        self.message_line(self.path_to_dataset),
+                        self.message_line(str(depth)),
+                    ),
+                    out=out,
+                )
 
-                self.__unprocessed_files = []  # Пути к файлам на которых VAD не отработал
+                # Создание директории, где хранятся данные
+                if self.create_folder(self.path_to_dataset, out=False) is False:
+                    return False
 
-                # Загрузка и активация модели Vosk для распознавания речи
-                if self.vosk(new_name=new_name, force_reload=force_reload, out=out) is False:
+                # Получение вложенных директорий, где хранятся данные
+                nested_paths = self.get_paths(self.path_to_dataset, depth=depth, out=False)
+
+                # Вложенные директории не найдены
+                try:
+                    if len(nested_paths) == 0:
+                        raise IsNestedCatalogsNotFoundError
+                except IsNestedCatalogsNotFoundError:
+                    self.message_error(self._subfolders_not_found, space=self._space, out=out)
                     return False
 
                 # Информационное сообщение
-                self.message_info(self._files_analysis, out=out)
-
-                # Локальный путь
-                self.__local_path = lambda lp: os.path.join(
-                    *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))) :]
+                self.message_info(
+                    self._files_av_find.format(
+                        self.message_line(", ".join(x.replace(".", "") for x in self.ext_search_files)),
+                        self.message_line(self.path_to_dataset),
+                        self.message_line(str(depth)),
+                    ),
+                    out=out,
                 )
 
-                # Проход по всем найденным аудиовизуальных файлам
-                for i, path in enumerate(paths):
-                    self.__curr_path = path  # Текущий аудиовизуальный файл
-                    self.__i = i + 1  # Счетчик
+                paths = []  # Пути до аудиовизуальных файлов
 
-                    self.message_progressbar(
-                        self._curr_progress.format(
-                            self.__i,
-                            self.__len_paths,
-                            round(self.__i * 100 / self.__len_paths, 2),
-                            self.message_line(self.__local_path(self.__curr_path)),
-                        ),
-                        space=self._space,
-                        out=out,
+                # Проход по всем вложенным директориям
+                for nested_path in nested_paths:
+                    # Формирование списка с видеофайлами
+                    for p in Path(nested_path).glob("*"):
+                        # Добавление текущего пути к видеофайлу в список
+                        if p.suffix.lower() in self.ext_search_files:
+                            paths.append(p.resolve())
+
+                # Директория с набором данных не содержит аудиовизуальных файлов с необходимыми расширениями
+                try:
+                    self.__len_paths = len(paths)  # Количество аудиовизуальных файлов
+
+                    if self.__len_paths == 0:
+                        raise TypeError
+                except TypeError:
+                    self.message_error(self._files_not_found, space=self._space, out=out)
+                    return False
+                except Exception:
+                    self.message_error(self._unknown_err, space=self._space, out=out)
+                    return False
+                else:
+                    # Очистка директории для сохранения фрагментов аудиовизуального сигнала
+                    if clear_dirvosk_sr is True and os.path.exists(self.path_to_dataset_vosk_sr) is True:
+                        if self.clear_folder(self.path_to_dataset_vosk_sr, out=False) is False:
+                            return False
+
+                    self.__dataset_video_vad = []  # Пути до директорий с разделенными видеофрагментами
+                    self.__dataset_audio_vad = []  # Пути до директорий с разделенными аудиофрагментами
+
+                    self.__unprocessed_files = []  # Пути к файлам на которых VAD не отработал
+
+                    # Загрузка и активация модели Vosk для распознавания речи
+                    if self.vosk(new_name=new_name, force_reload=force_reload, out=out) is False:
+                        return False
+
+                    # Информационное сообщение
+                    self.message_info(self._files_analysis, out=out)
+
+                    # Локальный путь
+                    self.__local_path = lambda lp: os.path.join(
+                        *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))) :]
                     )
 
-                    self.__splitted_path = str(self.__curr_path.parent.relative_to(Path(self.path_to_dataset))).strip()
+                    # Проход по всем найденным аудиовизуальных файлам
+                    for i, path in enumerate(paths):
+                        self.__curr_path = path  # Текущий аудиовизуальный файл
+                        self.__i = i + 1  # Счетчик
 
-                    self.__curr_path = str(self.__curr_path)
+                        self.message_progressbar(
+                            self._curr_progress.format(
+                                self.__i,
+                                self.__len_paths,
+                                round(self.__i * 100 / self.__len_paths, 2),
+                                self.message_line(self.__local_path(self.__curr_path)),
+                            ),
+                            space=self._space,
+                            out=out,
+                        )
 
-                    # Пропуск невалидных значений
-                    if not self.__splitted_path or re.search(r"\s", self.__splitted_path) is not None:
-                        continue
+                        self.__splitted_path = str(
+                            self.__curr_path.parent.relative_to(Path(self.path_to_dataset))
+                        ).strip()
 
-                    # Тип файла
-                    kind = filetype.guess(self.__curr_path)
+                        self.__curr_path = str(self.__curr_path)
 
-                    try:
-                        # Видео
-                        if kind.mime.startswith("video/") is True:
-                            #  Дочерний процесс распознавания речи (Vosk) - видео
-                            self.__subprocess_vosk_sr = self.__subprocess_vosk_sr_video(out=False)
-                        # Аудио
-                        if kind.mime.startswith("audio/") is True:
-                            #  Дочерний процесс распознавания речи (Vosk) - аудио
-                            self.__subprocess_vosk_sr = self.__subprocess_vosk_sr_audio(out=False)
-                    except Exception:
-                        self.__unprocessed_files.append(self.__curr_path)
-                        self.message_progressbar(close=True, out=out)
-                        continue
-                    else:
-                        self.__audio_analysis_vosk_sr()  # Анализ аудиодорожки
+                        # Пропуск невалидных значений
+                        if not self.__splitted_path or re.search(r"\s", self.__splitted_path) is not None:
+                            continue
 
-                    return
+                        # Тип файла
+                        kind = filetype.guess(self.__curr_path)
 
-                self.message_progressbar(close=True, out=out)
+                        try:
+                            # Видео
+                            if kind.mime.startswith("video/") is True:
+                                #  Дочерний процесс распознавания речи (Vosk) - видео
+                                self.__subprocess_vosk_sr = self.__subprocess_vosk_sr_video(out=False)
+                            # Аудио
+                            if kind.mime.startswith("audio/") is True:
+                                #  Дочерний процесс распознавания речи (Vosk) - аудио
+                                self.__subprocess_vosk_sr = self.__subprocess_vosk_sr_audio(out=False)
+                        except Exception:
+                            self.__unprocessed_files.append(self.__curr_path)
+                            self.message_progressbar(close=True, out=out)
+                            continue
+                        else:
+                            self.__audio_analysis_vosk_sr()  # Анализ аудиодорожки
+                    self.message_progressbar(close=True, out=out)
 
-                # Файлы на которых VAD не отработал
-                unprocessed_files_unique = np.unique(np.array(self.__unprocessed_files)).tolist()
+                    # Файлы на которых VAD не отработал
+                    unprocessed_files_unique = np.unique(np.array(self.__unprocessed_files)).tolist()
 
-                if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
-                    self.message_true(self._vad_true, space=self._space, out=out)
+                    if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
+                        self.message_true(self._vad_true, space=self._space, out=out)
