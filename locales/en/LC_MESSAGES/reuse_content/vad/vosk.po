@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 13:24+0300\n"
+"POT-Creation-Date: 2023-04-11 14:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -39,7 +39,11 @@ msgid ""
 " target=\"_blank\">"
 msgstr ""
 
-#: ../../source/reuse_content/vad/vosk.rst:17 7d866ac954e042e5998a2ce17cd91e69
+#: ../../source/reuse_content/vad/vosk.rst:17 538c2fdc937e4b0f95100f00bf68bbfb
+msgid "<a href=\"https://alphacephei.com/vosk/models\" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/reuse_content/vad/vosk.rst:21 7d866ac954e042e5998a2ce17cd91e69
 msgid "</a>"
 msgstr ""
 

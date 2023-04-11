@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 13:24+0300\n"
+"POT-Creation-Date: 2023-04-11 14:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -22,20 +22,17 @@ msgstr ""
 "Generated-By: Babel 2.11.0\n"
 
 #: ../../source/reuse_content/vad/silero.rst:1 01ff93bae8b1457bab95c2c513a4ca2f
-#: 748a26d9cc724431b9308ba62bcc7611 b9e204db0cfc4139b491a4ab86d561ca
-#: c053ae79226c48f3b35aeb3d67956df3
+#: b9e204db0cfc4139b491a4ab86d561ca
 msgid "</br>"
 msgstr ""
 
-#: ../../source/reuse_content/vad/silero.rst:5 8714dd8fdf9b4ccc8535c74c8b7ba9a8
-#: 9f2769ecf58c44b2a882d0b65091d79e aa3f865f893e492d8afcb52b70b6579f
-#: bf5e5d744ea643adb54c662d8205d936 c044e26cb4904ba79751120ced4a4690
+#: ../../source/reuse_content/vad/silero.rst:5 bf5e5d744ea643adb54c662d8205d936
+#: c044e26cb4904ba79751120ced4a4690
 msgid "<b>"
 msgstr ""
 
-#: ../../source/reuse_content/vad/silero.rst:9 1ff9ed23b4a242168ea353d100a2232a
-#: 2c0d98305e94442cbd63105f9da2e151 3f5257ddf480415fb358a79e3598cda6
-#: 7f3cc83a667448b48709aed822ca516e 8500a7acf57543e2a55f7c5eda2ef8c1
+#: ../../source/reuse_content/vad/silero.rst:9 2c0d98305e94442cbd63105f9da2e151
+#: 3f5257ddf480415fb358a79e3598cda6
 msgid "</b>"
 msgstr ""
 
@@ -48,12 +45,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/reuse_content/vad/silero.rst:17
-#: 4004821f944f4db59636a7060cb40a10 d626822f3096422b99fa021fbdba9d0e
+#: 961ebc95900145a58b188c9408671d67
+msgid "<a href=\"https://alphacephei.com/vosk/models\" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/reuse_content/vad/silero.rst:21
+#: d626822f3096422b99fa021fbdba9d0e
 msgid "</a>"
 msgstr ""
 
 #: ../../source/reuse_content/vad/audio_waves.rst:1
-#: 5767572e6bb34ffc9a5d80d2733eb2ba 91d3a8e542204f45b62930712052bf74
+#: 5767572e6bb34ffc9a5d80d2733eb2ba
 msgid ""
 "<figure>\n"
 "   <figcaption class=\"audio-capt\">Аудиозапись до обработки "
@@ -66,7 +68,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/reuse_content/vad/audio_waves.rst:11
-#: 9d6df9ac3c5e4fac94679983fa577f11 a5b07162857e46ad82092a70bb91da8f
+#: 9d6df9ac3c5e4fac94679983fa577f11
 msgid ""
 "<figure>\n"
 "     <figcaption class=\"audio-capt\">Запись 1</figcaption>\n"
@@ -78,7 +80,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/reuse_content/vad/audio_waves.rst:20
-#: 0158f338d0854d61bedd1fb504d6cc45 b5294b1686074cba836f24090de662dc
+#: b5294b1686074cba836f24090de662dc
 msgid ""
 "<figure>\n"
 "   <figcaption class=\"audio-capt\">Запись 2</figcaption>\n"
@@ -90,7 +92,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/reuse_content/vad/audio_waves.rst:29
-#: 38e344b2dfe94ce8b3cf17da4dd7e578 93d7028366c942c4adbc76cb19e343e9
+#: 93d7028366c942c4adbc76cb19e343e9
 msgid ""
 "<figure>\n"
 "   <figcaption class=\"audio-capt\">Запись 3</figcaption>\n"
@@ -102,7 +104,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/reuse_content/vad/audio_waves.rst:38
-#: 61376119177a41abba3e12ac3356950d eed1538b02ae4a7c9fbcd1ce03c3ec8d
+#: eed1538b02ae4a7c9fbcd1ce03c3ec8d
 msgid ""
 "<figure>\n"
 "   <figcaption class=\"audio-capt\">Запись 4</figcaption>\n"
@@ -114,7 +116,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/reuse_content/vad/audio_waves.rst:47
-#: 50d8ea9adcbd4f2c8f01ef394c0d6311 eb4963816f2c41c589e733cc4e96382f
+#: 50d8ea9adcbd4f2c8f01ef394c0d6311
 msgid ""
 "<figure>\n"
 "   <figcaption class=\"audio-capt\">Запись 5</figcaption>\n"
@@ -169,18 +171,19 @@ msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:22
 #: ../../source/user_guide/modules/vad/silero_vad.rst:46
-#: 3484fb9e2e6441ec9cb32fb32d53c532 69b1a2058351416daedc4434aa0e77b0
+#: 3484fb9e2e6441ec9cb32fb32d53c532
 msgid "Работа с файловой системой"
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:23
+#: ../../source/user_guide/modules/vad/silero_vad.rst:65
 #: aaf076c4ceba4581a7d6348fda60f296
 msgid "Параметры детектора голосовой активности (Silero VAD)"
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:24
 #: ../../source/user_guide/modules/vad/silero_vad.rst:81
-#: 0cfd277ec43a48729997d1813d177ff0 c15c437d888548628c4d50df3fdf89df
+#: c15c437d888548628c4d50df3fdf89df
 msgid "Параметры кодирования выходного файла"
 msgstr ""
 
@@ -195,26 +198,22 @@ msgid "Отображение процесса выполнения команд
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:1
-#: 4b8f89967da84201ac19bc81fa99d654 724faffe3af14b26a449239f0624a53f
-#: cbf363a80c3c42bfabbe4920c15dc3c9 d9b02c3fc36f40988f997979e887a28c
+#: cbf363a80c3c42bfabbe4920c15dc3c9
 msgid "Параметр"
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:1
-#: 0d69143dc8134651b2cde333039c7072 5218b06da05b402a9ae9e30d863ad416
-#: a01ca400611342739e57a57aaf7a85f9 ae266ec95f7b475db2b7ff39120f09f1
+#: 0d69143dc8134651b2cde333039c7072
 msgid "Тип"
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:1
-#: 097270ecce954a49a923a097e24bf78b 3a4b40432c844b9e90fe8927b3ff43d8
-#: 582f60857a2b4e7e894ad31a6a441250 b879a4134cde47f4842796da076e8bca
+#: 582f60857a2b4e7e894ad31a6a441250
 msgid "Значение по умолчанию"
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:1
-#: 30c0ae39393d48558dfb9d4f1da1c571 5414d9c4a7a54551b6b3c9646b50bcc7
-#: 8df752e1b37a427296bdc7aabe19b1d2 f4bc5a13ecc44c5b82ff305f3ea44396
+#: f4bc5a13ecc44c5b82ff305f3ea44396
 msgid "Описание"
 msgstr ""
 
@@ -224,13 +223,11 @@ msgid "hide_metadata"
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:1
-#: 3428f8c8788344e9a9ae1f08be260e9c b8ee5c57ebce44e1984d7dca08c77592
-#: e93d09df9e9645428090589ab450c17c f09511ba98bb430dba3893ae02e5280f
+#: 3428f8c8788344e9a9ae1f08be260e9c
 msgid "bool"
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:1
-#: 59271b18c939460494e75880a6310808 7746841d9453412ba3c23627f351208e
 #: a3b67f2decd74dfeb1327337791f8ef6
 msgid "``false``"
 msgstr ""
@@ -256,9 +253,7 @@ msgid "path_to_save_model"
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:1
-#: 100146fc69324346bcab80928dd564f0 27705a0e13d84a23b6ba9101c900607c
-#: 498e5210d80a4ad2b34181f16293bb5d 5b95704b27104cb5adae7d21b53870be
-#: 664c5c940a284e269a125a48d618d61d e74daca0cd334a4faad73604f6beed6d
+#: 498e5210d80a4ad2b34181f16293bb5d
 msgid "str"
 msgstr ""
 
@@ -361,8 +356,7 @@ msgid "depth"
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:1
-#: 1b6e0ea9aa0d44a79cbd6dfcddb9398b 6e570783578b45cca55300a640e3b315
-#: b9bb1cd6af2b4b60a87c88a3c4bf01c7 f3f406ccce60442f99f9fde13e462153
+#: b9bb1cd6af2b4b60a87c88a3c4bf01c7
 msgid "int"
 msgstr ""
 
@@ -400,11 +394,6 @@ msgid ""
 "как для видео, так и для аудио"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad/silero_vad.rst:65
-#: 426a1029b1d046ef8feb7f4e9fc9e5f8
-msgid "Параметры детектора голосовой активности (VAD)"
-msgstr ""
-
 #: ../../source/user_guide/modules/vad/silero_vad.rst:1
 #: b93879685b0648a2b8e61e4b330ce29c
 msgid "sampling_rate"
@@ -428,8 +417,7 @@ msgid "threshold"
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:1
-#: 1a408115d6ec4e2f9a1801fb9afa8bd3 5425031e280346edbe5f03e5613dbc7c
-#: 6c833cfc8ee047019d3772d13e2f2f4e edb038e6dfd646b1a86132c1a7da4bff
+#: 5425031e280346edbe5f03e5613dbc7c
 msgid "float"
 msgstr ""
 
@@ -628,4 +616,7 @@ msgstr ""
 #: ae1b1ba4c81d459799fda657b7d3de13
 msgid "|audio_1| |audio_2| |audio_3| |audio_4| |audio_5|"
 msgstr ""
+
+#~ msgid "Параметры детектора голосовой активности (VAD)"
+#~ msgstr ""
 
