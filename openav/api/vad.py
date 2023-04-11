@@ -157,8 +157,11 @@ class RunVAD(MessagesVAD):
 
         # Конфигурационный файл пуст
         if not config:
-            self.message_error(self._config_empty, space=self._space, out=out)
-            return False
+            try:
+                raise TypeError
+            except TypeError:
+                self.message_error(self._config_empty, space=self._space, out=out)
+                return False
 
         # Вывод сообщения
         self.message_info(self._check_config_file_valid, space=self._space, out=out)
@@ -309,8 +312,11 @@ class RunVAD(MessagesVAD):
 
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
         if self._all_layer_in_yaml != curr_valid_layer:
-            self.message_error(self._invalid_file, space=self._space, out=out)
-            return False
+            try:
+                raise TypeError
+            except TypeError:
+                self.message_error(self._invalid_file, space=self._space, out=out)
+                return False
 
         return True  # Результат
 

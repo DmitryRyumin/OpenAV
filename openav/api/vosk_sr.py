@@ -24,8 +24,7 @@ for warn in [UserWarning, FutureWarning]:
 
 from dataclasses import dataclass  # Класс данных
 
-import logging  # Логирование
-import itertools  # Функции создающие итераторы для эффективного цикла
+import logging  # Логирование Функции создающие итераторы для эффективного цикла
 
 # Типы данных
 from typing import Dict, Union, Any
@@ -43,7 +42,8 @@ from openav.modules.lab.audio import (
     PRESETS_CRF_ENCODE,
     SR_INPUT_TYPES,
     SAMPLING_RATE_VAD,
-    WINDOW_SIZE_SAMPLES_VAD,
+    VOSK_SUPPORTED_LANGUAGES,
+    VOSK_SUPPORTED_DICTS,
 )
 
 
@@ -83,7 +83,7 @@ class RunVoskSR(MessagesVoskSR):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 16  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 20  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_vosk_sr: logging.Logger = logging.getLogger(__class__.__name__)
@@ -159,8 +159,11 @@ class RunVoskSR(MessagesVoskSR):
 
         # Конфигурационный файл пуст
         if not config:
-            self.message_error(self._config_empty, space=self._space, out=out)
-            return False
+            try:
+                raise TypeError
+            except TypeError:
+                self.message_error(self._config_empty, space=self._space, out=out)
+                return False
 
         # Вывод сообщения
         self.message_info(self._check_config_file_valid, space=self._space, out=out)
@@ -286,10 +289,38 @@ class RunVoskSR(MessagesVoskSR):
                 if curr_valid_layer_2 > 0:
                     curr_valid_layer += 1
 
+            # 1. Внутренний левый отступ для итоговых речевых фрагментов
+            # 2. Внутренний правый отступ для итоговых речевых фрагментов
+            if key == "speech_left_pad_ms" or key == "speech_right_pad_ms":
+                # Проверка значения
+                if type(val) is not int or not 1 <= val:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Языковая модель
+            if key == "lang_model":
+                # Проверка значения
+                if type(val) is not str or (val in VOSK_SUPPORTED_LANGUAGES) is False:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Размер словаря языковой модели
+            if key == "dict_size":
+                # Проверка значения
+                if type(val) is not str or (val in VOSK_SUPPORTED_DICTS) is False:
+                    continue
+
+                curr_valid_layer += 1
+
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
         if self._all_layer_in_yaml != curr_valid_layer:
-            self.message_error(self._invalid_file, space=self._space, out=out)
-            return False
+            try:
+                raise TypeError
+            except TypeError:
+                self.message_error(self._invalid_file, space=self._space, out=out)
+                return False
 
         return True  # Результат
 
@@ -401,6 +432,8 @@ class RunVoskSR(MessagesVoskSR):
         self.path_to_dataset_vad = self._args["path_to_dataset_vosk_sr"]
         self.dir_va_names = self._args["dir_va_names"]  # Названия директорий для видео и аудио
         self.ext_search_files = self._args["ext_search_files"]  # Расширения искомых файлов
+        self.vosk_language_sr = self._args["lang_model"]  # Языковая модель
+        self.vosk_dict_language_sr = self._args["dict_size"]  # Размер словаря языковой модели
 
         self.vosk_sr(
             depth=self._args["depth"],  # Глубина иерархии для получения данных
