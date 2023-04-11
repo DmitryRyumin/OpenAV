@@ -700,12 +700,19 @@ class Audio(AudioMessages):
         elif channels_audio == 2:
             self.__front = FRONT["stereo"]  # Стерео канал
 
+        # print(channels_audio, self.__front)
+
+        # return
+
         # Текущее время (TimeStamp)
         # см. datetime.fromtimestamp()
         self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
 
         def join_path(dir_va):
             return os.path.join(self.path_to_dataset_vosk_sr, dir_va, self.__splitted_path)
+
+        # print(self.__subprocess_vosk_sr)
+        # return
 
         # Временные метки найдены
         if len(self.__subprocess_vosk_sr) > 0:
@@ -734,6 +741,9 @@ class Audio(AudioMessages):
                 self.__unprocessed_files.append(self.__curr_path)
                 return False
 
+        # print(type(self.__subprocess_vosk_sr))
+        # return
+
         # Проход по всем каналам
         for channel in range(0, channels_audio):
             # Распознавание речи по видео
@@ -750,6 +760,9 @@ class Audio(AudioMessages):
 
                     diff_time = end_time - start_time  # Разница между начальным и конечным временем
 
+                    # print(res_vosk_sr, start_time, end_time, diff_time)
+                    # continue
+
                     # Путь до аудиофрагмента
                     self.__part_audio_path = os.path.join(
                         self.__dataset_audio_vad[-1],
@@ -763,8 +776,11 @@ class Audio(AudioMessages):
                         + EXT_AUDIO,
                     )
 
+                    # print(self.__part_audio_path)
+                    # continue
+
                     # Видео
-                    if kind.mime.startswith("video/") is True:
+                    if kind.mime.startswith("video/") is True and channel == 0:
                         # Путь до видеофрагмента
                         self.__part_video_path = os.path.join(
                             self.__dataset_video_vad[-1],
@@ -775,6 +791,9 @@ class Audio(AudioMessages):
                             + self.__curr_ts
                             + Path(self.__curr_path).suffix.lower(),
                         )
+
+                    # print(self.__part_video_path)
+                    # continue
 
                     def not_saved_files():
                         return self.__not_saved_files.append([self.__curr_path, start_time, end_time])
@@ -840,8 +859,12 @@ class Audio(AudioMessages):
                         # Видео
                         if kind.mime.startswith("video/") is True and channel == 0:
                             call_video = subprocess.call(ff_v, shell=True)
+
+                            # print(ff_v)
                         # Аудио
                         call_audio = subprocess.call(ff_a, shell=True)
+
+                        # print(ff_a)
 
                         try:
                             if call_audio == 1 or call_video == 1:
@@ -860,8 +883,12 @@ class Audio(AudioMessages):
                             except Exception:
                                 not_saved_files()
 
+        # print()
+
         # Распознавание речи по аудио
         if type(self.__subprocess_vosk_sr) is dict:
+            print("Тестирование")
+
             # Проход по всем найденным меткам
             for key, val in enumerate(self.__subprocess_vosk_sr.items()):
                 # Проход по всем найденным меткам
@@ -1522,20 +1549,35 @@ class Audio(AudioMessages):
                         kind = filetype.guess(self.__curr_path)
 
                         try:
-                            # Видео
-                            if kind.mime.startswith("video/") is True:
-                                #  Дочерний процесс распознавания речи (Vosk) - видео
-                                self.__subprocess_vosk_sr = self.__subprocess_vosk_sr_video(out=False)
-                            # Аудио
-                            if kind.mime.startswith("audio/") is True:
-                                #  Дочерний процесс распознавания речи (Vosk) - аудио
-                                self.__subprocess_vosk_sr = self.__subprocess_vosk_sr_audio(out=False)
+                            # Активация распознавания речи
+                            self.__speech_rec = KaldiRecognizer(self.__speech_model, self.__freq_sr)
+                            self.__speech_rec.SetWords(True)  # Данные о начале и конце слова/фразы
                         except Exception:
-                            self.__unprocessed_files.append(self.__curr_path)
-                            self.message_progressbar(close=True, out=out)
                             continue
                         else:
-                            self.__audio_analysis_vosk_sr()  # Анализ аудиодорожки
+                            try:
+                                # Видео
+                                if kind.mime.startswith("video/") is True:
+                                    #  Дочерний процесс распознавания речи (Vosk) - видео
+                                    self.__subprocess_vosk_sr = self.__subprocess_vosk_sr_video(out=False)
+                                # Аудио
+                                if kind.mime.startswith("audio/") is True:
+                                    #  Дочерний процесс распознавания речи (Vosk) - аудио
+                                    self.__subprocess_vosk_sr = self.__subprocess_vosk_sr_audio(out=False)
+                            except Exception:
+                                self.__unprocessed_files.append(self.__curr_path)
+                                self.message_progressbar(close=True, out=out)
+                                continue
+                            else:
+                                # print(self.__curr_path)
+                                # print(kind.mime.startswith("video/"))
+                                # print(kind.mime.startswith("audio/"))
+                                # print(self.__subprocess_vosk_sr)
+                                # print()
+                                # continue
+                                self.__audio_analysis_vosk_sr()  # Анализ аудиодорожки
+
+                    # return
 
                     self.message_progressbar(close=True, out=out)
 
