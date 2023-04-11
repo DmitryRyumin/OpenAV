@@ -2,7 +2,7 @@
 ========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   vad/vad
+   vad/silero_vad
    vad/vosk

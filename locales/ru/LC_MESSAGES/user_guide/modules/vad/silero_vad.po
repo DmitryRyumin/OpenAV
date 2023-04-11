@@ -1,0 +1,631 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-11 13:24+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/vad/silero.rst:1 01ff93bae8b1457bab95c2c513a4ca2f
+#: 748a26d9cc724431b9308ba62bcc7611 b9e204db0cfc4139b491a4ab86d561ca
+#: c053ae79226c48f3b35aeb3d67956df3
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/silero.rst:5 8714dd8fdf9b4ccc8535c74c8b7ba9a8
+#: 9f2769ecf58c44b2a882d0b65091d79e aa3f865f893e492d8afcb52b70b6579f
+#: bf5e5d744ea643adb54c662d8205d936 c044e26cb4904ba79751120ced4a4690
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/silero.rst:9 1ff9ed23b4a242168ea353d100a2232a
+#: 2c0d98305e94442cbd63105f9da2e151 3f5257ddf480415fb358a79e3598cda6
+#: 7f3cc83a667448b48709aed822ca516e 8500a7acf57543e2a55f7c5eda2ef8c1
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/silero.rst:13
+#: 1c0d0f81fb83413b92d6e7caa3cc2cb2 961ebc95900145a58b188c9408671d67
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/reuse_content/vad/silero.rst:17
+#: 4004821f944f4db59636a7060cb40a10 d626822f3096422b99fa021fbdba9d0e
+msgid "</a>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/audio_waves.rst:1
+#: 5767572e6bb34ffc9a5d80d2733eb2ba 91d3a8e542204f45b62930712052bf74
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Аудиозапись до обработки "
+"ВАД</figcaption>\n"
+"   <audio controls class=\"audio-wave\">\n"
+"      <source src=\"../../../_static/audio/vad/before_vad.wav\" "
+"type=\"audio/wav\">\n"
+"   </audio>\n"
+"</figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/audio_waves.rst:11
+#: 9d6df9ac3c5e4fac94679983fa577f11 a5b07162857e46ad82092a70bb91da8f
+msgid ""
+"<figure>\n"
+"     <figcaption class=\"audio-capt\">Запись 1</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../../_static/audio/vad/1.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/audio_waves.rst:20
+#: 0158f338d0854d61bedd1fb504d6cc45 b5294b1686074cba836f24090de662dc
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Запись 2</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../../_static/audio/vad/2.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/audio_waves.rst:29
+#: 38e344b2dfe94ce8b3cf17da4dd7e578 93d7028366c942c4adbc76cb19e343e9
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Запись 3</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../../_static/audio/vad/3.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/audio_waves.rst:38
+#: 61376119177a41abba3e12ac3356950d eed1538b02ae4a7c9fbcd1ce03c3ec8d
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Запись 4</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../../_static/audio/vad/4.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/audio_waves.rst:47
+#: 50d8ea9adcbd4f2c8f01ef394c0d6311 eb4963816f2c41c589e733cc4e96382f
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Запись 5</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../../_static/audio/vad/5.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:5
+#: 208ffc6c29c34f3b91655ac5305e5b5b
+msgid "Детектирование речевой активности (Silero VAD)"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:7
+#: 973178914a4347d5b9af53fc4393d530
+msgid ""
+"Команда для запуска детектирования речевой активности в аудиовизуальном "
+"сигнале:"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:9
+#: 59ebc42422d644b68f0dc2ed96523fb5
+msgid ""
+"python ./openav/api/vad.py --config "
+"<путь_к_вашему_конфигурационному_файлу>.yaml"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:14
+#: 54763a75405a479fb7c52c722db84eac
+msgid ""
+"Для запуска команды необходимо обязательно указать путь к "
+"конфигурационному файлу. Запускать программу необходимо из директории, "
+"где она расположена."
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:17
+#: 17504d6d78624b668d32159809e3fc83
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:19
+#: 9a788ad0a74542a081508401c1d597b6
+msgid "Конфигурационный файл включает в себя следующие настройки:"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:21
+#: 6ba0ae29df984567af6b54dd59ee25a1
+msgid "Отображение процесса выполнения программы в терминале (командной строке)"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:22
+#: ../../source/user_guide/modules/vad/silero_vad.rst:46
+#: 3484fb9e2e6441ec9cb32fb32d53c532 69b1a2058351416daedc4434aa0e77b0
+msgid "Работа с файловой системой"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:23
+#: aaf076c4ceba4581a7d6348fda60f296
+msgid "Параметры детектора голосовой активности (Silero VAD)"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:24
+#: ../../source/user_guide/modules/vad/silero_vad.rst:81
+#: 0cfd277ec43a48729997d1813d177ff0 c15c437d888548628c4d50df3fdf89df
+msgid "Параметры кодирования выходного файла"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:28
+#: 739a1f8c7ba147d6a580d945c45d8c90
+msgid "|a_config| Пример конфигурационного файла |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:33
+#: 6a7cb5f4403f45a6a8c2d074953812a7
+msgid "Отображение процесса выполнения команды в терминале"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 4b8f89967da84201ac19bc81fa99d654 724faffe3af14b26a449239f0624a53f
+#: cbf363a80c3c42bfabbe4920c15dc3c9 d9b02c3fc36f40988f997979e887a28c
+msgid "Параметр"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 0d69143dc8134651b2cde333039c7072 5218b06da05b402a9ae9e30d863ad416
+#: a01ca400611342739e57a57aaf7a85f9 ae266ec95f7b475db2b7ff39120f09f1
+msgid "Тип"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 097270ecce954a49a923a097e24bf78b 3a4b40432c844b9e90fe8927b3ff43d8
+#: 582f60857a2b4e7e894ad31a6a441250 b879a4134cde47f4842796da076e8bca
+msgid "Значение по умолчанию"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 30c0ae39393d48558dfb9d4f1da1c571 5414d9c4a7a54551b6b3c9646b50bcc7
+#: 8df752e1b37a427296bdc7aabe19b1d2 f4bc5a13ecc44c5b82ff305f3ea44396
+msgid "Описание"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 9fd81db8d4c74bbdacb0e2039bee799d
+msgid "hide_metadata"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 3428f8c8788344e9a9ae1f08be260e9c b8ee5c57ebce44e1984d7dca08c77592
+#: e93d09df9e9645428090589ab450c17c f09511ba98bb430dba3893ae02e5280f
+msgid "bool"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 59271b18c939460494e75880a6310808 7746841d9453412ba3c23627f351208e
+#: a3b67f2decd74dfeb1327337791f8ef6
+msgid "``false``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 73fa343c598e47a9a9b8b7257228f90c
+msgid "Включение отображения метаданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 20ac51e595c5430eb72445850c71d09d
+msgid "hide_libs_vers"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: c390d3990bfd4ac3b939875b83806f06
+msgid "Включение отображения версий установленных  библиотек  в командной строке"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 2bba6ed77a8c4edd8785252f9185108b
+msgid "path_to_save_model"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 100146fc69324346bcab80928dd564f0 27705a0e13d84a23b6ba9101c900607c
+#: 498e5210d80a4ad2b34181f16293bb5d 5b95704b27104cb5adae7d21b53870be
+#: 664c5c940a284e269a125a48d618d61d e74daca0cd334a4faad73604f6beed6d
+msgid "str"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 62d937d771d34539ab9844a5d0e2a8b4
+msgid "``<./models>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 3ae52c92ffae4398afd5650f870227c4
+msgid ""
+"Директория, где будут размещаться скачанные модели, в данном случае "
+"модель для работоспособности  VAD"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 67c2a0b74d3b4bbfb539e00bba9e454a
+msgid "path_to_dataset"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: f59a2a570efe4312a8282bddefc57699
+msgid "``<путь_к_исходным_данным>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: f4c8c8dd85764ce59441daef388b3c6c
+msgid "Директория, где находятся данные, которые необходимо обработать VAD"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 4d97357cf55547ebbba892e39130a4bf
+msgid "path_to_dataset_vad"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: e5fa269ea8a9492c8f84ed75a6d441a9
+msgid "``<./dataset_vad>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: b40660b64d86472f9e5d0e72073a2b61
+msgid ""
+"Директория, куда сохраняются фрагменты аудиовизуального сигнала после "
+"обработки VAD"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: cce83e6db98048ec9596aa5d9a4dbce2
+msgid "dir_va_names"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 103142d5b1fd4b5ba4f7ab556b0d9ba0
+msgid "dict"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 36f3388eec9b4468b4ce324f077010a2
+msgid "``{\"video\": \"Video\",`` |br| ``\"audio\": \"Audio\"}``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 83f65f9705c742f0a257e60a72dccc59
+msgid ""
+"Директории для сохранения видео и аудио файлов. Названия директорий могут"
+" быть произвольными"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: e133077e3ab84351aef70270c406c609
+msgid "force_reload"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 8ed97ba3d2bd407aa3f9c32f567ca744
+msgid "Включение принудительной загрузки модели VAD из сети"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: ab689ebf9c014df38911bb25e0c931cb
+msgid "clear_dirvad"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: decbaf07118d48a2b5c40f71dfff104d
+msgid "``true``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: f683ec6a24af437c95b1f43d30fcbe22
+msgid ""
+"Очистка директории, в которую сохраняются фрагменты аудиовизуального "
+"сигнала"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 4e4043120f9b460fb9598acc0cd33d50
+msgid "depth"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 1b6e0ea9aa0d44a79cbd6dfcddb9398b 6e570783578b45cca55300a640e3b315
+#: b9bb1cd6af2b4b60a87c88a3c4bf01c7 f3f406ccce60442f99f9fde13e462153
+msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 44a250ed52384a0d988844e31c81cc4c
+msgid "``1``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 552bb2499e3349428e91702ed2a90520
+msgid ""
+"Глубина иерархии для получения данных. Указывается количество "
+"подкаталогов  в директории ``path_to_dataset``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: c789c6fb5a72473fa291b789cd72e077
+msgid "ext_search_files"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 4484c7455e574bce850511ecd2d9a3c0
+msgid "list"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 01acc148d223456cb0bfcf71f6ecac50
+msgid "``[\"mov\", \"mp4\",`` |br| ``\"webm\", \"wav\"]``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: fb0061b1da3245ef85708f2d28146437
+msgid ""
+"Список  расширений файлов, которые будут обрабатываться. Указывать можно "
+"как для видео, так и для аудио"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:65
+#: 426a1029b1d046ef8feb7f4e9fc9e5f8
+msgid "Параметры детектора голосовой активности (VAD)"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: b93879685b0648a2b8e61e4b330ce29c
+msgid "sampling_rate"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 7e55487d36f348fbabbc88247a3ab761
+msgid "``16000``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 1ad5cdcad283460ba20c66dd28a28b8c
+msgid ""
+"Частота дискретизации. На текущий момент поддерживаются частоты: ``8000``"
+" и ``16000``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 3bcdfef4d4be4c69b7fca173e787e4c2
+msgid "threshold"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 1a408115d6ec4e2f9a1801fb9afa8bd3 5425031e280346edbe5f03e5613dbc7c
+#: 6c833cfc8ee047019d3772d13e2f2f4e edb038e6dfd646b1a86132c1a7da4bff
+msgid "float"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 912ec7f0b38b47bf920f0aff0a16262e
+msgid "``0.5``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 363b0f31190c4625bc1229d89e6b3acb
+msgid ""
+"Порог вероятности речи (от ``0.0`` до ``1.0``). VAD выводит вероятности "
+"речи для каждого звукового фрагмента, вероятности выше установеленного "
+"значения считаются |b| речью. |/b| Параметр необходимо настраивать "
+"индивидуально в зависимости от набора данных. Например для шумных условий"
+" параметр рекомендуется устанавливать в значение от ``0.7`` до ``0.95``. "
+"В условиях низкого уровня шума или его отсутствия, параметр лучше "
+"устанавливать на низкие значения ``0.1`` — ``0.25``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: b96728acfec947cd8a4b23d93f3136f5
+msgid "min_speech_duration_ms"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: e85bfcf53f76480c8cb29aa3b1dbeb02
+msgid "``250``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 3d4912da0102409eb3d2ec3b806d6493
+msgid ""
+"Минимальная длительность речевого фрагмента. Рекомендуется устанавливать "
+"в пределах от ``750`` мс до ``1000`` мс. Настройка также является "
+"индвидуальной, которую необходимо подбирать в зависимости от набора "
+"данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: b50b4d5e3d634496bd28d5f216e96747
+msgid "min_silence_duration_ms"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 2ac38216ceb348e3b67efafc27560f63
+msgid "``100``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: b73f759bc51946f28d03c9147f2245f0
+msgid ""
+"Минимальная длительность тишины в выборках между отдельными речевыми "
+"фрагментами, прежде чем разделить его. Рекомендуется устанавливать в "
+"пределах ``500`` мс, для того, чтобы не разделялись предложения. Однако, "
+"можно настроить индивидуально, под свои условия"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 59624b222d514cdeb271af220e8cd7cd
+msgid "window_size_samples"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 27fa69325447473aa6aab89b6d3425f8
+msgid "``1536``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 7140aacdb0b54d5c9898141c467bc067
+msgid ""
+"Количество выборок в каждом окне. |br| |b| Предупреждение! |/b| Модели "
+"VAD были обучены с использованием выборок ``512``, ``1024``, ``1536`` для"
+" частоты дискретизации ``16000`` и ``256``, ``512``, ``768`` для частоты "
+"дискретизации ``8000``. Настоятельно рекомендуется использовать эти "
+"значения, изменение значений может повлиять на производительность модели"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: c66a4e09121343dcba51688b5c01ab14
+msgid "speech_pad_ms"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 3777eedfda0c49ecb3ea13ae8dcd6a61
+msgid "``30``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: ec4eebccd21a4092be33b8f892dde479
+msgid ""
+"Внутренние отступы для итоговых речевых фрагментов. Рекомендуется "
+"использовать значение ``250`` мс — ``400`` мс чтобы избежать обрезания "
+"фрагментов речи. Настройка также является индвидуальная и устанавливается"
+" в соответствии с условиями пользователя"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 8d8666001bca420f9d4482cc7603b46c
+msgid "type_encode"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: e4db005b48894cc1b1d42ff7838a5529
+msgid "``crf``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: f2a706a009fd47969d3b9e039d601064
+msgid "Типы кодирования. Доступные варианты: ``['qscale', 'crf']``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 99aaa2c7e7f3496d85af060d387fb48d
+msgid "crf_value"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 9efffd9e180d48178eadcd1e12b55a56
+msgid "``23``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: fc208c9561664d359d53eaa862995e33
+msgid ""
+"Качество кодирования (от ``0`` до ``51``. Чем ниже значение, тем лучше "
+"качество и наоборот. Стоит учитывать, что изменения качества кодирования "
+"влияет на скорость обработки"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 0bd329023aee4d6da4aab96c058d2644
+msgid "presets_crf_encode"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 71f64845a1584e19a0200b364fa7d0bc
+msgid "``medium``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 5bf4e639c5e0498589723ed496732ef5
+msgid ""
+"Скорость кодирования и сжатия. Доступные варианты: ``['ultrafast', "
+"'superfast', 'veryfast', 'faster', 'fast', 'medium', 'slow', 'slower', "
+"'veryslow']``. Изменения параметра влияет на скорость кодирования и "
+"степень сжатия"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 610c374b2d78426eacec0fd21c9365a7
+msgid "sr_input_type"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: 187405f2107447e79329c727025b76aa
+msgid "``audio``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:1
+#: d960a3a7f0204aab96c4a3c896a2be06
+msgid ""
+"Типы файлов для распознавания речи. Доступные варианты: ``['audio', "
+"'video']``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:96
+#: 15488f3da8f344aba28eadbb05c313d6
+msgid "Демонстрация работы детектора речевой активности"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:98
+#: 2cd0037becac4e07869de7e93c3c3526
+msgid ""
+"В этом разделе представлен результат работы детектора речевой активности "
+"на тестовой аудиозаписи с настройками, которые указаны в конфигурационном"
+" файле."
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:100
+#: bc73c21e2a3c4abbaa12ab0ec7582b9c
+msgid "|b| Пример аудиозаписи до обработки детектором речевой активности: |/b|"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:102
+#: 77ef7da59e0748c7a918d3c90790a764
+msgid "|audio_wo_vad|"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:104
+#: a209ea0ad9884218bfa25499c8a1240d
+msgid "|b| Пример аудиозаписи после обработки детектором речевой активности: |/b|"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:106
+#: ae1b1ba4c81d459799fda657b7d3de13
+msgid "|audio_1| |audio_2| |audio_3| |audio_4| |audio_5|"
+msgstr ""
+
