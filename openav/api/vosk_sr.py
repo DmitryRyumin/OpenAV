@@ -293,7 +293,7 @@ class RunVoskSR(MessagesVoskSR):
             # 2. Внутренний правый отступ для итоговых речевых фрагментов
             if key == "speech_left_pad_ms" or key == "speech_right_pad_ms":
                 # Проверка значения
-                if type(val) is not int or not 1 <= val:
+                if type(val) is not int or not 0 <= val:
                     continue
 
                 curr_valid_layer += 1
@@ -441,6 +441,10 @@ class RunVoskSR(MessagesVoskSR):
             crf_value=self._args["crf_value"],  # Качество кодирования
             presets_crf_encode=self._args["presets_crf_encode"],  # Скорость кодирования и сжатия
             new_name=self._args["folder_name_unzip"],  # Имя директории для разархивирования
+            # Внутренний левый отступ для итоговых речевых фрагментов
+            speech_left_pad_ms=self._args["speech_left_pad_ms"],
+            # Внутренний правый отступ для итоговых речевых фрагментов
+            speech_right_pad_ms=self._args["speech_right_pad_ms"],
             force_reload=self._args["force_reload"],  # Принудительная загрузка модели из сети
             # Очистка директории для сохранения фрагментов аудиовизуального сигнала
             clear_dirvosk_sr=self._args["clear_dirvosk_sr"],

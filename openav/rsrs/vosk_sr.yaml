@@ -21,7 +21,7 @@ ext_search_files:
 - webm
 - wav
 sampling_rate: 16000
-speech_left_pad_ms: 400
-speech_right_pad_ms: 400
+speech_left_pad_ms: 0
+speech_right_pad_ms: 300
 lang_model: ru
 dict_size: big

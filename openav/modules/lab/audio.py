@@ -88,6 +88,8 @@ FRONT: Dict[str, List[str]] = {"mono": ["_mono"], "stereo": ["_left", "_right"]}
 EXT_AUDIO: str = "wav"  # Расширение для сохраняемого аудио
 VOSK_SUPPORTED_LANGUAGES: List[str] = ["ru", "en"]  # Поддерживаемые языки (Vosk)
 VOSK_SUPPORTED_DICTS: List[str] = ["small", "big"]  # Размеры словарей (Vosk)
+VOSK_SPEECH_LEFT_PAD_MS: int = 0  # Внутренний левый отступ для итоговых речевых фрагментов
+VOSK_SPEECH_RIGHT_PAD_MS: int = 0  # Внутренний правый отступ для итоговых речевых фрагментов
 
 
 # ######################################################################################################################
@@ -238,6 +240,9 @@ class Audio(AudioMessages):
         self.__speech_rec: Optional[KaldiRecognizer] = None  # Активация распознавания речи
         self.__keys_speech_rec: List[str] = ["result", "text"]  # Ключи из результата распознавания речи
 
+        self.__vosk_speech_left_pad_ms: int = 0  # Внутренний левый отступ для итоговых речевых фрагментов
+        self.__vosk_speech_right_pad_ms: int = 0  # Внутренний правый отступ для итоговых речевых фрагментов
+
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
     # ------------------------------------------------------------------------------------------------------------------
@@ -295,7 +300,7 @@ class Audio(AudioMessages):
             self.__dict_language_sr = dict_size
 
     # ------------------------------------------------------------------------------------------------------------------
-    # Внутренние методы (приватные)
+    # Внутренние методы (приватные)s
     # ------------------------------------------------------------------------------------------------------------------
 
     # Детальная информация о текущем процессе распознавания речи (Vosk)
@@ -700,19 +705,12 @@ class Audio(AudioMessages):
         elif channels_audio == 2:
             self.__front = FRONT["stereo"]  # Стерео канал
 
-        # print(channels_audio, self.__front)
-
-        # return
-
         # Текущее время (TimeStamp)
         # см. datetime.fromtimestamp()
         self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
 
         def join_path(dir_va):
             return os.path.join(self.path_to_dataset_vosk_sr, dir_va, self.__splitted_path)
-
-        # print(self.__subprocess_vosk_sr)
-        # return
 
         # Временные метки найдены
         if len(self.__subprocess_vosk_sr) > 0:
@@ -741,9 +739,6 @@ class Audio(AudioMessages):
                 self.__unprocessed_files.append(self.__curr_path)
                 return False
 
-        # print(type(self.__subprocess_vosk_sr))
-        # return
-
         # Проход по всем каналам
         for channel in range(0, channels_audio):
             # Распознавание речи по видео
@@ -755,13 +750,19 @@ class Audio(AudioMessages):
                     if res_vosk_sr == "":
                         continue  # Речь не найдена
 
-                    start_time = timedelta(seconds=curr_timestamps[1])  # Начальное время
-                    end_time = timedelta(seconds=curr_timestamps[2])  # Конечное время
+                    # Начальное время
+                    start_time = timedelta(seconds=curr_timestamps[1]) - timedelta(
+                        milliseconds=self.__speech_left_pad_ms
+                    )
+                    # Конечное время
+                    end_time = timedelta(seconds=curr_timestamps[2]) + timedelta(
+                        milliseconds=self.__speech_right_pad_ms
+                    )
+
+                    if start_time < timedelta(seconds=0) is True:
+                        start_time = timedelta(seconds=0)
 
                     diff_time = end_time - start_time  # Разница между начальным и конечным временем
-
-                    # print(res_vosk_sr, start_time, end_time, diff_time)
-                    # continue
 
                     # Путь до аудиофрагмента
                     self.__part_audio_path = os.path.join(
@@ -776,9 +777,6 @@ class Audio(AudioMessages):
                         + EXT_AUDIO,
                     )
 
-                    # print(self.__part_audio_path)
-                    # continue
-
                     # Видео
                     if kind.mime.startswith("video/") is True and channel == 0:
                         # Путь до видеофрагмента
@@ -791,9 +789,6 @@ class Audio(AudioMessages):
                             + self.__curr_ts
                             + Path(self.__curr_path).suffix.lower(),
                         )
-
-                    # print(self.__part_video_path)
-                    # continue
 
                     def not_saved_files():
                         return self.__not_saved_files.append([self.__curr_path, start_time, end_time])
@@ -859,12 +854,8 @@ class Audio(AudioMessages):
                         # Видео
                         if kind.mime.startswith("video/") is True and channel == 0:
                             call_video = subprocess.call(ff_v, shell=True)
-
-                            # print(ff_v)
                         # Аудио
                         call_audio = subprocess.call(ff_a, shell=True)
-
-                        # print(ff_a)
 
                         try:
                             if call_audio == 1 or call_video == 1:
@@ -882,8 +873,6 @@ class Audio(AudioMessages):
                                 _, _ = torchaudio.load(self.__part_audio_path)
                             except Exception:
                                 not_saved_files()
-
-        # print()
 
         # Распознавание речи по аудио
         if type(self.__subprocess_vosk_sr) is dict:
@@ -1372,6 +1361,8 @@ class Audio(AudioMessages):
         crf_value: int = CRF_VALUE,
         presets_crf_encode: str = PRESETS_CRF_ENCODE[5],
         new_name: Optional[str] = None,
+        speech_left_pad_ms: int = VOSK_SPEECH_LEFT_PAD_MS,
+        speech_right_pad_ms: int = VOSK_SPEECH_RIGHT_PAD_MS,
         force_reload: bool = True,
         clear_dirvosk_sr: bool = False,
         out: bool = True,
@@ -1385,6 +1376,8 @@ class Audio(AudioMessages):
             crf_value (int): Качество кодирования (от **0** до **51**)
             presets_crf_encode (str): Скорость кодирования и сжатия
             new_name (str): Имя директории для разархивирования
+            speech_left_pad_ms (int): Внутренний левый отступ для итоговых речевых фрагментов
+            speech_right_pad_ms (int): Внутренний правый отступ для итоговых речевых фрагментов
             force_reload (bool): Принудительная загрузка модели из сети
             clear_dirvosk_sr (bool): Очистка директории для сохранения фрагментов аудиовизуального сигнала
             out (bool) Отображение
@@ -1402,6 +1395,10 @@ class Audio(AudioMessages):
                 or type(crf_value) is not int
                 or not (0 <= crf_value <= 51)
                 or ((type(new_name) is not str or not new_name) and new_name is not None)
+                or type(speech_left_pad_ms) is not int
+                or speech_left_pad_ms < 0
+                or type(speech_right_pad_ms) is not int
+                or speech_right_pad_ms < 0
                 or type(force_reload) is not bool
                 or type(clear_dirvosk_sr) is not bool
                 or type(out) is not bool
@@ -1439,6 +1436,9 @@ class Audio(AudioMessages):
                 self.__type_encode = type_encode
                 self.__crf_value = crf_value
                 self.__presets_crf_encode = presets_crf_encode
+
+                self.__speech_left_pad_ms = speech_left_pad_ms
+                self.__speech_right_pad_ms = speech_right_pad_ms
 
                 # Информационное сообщение
                 self.message_info(
@@ -1569,15 +1569,7 @@ class Audio(AudioMessages):
                                 self.message_progressbar(close=True, out=out)
                                 continue
                             else:
-                                # print(self.__curr_path)
-                                # print(kind.mime.startswith("video/"))
-                                # print(kind.mime.startswith("audio/"))
-                                # print(self.__subprocess_vosk_sr)
-                                # print()
-                                # continue
                                 self.__audio_analysis_vosk_sr()  # Анализ аудиодорожки
-
-                    # return
 
                     self.message_progressbar(close=True, out=out)
 
