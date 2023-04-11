@@ -35,9 +35,10 @@
    :maxdepth: 1
    :caption: Содержание:
 
-   user_guide/index
-   modules/index
-   modules/class_diagram
+   user_guide/installation
+   user_guide/modules
+   api/index
+   api/class_diagram
    about
    faq
    changelog

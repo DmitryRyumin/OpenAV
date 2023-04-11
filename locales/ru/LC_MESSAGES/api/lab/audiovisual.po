@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-11 12:37+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/api/lab/audiovisual.rst:2 5880e5746ce54ecbbdf1b4f690eecc3d
+msgid "Мультимодальное объединение аудио- и видеомодальностей"
+msgstr ""
+
+#: ac877b8674eb41bb958cf1d4faceeb6f of
+#: openav.modules.lab.audiovisual.AVMessages:1
+msgid ""
+"Базовые классы: :py:class:`~openav.modules.lab.audio.Audio`, "
+":py:class:`~openav.modules.lab.video.Video`"
+msgstr ""
+
+#: 71ce410b75824042a7b9daa52efd643a of
+#: openav.modules.lab.audiovisual.AVMessages:1
+msgid "Класс для сообщений"
+msgstr ""
+
+#: 2a46ccc5121a40f5aefb5972f9d39b3c 6640d6a780614f74adfa6e8d2508efa9 of
+#: openav.modules.lab.audiovisual.AV openav.modules.lab.audiovisual.AVMessages
+msgid "Параметры"
+msgstr ""
+
+#: 0dfdeebec502405ba972308db547f63b caf84b607e8a42b3b4b2f68bb8bc8c9d of
+#: openav.modules.lab.audiovisual.AV:3
+#: openav.modules.lab.audiovisual.AVMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 13a1321fd4fc484fa74ce235880aaf70 e39b566e1a94446394116887233037a8 of
+#: openav.modules.lab.audiovisual.AV:5
+#: openav.modules.lab.audiovisual.AVMessages:5
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
+msgstr ""
+
+#: 76185c4c17c34eabbc872440c2f9d57a of openav.modules.lab.audiovisual.AV:1
+msgid "Базовые классы: :py:class:`~openav.modules.lab.audiovisual.AVMessages`"
+msgstr ""
+
+#: 4a79530be02c423e8269d097e2da55a0 of openav.modules.lab.audiovisual.AV:1
+msgid "Класс для мультимодального объединения аудио- и видеомодальностей"
+msgstr ""
+

@@ -6,7 +6,7 @@ crf_value: 23
 presets_crf_encode: medium
 sr_input_type: audio
 path_to_save_models: "./models"
-path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
+path_to_dataset: "C:/Prgrm/_datasets/doc_test"
 path_to_dataset_vosk_sr: "./dataset_vosk"
 dir_va_names:
   video: Video
@@ -14,7 +14,7 @@ dir_va_names:
 force_reload: false
 folder_name_unzip: vosk
 clear_dirvosk_sr: true
-depth: 3
+depth: 1
 ext_search_files:
 - mov
 - mp4

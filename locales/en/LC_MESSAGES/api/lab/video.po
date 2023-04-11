@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-11 12:37+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/api/lab/video.rst:2 31e2bb2b8d494ad4be7573d28eb6ee8c
+msgid "Видео"
+msgstr ""
+
+#: ee7128c4126a44df9983627cfe2a84e6 of openav.modules.lab.video.VideoMessages:1
+msgid "Базовые классы: :py:class:`~openav.modules.file_manager.json_manager.Json`"
+msgstr ""
+
+#: 1ad3991ffd4544609539158f2dc294af of openav.modules.lab.video.VideoMessages:1
+msgid "Класс для сообщений"
+msgstr ""
+
+#: 01c497ea3e794a549a3b35bcaf1c88d8 73a40a4e56d0422f9606dd583306897e of
+#: openav.modules.lab.video.Video openav.modules.lab.video.VideoMessages
+msgid "Параметры"
+msgstr ""
+
+#: 0be1e501b44546d2a4aa241c361dee4b dc6e96af8fb545f5bd907caf874e81a7 of
+#: openav.modules.lab.video.Video:3 openav.modules.lab.video.VideoMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 150157305fc64ad58914ec60d5795153 af1907c6d34d4ebeb48f90d176d48243 of
+#: openav.modules.lab.video.Video:5 openav.modules.lab.video.VideoMessages:5
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
+msgstr ""
+
+#: 5458220e8bb24572a599eaf6cfec7c8b of openav.modules.lab.video.Video:1
+msgid "Базовые классы: :py:class:`~openav.modules.lab.video.VideoMessages`"
+msgstr ""
+
+#: 2df792af79e742b194da2ec86aa9fde2 of openav.modules.lab.video.Video:1
+msgid "Класс для обработки видеомодальности"
+msgstr ""
+

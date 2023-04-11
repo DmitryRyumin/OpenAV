@@ -6,6 +6,6 @@
 
    modules/recorder
    modules/loading
-   modules/vad
+   modules/vad_index
    modules/audio_preprocessing
    modules/video_preprocessing

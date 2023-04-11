@@ -1,8 +1,8 @@
-.. include:: ../../reuse_content/vad/vad.rst
-.. include:: ../../reuse_content/vad/audio_waves.rst
+.. include:: ../../../reuse_content/vad/vad.rst
+.. include:: ../../../reuse_content/vad/audio_waves.rst
 
-Модуль детектирования речевой активности
-========================================
+Детектирование речевой активности
+=================================
 Команда для запуска детектирования речевой активности в аудиовизуальном сигнале:
 
 .. code-block:: sh

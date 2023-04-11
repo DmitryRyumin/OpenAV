@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-11 12:37+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/api/core/exceptions.rst:2 d5088b09bb0e4e5dbcc776f8c7467557
+msgid "Пользовательские исключения"
+msgstr ""
+
+#: 62ab9e75173042e7a379a35bfeeea9b2 of
+#: openav.modules.core.exceptions.CustomException:1
+msgid "Базовые классы: :py:class:`Exception`"
+msgstr ""
+
+#: 4867ece04b5840e7b1e804bbef040f2b of
+#: openav.modules.core.exceptions.CustomException:1
+msgid "Класс для всех пользовательских исключений"
+msgstr ""
+
+#: 2fd1c043a5c64cf4b0d6c51942857d35 4957be759e5c4b498b601988697b3708
+#: 4cb791c44a314a60914f21ce1244446b 6e87c5e51ee44038a4a3c24dfa3acfa5
+#: 91e9bc977f3847458447b5811dc6f760 9363051450be4df4ba94eec0a6457aee
+#: af03a2f10dc0410bacae4b087b58c089 ce2ce7d1bca04246a885c9321580c087
+#: d73bf24e35234714b803d76c33cee429 eb359e6977e44b5b9ce618a49a82ede7 of
+#: openav.modules.core.exceptions.InvalidContentLength:1
+#: openav.modules.core.exceptions.IsNestedCatalogsNotFoundError:1
+#: openav.modules.core.exceptions.IsNestedDirectoryANotFoundError:1
+#: openav.modules.core.exceptions.IsNestedDirectoryVNotFoundError:1
+#: openav.modules.core.exceptions.PresetCFREncodeVideoError:1
+#: openav.modules.core.exceptions.SRInputTypeError:1
+#: openav.modules.core.exceptions.SamplingRateError:1
+#: openav.modules.core.exceptions.TypeEncodeVideoError:1
+#: openav.modules.core.exceptions.TypeMessagesError:1
+#: openav.modules.core.exceptions.WindowSizeSamplesError:1
+msgid ""
+"Базовые классы: "
+":py:class:`~openav.modules.core.exceptions.CustomException`"
+msgstr ""
+
+#: 576e45975be0415f975d9b8a993d25ed of
+#: openav.modules.core.exceptions.InvalidContentLength:1
+msgid "Не определен размер файла для загрузки"
+msgstr ""
+
+#: 1493cb92ac074364b4020880e74043fa of
+#: openav.modules.core.exceptions.IsNestedCatalogsNotFoundError:1
+msgid "Вложенные директории, где хранятся данные не найдены"
+msgstr ""
+
+#: 7a5a2977f3d640249a1d85bf38ac1558 of
+#: openav.modules.core.exceptions.IsNestedDirectoryANotFoundError:1
+msgid "Вложенная директория, для аудиофрагментов не найдена"
+msgstr ""
+
+#: ec18e7acc16d4b83b9fcccd582941e1f of
+#: openav.modules.core.exceptions.IsNestedDirectoryVNotFoundError:1
+msgid "Вложенная директория, для видеофрагментов не найдена"
+msgstr ""
+
+#: b1d5c00934974747b5d1bd1b3fd328ed of
+#: openav.modules.core.exceptions.PresetCFREncodeVideoError:1
+msgid ""
+"Указан неподдерживаемый параметр обеспечивающий определенную скорость "
+"кодирования и сжатия видео"
+msgstr ""
+
+#: 404ae473b7fb425e91e3b396833db971 of
+#: openav.modules.core.exceptions.SRInputTypeError:1
+msgid "Указан неподдерживаемый тип файла для распознавания речи"
+msgstr ""
+
+#: 196b78242a7045699cf9d2b3f373320a of
+#: openav.modules.core.exceptions.SamplingRateError:1
+msgid "Указана неподдерживаемая частота дискретизации речевого сигнала"
+msgstr ""
+
+#: e01362e8540d40c0949cc2834fa8b767 of
+#: openav.modules.core.exceptions.TypeEncodeVideoError:1
+msgid "Указан неподдерживаемый тип кодирования видео"
+msgstr ""
+
+#: 030943ecd0e340859e01c6c5ebdfeb6f of
+#: openav.modules.core.exceptions.TypeMessagesError:1
+msgid "Указан неподдерживаемый тип сообщения"
+msgstr ""
+
+#: ecc23870c0934aae94018b41a20dd1f6 of
+#: openav.modules.core.exceptions.WindowSizeSamplesError:1
+msgid "Указано неподдерживаемое количество выборок в каждом окне"
+msgstr ""
+
