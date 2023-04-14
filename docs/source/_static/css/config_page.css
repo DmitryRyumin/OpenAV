@@ -162,3 +162,19 @@
     text-align: center;
     font-style: italic;
 }
+
+.tab-header {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 24px;
+}
+
+.first-header {
+    margin-top: 0;
+}
+
+.video-cap {
+    margin: 0;
+    font-style: italic;
+    text-align: center;
+}

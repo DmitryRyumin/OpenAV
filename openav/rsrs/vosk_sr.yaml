@@ -7,7 +7,7 @@ presets_crf_encode: medium
 sr_input_type: audio
 path_to_save_models: "./models"
 # path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
-path_to_dataset: "C:/Prgrm/_datasets/doc_test/"
+path_to_dataset: "C:/Prgrm/_datasets/denis/"
 path_to_dataset_vosk_sr: "./dataset_vosk"
 dir_va_names:
   video: Video
@@ -23,6 +23,6 @@ ext_search_files:
 - wav
 sampling_rate: 16000
 speech_left_pad_ms: 0
-speech_right_pad_ms: 500
+speech_right_pad_ms: 250
 lang_model: ru
 dict_size: big
