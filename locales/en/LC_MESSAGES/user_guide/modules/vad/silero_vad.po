@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-14 13:02+0300\n"
+"POT-Creation-Date: 2023-04-14 15:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -20,22 +20,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/reuse_content/vad/silero.rst:1 01ff93bae8b1457bab95c2c513a4ca2f
-#: b9e204db0cfc4139b491a4ab86d561ca
+#: ../../source/reuse_content/silero/silero.rst:1
+#: 01ff93bae8b1457bab95c2c513a4ca2f b9e204db0cfc4139b491a4ab86d561ca
 msgid "</br>"
 msgstr ""
 
-#: ../../source/reuse_content/vad/silero.rst:5 bf5e5d744ea643adb54c662d8205d936
-#: c044e26cb4904ba79751120ced4a4690
+#: ../../source/reuse_content/silero/silero.rst:5
+#: bf5e5d744ea643adb54c662d8205d936 c044e26cb4904ba79751120ced4a4690
 msgid "<b>"
 msgstr ""
 
-#: ../../source/reuse_content/vad/silero.rst:9 2c0d98305e94442cbd63105f9da2e151
-#: 3f5257ddf480415fb358a79e3598cda6
+#: ../../source/reuse_content/silero/silero.rst:9
+#: 2c0d98305e94442cbd63105f9da2e151 3f5257ddf480415fb358a79e3598cda6
 msgid "</b>"
 msgstr ""
 
-#: ../../source/reuse_content/vad/silero.rst:13
+#: ../../source/reuse_content/silero/silero.rst:13
 #: 1c0d0f81fb83413b92d6e7caa3cc2cb2 961ebc95900145a58b188c9408671d67
 msgid ""
 "<a "
@@ -43,17 +43,17 @@ msgid ""
 " target=\"_blank\">"
 msgstr ""
 
-#: ../../source/reuse_content/vad/silero.rst:17
+#: ../../source/reuse_content/silero/silero.rst:17
 #: 961ebc95900145a58b188c9408671d67
 msgid "<a href=\"https://alphacephei.com/vosk/models\" target=\"_blank\">"
 msgstr ""
 
-#: ../../source/reuse_content/vad/silero.rst:21
+#: ../../source/reuse_content/silero/silero.rst:21
 #: d626822f3096422b99fa021fbdba9d0e
 msgid "</a>"
 msgstr ""
 
-#: ../../source/reuse_content/vad/audio_waves.rst:1
+#: ../../source/reuse_content/silero/audio_waves.rst:1
 #: 5767572e6bb34ffc9a5d80d2733eb2ba
 msgid ""
 "<figure>\n"
@@ -66,7 +66,7 @@ msgid ""
 "</figure>"
 msgstr ""
 
-#: ../../source/reuse_content/vad/audio_waves.rst:11
+#: ../../source/reuse_content/silero/audio_waves.rst:11
 #: 9d6df9ac3c5e4fac94679983fa577f11
 msgid ""
 "<figure>\n"
@@ -78,7 +78,7 @@ msgid ""
 " </figure>"
 msgstr ""
 
-#: ../../source/reuse_content/vad/audio_waves.rst:20
+#: ../../source/reuse_content/silero/audio_waves.rst:20
 #: b5294b1686074cba836f24090de662dc
 msgid ""
 "<figure>\n"
@@ -90,7 +90,7 @@ msgid ""
 " </figure>"
 msgstr ""
 
-#: ../../source/reuse_content/vad/audio_waves.rst:29
+#: ../../source/reuse_content/silero/audio_waves.rst:29
 #: 93d7028366c942c4adbc76cb19e343e9
 msgid ""
 "<figure>\n"
@@ -102,7 +102,7 @@ msgid ""
 " </figure>"
 msgstr ""
 
-#: ../../source/reuse_content/vad/audio_waves.rst:38
+#: ../../source/reuse_content/silero/audio_waves.rst:38
 #: eed1538b02ae4a7c9fbcd1ce03c3ec8d
 msgid ""
 "<figure>\n"
@@ -114,7 +114,7 @@ msgid ""
 " </figure>"
 msgstr ""
 
-#: ../../source/reuse_content/vad/audio_waves.rst:47
+#: ../../source/reuse_content/silero/audio_waves.rst:47
 #: 50d8ea9adcbd4f2c8f01ef394c0d6311
 msgid ""
 "<figure>\n"
@@ -591,27 +591,76 @@ msgstr ""
 #: ../../source/user_guide/modules/vad/silero_vad.rst:98
 #: 2cd0037becac4e07869de7e93c3c3526
 msgid ""
-"В этом разделе представлен результат работы детектора речевой активности "
-"на тестовой аудиозаписи с настройками, которые указаны в конфигурационном"
-" файле."
-msgstr ""
-
-#: ../../source/user_guide/modules/vad/silero_vad.rst:100
-#: bc73c21e2a3c4abbaa12ab0ec7582b9c
-msgid "|b| Пример аудиозаписи до обработки детектором речевой активности: |/b|"
+"Ниже продемонстрированы результаты работы детектора речевой активности "
+"как для входного аудиовизуального сигнала, так и для акустического."
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/silero_vad.rst:102
+#: 73609e7c532646e88c1489a3b2de1085
+msgid "Аудиовизуальный сигнал"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:107
+#: bc73c21e2a3c4abbaa12ab0ec7582b9c
+msgid "Пример видеозаписи до обработки детектором речевой активности"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:111
+#: 8fbe1d8fe9f943c7a88a190574ab1ea3
+msgid "Видеозапись до обработки VAD"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:118
+#: a209ea0ad9884218bfa25499c8a1240d
+msgid "Примеры видеозаписей после обработки детектором речевой активности"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:122
+#: 09bba190ce8447068aa2ac1e922eba41
+msgid "Фраза 1"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:129
+#: fc894e96c5f5410da14c229c55e34a5e
+msgid "Фраза 2"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:136
+#: f0d947fb5b3841de9864b751f4676b04
+msgid "Фраза 3"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:143
+#: cd7b7d30a48a42349c76076616be76f7
+msgid "Фраза 4"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:150
+#: 75a167b52e04498fb1254ebf0f93e2e4
+msgid "Фраза 5"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:155
+#: d3ab8e061acf4ebd8dccf639f24eaa48
+msgid "Акустический сигнал"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:159
+#: bc73c21e2a3c4abbaa12ab0ec7582b9c
+msgid "Пример аудиозаписи до обработки детектором речевой активности"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/silero_vad.rst:161
 #: 77ef7da59e0748c7a918d3c90790a764
 msgid "|audio_wo_vad|"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad/silero_vad.rst:104
+#: ../../source/user_guide/modules/vad/silero_vad.rst:165
 #: a209ea0ad9884218bfa25499c8a1240d
-msgid "|b| Пример аудиозаписи после обработки детектором речевой активности: |/b|"
+msgid "Примеры аудиозаписей после обработки детектором речевой активности"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad/silero_vad.rst:106
+#: ../../source/user_guide/modules/vad/silero_vad.rst:167
 #: ae1b1ba4c81d459799fda657b7d3de13
 msgid "|audio_1| |audio_2| |audio_3| |audio_4| |audio_5|"
 msgstr ""
@@ -679,5 +728,20 @@ msgstr ""
 #~ " type=\"audio/wav\">\n"
 #~ "     </audio>\n"
 #~ " </figure>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "В этом разделе представлен результат "
+#~ "работы детектора речевой активности на "
+#~ "тестовой аудиозаписи с настройками, которые"
+#~ " указаны в конфигурационном файле."
+#~ msgstr ""
+
+#~ msgid "|b| Пример аудиозаписи до обработки детектором речевой активности: |/b|"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|b| Пример аудиозаписи после обработки "
+#~ "детектором речевой активности: |/b|"
 #~ msgstr ""
 
