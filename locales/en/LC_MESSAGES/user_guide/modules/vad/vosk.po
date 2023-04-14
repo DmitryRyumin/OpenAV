@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 14:23+0300\n"
+"POT-Creation-Date: 2023-04-14 11:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -179,7 +179,7 @@ msgid "Параметры детектора голосовой активнос
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/vosk.rst:24
-#: ../../source/user_guide/modules/vad/vosk.rst:81
+#: ../../source/user_guide/modules/vad/vosk.rst:83
 #: 4bd6cf9821f04bb79d86febeb37138eb
 msgid "Параметры кодирования выходного файла"
 msgstr ""
@@ -250,7 +250,6 @@ msgid "path_to_save_model"
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/vosk.rst:1
-#: 14ff8c565aff4cdc9ce7b7f701ced107 8cc096632e774f798a8c6d18b048bf76
 #: e38efea313de498cab45aa1321339ba8
 msgid "str"
 msgstr ""
@@ -425,6 +424,47 @@ msgid ""
 msgstr ""
 
 #: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 49dd0669d4f049d9b366f89a0a551d88
+msgid "speech_left_pad_ms"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 15dd377a57b54f5cbde077299deb2b95 4f3a957952af40c9a3d52be8fb536514
+msgid "float"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 0e80e91ab6924dd2b6fac024ef1c058c
+msgid "``0``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 8d885f1d629942a6aece92c235e21b37
+msgid ""
+"Внутренний отступ до начала речевого фрагмента. Настройка поможет "
+"избавиться от лишней тишина в начале обработанного фрагмента"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 2fb57b01a9ab4745b2e0697fd4bf297a
+msgid "speech_right_pad_ms"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 2fca3e3817fb4e58ad5496ed8f6d412e
+msgid "``300``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 924042bb54f4427fa300f817f00285e8
+msgid ""
+"Внутренний отступ в конце речевого фрагмента. Настройка поможет "
+"избавиться от лишней тишина в конце обработанного фрагмента, либо "
+"наоборот увеличить длительность речевого фрагмента, на случай, если фраза"
+" незначительно обрезается после обработки"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
 #: 7b4ddf91fa4644da9764066cd81adeeb
 msgid "lang_model"
 msgstr ""
@@ -459,7 +499,7 @@ msgid ""
 "что малоресурсная модель будет работать быстрее, чем большая."
 msgstr ""
 
-#: ../../source/user_guide/modules/vad/vosk.rst:78
+#: ../../source/user_guide/modules/vad/vosk.rst:80
 #: 1cc8ca202ae84bb3a95926040c9ba443
 msgid ""
 "В текущей версии для русского языка используются модели  ``vosk-model-"
@@ -537,12 +577,12 @@ msgid ""
 "'video']``"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad/vosk.rst:96
+#: ../../source/user_guide/modules/vad/vosk.rst:98
 #: f6fe32f147ed4ff1a1ef0d1684242ae4
 msgid "Демонстрация работы детектора речевой активности"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad/vosk.rst:98
+#: ../../source/user_guide/modules/vad/vosk.rst:100
 #: 6259a798ee584b128d29afeff1f44d51
 msgid ""
 "В этом разделе представлен результат работы детектора речевой активности "
@@ -550,22 +590,22 @@ msgid ""
 " файле."
 msgstr ""
 
-#: ../../source/user_guide/modules/vad/vosk.rst:100
+#: ../../source/user_guide/modules/vad/vosk.rst:102
 #: 2062fc25256a4acda1cf6da60d74093a
 msgid "|b| Пример аудиозаписи до обработки детектором речевой активности: |/b|"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad/vosk.rst:102
+#: ../../source/user_guide/modules/vad/vosk.rst:104
 #: 850532be6553464da09812fbbf39457e
 msgid "|audio_wo_vad|"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad/vosk.rst:104
+#: ../../source/user_guide/modules/vad/vosk.rst:106
 #: bdf94647f51c42fda4658bed9e89056e
 msgid "|b| Пример аудиозаписи после обработки детектором речевой активности: |/b|"
 msgstr ""
 
-#: ../../source/user_guide/modules/vad/vosk.rst:106
+#: ../../source/user_guide/modules/vad/vosk.rst:108
 #: 675b6e205e184479aa8e44716302d792
 msgid "|audio_1| |audio_2| |audio_3| |audio_4| |audio_5|"
 msgstr ""
