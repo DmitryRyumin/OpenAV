@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 12:37+0300\n"
+"POT-Creation-Date: 2023-04-14 11:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -127,13 +127,13 @@ msgstr ""
 #: 40bd6a05851b43c383b3acbfebdb6ed8 44d37dacfb844b5694b0f9d3dd5520e3
 #: 4c997f61c5434c24a1a83eeea5d893f9 of openav.modules.lab.audio.Audio.vad:28
 #: openav.modules.lab.audio.Audio.vosk:5
-#: openav.modules.lab.audio.Audio.vosk_sr:14
+#: openav.modules.lab.audio.Audio.vosk_sr:18
 msgid "Принудительная загрузка модели из сети"
 msgstr ""
 
 #: 0fdc5803abe044bd810de181a582c698 649968ea29b3459984fc822a73c01dbc of
 #: openav.modules.lab.audio.Audio.vad:30
-#: openav.modules.lab.audio.Audio.vosk_sr:16
+#: openav.modules.lab.audio.Audio.vosk_sr:20
 msgid "Очистка директории для сохранения фрагментов аудиовизуального сигнала"
 msgstr ""
 
@@ -213,8 +213,18 @@ msgid ""
 "(детектирование голосовой активности и распознавание речи)"
 msgstr ""
 
+#: 1f257a4dda8344ee97531f5c74edef24 of
+#: openav.modules.lab.audio.Audio.vosk_sr:14
+msgid "Внутренний левый отступ для итоговых речевых фрагментов"
+msgstr ""
+
+#: 06ca675d04c948c293f47060405f66fb of
+#: openav.modules.lab.audio.Audio.vosk_sr:16
+msgid "Внутренний правый отступ для итоговых речевых фрагментов"
+msgstr ""
+
 #: 0de832638eff4ef6872787f83a833da3 of
-#: openav.modules.lab.audio.Audio.vosk_sr:21
+#: openav.modules.lab.audio.Audio.vosk_sr:25
 msgid ""
 "**True** если детектирование голосовой активности и распознавание речи "
 "произведено, в обратном случае **False**"

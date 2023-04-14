@@ -88,6 +88,8 @@ extensions = [
     "sphinx_toolbox.sidebar_links",
     "sphinx_toolbox.github",
     "sphinx_rtd_theme",
+    "sphinx_tabs.tabs", # табы в Sphinx https://sphinx-tabs.readthedocs.io/en/latest/
+    "sphinxcontrib.video", # https://sphinxcontrib-video.readthedocs.io/en/latest/quickstart.html
     "sphinx_toolbox.changeset",  # Отлеживание версий
     "sphinx_github_changelog",  # Автопубликация релизов с GIT
     # "sphinx_design",
