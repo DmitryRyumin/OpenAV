@@ -624,15 +624,12 @@ class Audio(AudioMessages):
                                         self.__part_video_path,
                                     )
                             if channels_audio == 1:  # Моно канал
-                                ff_a = (
-                                    'ffmpeg -loglevel quiet -i "{}" -vn -codec:v copy '
-                                    '-ss {} -to {} -c copy "{}"'.format(
-                                        self.__curr_path, start_time, end_time, self.__part_audio_path
-                                    )
+                                ff_a = 'ffmpeg -loglevel quiet -i "{}" -vn -c:a pcm_f32le ' '-ss {} -to {} "{}"'.format(
+                                    self.__curr_path, start_time, end_time, self.__part_audio_path
                                 )
                             elif channels_audio == 2:  # Стерео канал
                                 ff_a = (
-                                    'ffmpeg -loglevel quiet -i "{}" -vn -codec:v copy -map_channel 0.1.{} -ss {} '
+                                    'ffmpeg -loglevel quiet -i "{}" -vn -c:a pcm_f32le -map_channel 0.1.{} -ss {} '
                                     '-to {} "{}"'.format(
                                         self.__curr_path, channel, start_time, end_time, self.__part_audio_path
                                     )
@@ -823,14 +820,14 @@ class Audio(AudioMessages):
                             if channels_audio == 1:  # Моно канал
                                 ff_a = (
                                     # 'ffmpeg -loglevel quiet -i "{}" -vn -codec:a copy '
-                                    'ffmpeg -loglevel quiet -i "{}" -vn -codec:a pcm_s16le '
+                                    'ffmpeg -loglevel quiet -i "{}" -vn -codec:a pcm_f32le '
                                     '-ac {} -ss {} -to {} "{}"'.format(
                                         self.__curr_path, channels_audio, start_time, end_time, self.__part_audio_path
                                     )
                                 )
                             elif channels_audio == 2:  # Стерео канал
                                 ff_a = (
-                                    'ffmpeg -loglevel quiet -i "{}" -vn -codec:a pcm_s16le -map_channel 0.1.{} -ss {} '
+                                    'ffmpeg -loglevel quiet -i "{}" -vn -codec:a pcm_f32le -map_channel 0.1.{} -ss {} '
                                     '-to {} "{}"'.format(
                                         self.__curr_path, channel, start_time, end_time, self.__part_audio_path
                                     )
@@ -1252,6 +1249,7 @@ class Audio(AudioMessages):
                                     _, self.__aframes, self.__file_metadata = torchvision.io.read_video(
                                         self.__curr_path
                                     )
+
                                 # Аудио
                                 if kind.mime.startswith("audio/") is True:
                                     (self.__aframes, self.__file_metadata["audio_fps"]) = torchaudio.load(
@@ -1267,6 +1265,10 @@ class Audio(AudioMessages):
                                     self.__aframes = self.__aframes.to(torch.float32)
 
                                 self.__audio_analysis()  # Анализ аудиодорожки
+
+                                return
+
+                        return
                         self.message_progressbar(close=True, out=out)
 
                         # Файлы на которых VAD не отработал
