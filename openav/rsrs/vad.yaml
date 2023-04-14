@@ -6,7 +6,8 @@ crf_value: 23
 presets_crf_encode: medium
 sr_input_type: audio
 path_to_save_models: "./models"
-path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
+# path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
+path_to_dataset: "C:/Prgrm/_datasets/denis/"
 path_to_dataset_vad: "./dataset_vad"
 dir_va_names:
   video: Video
@@ -22,6 +23,16 @@ ext_search_files:
 sampling_rate: 16000
 threshold: 0.16
 min_speech_duration_ms: 500
-min_silence_duration_ms: 250
+min_silence_duration_ms: 1000
 window_size_samples: 1536
 speech_pad_ms: 400
+
+
+# ffmpeg -loglevel quiet -i "C:/Prgrm/_datasets/denis/Denis_2.webm" -vn -codec:v copy -ss 0:00:01.458667 -to 0:00:02.093333 -c copy "test_f/Denis_2_0_mono_1681471097_84885.wav"
+# ffmpeg -i "C:/Prgrm/_datasets/denis/den/Denis_2.webm" -vn -codec:v copy -ss 0:00:01.458667 -to 0:00:02.093333 -c copy "test_f/Denis_2_0_mono_1681471097_84885.wav"
+
+# ffmpeg -i "C:/Prgrm/_datasets/denis/den/Denis_2.webm" -c:a pcm_f32le -ss 0:00:01.458667 -to 0:00:06.093333 "test_f/Denis_2_0_mono_1681471097_84885.wav"
+
+# ffmpeg -i "C:/Prgrm/_datasets/denis/den/Denis_2.webm" -c:a pcm_s16le -ss 0:00:01.458667 -to 0:00:06.093333 "test_f/Denis_2_0_mono_1681471097_84885_16fle.wav"
+
+# ffmpeg -i "C:/Prgrm/_datasets/denis/den/1.mp4" -vn -codec:v copy -ss 0:00:01.458667 -to 0:00:02.093333 -c copy "test_f/Denis_2_0_mono_1681471097_84885.wav"
