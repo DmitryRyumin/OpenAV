@@ -1266,9 +1266,6 @@ class Audio(AudioMessages):
 
                                 self.__audio_analysis()  # Анализ аудиодорожки
 
-                                return
-
-                        return
                         self.message_progressbar(close=True, out=out)
 
                         # Файлы на которых VAD не отработал
