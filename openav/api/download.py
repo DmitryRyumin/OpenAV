@@ -216,7 +216,7 @@ class RunDownload(MessagesDownload):
 
         return True  # Результат
 
-    def _load_config_yaml(self, resources: ModuleType = rsrs, config="vosk_sr.yaml", out: bool = True) -> bool:
+    def _load_config_yaml(self, resources: ModuleType = rsrs, config="download.yaml", out: bool = True) -> bool:
         """Загрузка и проверка конфигурационного файла
 
         Args:
