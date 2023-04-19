@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-14 15:00+0300\n"
+"POT-Creation-Date: 2023-04-19 14:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -22,21 +22,6 @@ msgstr ""
 "Generated-By: Babel 2.11.0\n"
 
 #: ../../source/reuse_content/silero/silero.rst:1
-#: eee4bdfb2f544364b19b89f353a9206b
-msgid "</br>"
-msgstr ""
-
-#: ../../source/reuse_content/silero/silero.rst:5
-#: 745ad95b0b2646d3a7b2820e0f60f47f
-msgid "<b>"
-msgstr ""
-
-#: ../../source/reuse_content/silero/silero.rst:9
-#: 9ba69ce46c834caeab2448bf728a7756
-msgid "</b>"
-msgstr ""
-
-#: ../../source/reuse_content/silero/silero.rst:13
 #: bf833e0936064825bcc7bc5545ee7939
 msgid ""
 "<a "
@@ -44,13 +29,20 @@ msgid ""
 " target=\"_blank\">"
 msgstr ""
 
-#: ../../source/reuse_content/silero/silero.rst:17
+#: ../../source/reuse_content/silero/silero.rst:5
 #: ade51ecfa3594c54a710ec29b9916fb3
 msgid "<a href=\"https://alphacephei.com/vosk/models\" target=\"_blank\">"
 msgstr ""
 
-#: ../../source/reuse_content/silero/silero.rst:21
-#: f586b8b32b104dc18b09480daf57d0cd
-msgid "</a>"
-msgstr ""
+#~ msgid "</br>"
+#~ msgstr ""
+
+#~ msgid "<b>"
+#~ msgstr ""
+
+#~ msgid "</b>"
+#~ msgstr ""
+
+#~ msgid "</a>"
+#~ msgstr ""
 

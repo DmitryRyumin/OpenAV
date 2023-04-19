@@ -20,28 +20,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/reuse_content/silero/silero.rst:1
-#: bf833e0936064825bcc7bc5545ee7939
-msgid ""
-"<a "
-"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.yaml\""
-" target=\"_blank\">"
+#: ../../source/reuse_content/general.rst:1 d84e6c6fbaaf409b8af6c22a2f026686
+msgid "</br>"
 msgstr ""
 
-#: ../../source/reuse_content/silero/silero.rst:5
-#: ade51ecfa3594c54a710ec29b9916fb3
-msgid "<a href=\"https://alphacephei.com/vosk/models\" target=\"_blank\">"
+#: ../../source/reuse_content/general.rst:5 d08e2d254b5e4fcfb917749563dbe650
+msgid "<b>"
 msgstr ""
 
-#~ msgid "</br>"
-#~ msgstr ""
+#: ../../source/reuse_content/general.rst:9 b55f7abad66d4e5fbac3008af4f230e4
+msgid "</b>"
+msgstr ""
 
-#~ msgid "<b>"
-#~ msgstr ""
-
-#~ msgid "</b>"
-#~ msgstr ""
-
-#~ msgid "</a>"
-#~ msgstr ""
+#: ../../source/reuse_content/general.rst:13 c5b3ae388d2b42cc87bfa3454abc4665
+msgid "</a>"
+msgstr ""
 

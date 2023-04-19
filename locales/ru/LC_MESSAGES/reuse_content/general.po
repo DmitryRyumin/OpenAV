@@ -21,26 +21,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/reuse_content/vosk/vosk.rst:1 1a7ade7ff0ff4f3688c1639847f82664
-msgid ""
-"<a "
-"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vosk_sr.yaml\""
-" target=\"_blank\">"
+#: ../../source/reuse_content/general.rst:1 d84e6c6fbaaf409b8af6c22a2f026686
+msgid "</br>"
 msgstr ""
 
-#: ../../source/reuse_content/vosk/vosk.rst:5 2c0e75cd88f547698ec908a7f90da99f
-msgid "<a href=\"https://alphacephei.com/vosk/models\" target=\"_blank\">"
+#: ../../source/reuse_content/general.rst:5 d08e2d254b5e4fcfb917749563dbe650
+msgid "<b>"
 msgstr ""
 
-#~ msgid "</br>"
-#~ msgstr ""
+#: ../../source/reuse_content/general.rst:9 b55f7abad66d4e5fbac3008af4f230e4
+msgid "</b>"
+msgstr ""
 
-#~ msgid "<b>"
-#~ msgstr ""
-
-#~ msgid "</b>"
-#~ msgstr ""
-
-#~ msgid "</a>"
-#~ msgstr ""
+#: ../../source/reuse_content/general.rst:13 c5b3ae388d2b42cc87bfa3454abc4665
+msgid "</a>"
+msgstr ""
 

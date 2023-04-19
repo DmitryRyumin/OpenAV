@@ -1,5 +1,6 @@
 .. include:: ../../../reuse_content/vosk/vosk.rst
 .. include:: ../../../reuse_content/vosk/audio_waves.rst
+.. include:: ../../../reuse_content/general.rst
 
 Детектирование речевой активности (Vosk)
 ========================================

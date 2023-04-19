@@ -1,5 +1,7 @@
 .. include:: ../../../reuse_content/silero/silero.rst
 .. include:: ../../../reuse_content/silero/audio_waves.rst
+.. include:: ../../../reuse_content/general.rst
+
 
 Детектирование речевой активности (Silero VAD)
 ==============================================
