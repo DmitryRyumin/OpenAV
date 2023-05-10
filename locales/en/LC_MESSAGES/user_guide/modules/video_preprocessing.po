@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-22 15:03+0300\n"
+"POT-Creation-Date: 2023-05-10 14:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -20,8 +20,263 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/user_guide/modules/video_preprocessing.rst:2
-#: 8b357af738194ab3b7fa8577be58dfe8
-msgid "Модуль предобработки видеоданных"
+#: ../../source/reuse_content/general.rst:1 28495ef1831c458e9f6b957c5a2339bc
+#: c88ca491ec094194963d843849893fdb
+msgid "</br>"
 msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 722674d491fb46eea48a29af4c3dff6c
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 ee15b1d7052949f3b10a2f9b5b910aaa
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:13 76dca60661424ab28ac6ec39db1d9373
+#: f52406a6e6fe47efa58d48255ac69d0c
+msgid "</a>"
+msgstr ""
+
+#: ../../source/reuse_content/preprocessing/video.rst:1
+#: 59a837d867424c06bf5d4210f956eb22
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/video_preprocessing.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:5
+#: 8b357af738194ab3b7fa8577be58dfe8
+msgid "Модуль предобработки речевых видеоданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:7
+#: d9b9e3b9f0f64b88a76272ff407d25dd
+msgid ""
+"Модуль выполняет предобработку речевых видеоданных, в данном случае "
+"извлекаются области губ из исходных видеокадров."
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:10
+#: 06ae9f7eeeec4995ab669fab20d72d46
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:12
+#: f978d03fe69c4bb7808efefe3ac61391
+msgid "Конфигурационный файл включает в себя следующие настройки:"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:14
+#: 277bcda799f44e99a7efeed210f8753d
+msgid "Отображение процесса выполнения программы в терминале (командной строке)"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:15
+#: ../../source/user_guide/modules/video_preprocessing.rst:38
+#: f628536fefe04b0e9c54c0304af03f48
+msgid "Работа с файловой системой"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:16
+#: ../../source/user_guide/modules/video_preprocessing.rst:53
+#: 8b357af738194ab3b7fa8577be58dfe8
+msgid "Параметры предобработки речевых видеоданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:20
+#: 37e10c4f68b142599104f830a3fc7801
+msgid "|a_config| Пример конфигурационного файла |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:25
+#: 6b557e7721244dfd99da2e7630fca282
+msgid "Отображение процесса выполнения команды в терминале"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: e2d8ac547c344c65a828b08305705c2f
+msgid "Параметр"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 58dab3ba73164ba4b1afa5af9d211bba
+msgid "Тип"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 2720af71698145d39340e980b87c6cc2
+msgid "Значение по умолчанию"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: e56e20c8852a4d05966c0021ecbac7ee
+msgid "Описание"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 82dda5f7b2a14cbba4e1908dc34ff629
+msgid "hide_metadata"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 8a389490b2f24db2a484aa53e3f63eb7
+msgid "bool"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 50b3b4c83afd4d16b80f14178fc38c77
+msgid "``false``"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 57566c346dfc4610afe1b3726be831c5
+msgid "Включение отображения метаданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: a9423a6f8bc0428e92e21ac93dea2220
+msgid "hide_libs_vers"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 058a88d8476947a2b1716fa3144e80f1
+msgid "Включение отображения версий установленных  библиотек  в командной строке"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: afc4e8ae1c554dc398c1aa0e71c0a53a
+msgid "path_to_dataset"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 55f3f2d47de344dbaffd190e2c3e5239
+msgid "str"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 089b43c7937e4fc6808c7ed3303a6ac9
+msgid "``<путь_к_исходным_данным>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 6c8474bc01694b3591cba3b962faca1a
+msgid ""
+"Директория, где находятся данные, которые необходимо загрузить или "
+"проверить"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 25ffa7242f7d4ee6b84e265854bd6f53
+msgid "path_to_dataset_video"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: f2369cb9fa834233ab63f2b740ae5fe7
+msgid "``<путь_к_конечным_данным>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 00ceadec93b14bef881930495eedf146
+msgid "Директория, в которую будут сохраняться данные после предобработки"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 995cb0918db1412199259dc0ee78c01d
+msgid "depth"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 61c2ff2e402146ec8b96fd2d76fc2734
+msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 983c8465254a4859830820a08e387ec7
+msgid "``1``"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: cc98b8ef4c45434cb591209707a9d67e
+msgid ""
+"Глубина иерархии для получения данных. Указывается количество "
+"подкаталогов  в директории ``path_to_dataset``"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 8137950f2c3f4416be578ab1ae888613
+msgid "ext_search_files"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: fccaf4296bc745fa96903fe8c5712ce3
+msgid "list"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: e14ebdf3794e43dea610318be7c37fc9
+msgid "``[\"mov\", \"mp4\",`` |br| ``\"webm\", \"wav\"]``"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 705530ab5c28406a86c61e5cabeb44f7
+msgid ""
+"Список  расширений файлов, которые будут обрабатываться. Указывать  можно"
+" как для видео, так и для аудио"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 8c53c5023c2440ae85909944fa186fd2
+msgid "width"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 97261387eb9a43c69654a4623af6a0c0
+msgid "``112``"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 041fa9c4851a451898a74311c1e5770e
+msgid "Ширина кадра с  найденной областью губ"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 44088b7664ac4eb5932532f5c19c1645
+msgid "height"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 82dea534bf30439e93d3ab43ba5f140e
+msgid "Высота кадра с найденной областью губ"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 93f4b5257937421f9fc49ed9067a81b0
+msgid "color_mode"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 28cba685b38b42449e427d43b2db796f
+msgid "``gray``"
+msgstr ""
+
+#: ../../source/user_guide/modules/video_preprocessing.rst:1
+#: 195e02c03c65463d98c0b4d4b2b00960
+msgid ""
+"Цветовая гамма конечного изображения. Доступные значения: ``gray`` - "
+"изображение в градациях серого; ``rgb`` - изображение в цветном формате"
+msgstr ""
+
+#~ msgid ""
+#~ "<a "
+#~ "href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/audio_preprocessing.yaml\""
+#~ " target=\"_blank\">"
+#~ msgstr ""
+
+#~ msgid "Модуль предобработки видеоданных"
+#~ msgstr ""
+
+#~ msgid "Параметры предобработки видеоданных"
+#~ msgstr ""
 
