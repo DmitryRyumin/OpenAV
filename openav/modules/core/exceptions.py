@@ -66,3 +66,15 @@ class InvalidContentLength(CustomException):
     """Не определен размер файла для загрузки"""
 
     pass
+
+
+class VolumeDbError(CustomException):
+    """Указана неподдерживаемая громкость речевого сигнала"""
+
+    pass
+
+
+class CutoffHzError(CustomException):
+    """Указана неподдерживаемая частота обработки речевого сигнала"""
+
+    pass

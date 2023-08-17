@@ -37,6 +37,8 @@ from pymediainfo import MediaInfo  # Получение meta данных из �
 
 from vosk import Model, KaldiRecognizer, SetLogLevel  # Распознавание речи
 
+import augly.audio as audags # Аугментация аудиофайлов
+
 # Типы данных
 from typing import List, Dict, Union, Optional
 
@@ -52,6 +54,8 @@ from openav.modules.core.exceptions import (
     IsNestedDirectoryANotFoundError,
     SamplingRateError,
     WindowSizeSamplesError,
+    VolumeDbError,
+    CutoffHzError,
 )
 from openav.modules.file_manager.yaml_manager import Yaml  # Класс для работы с YAML
 
@@ -85,11 +89,15 @@ WINDOW_SIZE_SAMPLES_VAD: Dict[int, List[int]] = {8000: [256, 512, 768], 16000: [
 SPEECH_PAD_MS: int = 150  # Внутренние отступы для итоговых речевых фрагментов
 # Суффиксы каналов аудиофрагментов
 FRONT: Dict[str, List[str]] = {"mono": ["_mono"], "stereo": ["_left", "_right"]}
+EXT_AUDIO_AUG: str = "flac"  # Расширение для сохраняемого аудио
 EXT_AUDIO: str = "wav"  # Расширение для сохраняемого аудио
 VOSK_SUPPORTED_LANGUAGES: List[str] = ["ru", "en"]  # Поддерживаемые языки (Vosk)
 VOSK_SUPPORTED_DICTS: List[str] = ["small", "big"]  # Размеры словарей (Vosk)
 VOSK_SPEECH_LEFT_PAD_MS: int = 0  # Внутренний левый отступ для итоговых речевых фрагментов
 VOSK_SPEECH_RIGHT_PAD_MS: int = 0  # Внутренний правый отступ для итоговых речевых фрагментов
+
+VOLUME_DB_AUGMENTATION: List[str] = [0, 1000]  # TODO: fix description
+CUTOFF_HZ_AUGMENTATION: List[str] = [0, 1000]  # TODO: fix description
 
 
 # ######################################################################################################################
@@ -133,6 +141,13 @@ class AudioMessages(Yaml):
         self._vosk_model_activation: str = self._("Активация Vosk модели") + ' "{}"' + self._em
         self._sr_not_recognized: str = self._("Речь не найдена") + self._em
 
+        self._wrong_volume_db_aug: str = (
+                self._('Громкость обработки речевого сигнала должна быть в пределах "{}"') + self._em
+        )
+        self._wrong_cutoff_hz_aug: str = (
+                self._('Частота обработки речевого сигнала должна быть в пределах "{}"') + self._em
+        )
+
         self._subfolders_search: str = (
             self._('Поиск вложенных директорий в директории "{}" (глубина вложенности: {})') + self._em
         )
@@ -148,6 +163,8 @@ class AudioMessages(Yaml):
         self._url_error_code: str = self._(" (ошибка {})")
 
         self._vad_true: str = self._("Все файлы успешно проанализированы") + self._em
+
+        self._aug_true: str = self._("Все файлы успешно обработаны") + self._em
 
 
 # ######################################################################################################################
@@ -941,6 +958,42 @@ class Audio(AudioMessages):
 
         return True
 
+    def __audio_augmentation(self) -> bool:
+        """Аугментация аудиофайла
+
+        Returns:
+            bool: **True** если аугментация аудиофайла произведена, в обратном случае **False**
+        """
+
+        # Тип файла
+        kind = filetype.guess(self.__curr_path)
+
+        aug_audio, sample_rate = audags.change_volume(self.__curr_path, volume_db=self.__volume_db_aug)
+
+        aug_audio, sample_rate = audags.low_pass_filter(
+            aug_audio,
+            sample_rate=sample_rate,
+            cutoff_hz=self.__cutoff_hz_aug,
+        )
+
+        self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
+
+        path = os.path.join(
+            self.__dataset_audio_vad[-1],
+            Path(self.__curr_path).stem
+            + "_"
+            + self.__curr_ts
+            + "."
+            + EXT_AUDIO_AUG,
+        )
+
+        aug_audio, sample_rate = audags.normalize(
+            aug_audio,
+            sample_rate=sample_rate,
+            output_path=path
+        )
+        return True
+
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
     # ------------------------------------------------------------------------------------------------------------------
@@ -1577,3 +1630,187 @@ class Audio(AudioMessages):
 
                     if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
                         self.message_true(self._vad_true, space=self._space, out=out)
+
+    def augmentation(
+        self,
+        depth: int = 1,
+        volume_db: float = VOLUME_DB_AUGMENTATION[1],
+        cutoff_hz: float = CUTOFF_HZ_AUGMENTATION[1],
+        clear_diraug: bool = False,
+        out: bool = True,
+    ) -> bool:
+        """Аугментация аудиовизуальных сигналов
+
+        Args:
+            depth (int): Глубина иерархии для получения данных
+            volume_db (float): TODO: fix description (от **0.0** до **1000.0**)
+            cutoff_hz (float): TODO: fix description (от **0.0** до **1000.0**)
+            clear_diraug (bool): Очистка директории для сохранения аугментированных аудиовизуальных сигналов
+            out (bool): Отображение
+
+        Returns:
+            bool: **True** если аугментация аудиовизуальных сигналов произведено, в обратном случае **False**
+
+        .. versionadded:: 0.1.0
+
+        .. versionchanged:: 0.1.1
+
+        .. deprecated:: 0.1.0
+        """
+
+        try:
+            # Проверка аргументов
+            if (
+                type(depth) is not int
+                or depth < 1
+                or type(clear_diraug) is not bool
+                or type(out) is not bool
+            ):
+                raise TypeError
+        except TypeError:
+            self.inv_args(__class__.__name__, self.vad.__name__, out=out)
+            return False
+        else:
+            try:
+                # Проверка настроек
+                if type(volume_db) is not float or (0 <= volume_db <= 1000) is False:
+                    raise VolumeDbError
+                if type(cutoff_hz) is not float or (0 <= cutoff_hz <= 1000) is False:
+                    raise CutoffHzError
+            except VolumeDbError:
+                self.message_error(
+                    self._wrong_volume_db_aug.format(
+                        self.message_line(" - ".join(str(x) for x in VOLUME_DB_AUGMENTATION))
+                    ),
+                    out=out,
+                )
+                return False
+            except CutoffHzError:
+                self.message_error(
+                    self._wrong_cutoff_hz_aug.format(
+                        self.message_line(" - ".join(str(x) for x in CUTOFF_HZ_AUGMENTATION))
+                    ),
+                    out=out,
+                )
+                return False
+            else:
+                # Только для внутреннего использования внутри класса
+                self.__volume_db_aug = volume_db
+                self.__cutoff_hz_aug = cutoff_hz
+                # Метаданные для видео и аудио
+                self.__file_metadata["video_fps"], self.__file_metadata["audio_fps"] = 0.0, 0
+
+                # Информационное сообщение
+                self.message_info(
+                    self._subfolders_search.format(
+                        self.message_line(self.path_to_input_augmentation_directory),
+                    ),
+                    out=out,
+                )
+
+                # Создание директории, где хранятся данные
+                if self.create_folder(self.path_to_input_augmentation_directory, out=False) is False:
+                    return False
+
+                # Получение вложенных директорий, где хранятся данные
+                nested_paths = self.get_paths(self.path_to_input_augmentation_directory, depth=depth, out=False)
+
+                # Вложенные директории не найдены
+                try:
+                    if len(nested_paths) == 0:
+                        raise IsNestedCatalogsNotFoundError
+                except IsNestedCatalogsNotFoundError:
+                    self.message_error(self._subfolders_not_found, space=self._space, out=out)
+                    return False
+
+                # Информационное сообщение
+                self.message_info(
+                    self._files_av_find.format(
+                        self.message_line(", ".join(x.replace(".", "") for x in self.ext_search_files)),
+                        self.message_line(self.path_to_input_augmentation_directory),
+                        self.message_line(str(depth)),
+                    ),
+                    out=out,
+                )
+
+                paths = []  # Пути до аудиовизуальных файлов
+
+                # Проход по всем вложенным директориям
+                for nested_path in nested_paths:
+                    # Формирование списка с видеофайлами
+                    for p in Path(nested_path).glob("*"):
+                        # Добавление текущего пути к видеофайлу в список
+                        if p.suffix.lower() in self.ext_search_files:
+                            paths.append(p.resolve())
+
+                # Директория с набором данных не содержит аудиовизуальных файлов с необходимыми расширениями
+                try:
+                    self.__len_paths = len(paths)  # Количество аудиовизуальных файлов
+
+                    if self.__len_paths == 0:
+                        raise TypeError
+                except TypeError:
+                    self.message_error(self._files_not_found, space=self._space, out=out)
+                    return False
+                except Exception:
+                    self.message_error(self._unknown_err, space=self._space, out=out)
+                    return False
+                else:
+                    # Очистка директории для сохранения обработанных аудиовизуальных сигналов
+                    if clear_diraug is True and os.path.exists(self.path_to_output_augmentation_directory) is True:
+                        if self.clear_folder(self.path_to_output_augmentation_directory, out=False) is False:
+                            return False
+
+                    self.__output_augmentation_audio = []  # Пути до директорий с аугментированными аудиофрагментами
+
+                    self.__unprocessed_files = []  # Пути к файлам на которых аугментация не отработала
+
+                    # Информационное сообщение
+                    self.message_info(self._files_analysis, out=out)
+
+                    # Локальный путь
+                    self.__local_path = lambda lp: os.path.join(
+                        *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_input_augmentation_directory).parts))) :]
+                    )
+
+                    # Проход по всем найденным аудиовизуальных файлам
+                    for i, path in enumerate(paths):
+                        self.__curr_path = path  # Текущий аудиовизуальный файл
+                        self.__i = i + 1  # Счетчик
+
+                        self.message_progressbar(
+                            self._curr_progress.format(
+                                self.__i,
+                                self.__len_paths,
+                                round(self.__i * 100 / self.__len_paths, 2),
+                                self.message_line(self.__local_path(self.__curr_path)),
+                            ),
+                            space=self._space,
+                            out=out,
+                        )
+
+                        self.__splitted_path = str(
+                            self.__curr_path.parent.relative_to(Path(self.path_to_input_augmentation_directory))
+                        ).strip()
+
+                        self.__curr_path = str(self.__curr_path)
+
+                        # Пропуск невалидных значений
+                        if not self.__splitted_path or re.search(r"\s", self.__splitted_path) is not None:
+                            continue
+
+                        try:
+                            self.__audio_augmentation()
+                        except Exception:
+                            self.__unprocessed_files.append(self.__curr_path)
+                            self.message_progressbar(close=True, out=out)
+                            continue
+
+                    self.message_progressbar(close=True, out=out)
+
+                    # Файлы на которых аугментация не отработала
+                    unprocessed_files_unique = np.unique(np.array(self.__unprocessed_files)).tolist()
+
+                    if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
+                        self.message_true(self._aug_true, space=self._space, out=out)
+                        return True
