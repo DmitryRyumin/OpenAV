@@ -1,0 +1,11 @@
+---
+hide_metadata: false
+hide_libs_vers: false
+path_to_input_directory: "C:/Users/USER/Documents/data_input"
+path_to_output_directory: "C:/Users/USER/Documents/data_output"
+clear_diraug: true
+depth: 1
+ext_search_files:
+- flac
+volume_db: 1000.0
+cutoff_hz: 1000.0

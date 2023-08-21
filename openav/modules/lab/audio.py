@@ -968,6 +968,11 @@ class Audio(AudioMessages):
         # Тип файла
         kind = filetype.guess(self.__curr_path)
 
+        torchaudio.sox_effects.apply_effects_tensor = lambda waveform, sample_rate, _: (
+            torch.flip(waveform, (-1,)),
+            sample_rate,
+        )
+
         aug_audio, sample_rate = audags.change_volume(self.__curr_path, volume_db=self.__volume_db_aug)
 
         aug_audio, sample_rate = audags.low_pass_filter(
@@ -979,7 +984,7 @@ class Audio(AudioMessages):
         self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
 
         path = os.path.join(
-            self.__dataset_audio_vad[-1],
+            self.path_to_output_augmentation_directory,
             Path(self.__curr_path).stem
             + "_"
             + self.__curr_ts
@@ -1700,10 +1705,12 @@ class Audio(AudioMessages):
                 # Метаданные для видео и аудио
                 self.__file_metadata["video_fps"], self.__file_metadata["audio_fps"] = 0.0, 0
 
+                print()
                 # Информационное сообщение
                 self.message_info(
                     self._subfolders_search.format(
                         self.message_line(self.path_to_input_augmentation_directory),
+                        self.message_line(str(depth)),
                     ),
                     out=out,
                 )
@@ -1801,7 +1808,8 @@ class Audio(AudioMessages):
 
                         try:
                             self.__audio_augmentation()
-                        except Exception:
+                        except Exception as err:
+                            print(err)
                             self.__unprocessed_files.append(self.__curr_path)
                             self.message_progressbar(close=True, out=out)
                             continue

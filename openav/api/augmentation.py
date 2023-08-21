@@ -81,7 +81,7 @@ class RunAugmentation(MessagesAugmentation):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 6  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 9  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_runvad: logging.Logger = logging.getLogger(__class__.__name__)
@@ -344,29 +344,17 @@ class RunAugmentation(MessagesAugmentation):
             self.libs_vers(out=out)
             Shell.add_line()  # Добавление линии во весь экран
 
-        self.path_to_save_models = self._args["path_to_input_directory"]  # Путь к директории данных для обработки
-        self.path_to_dataset = self._args["path_to_output_directory"]  # Путь к директории сохранения обработанных данных
+        self.path_to_input_augmentation_directory = self._args["path_to_input_directory"]  # Путь к директории данных для обработки
+        self.path_to_output_augmentation_directory = self._args["path_to_output_directory"]  # Путь к директории сохранения обработанных данных
         self.ext_search_files = self._args["ext_search_files"]  # Расширения искомых файлов
 
         # print()
         # return
 
-        self.vad(
+        self.augmentation(
             depth=self._args["depth"],  # Глубина иерархии для получения данных
-            type_encode=self._args["type_encode"],  # Тип кодирования
-            crf_value=self._args["crf_value"],  # Качество кодирования
-            presets_crf_encode=self._args["presets_crf_encode"],  # Скорость кодирования и сжатия
-            sr_input_type=self._args["sr_input_type"],  # Тип файлов для распознавания речи
-            sampling_rate=self._args["sampling_rate"],  # Частота дискретизации
-            threshold=self._args["threshold"],  # Порог вероятности речи
-            # Минимальная длительность речевого фрагмента в миллисекундах
-            min_speech_duration_ms=self._args["min_speech_duration_ms"],
-            # Минимальная длительность тишины в выборках между отдельными речевыми фрагментами
-            min_silence_duration_ms=self._args["min_silence_duration_ms"],
-            window_size_samples=self._args["window_size_samples"],  # Количество выборок в каждом окне
-            # Внутренние отступы для итоговых речевых фрагментов
-            speech_pad_ms=self._args["speech_pad_ms"],
-            force_reload=self._args["force_reload"],  # Принудительная загрузка модели из сети
+            volume_db=self._args["volume_db"], # Громкость
+            cutoff_hz=self._args["cutoff_hz"], # Частота фильтрации
             # Очистка директории для сохранения фрагментов аудиовизуального сигнала
             clear_diraug=self._args["clear_diraug"],
             out=out,
@@ -377,8 +365,8 @@ class RunAugmentation(MessagesAugmentation):
 
 def main():
     # Запуск детектирования речевой активности в аудиовизуальном сигнале
-    vad = RunVAD(lang="ru", path_to_logs="./openav/logs")
-    vad.run(out=True)
+    aug = RunAugmentation(lang="ru", path_to_logs="./openav/logs")
+    aug.run(out=True)
 
 
 if __name__ == "__main__":
