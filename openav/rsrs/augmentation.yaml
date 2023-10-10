@@ -7,5 +7,21 @@ clear_diraug: true
 depth: 3
 ext_search_files:
 - jpg
-volume_db: 1000.0
-cutoff_hz: 1000.0
+crop_px_min: 0
+crop_px_max: 16
+crop_percent_min: 0
+crop_percent_max: 0.2
+flip_lr_probability: 0.5
+flip_ud_probability: 0.5
+blur_min: 0
+blur_max: 1
+scale_x_min: 0.8
+scale_x_max: 1.4
+scale_y_min: 0.8
+scale_y_max: 1.4
+rotate_min: -45
+rotate_max: 45
+contrast_min: 0
+contrast_max: 1
+alpha: 0.7
+count: 5

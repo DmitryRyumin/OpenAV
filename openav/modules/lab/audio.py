@@ -55,9 +55,8 @@ from openav.modules.core.exceptions import (
     IsNestedDirectoryVNotFoundError,
     IsNestedDirectoryANotFoundError,
     SamplingRateError,
-    WindowSizeSamplesError,
-    VolumeDbError,
-    CutoffHzError,
+    WindowSizeSamplesError, CropPXError, CropPercentsError, FlipLRProbabilityError, FlipUDProbabilityError, BlurError,
+    ScaleError, RotateError, ContrastError, MixUpAlphaError,
 )
 from openav.modules.file_manager.yaml_manager import Yaml  # Класс для работы с YAML
 
@@ -98,8 +97,18 @@ VOSK_SUPPORTED_DICTS: List[str] = ["small", "big"]  # Размеры слова�
 VOSK_SPEECH_LEFT_PAD_MS: int = 0  # Внутренний левый отступ для итоговых речевых фрагментов
 VOSK_SPEECH_RIGHT_PAD_MS: int = 0  # Внутренний правый отступ для итоговых речевых фрагментов
 
-VOLUME_DB_AUGMENTATION: List[str] = [0, 1000]  # TODO: fix description
-CUTOFF_HZ_AUGMENTATION: List[str] = [0, 1000]  # TODO: fix description
+
+AUGMENTATION_CROP_PX: List[int] = [0, 1000000]  # Диапазон значений обрезки в пикселях
+AUGMENTATION_CROP_PERCENT: List[float] = [0, 1.0]  # Диапазон значений обрезки в процентах
+AUGMENTATION_FLIP_LR_PROBABILITY: List[float] = [0, 1.0]  # Диапазон значений вероятности отражения по вертикальной оси
+AUGMENTATION_FLIP_UD_PROBABILITY: List[float] = [0, 1.0]  # Диапазон значений вероятности отражения по горизонтальной оси
+AUGMENTATION_BLUR: List[float] = [0, 3.0]  # Диапазон значений размытия
+AUGMENTATION_SCALE_X: List[float] = [0, 10.0]  # Диапазон значений масштабирования по оси X
+AUGMENTATION_SCALE_Y: List[float] = [0, 10.0]  # Диапазон значений масштабирования по оси Y
+AUGMENTATION_ROTATE: List[int] = [-90, 90]  # Диапазон значений поворота
+AUGMENTATION_CONTRAST: List[float] = [-10.0, 10.0]  # Диапазон значений контраста
+AUGMENTATION_ALPHA: List[float] = [0, 1.0]  # Диапазон значений параметра
+AUGMENTATION_COUNT: List[int] = [0, 10000]  # Количество применений аугментации
 
 
 # ######################################################################################################################
@@ -143,11 +152,32 @@ class AudioMessages(Yaml):
         self._vosk_model_activation: str = self._("Активация Vosk модели") + ' "{}"' + self._em
         self._sr_not_recognized: str = self._("Речь не найдена") + self._em
 
-        self._wrong_volume_db_aug: str = (
-                self._('Громкость обработки речевого сигнала должна быть в пределах "{}"') + self._em
+        self._wrong_crop_px_aug: str = (
+                self._('Значение обрезки в пикселях должно быть в пределах "{}"') + self._em
         )
-        self._wrong_cutoff_hz_aug: str = (
-                self._('Частота обработки речевого сигнала должна быть в пределах "{}"') + self._em
+        self._wrong_crop_percent_aug: str = (
+                self._('Значение обрезки в процентах должно быть в пределах "{}"') + self._em
+        )
+        self._wrong_flip_lr_prob_aug: str = (
+                self._('Значение вероятности отражения по вертикальной оси должно быть в пределах "{}"') + self._em
+        )
+        self._wrong_flip_ud_prob_aug: str = (
+                self._('Значение вероятности отражения по горизонтальной оси должно быть в пределах "{}"') + self._em
+        )
+        self._wrong_blur_aug: str = (
+                self._('Значение размытия должно быть в пределах "{}"') + self._em
+        )
+        self._wrong_scale_aug: str = (
+                self._('Значение масштабирования должно быть в пределах "{}"') + self._em
+        )
+        self._wrong_rotate_aug: str = (
+                self._('Значение угла поворота должно быть в пределах "{}"') + self._em
+        )
+        self._wrong_contrast_aug: str = (
+                self._('Значение контрастности должно быть в пределах "{}"') + self._em
+        )
+        self._wrong_alpha_aug: str = (
+                self._('Значение коэффициента для MixUp должно быть в пределах "{}"') + self._em
         )
 
         self._subfolders_search: str = (
@@ -1598,36 +1628,143 @@ class Audio(AudioMessages):
                         self.message_true(self._vad_true, space=self._space, out=out)
 
     def augmentation_check_settings(self,
-                                    volume_db: float,
-                                    cutoff_hz: float,
+                                    crop_px_min: int,
+                                    crop_px_max: int,
+                                    crop_percent_min: float,
+                                    crop_percent_max: float,
+                                    flip_lr_probability: float,
+                                    flip_ud_probability: float,
+                                    blur_min: float,
+                                    blur_max: float,
+                                    scale_x_min: float,
+                                    scale_x_max: float,
+                                    scale_y_min: float,
+                                    scale_y_max: float,
+                                    rotate_min: int,
+                                    rotate_max: int,
+                                    contrast_min: float,
+                                    contrast_max: float,
+                                    alpha: float,
+                                    count: int,
                                     out: bool,
                                     ) -> bool:
         try:
             # Проверка настроек
-            if type(volume_db) is not float or (0 <= volume_db <= 1000) is False:
-                raise VolumeDbError
-            if type(cutoff_hz) is not float or (0 <= cutoff_hz <= 1000) is False:
-                raise CutoffHzError
-        except VolumeDbError:
+            if (AUGMENTATION_CROP_PX[0] <= crop_px_min <= crop_px_max <= AUGMENTATION_CROP_PX[1]) is False:
+                raise CropPXError
+            if (AUGMENTATION_CROP_PERCENT[0] <= crop_percent_min <= crop_percent_max <= AUGMENTATION_CROP_PERCENT[1]) is False:
+                raise CropPercentsError
+            if ((AUGMENTATION_FLIP_LR_PROBABILITY[0] <= flip_lr_probability <= AUGMENTATION_FLIP_LR_PROBABILITY[1])
+                    is False):
+                raise FlipLRProbabilityError
+            if ((AUGMENTATION_FLIP_UD_PROBABILITY[0] <= flip_ud_probability <= AUGMENTATION_FLIP_UD_PROBABILITY[1])
+                    is False):
+                raise FlipUDProbabilityError
+            if (AUGMENTATION_BLUR[0] <= blur_min <= blur_max <= AUGMENTATION_BLUR[1]) is False:
+                raise BlurError
+            if (AUGMENTATION_SCALE_X[0] <= scale_x_min <= scale_x_max <= AUGMENTATION_SCALE_X[1]) is False:
+                raise ScaleError
+            if (AUGMENTATION_SCALE_Y[0] <= scale_y_min <= scale_y_max <= AUGMENTATION_SCALE_Y[1]) is False:
+                raise ScaleError
+            if (type(rotate_min) is not int or type(rotate_max) is not int or
+                    (AUGMENTATION_ROTATE[0] <= rotate_min <= rotate_max <= AUGMENTATION_ROTATE[1]) is False):
+                raise RotateError
+            if (AUGMENTATION_CONTRAST[0] <= contrast_min <= contrast_max <= AUGMENTATION_CONTRAST[1]) is False:
+                raise ContrastError
+            if (AUGMENTATION_ALPHA[0] <= alpha <= AUGMENTATION_ALPHA[1]) is False:
+                raise MixUpAlphaError
+        except CropPXError:
             self.message_error(
-                self._wrong_volume_db_aug.format(
-                    self.message_line(" - ".join(str(x) for x in VOLUME_DB_AUGMENTATION))
+                self._wrong_crop_px_aug.format(
+                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_CROP_PX))
                 ),
                 out=out,
             )
             return False
-        except CutoffHzError:
+        except CropPercentsError:
             self.message_error(
-                self._wrong_cutoff_hz_aug.format(
-                    self.message_line(" - ".join(str(x) for x in CUTOFF_HZ_AUGMENTATION))
+                self._wrong_crop_percent_aug.format(
+                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_CROP_PERCENT))
+                ),
+                out=out,
+            )
+            return False
+        except FlipLRProbabilityError:
+            self.message_error(
+                self._wrong_flip_lr_prob_aug.format(
+                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_FLIP_LR_PROBABILITY))
+                ),
+                out=out,
+            )
+            return False
+        except FlipUDProbabilityError:
+            self.message_error(
+                self._wrong_flip_ud_prob_aug.format(
+                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_FLIP_UD_PROBABILITY))
+                ),
+                out=out,
+            )
+            return False
+        except BlurError:
+            self.message_error(
+                self._wrong_blur_aug.format(
+                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_BLUR))
+                ),
+                out=out,
+            )
+            return False
+        except ScaleError:
+            self.message_error(
+                self._wrong_scale_aug.format(
+                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_SCALE_X))
+                ),
+                out=out,
+            )
+            return False
+        except RotateError:
+            self.message_error(
+                self._wrong_rotate_aug.format(
+                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_ROTATE))
+                ),
+                out=out,
+            )
+            return False
+        except ContrastError:
+            self.message_error(
+                self._wrong_contrast_aug.format(
+                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_CONTRAST))
+                ),
+                out=out,
+            )
+            return False
+        except MixUpAlphaError:
+            self.message_error(
+                self._wrong_alpha_aug.format(
+                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_ALPHA))
                 ),
                 out=out,
             )
             return False
         else:
             # Только для внутреннего использования внутри класса
-            self.__volume_db_aug = volume_db
-            self.__cutoff_hz_aug = cutoff_hz
+            self.__crop_px_min = crop_px_min
+            self.__crop_px_max = crop_px_max
+            self.__crop_percent_min = crop_percent_min
+            self.__crop_percent_max = crop_percent_max
+            self.__flip_lr_probability = flip_lr_probability
+            self.__flip_ud_probability = flip_ud_probability
+            self.__blur_min = blur_min
+            self.__blur_max = blur_max
+            self.__scale_x_min = scale_x_min
+            self.__scale_x_max = scale_x_max
+            self.__scale_y_min = scale_y_min
+            self.__scale_y_max = scale_y_max
+            self.__rotate_min = rotate_min
+            self.__rotate_max = rotate_max
+            self.__contrast_min = contrast_min
+            self.__contrast_max = contrast_max
+            self.__alpha = alpha
+            self.__count = count
             # Метаданные для видео и аудио
             self.__file_metadata["video_fps"], self.__file_metadata["audio_fps"] = 0.0, 0
         print()
@@ -1635,8 +1772,24 @@ class Audio(AudioMessages):
 
     def augmentation_validate_arguments(self,
                                         depth: int,
-                                        volume_db: float,
-                                        cutoff_hz: float,
+                                        crop_px_min: int,
+                                        crop_px_max: int,
+                                        crop_percent_min: float,
+                                        crop_percent_max: float,
+                                        flip_lr_probability: float,
+                                        flip_ud_probability: float,
+                                        blur_min: float,
+                                        blur_max: float,
+                                        scale_x_min: float,
+                                        scale_x_max: float,
+                                        scale_y_min: float,
+                                        scale_y_max: float,
+                                        rotate_min: int,
+                                        rotate_max: int,
+                                        contrast_min: float,
+                                        contrast_max: float,
+                                        alpha: float,
+                                        count: int,
                                         clear_diraug: bool,
                                         out: bool,
                                         ) -> bool:
@@ -1653,7 +1806,10 @@ class Audio(AudioMessages):
             self.inv_args(__class__.__name__, self.vad.__name__, out=out)
             return False
         else:
-            self.augmentation_check_settings(volume_db, cutoff_hz, out)
+            self.augmentation_check_settings(crop_px_min, crop_px_max, crop_percent_min, crop_percent_max,
+                                             flip_lr_probability, flip_ud_probability, blur_min, blur_max, scale_x_min,
+                                             scale_x_max, scale_y_min, scale_y_max, rotate_min, rotate_max,
+                                             contrast_min, contrast_max, alpha, count, out)
         return True
 
     def augmentation_parce_directories(self,
@@ -1777,47 +1933,47 @@ class Audio(AudioMessages):
             self.__curr_path = str(self.__curr_path)
 
             try:
-                # Тип файла
-                kind = filetype.guess(self.__curr_path)
-                directory = os.path.join(self.path_to_output_augmentation_directory, Path(self.__curr_path).parent
-                                         .relative_to(Path(self.path_to_input_augmentation_directory)))
-                os.makedirs(directory, exist_ok=True)
+                for k in range(self.__count):
+                    # Тип файла
+                    kind = filetype.guess(self.__curr_path)
+                    directory = os.path.join(self.path_to_output_augmentation_directory, Path(self.__curr_path).parent
+                                             .relative_to(Path(self.path_to_input_augmentation_directory)))
+                    os.makedirs(directory, exist_ok=True)
 
-                self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
+                    self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
 
-                path = os.path.join(
-                    directory,
-                    Path(self.__curr_path).stem
-                    + "_"
-                    + self.__curr_ts
-                    + "."
-                    + EXT_AUDIO_AUG,
-                )
+                    path = os.path.join(
+                        directory,
+                        Path(self.__curr_path).stem
+                        + "_"
+                        + self.__curr_ts
+                        + "."
+                        + EXT_AUDIO_AUG,
+                    )
+                    seq = iaa.Sequential([
+                        iaa.Crop(px=(self.__crop_px_min, self.__crop_px_max)),
+                        iaa.Crop(percent=(self.__crop_percent_min, self.__crop_percent_max)),
+                        iaa.Fliplr(self.__flip_lr_probability),
+                        iaa.Flipud(p=self.__flip_ud_probability),
+                        iaa.GaussianBlur(sigma=(self.__blur_min, self.__blur_max)),
+                        iaa.Affine(
+                           scale={"x": (self.__scale_x_min, self.__scale_x_max), "y": (self.__scale_y_min, self.__scale_y_max)},
+                           rotate=(self.__rotate_min, self.__rotate_max),
+                        ),
+                        iaa.LinearContrast((self.__contrast_min, self.__contrast_max))
+                    ])
+                    alpha = self.__alpha
+                    img = Image.open(self.__curr_path)
+                    img_array = np.array(img)
+                    img_aug = seq(image=img_array)
 
-                seq = iaa.Sequential([
-                    iaa.Crop(px=(0, 16)),
-                    iaa.Crop(percent=(0, 0.2)),
-                    iaa.Fliplr(0.5),
-                    iaa.GaussianBlur(sigma=(0, 3.0)),
-                    iaa.Affine(
-                        scale={"x": (0.8, 1.2), "y": (0.8, 1.2)},
-                        rotate=(-25, 25),
-                    ),
-                    iaa.LinearContrast((0.75, 1.5))
-                ])
-                alpha = 0.2
+                    img2 = Image.open(paths[random.randint(0, len(paths) - 1)])
+                    img2_array = np.array(img2)
 
-                img = Image.open(self.__curr_path)
-                img_array = np.array(img)
-                img_aug = seq(image=img_array)
+                    img_res = ((alpha * img_aug) + ((1 - alpha) * img2_array)).astype(np.uint8)
+                    img_res = np.array(img_res)
 
-                img2 = Image.open(paths[random.randint(0, len(paths) - 1)])
-                img2_array = np.array(img2)
-
-                img_res = ((alpha * img_aug) + ((1 - alpha) * img2_array)).astype(np.uint8)
-                img_res = np.array(img_res)
-
-                Image.fromarray(img_res).save(path)
+                    Image.fromarray(img_res).save(path)
 
 
             except Exception as err:
@@ -1838,8 +1994,24 @@ class Audio(AudioMessages):
     def augmentation(
             self,
             depth: int = 1,
-            volume_db: float = VOLUME_DB_AUGMENTATION[1],
-            cutoff_hz: float = CUTOFF_HZ_AUGMENTATION[1],
+            crop_px_min: int = AUGMENTATION_CROP_PX[0],
+            crop_px_max: int = AUGMENTATION_CROP_PX[0],
+            crop_percent_min: float = AUGMENTATION_CROP_PERCENT[0],
+            crop_percent_max: float = AUGMENTATION_CROP_PERCENT[0],
+            flip_lr_probability: float = AUGMENTATION_FLIP_LR_PROBABILITY[0],
+            flip_ud_probability: float = AUGMENTATION_FLIP_UD_PROBABILITY[0],
+            blur_min: float = AUGMENTATION_BLUR[0],
+            blur_max: float = AUGMENTATION_BLUR[0],
+            scale_x_min: float = AUGMENTATION_SCALE_X[0],
+            scale_x_max: float = AUGMENTATION_SCALE_X[0],
+            scale_y_min: float = AUGMENTATION_SCALE_Y[0],
+            scale_y_max: float = AUGMENTATION_SCALE_Y[0],
+            rotate_min: int = AUGMENTATION_ROTATE[0],
+            rotate_max: int = AUGMENTATION_ROTATE[0],
+            contrast_min: float = AUGMENTATION_CONTRAST[0],
+            contrast_max: float = AUGMENTATION_CONTRAST[0],
+            alpha: float = AUGMENTATION_ALPHA[0],
+            count: int = 1,
             clear_diraug: bool = False,
             out: bool = True,
     ) -> bool:
@@ -1861,6 +2033,9 @@ class Audio(AudioMessages):
 
         .. deprecated:: 0.1.0
         """
-        self.augmentation_validate_arguments(depth, volume_db, cutoff_hz, clear_diraug, out)
+        self.augmentation_validate_arguments(depth, crop_px_min, crop_px_max, crop_percent_min, crop_percent_max,
+                                             flip_lr_probability, flip_ud_probability, blur_min, blur_max, scale_x_min,
+                                             scale_x_max, scale_y_min, scale_y_max, rotate_min, rotate_max,
+                                             contrast_min, contrast_max, alpha, count, clear_diraug, out)
         paths = self.augmentation_parce_files(depth, out)
         return self.augmentation_process_files(paths, clear_diraug, out)

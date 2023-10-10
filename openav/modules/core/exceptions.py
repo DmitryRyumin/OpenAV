@@ -68,13 +68,55 @@ class InvalidContentLength(CustomException):
     pass
 
 
-class VolumeDbError(CustomException):
-    """Указана неподдерживаемая громкость речевого сигнала"""
+class CropPXError(CustomException):
+    """Указан неверный диапазон обрезки в пикселях"""
 
     pass
 
 
-class CutoffHzError(CustomException):
-    """Указана неподдерживаемая частота обработки речевого сигнала"""
+class CropPercentsError(CustomException):
+    """Указан неверный диапазон обрезки в процентах"""
+
+    pass
+
+
+class FlipLRProbabilityError(CustomException):
+    """Указано неверное значение вероятности отражения по вертикальной оси"""
+
+    pass
+
+
+class FlipUDProbabilityError(CustomException):
+    """Указано неверное значение вероятности отражения по горизонтальной оси"""
+
+    pass
+
+
+class BlurError(CustomException):
+    """Указан неверный диапазон значений размытия"""
+
+    pass
+
+
+class ScaleError(CustomException):
+    """Указан неверный диапазон значений масштабирования"""
+
+    pass
+
+
+class RotateError(CustomException):
+    """Указан неверный диапазон значений угла наклона"""
+
+    pass
+
+
+class ContrastError(CustomException):
+    """Указан неверный диапазон значений контрастности"""
+
+    pass
+
+
+class MixUpAlphaError(CustomException):
+    """Указан неверный коэффициент для MixUp-аугментации"""
 
     pass

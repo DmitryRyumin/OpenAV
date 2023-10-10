@@ -38,13 +38,6 @@ from openav.modules.lab.build import Run  # Сборка библиотеки
 from openav import rsrs  # Ресурсы библиотеки
 
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
-from openav.modules.lab.audio import (
-    TYPES_ENCODE,
-    PRESETS_CRF_ENCODE,
-    SR_INPUT_TYPES,
-    SAMPLING_RATE_VAD,
-    WINDOW_SIZE_SAMPLES_VAD,
-)
 
 
 # ######################################################################################################################
@@ -81,7 +74,7 @@ class RunAugmentation(MessagesAugmentation):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 9  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 25  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_runvad: logging.Logger = logging.getLogger(__class__.__name__)
@@ -197,22 +190,148 @@ class RunAugmentation(MessagesAugmentation):
 
                 curr_valid_layer += 1
 
-            # TODO: fix volume_db description
-            if key == "volume_db":
+            # Минимальное количество пикселей для обрезания
+            if key == "crop_px_min":
                 # Проверка значения
-                if type(val) is not float or not (0.0 <= val <= 1000.0):
+                if type(val) is not int:
                     continue
 
                 curr_valid_layer += 1
 
-            # TODO: fix cutoff_hz description
-            if key == "cutoff_hz":
+            # Максимальное количество пикселей для обрезания
+            if key == "crop_px_max":
                 # Проверка значения
-                if type(val) is not float or (0.0 <= val <= 1000.0) is False:
+                if type(val) is not int:
                     continue
 
                 curr_valid_layer += 1
 
+            # Минимальный процент обрезания
+            if key == "crop_percent_min":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Максимальный процент обрезания
+            if key == "crop_percent_max":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Вероятность поворота по вертикальной оси
+            if key == "flip_lr_probability":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Вероятность поворота по горизонтальной оси
+            if key == "flip_ud_probability":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Минимальное размытие
+            if key == "blur_min":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Максимальное размытие
+            if key == "blur_max":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Минимальное масштабирование х
+            if key == "scale_x_min":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Максимальное масштабирование х
+            if key == "scale_x_max":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Минимально масштабирование у
+            if key == "scale_y_min":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Максимальное масштабирование у
+            if key == "scale_y_max":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+            # Минимальный поворот
+            if key == "rotate_min":
+                # Проверка значения
+                if type(val) is not int and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Максимальный поворот
+            if key == "rotate_max":
+                # Проверка значения
+                if type(val) is not int and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Контраст мин
+            if key == "contrast_min":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Контраст макс
+            if key == "contrast_max":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Коэффициент MixUp
+            if key == "alpha":
+                # Проверка значения
+                if type(val) is not float and type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Количество применений аугментации
+            if key == "count":
+                # Проверка значения
+                if type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
             # Расширения искомых файлов
             if key == "ext_search_files":
                 curr_valid_layer_2 = 0  # Валидное количество подразделов в текущем разделе
@@ -231,7 +350,6 @@ class RunAugmentation(MessagesAugmentation):
 
                 if curr_valid_layer_2 > 0:
                     curr_valid_layer += 1
-
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
         if self._all_layer_in_yaml != curr_valid_layer:
             try:
@@ -353,8 +471,24 @@ class RunAugmentation(MessagesAugmentation):
 
         self.augmentation(
             depth=self._args["depth"],  # Глубина иерархии для получения данных
-            volume_db=self._args["volume_db"], # Громкость
-            cutoff_hz=self._args["cutoff_hz"], # Частота фильтрации
+            crop_px_min=self._args["crop_px_min"],  # Обрезка в пикселях мин
+            crop_px_max=self._args["crop_px_max"],  # Обрезка в пикселях макс
+            crop_percent_min=self._args["crop_percent_min"],  # Обрезка в процентах мин
+            crop_percent_max=self._args["crop_percent_max"],  # Обрезка в процентах макс
+            flip_lr_probability=self._args["flip_lr_probability"],  # Вероятность отражения по вертикали
+            flip_ud_probability=self._args["flip_ud_probability"],  # Вероятность отражения по горизонтали
+            blur_min=self._args["blur_min"],  # Размытие мин
+            blur_max=self._args["blur_max"],  # Размытие макс
+            scale_x_min=self._args["scale_x_min"],  # Масштабирование Х мин
+            scale_x_max=self._args["scale_x_max"],  # Масштабирование Х макс
+            scale_y_min=self._args["scale_y_min"],  # Масштабирование Y мин
+            scale_y_max=self._args["scale_y_max"],  # Масштабирование Y макс
+            rotate_min=self._args["rotate_min"],  # Поворот мин
+            rotate_max=self._args["rotate_max"],  # Поворот макс
+            contrast_min=self._args["contrast_min"],  # Контраст мин
+            contrast_max=self._args["contrast_max"],  # Контраст макс
+            alpha=self._args["alpha"],  # Альфа для MixUp
+            count=self._args["count"],  # Количество применений аугментации
             # Очистка директории для сохранения фрагментов аудиовизуального сигнала
             clear_diraug=self._args["clear_diraug"],
             out=out,
