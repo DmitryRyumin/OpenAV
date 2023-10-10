@@ -25,6 +25,8 @@ import torchvision  # Работа с видео от Facebook
 import torchaudio  # Работа с аудио от Facebook
 import filetype  # Определение типа файла и типа MIME
 import json  # Кодирование и декодирование данных в удобном формате
+from PIL import Image # Считывание изображений
+from imgaug import augmenters as iaa # Базовая аугментация
 
 # Парсинг URL
 import urllib.parse
@@ -37,7 +39,7 @@ from pymediainfo import MediaInfo  # Получение meta данных из �
 
 from vosk import Model, KaldiRecognizer, SetLogLevel  # Распознавание речи
 
-import augly.audio as audags # Аугментация аудиофайлов
+import augly.audio as audags  # Аугментация аудиофайлов
 
 # Типы данных
 from typing import List, Dict, Union, Optional
@@ -89,7 +91,7 @@ WINDOW_SIZE_SAMPLES_VAD: Dict[int, List[int]] = {8000: [256, 512, 768], 16000: [
 SPEECH_PAD_MS: int = 150  # Внутренние отступы для итоговых речевых фрагментов
 # Суффиксы каналов аудиофрагментов
 FRONT: Dict[str, List[str]] = {"mono": ["_mono"], "stereo": ["_left", "_right"]}
-EXT_AUDIO_AUG: str = "flac"  # Расширение для сохраняемого аудио
+EXT_AUDIO_AUG: str = "jpg"  # Расширение для сохраняемого аудио
 EXT_AUDIO: str = "wav"  # Расширение для сохраняемого аудио
 VOSK_SUPPORTED_LANGUAGES: List[str] = ["ru", "en"]  # Поддерживаемые языки (Vosk)
 VOSK_SUPPORTED_DICTS: List[str] = ["small", "big"]  # Размеры словарей (Vosk)
@@ -121,15 +123,15 @@ class AudioMessages(Yaml):
 
         self._wrong_type_encode: str = self._('Тип кодирования видео должен быть одним из "{}"') + self._em
         self._wrong_preset_crf_encode: str = (
-            self._("Скорость кодирования и сжатия видео должна быть " 'одной из "{}"') + self._em
+                self._("Скорость кодирования и сжатия видео должна быть " 'одной из "{}"') + self._em
         )
         self._wrong_sr_input_type: str = self._('Тип файлов для распознавания должен быть одним из "{}"') + self._em
         self._wrong_sampling_rate_vad: str = (
-            self._('Частота дискретизации речевого сигнала должна быть одной из "{}"') + self._em
+                self._('Частота дискретизации речевого сигнала должна быть одной из "{}"') + self._em
         )
         self._wrong_window_size_samples_type: str = (
-            self._('Для частоты дискретизации "{}" количество выборок в каждом окне должно быть одним из "{}"')
-            + self._em
+                self._('Для частоты дискретизации "{}" количество выборок в каждом окне должно быть одним из "{}"')
+                + self._em
         )
 
         self._download_model_from_repo: str = self._('Загрузка VAD модели "{}" из репозитория {}') + self._em
@@ -149,12 +151,12 @@ class AudioMessages(Yaml):
         )
 
         self._subfolders_search: str = (
-            self._('Поиск вложенных директорий в директории "{}" (глубина вложенности: {})') + self._em
+                self._('Поиск вложенных директорий в директории "{}" (глубина вложенности: {})') + self._em
         )
         self._subfolders_not_found: str = self._("В указанной директории вложенные директории не найдены") + self._em
 
         self._files_av_find: str = (
-            self._('Поиск файлов с расширениями "{}" в директории "{}" (глубина вложенности: {})') + self._em
+                self._('Поиск файлов с расширениями "{}" в директории "{}" (глубина вложенности: {})') + self._em
         )
 
         self._files_analysis: str = self._("Анализ файлов") + self._em
@@ -323,7 +325,7 @@ class Audio(AudioMessages):
     # Детальная информация о текущем процессе распознавания речи (Vosk)
     @staticmethod
     def __speech_rec_result(
-        keys: List[str], speech_rec_res: Dict[str, Union[List[Dict[str, Union[float, str]]], str]]
+            keys: List[str], speech_rec_res: Dict[str, Union[List[Dict[str, Union[float, str]]], str]]
     ) -> List[Union[str, float]]:
         """Детальная информация о текущем процессе распознавания речи (Vosk)
 
@@ -365,9 +367,9 @@ class Audio(AudioMessages):
             # https://trac.ffmpeg.org/wiki/audio%20types
             # Выполнение в новом процессе
             with subprocess.Popen(
-                ["ffmpeg", "-loglevel", "quiet", "-i", self.__curr_path]
-                + ["-ar", str(self.__freq_sr), "-ac", str(1), "-f", "s16le", "-"],
-                stdout=subprocess.PIPE,
+                    ["ffmpeg", "-loglevel", "quiet", "-i", self.__curr_path]
+                    + ["-ar", str(self.__freq_sr), "-ac", str(1), "-f", "s16le", "-"],
+                    stdout=subprocess.PIPE,
             ) as process:
                 results_recognized = []  # Результаты распознавания
 
@@ -442,21 +444,21 @@ class Audio(AudioMessages):
                 # https://trac.ffmpeg.org/wiki/audio%20types
                 # Выполнение в новом процессе
                 with subprocess.Popen(
-                    ["ffmpeg", "-loglevel", "quiet", "-i", self.__curr_path]
-                    + [
-                        "-ar",
-                        str(self.__freq_sr),
-                        "-map_channel",
-                        channel,
-                        "-acodec",
-                        "pcm_s16le",
-                        "-ac",
-                        str(1),
-                        "-f",
-                        "s16le",
-                        "-",
-                    ],
-                    stdout=subprocess.PIPE,
+                        ["ffmpeg", "-loglevel", "quiet", "-i", self.__curr_path]
+                        + [
+                            "-ar",
+                            str(self.__freq_sr),
+                            "-map_channel",
+                            channel,
+                            "-acodec",
+                            "pcm_s16le",
+                            "-ac",
+                            str(1),
+                            "-f",
+                            "s16le",
+                            "-",
+                        ],
+                        stdout=subprocess.PIPE,
                 ) as process:
                     while True:
                         data = process.stdout.read(4000)
@@ -958,47 +960,6 @@ class Audio(AudioMessages):
 
         return True
 
-    def __audio_augmentation(self) -> bool:
-        """Аугментация аудиофайла
-
-        Returns:
-            bool: **True** если аугментация аудиофайла произведена, в обратном случае **False**
-        """
-
-        # Тип файла
-        kind = filetype.guess(self.__curr_path)
-
-        torchaudio.sox_effects.apply_effects_tensor = lambda waveform, sample_rate, _: (
-            torch.flip(waveform, (-1,)),
-            sample_rate,
-        )
-
-        aug_audio, sample_rate = audags.change_volume(self.__curr_path, volume_db=self.__volume_db_aug)
-
-        aug_audio, sample_rate = audags.low_pass_filter(
-            aug_audio,
-            sample_rate=sample_rate,
-            cutoff_hz=self.__cutoff_hz_aug,
-        )
-
-        self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
-
-        path = os.path.join(
-            self.path_to_output_augmentation_directory,
-            Path(self.__curr_path).stem
-            + "_"
-            + self.__curr_ts
-            + "."
-            + EXT_AUDIO_AUG,
-        )
-
-        aug_audio, sample_rate = audags.normalize(
-            aug_audio,
-            sample_rate=sample_rate,
-            output_path=path
-        )
-        return True
-
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
     # ------------------------------------------------------------------------------------------------------------------
@@ -1008,21 +969,21 @@ class Audio(AudioMessages):
     # ------------------------------------------------------------------------------------------------------------------
 
     def vad(
-        self,
-        depth: int = 1,
-        type_encode: str = TYPES_ENCODE[1],
-        crf_value: int = CRF_VALUE,
-        presets_crf_encode: str = PRESETS_CRF_ENCODE[5],
-        sr_input_type: str = SR_INPUT_TYPES[0],
-        sampling_rate: int = SAMPLING_RATE_VAD[1],
-        threshold: float = THRESHOLD_VAD,
-        min_speech_duration_ms: int = MIN_SPEECH_DURATION_MS_VAD,
-        min_silence_duration_ms: int = MIN_SILENCE_DURATION_MS_VAD,
-        window_size_samples: int = WINDOW_SIZE_SAMPLES_VAD[SAMPLING_RATE_VAD[1]][2],
-        speech_pad_ms: int = SPEECH_PAD_MS,
-        force_reload: bool = True,
-        clear_dirvad: bool = False,
-        out: bool = True,
+            self,
+            depth: int = 1,
+            type_encode: str = TYPES_ENCODE[1],
+            crf_value: int = CRF_VALUE,
+            presets_crf_encode: str = PRESETS_CRF_ENCODE[5],
+            sr_input_type: str = SR_INPUT_TYPES[0],
+            sampling_rate: int = SAMPLING_RATE_VAD[1],
+            threshold: float = THRESHOLD_VAD,
+            min_speech_duration_ms: int = MIN_SPEECH_DURATION_MS_VAD,
+            min_silence_duration_ms: int = MIN_SILENCE_DURATION_MS_VAD,
+            window_size_samples: int = WINDOW_SIZE_SAMPLES_VAD[SAMPLING_RATE_VAD[1]][2],
+            speech_pad_ms: int = SPEECH_PAD_MS,
+            force_reload: bool = True,
+            clear_dirvad: bool = False,
+            out: bool = True,
     ) -> bool:
         """VAD (Voice Activity Detector) или (детектирование голосовой активности)
 
@@ -1058,21 +1019,21 @@ class Audio(AudioMessages):
         try:
             # Проверка аргументов
             if (
-                type(depth) is not int
-                or depth < 1
-                or type(crf_value) is not int
-                or not (0 <= crf_value <= 51)
-                or type(threshold) is not float
-                or not (0.0 <= threshold <= 1.0)
-                or type(min_speech_duration_ms) is not int
-                or min_speech_duration_ms < 1
-                or type(min_silence_duration_ms) is not int
-                or min_silence_duration_ms < 1
-                or type(speech_pad_ms) is not int
-                or speech_pad_ms < 1
-                or type(force_reload) is not bool
-                or type(clear_dirvad) is not bool
-                or type(out) is not bool
+                    type(depth) is not int
+                    or depth < 1
+                    or type(crf_value) is not int
+                    or not (0 <= crf_value <= 51)
+                    or type(threshold) is not float
+                    or not (0.0 <= threshold <= 1.0)
+                    or type(min_speech_duration_ms) is not int
+                    or min_speech_duration_ms < 1
+                    or type(min_silence_duration_ms) is not int
+                    or min_silence_duration_ms < 1
+                    or type(speech_pad_ms) is not int
+                    or speech_pad_ms < 1
+                    or type(force_reload) is not bool
+                    or type(clear_dirvad) is not bool
+                    or type(out) is not bool
             ):
                 raise TypeError
         except TypeError:
@@ -1090,8 +1051,8 @@ class Audio(AudioMessages):
                 if type(sampling_rate) is not int or (sampling_rate in [x for x in SAMPLING_RATE_VAD]) is False:
                     raise SamplingRateError
                 if (
-                    type(window_size_samples) is not int
-                    or (window_size_samples in [x for x in WINDOW_SIZE_SAMPLES_VAD[sampling_rate]]) is False
+                        type(window_size_samples) is not int
+                        or (window_size_samples in [x for x in WINDOW_SIZE_SAMPLES_VAD[sampling_rate]]) is False
                 ):
                     raise WindowSizeSamplesError
             except TypeEncodeVideoError:
@@ -1268,7 +1229,7 @@ class Audio(AudioMessages):
 
                         # Локальный путь
                         self.__local_path = lambda lp: os.path.join(
-                            *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))) :]
+                            *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))):]
                         )
 
                         # Проход по всем найденным аудиовизуальных файлам
@@ -1348,9 +1309,9 @@ class Audio(AudioMessages):
         try:
             # Проверка аргументов
             if (
-                ((type(new_name) is not str or not new_name) and new_name is not None)
-                or type(force_reload) is not bool
-                or type(out) is not bool
+                    ((type(new_name) is not str or not new_name) and new_name is not None)
+                    or type(force_reload) is not bool
+                    or type(out) is not bool
             ):
                 raise TypeError
         except TypeError:
@@ -1412,17 +1373,17 @@ class Audio(AudioMessages):
                     return False
 
     def vosk_sr(
-        self,
-        depth: int = 1,
-        type_encode: str = TYPES_ENCODE[1],
-        crf_value: int = CRF_VALUE,
-        presets_crf_encode: str = PRESETS_CRF_ENCODE[5],
-        new_name: Optional[str] = None,
-        speech_left_pad_ms: int = VOSK_SPEECH_LEFT_PAD_MS,
-        speech_right_pad_ms: int = VOSK_SPEECH_RIGHT_PAD_MS,
-        force_reload: bool = True,
-        clear_dirvosk_sr: bool = False,
-        out: bool = True,
+            self,
+            depth: int = 1,
+            type_encode: str = TYPES_ENCODE[1],
+            crf_value: int = CRF_VALUE,
+            presets_crf_encode: str = PRESETS_CRF_ENCODE[5],
+            new_name: Optional[str] = None,
+            speech_left_pad_ms: int = VOSK_SPEECH_LEFT_PAD_MS,
+            speech_right_pad_ms: int = VOSK_SPEECH_RIGHT_PAD_MS,
+            force_reload: bool = True,
+            clear_dirvosk_sr: bool = False,
+            out: bool = True,
     ) -> bool:
         """VAD + SR (Voice Activity Detector + Speech Recognition) или (детектирование голосовой активности и
         распознавание речи)
@@ -1447,18 +1408,18 @@ class Audio(AudioMessages):
         try:
             # Проверка аргументов
             if (
-                type(depth) is not int
-                or depth < 1
-                or type(crf_value) is not int
-                or not (0 <= crf_value <= 51)
-                or ((type(new_name) is not str or not new_name) and new_name is not None)
-                or type(speech_left_pad_ms) is not int
-                or speech_left_pad_ms < 0
-                or type(speech_right_pad_ms) is not int
-                or speech_right_pad_ms < 0
-                or type(force_reload) is not bool
-                or type(clear_dirvosk_sr) is not bool
-                or type(out) is not bool
+                    type(depth) is not int
+                    or depth < 1
+                    or type(crf_value) is not int
+                    or not (0 <= crf_value <= 51)
+                    or ((type(new_name) is not str or not new_name) and new_name is not None)
+                    or type(speech_left_pad_ms) is not int
+                    or speech_left_pad_ms < 0
+                    or type(speech_right_pad_ms) is not int
+                    or speech_right_pad_ms < 0
+                    or type(force_reload) is not bool
+                    or type(clear_dirvosk_sr) is not bool
+                    or type(out) is not bool
             ):
                 raise TypeError
         except TypeError:
@@ -1573,7 +1534,7 @@ class Audio(AudioMessages):
 
                     # Локальный путь
                     self.__local_path = lambda lp: os.path.join(
-                        *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))) :]
+                        *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))):]
                     )
 
                     # Проход по всем найденным аудиовизуальных файлам
@@ -1636,13 +1597,242 @@ class Audio(AudioMessages):
                     if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
                         self.message_true(self._vad_true, space=self._space, out=out)
 
+    def augmentation_check_settings(self,
+                                    volume_db: float,
+                                    cutoff_hz: float,
+                                    out: bool,
+                                    ) -> bool:
+        try:
+            # Проверка настроек
+            if type(volume_db) is not float or (0 <= volume_db <= 1000) is False:
+                raise VolumeDbError
+            if type(cutoff_hz) is not float or (0 <= cutoff_hz <= 1000) is False:
+                raise CutoffHzError
+        except VolumeDbError:
+            self.message_error(
+                self._wrong_volume_db_aug.format(
+                    self.message_line(" - ".join(str(x) for x in VOLUME_DB_AUGMENTATION))
+                ),
+                out=out,
+            )
+            return False
+        except CutoffHzError:
+            self.message_error(
+                self._wrong_cutoff_hz_aug.format(
+                    self.message_line(" - ".join(str(x) for x in CUTOFF_HZ_AUGMENTATION))
+                ),
+                out=out,
+            )
+            return False
+        else:
+            # Только для внутреннего использования внутри класса
+            self.__volume_db_aug = volume_db
+            self.__cutoff_hz_aug = cutoff_hz
+            # Метаданные для видео и аудио
+            self.__file_metadata["video_fps"], self.__file_metadata["audio_fps"] = 0.0, 0
+        print()
+        return True
+
+    def augmentation_validate_arguments(self,
+                                        depth: int,
+                                        volume_db: float,
+                                        cutoff_hz: float,
+                                        clear_diraug: bool,
+                                        out: bool,
+                                        ) -> bool:
+        try:
+            # Проверка аргументов
+            if (
+                    type(depth) is not int
+                    or depth < 1
+                    or type(clear_diraug) is not bool
+                    or type(out) is not bool
+            ):
+                raise TypeError
+        except TypeError:
+            self.inv_args(__class__.__name__, self.vad.__name__, out=out)
+            return False
+        else:
+            self.augmentation_check_settings(volume_db, cutoff_hz, out)
+        return True
+
+    def augmentation_parce_directories(self,
+                                       depth: int,
+                                       out: bool) -> [str]:
+        # Информационное сообщение
+        self.message_info(
+            self._subfolders_search.format(
+                self.message_line(self.path_to_input_augmentation_directory),
+                self.message_line(str(depth)),
+            ),
+            out=out,
+        )
+
+        # Создание директории, где хранятся данные
+        if self.create_folder(self.path_to_input_augmentation_directory, out=False) is False:
+            return False
+
+        # Получение вложенных директорий, где хранятся данные
+        nested_paths = self.get_paths(self.path_to_input_augmentation_directory, depth=depth, out=False)
+
+        # Вложенные директории не найдены
+        try:
+            if len(nested_paths) == 0:
+                raise IsNestedCatalogsNotFoundError
+        except IsNestedCatalogsNotFoundError:
+            self.message_error(self._subfolders_not_found, space=self._space, out=out)
+            return False
+
+        # Информационное сообщение
+        self.message_info(
+            self._files_av_find.format(
+                self.message_line(", ".join(x.replace(".", "") for x in self.ext_search_files)),
+                self.message_line(self.path_to_input_augmentation_directory),
+                self.message_line(str(depth)),
+            ),
+            out=out,
+        )
+        return nested_paths
+
+    def augmentation_parce_files(self,
+                                 depth: int,
+                                 out: bool) -> [str]:
+        nested_paths = self.augmentation_parce_directories(depth, out)
+
+        paths = []  # Пути до аудиовизуальных файлов
+
+        # Проход по всем вложенным директориям
+        for nested_path in nested_paths:
+            # Формирование списка с видеофайлами
+            for p in Path(nested_path).glob("*"):
+                # Добавление текущего пути к видеофайлу в список
+                if p.suffix.lower() in self.ext_search_files:
+                    paths.append(p.resolve())
+        return paths
+
+    def augmentation_input_directory_is_not_empty(self,
+                                                  paths: [str],
+                                                  out: bool) -> bool:
+        # Директория с набором данных не содержит аудиовизуальных файлов с необходимыми расширениями
+        try:
+            self.__len_paths = len(paths)  # Количество аудиовизуальных файлов
+
+            if self.__len_paths == 0:
+                raise TypeError
+        except TypeError:
+            self.message_error(self._files_not_found, space=self._space, out=out)
+            return False
+        except Exception:
+            self.message_error(self._unknown_err, space=self._space, out=out)
+            return False
+
+    def augmentation_prepare_directory(self,
+                                       paths: [str],
+                                       clear_diraug: bool,
+                                       out: bool) -> bool:
+        if self.augmentation_input_directory_is_not_empty(paths, out):
+            # Очистка директории для сохранения обработанных аудиовизуальных сигналов
+            if clear_diraug is True and os.path.exists(self.path_to_output_augmentation_directory) is True:
+                if self.clear_folder(self.path_to_output_augmentation_directory, out=False) is False:
+                    return False
+
+    def augmentation_process_files(self,
+                                   paths: [str],
+                                   clear_diraug: bool,
+                                   out: bool) -> bool:
+
+        self.augmentation_prepare_directory(paths, clear_diraug, out)
+
+        self.__unprocessed_files = []  # Пути к файлам на которых аугментация не отработала
+
+        # Информационное сообщение
+        self.message_info(self._files_analysis, out=out)
+
+        # Локальный путь
+        self.__local_path = lambda lp: os.path.join(
+            *Path(lp).parts[
+             -abs((len(Path(lp).parts) - len(Path(self.path_to_input_augmentation_directory).parts))):]
+        )
+
+        # Проход по всем найденным аудиовизуальных файлам
+        for i, path in enumerate(paths):
+            self.__curr_path = path  # Текущий аудиовизуальный файл
+            self.__i = i + 1  # Счетчик
+
+            self.message_progressbar(
+                self._curr_progress.format(
+                    self.__i,
+                    self.__len_paths,
+                    round(self.__i * 100 / self.__len_paths, 2),
+                    self.message_line(self.__local_path(self.__curr_path)),
+                ),
+                space=self._space,
+                out=out,
+            )
+
+            self.__splitted_path = str(
+                self.__curr_path.parent.relative_to(Path(self.path_to_input_augmentation_directory))
+            ).strip()
+
+            self.__curr_path = str(self.__curr_path)
+
+            try:
+                # Тип файла
+                kind = filetype.guess(self.__curr_path)
+                directory = os.path.join(self.path_to_output_augmentation_directory, Path(self.__curr_path).parent
+                                         .relative_to(Path(self.path_to_input_augmentation_directory)))
+                os.makedirs(directory, exist_ok=True)
+
+                self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
+
+                path = os.path.join(
+                    directory,
+                    Path(self.__curr_path).stem
+                    + "_"
+                    + self.__curr_ts
+                    + "."
+                    + EXT_AUDIO_AUG,
+                )
+
+                seq = iaa.Sequential([
+                    iaa.Crop(percent=(0, 0.2)),
+                    iaa.Fliplr(0.5),
+                    iaa.GaussianBlur(sigma=(0, 3.0)),
+                    iaa.Affine(
+                        scale={"x": (0.8, 1.2), "y": (0.8, 1.2)},
+                        rotate=(-25, 25),
+                    ),
+                    iaa.LinearContrast((0.75, 1.5))
+                ])
+
+                img = Image.open(self.__curr_path)
+                img_array = np.asarray(img)
+                img_aug = seq(image=img_array)
+                Image.fromarray(img_aug).save(path)
+
+
+            except Exception as err:
+                print(err)
+                self.__unprocessed_files.append(self.__curr_path)
+                self.message_progressbar(close=True, out=out)
+                continue
+
+        self.message_progressbar(close=True, out=out)
+
+        # Файлы на которых аугментация не отработала
+        unprocessed_files_unique = np.unique(np.array(self.__unprocessed_files)).tolist()
+
+        if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
+            self.message_true(self._aug_true, space=self._space, out=out)
+            return True
+
     def augmentation(
-        self,
-        depth: int = 1,
-        volume_db: float = VOLUME_DB_AUGMENTATION[1],
-        cutoff_hz: float = CUTOFF_HZ_AUGMENTATION[1],
-        clear_diraug: bool = False,
-        out: bool = True,
+            self,
+            depth: int = 1,
+            volume_db: float = VOLUME_DB_AUGMENTATION[1],
+            cutoff_hz: float = CUTOFF_HZ_AUGMENTATION[1],
+            clear_diraug: bool = False,
+            out: bool = True,
     ) -> bool:
         """Аугментация аудиовизуальных сигналов
 
@@ -1662,163 +1852,6 @@ class Audio(AudioMessages):
 
         .. deprecated:: 0.1.0
         """
-
-        try:
-            # Проверка аргументов
-            if (
-                type(depth) is not int
-                or depth < 1
-                or type(clear_diraug) is not bool
-                or type(out) is not bool
-            ):
-                raise TypeError
-        except TypeError:
-            self.inv_args(__class__.__name__, self.vad.__name__, out=out)
-            return False
-        else:
-            try:
-                # Проверка настроек
-                if type(volume_db) is not float or (0 <= volume_db <= 1000) is False:
-                    raise VolumeDbError
-                if type(cutoff_hz) is not float or (0 <= cutoff_hz <= 1000) is False:
-                    raise CutoffHzError
-            except VolumeDbError:
-                self.message_error(
-                    self._wrong_volume_db_aug.format(
-                        self.message_line(" - ".join(str(x) for x in VOLUME_DB_AUGMENTATION))
-                    ),
-                    out=out,
-                )
-                return False
-            except CutoffHzError:
-                self.message_error(
-                    self._wrong_cutoff_hz_aug.format(
-                        self.message_line(" - ".join(str(x) for x in CUTOFF_HZ_AUGMENTATION))
-                    ),
-                    out=out,
-                )
-                return False
-            else:
-                # Только для внутреннего использования внутри класса
-                self.__volume_db_aug = volume_db
-                self.__cutoff_hz_aug = cutoff_hz
-                # Метаданные для видео и аудио
-                self.__file_metadata["video_fps"], self.__file_metadata["audio_fps"] = 0.0, 0
-
-                print()
-                # Информационное сообщение
-                self.message_info(
-                    self._subfolders_search.format(
-                        self.message_line(self.path_to_input_augmentation_directory),
-                        self.message_line(str(depth)),
-                    ),
-                    out=out,
-                )
-
-                # Создание директории, где хранятся данные
-                if self.create_folder(self.path_to_input_augmentation_directory, out=False) is False:
-                    return False
-
-                # Получение вложенных директорий, где хранятся данные
-                nested_paths = self.get_paths(self.path_to_input_augmentation_directory, depth=depth, out=False)
-
-                # Вложенные директории не найдены
-                try:
-                    if len(nested_paths) == 0:
-                        raise IsNestedCatalogsNotFoundError
-                except IsNestedCatalogsNotFoundError:
-                    self.message_error(self._subfolders_not_found, space=self._space, out=out)
-                    return False
-
-                # Информационное сообщение
-                self.message_info(
-                    self._files_av_find.format(
-                        self.message_line(", ".join(x.replace(".", "") for x in self.ext_search_files)),
-                        self.message_line(self.path_to_input_augmentation_directory),
-                        self.message_line(str(depth)),
-                    ),
-                    out=out,
-                )
-
-                paths = []  # Пути до аудиовизуальных файлов
-
-                # Проход по всем вложенным директориям
-                for nested_path in nested_paths:
-                    # Формирование списка с видеофайлами
-                    for p in Path(nested_path).glob("*"):
-                        # Добавление текущего пути к видеофайлу в список
-                        if p.suffix.lower() in self.ext_search_files:
-                            paths.append(p.resolve())
-
-                # Директория с набором данных не содержит аудиовизуальных файлов с необходимыми расширениями
-                try:
-                    self.__len_paths = len(paths)  # Количество аудиовизуальных файлов
-
-                    if self.__len_paths == 0:
-                        raise TypeError
-                except TypeError:
-                    self.message_error(self._files_not_found, space=self._space, out=out)
-                    return False
-                except Exception:
-                    self.message_error(self._unknown_err, space=self._space, out=out)
-                    return False
-                else:
-                    # Очистка директории для сохранения обработанных аудиовизуальных сигналов
-                    if clear_diraug is True and os.path.exists(self.path_to_output_augmentation_directory) is True:
-                        if self.clear_folder(self.path_to_output_augmentation_directory, out=False) is False:
-                            return False
-
-                    self.__output_augmentation_audio = []  # Пути до директорий с аугментированными аудиофрагментами
-
-                    self.__unprocessed_files = []  # Пути к файлам на которых аугментация не отработала
-
-                    # Информационное сообщение
-                    self.message_info(self._files_analysis, out=out)
-
-                    # Локальный путь
-                    self.__local_path = lambda lp: os.path.join(
-                        *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_input_augmentation_directory).parts))) :]
-                    )
-
-                    # Проход по всем найденным аудиовизуальных файлам
-                    for i, path in enumerate(paths):
-                        self.__curr_path = path  # Текущий аудиовизуальный файл
-                        self.__i = i + 1  # Счетчик
-
-                        self.message_progressbar(
-                            self._curr_progress.format(
-                                self.__i,
-                                self.__len_paths,
-                                round(self.__i * 100 / self.__len_paths, 2),
-                                self.message_line(self.__local_path(self.__curr_path)),
-                            ),
-                            space=self._space,
-                            out=out,
-                        )
-
-                        self.__splitted_path = str(
-                            self.__curr_path.parent.relative_to(Path(self.path_to_input_augmentation_directory))
-                        ).strip()
-
-                        self.__curr_path = str(self.__curr_path)
-
-                        # Пропуск невалидных значений
-                        if not self.__splitted_path or re.search(r"\s", self.__splitted_path) is not None:
-                            continue
-
-                        try:
-                            self.__audio_augmentation()
-                        except Exception as err:
-                            print(err)
-                            self.__unprocessed_files.append(self.__curr_path)
-                            self.message_progressbar(close=True, out=out)
-                            continue
-
-                    self.message_progressbar(close=True, out=out)
-
-                    # Файлы на которых аугментация не отработала
-                    unprocessed_files_unique = np.unique(np.array(self.__unprocessed_files)).tolist()
-
-                    if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
-                        self.message_true(self._aug_true, space=self._space, out=out)
-                        return True
+        self.augmentation_validate_arguments(depth, volume_db, cutoff_hz, clear_diraug, out)
+        paths = self.augmentation_parce_files(depth, out)
+        return self.augmentation_process_files(paths, clear_diraug, out)
