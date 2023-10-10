@@ -4,7 +4,6 @@
 """
 Аудиомодальность
 """
-
 # ######################################################################################################################
 # Импорт необходимых инструментов
 # ######################################################################################################################
@@ -27,6 +26,7 @@ import filetype  # Определение типа файла и типа MIME
 import json  # Кодирование и декодирование данных в удобном формате
 from PIL import Image # Считывание изображений
 from imgaug import augmenters as iaa # Базовая аугментация
+import random # Случайные числа
 
 # Парсинг URL
 import urllib.parse
@@ -1795,6 +1795,7 @@ class Audio(AudioMessages):
                 )
 
                 seq = iaa.Sequential([
+                    iaa.Crop(px=(0, 16)),
                     iaa.Crop(percent=(0, 0.2)),
                     iaa.Fliplr(0.5),
                     iaa.GaussianBlur(sigma=(0, 3.0)),
@@ -1804,11 +1805,19 @@ class Audio(AudioMessages):
                     ),
                     iaa.LinearContrast((0.75, 1.5))
                 ])
+                alpha = 0.2
 
                 img = Image.open(self.__curr_path)
-                img_array = np.asarray(img)
+                img_array = np.array(img)
                 img_aug = seq(image=img_array)
-                Image.fromarray(img_aug).save(path)
+
+                img2 = Image.open(paths[random.randint(0, len(paths) - 1)])
+                img2_array = np.array(img2)
+
+                img_res = ((alpha * img_aug) + ((1 - alpha) * img2_array)).astype(np.uint8)
+                img_res = np.array(img_res)
+
+                Image.fromarray(img_res).save(path)
 
 
             except Exception as err:
