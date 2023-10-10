@@ -2019,8 +2019,24 @@ class Audio(AudioMessages):
 
         Args:
             depth (int): Глубина иерархии для получения данных
-            volume_db (float): TODO: fix description (от **0.0** до **1000.0**)
-            cutoff_hz (float): TODO: fix description (от **0.0** до **1000.0**)
+            crop_px_min (int): # Обрезка в пикселях мин
+            crop_px_max (int): # Обрезка в пикселях макс
+            crop_percent_min (float): # Обрезка в процентах мин
+            crop_percent_max (float): # Обрезка в процентах макс
+            flip_lr_probability (float): # Вероятность отражения по вертикали
+            flip_ud_probability (float): # Вероятность отражения по горизонтали
+            blur_min (float): # Размытие мин
+            blur_max (float): # Размытие макс
+            scale_x_min (float): # Масштабирование Х мин
+            scale_x_max (float): # Масштабирование Х макс
+            scale_y_min (float): # Масштабирование Y мин
+            scale_y_max (float): # Масштабирование Y макс
+            rotate_min (int): # Поворот мин
+            rotate_max (int): # Поворот макс
+            contrast_min (float): # Контраст мин
+            contrast_max (float): # Контраст макс
+            alpha (float): # Альфа для MixUp
+            count (int): # Количество применений аугментации
             clear_diraug (bool): Очистка директории для сохранения аугментированных аудиовизуальных сигналов
             out (bool): Отображение
 
