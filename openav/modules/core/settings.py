@@ -30,6 +30,8 @@ from openav.modules.core.messages import Messages  # Сообщения
 # ######################################################################################################################
 PATH_TO_SAVE_MODELS: str = "./models"  # Путь к директории для сохранения моделей
 PATH_TO_DATASET: str = "./dataset"  # Путь к директории набора данных
+PATH_TO_INPUT_AUGMENTATION_DIRECTORY: str = "./data_aug"  # Путь к директории набора данных для обработки
+PATH_TO_OUTPUT_AUGMENTATION_DIRECTORY: str = "./data_aug_processed"  # Путь к директории результирующих данных
 # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VAD)
 PATH_TO_DATASET_VAD: str = "./dataset_vad"
 # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VOSK)
@@ -84,6 +86,8 @@ class Settings(Messages):
 
         self.path_to_save_models: str = PATH_TO_SAVE_MODELS  # Путь к директории для сохранения моделей
         self.path_to_dataset: str = PATH_TO_DATASET  # Путь к директории набора данных
+        self.path_to_input_augmentation_directory: str = PATH_TO_INPUT_AUGMENTATION_DIRECTORY  # Путь к директории набора данных для обработки
+        self.path_to_output_augmentation_directory: str = PATH_TO_OUTPUT_AUGMENTATION_DIRECTORY  # Путь к директории результирующих данных аугментации
         # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VAD)
         self.path_to_dataset_vad: str = PATH_TO_DATASET_VAD
         # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VOSK)

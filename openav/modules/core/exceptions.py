@@ -66,3 +66,57 @@ class InvalidContentLength(CustomException):
     """Не определен размер файла для загрузки"""
 
     pass
+
+
+class CropPXError(CustomException):
+    """Указан неверный диапазон обрезки в пикселях"""
+
+    pass
+
+
+class CropPercentsError(CustomException):
+    """Указан неверный диапазон обрезки в процентах"""
+
+    pass
+
+
+class FlipLRProbabilityError(CustomException):
+    """Указано неверное значение вероятности отражения по вертикальной оси"""
+
+    pass
+
+
+class FlipUDProbabilityError(CustomException):
+    """Указано неверное значение вероятности отражения по горизонтальной оси"""
+
+    pass
+
+
+class BlurError(CustomException):
+    """Указан неверный диапазон значений размытия"""
+
+    pass
+
+
+class ScaleError(CustomException):
+    """Указан неверный диапазон значений масштабирования"""
+
+    pass
+
+
+class RotateError(CustomException):
+    """Указан неверный диапазон значений угла наклона"""
+
+    pass
+
+
+class ContrastError(CustomException):
+    """Указан неверный диапазон значений контрастности"""
+
+    pass
+
+
+class MixUpAlphaError(CustomException):
+    """Указан неверный коэффициент для MixUp-аугментации"""
+
+    pass
