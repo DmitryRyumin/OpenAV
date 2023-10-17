@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-17 11:21+0300\n"
+"POT-Creation-Date: 2023-10-17 15:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -21,30 +21,518 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/user_guide/modules/augmentation.rst:4
-#: af3e0e98a4ca46299770c55655e6b509
-msgid "Детектирование речевой активности (Silero VAD)"
+#: ../../source/reuse_content/general.rst:1 ea73582275474c118380491d8018e329
+msgid "</br>"
 msgstr ""
 
-#: ../../source/user_guide/modules/augmentation.rst:6
-#: ec8bf732060f4dc299d5af9063943496
+#: ../../source/reuse_content/general.rst:5 3d230dadb5544dafb0377276fc3f1060
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 4dc2ca3d606a4f50b6e357833f840a41
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:13 18d9626b4f6b49d7a40645d9ef12dbf6
+#: 909d47779fbe40819954eb6e5248417a
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:3
+#: 427a656037a640a8ac2a37392cf1e710 5a7a073be0e44cae8f9fdd60c476eba6
 msgid ""
-"Команда для запуска детектирования речевой активности в аудиовизуальном "
-"сигнале:"
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/augmentation.yaml\""
+" target=\"_blank\">"
 msgstr ""
 
 #: ../../source/user_guide/modules/augmentation.rst:8
+#: b16d540e5a2847619f02e39adf09beae
+msgid "Модуль аугментации данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:9
+#: ca87dd3b0ecc404084e64d05716f9f41
+msgid ""
+"Данный модуль позволяет генерировать дополнительные данные с помощью "
+"различных параметров аугментации. Команда для запуска аугментации данных:"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:11
 #: 4c5f926a91404753849a0dc2f8bc64c2
 msgid ""
-"python ./openav/api/vad.py --config "
+"python ./openav/api/augmentation.py --config "
 "<путь_к_вашему_конфигурационному_файлу>.yaml"
 msgstr ""
 
-#: ../../source/user_guide/modules/augmentation.rst:13
+#: ../../source/user_guide/modules/augmentation.rst:16
 #: cb45cc9afdcc49a591f8189b005019a6
 msgid ""
 "Для запуска команды необходимо обязательно указать путь к "
 "конфигурационному файлу. Запускать программу необходимо из директории, "
 "где она расположена."
 msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:19
+#: 1382209d21cf4c12aa824b980b14243c
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:21
+#: ebbebf28a65b4a0e84d246a73c8dca4c
+msgid "Конфигурационный файл включает в себя следующие настройки:"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:23
+#: ab3dbc1ba983484faa9668151bc7ae1b
+msgid "Отображение процесса выполнения программы в терминале (командной строке)"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:24
+#: ../../source/user_guide/modules/augmentation.rst:47
+#: 271a601c598f4a18bcbe20ea8dd8b27b c3b237e676ed4de2a857c013afe13362
+msgid "Работа с файловой системой"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:25
+#: ../../source/user_guide/modules/augmentation.rst:63
+#: 0eb02c6d05974771a14326d69fa19959 9660f4e750c0447595727f2c0fc4b0d0
+msgid "Параметры аугментации данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:29
+#: 4551e4d5b4db4388ae85d7df1ecbaed8
+msgid "|a_config| Пример конфигурационного файла |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:34
+#: ae25653f104a4ddcbd57c0d3d7174256
+msgid "Отображение процесса выполнения команды в терминале"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 43d57b04130a49a399a91a02c5b4e86a a50b7936fb8344af80de320b5da80006
+#: c94128e9cfc64ee1a7afc556a10b8ef8
+msgid "Параметр"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 6b7e28ffabf941669d2bd5f08d70d58c e0a96c35897542278e463ef4f500bb64
+#: e219cd8ffac340d0986596281be1ed3e
+msgid "Тип"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 3c9009dba4c44c519c6f30eb0f39f2e0 49e4f400890743a2a6d68f2c210c8881
+#: dcb2677c78ba40b6a1312b89e888a0ce
+msgid "Значение по умолчанию"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 56e0ccc2919a4305ae30785c299fbf3e d9321f44f8e64fbeb28bc307bfd6cbb6
+#: e786643ef5e2463caaab5c1eee0b469b
+msgid "Описание"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: a8fa0da2f92e46149c3002bb74836669
+msgid "hide_metadata"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 1a9e709b5203432aab7aed97f3e6cf5a 6749c635c9c3476fbe00f38257a4c910
+#: 864a2cc2238f46529f19f658cf887485
+msgid "bool"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: b76148dc4eff4c93a251e5e958bf9f64 d4a062892d924276ba09088c3a1011e4
+msgid "``false``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: cf6f3fb876b04f9a906be9cc7e810bc9
+msgid "Включение отображения метаданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: ec45d9f2d3404b32879ebecfab27a869
+msgid "hide_libs_vers"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: ffe640e2d3484be59417326fe91d93c5
+msgid "Включение отображения версий установленных  библиотек  в командной строке"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: fbec549903da437d9ac8edd7225bbbec
+msgid "path_to_input_directory"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: b7a8bb8a87fa4669932ff7a2ca0da357 cafb1219c98d444ba96538a9ea38c282
+msgid "str"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 4b25d8f4454649cfb49528a6f442752e
+msgid "``<путь_к_исходным_данным>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 520f2d0662f64df284a08438c05c75f1
+msgid "Директория, где находятся данные, которые необходимо аугментировать"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: f1adc8690c67461d8c17421b797414b3
+msgid "path_to_output_directory"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 4af6e4dbc8c54dd09b0c622d07735049
+msgid "``<путь_к_аугментированным_данным>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 4c0376522a1340989b2685c1006179fb
+msgid "Директория, куда сохраняются аугментированные данные."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: adadee5411d14f3791cee3ed1c167e97
+msgid "clear_diraug"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 9f5da168435e49bb8c8aa4d8cdd4002b
+msgid "``true``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 829dcf4ba52d4f6f95ef18203ea32e9b
+msgid "Очистка директории, в которую сохраняются аугментированные данные."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: cc867754a6ff4690b51eaa09cd5fb205
+msgid "depth"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 1629b64ee13b4ccca587ecb11e7ac6ad 51810687bd0342488fb34a4b5bd856c7
+#: 5a26f3ce4f2646f2ae6b6d7b44d4482f 5fdd6ac873b44c6fb0c1e32f838e6aa5
+#: 9110595043d64adf80c54b81d4f705d4 a457898687444d4c8e4af3565f1e84a2
+msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 821fc98d343c41209aed16b4a79dbe8b e5d2107a6bf84915896da7cac9d93a32
+msgid "``1``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 4976ff30c6f8457184dc58c6c32aa912
+msgid ""
+"Глубина иерархии для получения данных. Указывается количество "
+"подкаталогов  в директории ``path_to_input_directory``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 506138a85dda4a2aba8fc62c051ed144
+msgid "ext_search_files"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: f8b88deb92214f61b406cb88572feb47
+msgid "list"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: cea8ac3d85114529a2b784cf75ece5d4
+msgid "``[\"jpg\", \"png\"]``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: b1bec4b9f23b45abb49fbafceb1d0f95
+msgid "Список  расширений файлов, которые будут обрабатываться."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 2a37c00ad5054d28a448a6ede23a917f
+msgid "crop_px_min"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 06f51d1adf834b04945688a85cbdab2e 8d3777a1714b456d9fb207e7bc7e8134
+#: c3e15d0a226f4f8da9e0d80f3c356685 ed7d0fe400e44d18b80fcf7b49927227
+msgid "``0``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: a4b2fafcca7040f6b6a9cd2b65aec0bf
+msgid ""
+"Минимальное количество пикселей для обрезки изображения с каждой стороны."
+" Диапазон значений от ``0`` и ``1000000``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 945e3efc1ff444eda862052703ba6d29
+msgid "crop_px_max"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 6a4e59b2cc5a4a68850ee44291dbd4ce
+msgid "``16``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 01aae9d17e644638a85030e32576e2ef
+msgid ""
+"Максимальное количество пикселей для обрезки изображения с каждой "
+"стороны. Диапазон значений от ``0`` и ``1000000``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: c3df602f752048629ff423226c8b5bd6
+msgid "crop_percent_min"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 3905840eaf8447febe0c81ac69b3ee90 3b3c2117d5d64a53a983e782a3b857ea
+#: 4b80e93883af48d0a2acaa627ba591b3 525f49c9adb549a3b8835a2ec308d42f
+#: 62d762a1f9d546429150d33224d3026a 6b5da47795e74f919d8e47c474e04fa2
+#: 759896fa60fc421ca2a3512189aee353 7cc32d2a96314c088f252bbd6e09b53d
+#: 857de488df744d41b3f664f17119bcbb 9585158194f044449605e696cf13ffde
+#: d180a5bc83f34472a5defd1d3c3b71c9 f02972dcd06547a59ac17b6b59a79704
+#: f1a600130b3845fba3a846b0f0205aa9
+msgid "float"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 9816244771bf4a26bc87793efb13a76e
+msgid ""
+"Минимальный процент для обрезки изображения с каждой стороны. Диапазон "
+"значений от ``0`` и ``1.0``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: de662af7f68d4088a6dc3d9a1a4f49fe
+msgid "crop_percent_max"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 33371c6f33794736b881b805563d2cd8 7f716e6e9c98484780c7a5c3904f8113
+#: 9c8c1db71ce54cf592e456ba165c5bfd cc5364267cf24075929a1c9e466e15a9
+#: dc30050d9c7a459daab28acd52e12582
+msgid "``0.5``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: b8b4159cffed4005876130ac9b49a215
+msgid ""
+"Максимальный процент для обрезки изображения с каждой стороны. Диапазон "
+"значений от ``0`` и ``1.0``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 30e2d0d5f340409aadb191949e4d6d95
+msgid "flip_lr_probability"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: fb6b59f168b949eb832c704a6ad6f443
+msgid ""
+"Значение коэффициента вероятности отражения по вертикальной оси. Диапазон"
+" значений от ``0`` и ``1.0``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 17125845ec1f47129b73cc354dc16aaa
+msgid "flip_ud_probability"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: b6e98785d70747cfb7f5b07cea3fd731
+msgid ""
+"Значение коэффициента вероятности отражения по горизонтальной оси. "
+"Диапазон значений от ``0`` и ``1.0``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: e1f1b80711fe44feaddcec44c49c4429
+msgid "blur_min"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: dacce3dea7b2484282e1625fb189ca57
+msgid ""
+"Минимальное значение коэффициента размытия изображения. Диапазон значений"
+" от ``0`` и ``3.0``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: ba4318c7bab54dd8a37f702554271d28
+msgid "blur_max"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 2ebd0a5b1f324f64be6399ebbba03cee
+msgid ""
+"Максимальное значение коэффициента размытия изображения. Диапазон "
+"значений от ``0`` и ``3.0``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: f2de34b38c1b491b9675acd3ee8c936f
+msgid "scale_x_min"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 191e7f61625041549171944a6520eb08
+msgid ""
+"Минимальное значение масштабирования по оси X. Диапазон значений от ``0``"
+" и ``10.0``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 3287e22d06be45d6b49cd367ba6293ab
+msgid "scale_x_max"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 04b878a92c7341e5a0c2b5079078c1ef 78aa50d673cc43cf8338a348a04f8262
+msgid "``2``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 19f86b01802d4d75832ff691c36a04f8 58b3cde9dd0844079b3710af91042372
+msgid ""
+"Максимальное значение масштабирования по оси X. Диапазон значений от "
+"``0`` и ``10.0``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: bbf11c9123ed4f9f9fce9a526ce2fcc4
+msgid "scale_y_min"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 30fd683304b9486d9e291dc4f94ca29e
+msgid ""
+"Минимальное значение масштабирования по оси Y. Диапазон значений от ``0``"
+" и ``10.0``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: e5fa4b3792434a4ea1b9359934cc318c
+msgid "scale_y_max"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 5e2d8a37228b457f85f852a6efeed0e9
+msgid "rotate_min"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 1f3ba324372447e6ac80bf085f0bbb9a
+msgid "``-45``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 11dcf098daa24c6aaa8912c6c1d0ae85
+msgid ""
+"Минимальное значение угла поворота изображения. Диапазон значений от "
+"``-90`` и ``90``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 3d3a501080ec4c3bb96411a7bc746512
+msgid "rotate_max"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: d547e77d98c9499eaa811df47a805104
+msgid "``45``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 9ab3e9b47eb542e99239e25f5550d2af
+msgid ""
+"Максимальное значение угла поворота изображения. Диапазон значений от "
+"``-90`` и ``90``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 5423e73af43a4aa4a314d905edf06807
+msgid "contrast_min"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 72d6f874505a451187cfcc81a1e2980d
+msgid ""
+"Минимальное значение коэффициента контрастности по оси Y. Диапазон "
+"значений от ``-10.0`` и ``10.0``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: c1814a9e65d1489c8b44ac214e550b85
+msgid "contrast_max"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 53445fabfa544f51989ed1407e9198d8
+msgid "``1.0``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: f1b7e7c0a3aa4274a92bd46aee2a3b90
+msgid ""
+"Максимальное значение коэффициента контрастности по оси Y. Диапазон "
+"значений от ``-10.0`` и ``10.0``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 57eea40c21a14cf58ea60b1b93e761ac
+msgid "alpha"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 5f6668f3a0ef473c80a9c1814e2e489a
+msgid "``0.7``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 2b1c1dcaf87047c296b25c18e42a64fd
+msgid "Значения коэффициента MixUp. Диапазон значений от ``-10.0`` и ``10.0``."
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 381cd35a20684e1aa4cb42749162f06a
+msgid "count"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: c56db0fa754a43ab85a183234812bc03
+msgid "``5``"
+msgstr ""
+
+#: ../../source/user_guide/modules/augmentation.rst:1
+#: 0bbaf75310e347b3ab547b51b375b0e3
+msgid "Количество применений процесса аугментации к изображению."
+msgstr ""
+
+#~ msgid "Детектирование речевой активности (Silero VAD)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Команда для запуска детектирования речевой "
+#~ "активности в аудиовизуальном сигнале:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "python ./openav/api/vad.py --config "
+#~ "<путь_к_вашему_конфигурационному_файлу>.yaml"
+#~ msgstr ""
 
