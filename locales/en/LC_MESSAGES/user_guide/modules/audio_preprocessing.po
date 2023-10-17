@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-10 14:47+0300\n"
+"POT-Creation-Date: 2023-10-17 11:17+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -151,7 +151,7 @@ msgid "path_to_dataset"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: 5528eaa95bb7437eb2f788fd91f1545a
+#: 4a23f11a2666482eab47b1ff3bf9ddbf 5528eaa95bb7437eb2f788fd91f1545a
 msgid "str"
 msgstr ""
 
@@ -329,16 +329,21 @@ msgid "pad_mode"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: d4b6a934fe7f40c79ea1dcedb1788e9f
+#: 0daf173beb6549238184fce228cef0ab d4b6a934fe7f40c79ea1dcedb1788e9f
 msgid "``reflect``"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: ce70e75eb6ba4565afe8b991d0538180
+#: 367ed4f20e964aaab519d816fb299296 ce70e75eb6ba4565afe8b991d0538180
 msgid ""
 "Управление оступами, применяется когда значение параметра ``center = "
 "True``. Доступные значения ``constant, reflect, replicate, circular``. По"
 " умолчанию ``reflect``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 2d6b8e67c5264cf5b818394823d8d4d4
+msgid "norm"
 msgstr ""
 
 #~ msgid ""

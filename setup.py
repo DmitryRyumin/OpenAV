@@ -26,6 +26,8 @@ REQUIRED_PACKAGES = [
     "streamlit >= 1.20.0",
     "watchdog >= 2.3.1",
     "pymediainfo >= 6.0.1",
+    "pillow >= 9.5.0",
+    "imgaug >= 0.4.0",
 ]
 
 CLASSIFIERS = """\

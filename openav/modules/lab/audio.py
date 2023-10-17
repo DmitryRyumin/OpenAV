@@ -39,8 +39,6 @@ from pymediainfo import MediaInfo  # Получение meta данных из �
 
 from vosk import Model, KaldiRecognizer, SetLogLevel  # Распознавание речи
 
-import augly.audio as audags  # Аугментация аудиофайлов
-
 # Типы данных
 from typing import List, Dict, Union, Optional
 

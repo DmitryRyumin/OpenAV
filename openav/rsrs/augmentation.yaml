@@ -1,16 +1,17 @@
 ---
 hide_metadata: false
 hide_libs_vers: false
-path_to_input_directory: "C:/Users/USER/Documents/data_input"
-path_to_output_directory: "C:/Users/USER/Documents/data_output"
+path_to_input_directory: "C:/Prgrm/_datasets/denis/"
+path_to_output_directory: "C:/Prgrm/_datasets/denis/aug_img"
 clear_diraug: true
-depth: 3
+depth: 1
 ext_search_files:
 - jpg
+- png
 crop_px_min: 0
 crop_px_max: 16
 crop_percent_min: 0
-crop_percent_max: 0.2
+crop_percent_max: 0.5
 flip_lr_probability: 0.5
 flip_ud_probability: 0.5
 blur_min: 0

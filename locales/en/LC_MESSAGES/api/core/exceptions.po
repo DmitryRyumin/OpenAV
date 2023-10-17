@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 12:37+0300\n"
+"POT-Creation-Date: 2023-10-17 11:17+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -24,6 +24,55 @@ msgstr ""
 msgid "Пользовательские исключения"
 msgstr ""
 
+#: 2fd1c043a5c64cf4b0d6c51942857d35 4957be759e5c4b498b601988697b3708
+#: 4cb791c44a314a60914f21ce1244446b 6e87c5e51ee44038a4a3c24dfa3acfa5
+#: 91e9bc977f3847458447b5811dc6f760 9363051450be4df4ba94eec0a6457aee
+#: af03a2f10dc0410bacae4b087b58c089 ce2ce7d1bca04246a885c9321580c087
+#: d73bf24e35234714b803d76c33cee429 eb359e6977e44b5b9ce618a49a82ede7 of
+#: openav.modules.core.exceptions.BlurError:1
+#: openav.modules.core.exceptions.ContrastError:1
+#: openav.modules.core.exceptions.CropPXError:1
+#: openav.modules.core.exceptions.CropPercentsError:1
+#: openav.modules.core.exceptions.FlipLRProbabilityError:1
+#: openav.modules.core.exceptions.FlipUDProbabilityError:1
+#: openav.modules.core.exceptions.InvalidContentLength:1
+#: openav.modules.core.exceptions.IsNestedCatalogsNotFoundError:1
+#: openav.modules.core.exceptions.IsNestedDirectoryANotFoundError:1
+#: openav.modules.core.exceptions.IsNestedDirectoryVNotFoundError:1
+#: openav.modules.core.exceptions.MixUpAlphaError:1
+#: openav.modules.core.exceptions.PresetCFREncodeVideoError:1
+#: openav.modules.core.exceptions.RotateError:1
+#: openav.modules.core.exceptions.SRInputTypeError:1
+#: openav.modules.core.exceptions.SamplingRateError:1
+#: openav.modules.core.exceptions.ScaleError:1
+#: openav.modules.core.exceptions.TypeEncodeVideoError:1
+#: openav.modules.core.exceptions.TypeMessagesError:1
+#: openav.modules.core.exceptions.WindowSizeSamplesError:1
+msgid ""
+"Базовые классы: "
+":py:class:`~openav.modules.core.exceptions.CustomException`"
+msgstr ""
+
+#: 404ae473b7fb425e91e3b396833db971 of
+#: openav.modules.core.exceptions.BlurError:1
+msgid "Указан неверный диапазон значений размытия"
+msgstr ""
+
+#: 2578743f72024ec493a5b2e2600a7cc2 of
+#: openav.modules.core.exceptions.ContrastError:1
+msgid "Указан неверный диапазон значений контрастности"
+msgstr ""
+
+#: 196b78242a7045699cf9d2b3f373320a of
+#: openav.modules.core.exceptions.CropPXError:1
+msgid "Указан неверный диапазон обрезки в пикселях"
+msgstr ""
+
+#: 247bea87906e4fc3a66f9519c6ec1a80 of
+#: openav.modules.core.exceptions.CropPercentsError:1
+msgid "Указан неверный диапазон обрезки в процентах"
+msgstr ""
+
 #: 62ab9e75173042e7a379a35bfeeea9b2 of
 #: openav.modules.core.exceptions.CustomException:1
 msgid "Базовые классы: :py:class:`Exception`"
@@ -34,24 +83,14 @@ msgstr ""
 msgid "Класс для всех пользовательских исключений"
 msgstr ""
 
-#: 2fd1c043a5c64cf4b0d6c51942857d35 4957be759e5c4b498b601988697b3708
-#: 4cb791c44a314a60914f21ce1244446b 6e87c5e51ee44038a4a3c24dfa3acfa5
-#: 91e9bc977f3847458447b5811dc6f760 9363051450be4df4ba94eec0a6457aee
-#: af03a2f10dc0410bacae4b087b58c089 ce2ce7d1bca04246a885c9321580c087
-#: d73bf24e35234714b803d76c33cee429 eb359e6977e44b5b9ce618a49a82ede7 of
-#: openav.modules.core.exceptions.InvalidContentLength:1
-#: openav.modules.core.exceptions.IsNestedCatalogsNotFoundError:1
-#: openav.modules.core.exceptions.IsNestedDirectoryANotFoundError:1
-#: openav.modules.core.exceptions.IsNestedDirectoryVNotFoundError:1
-#: openav.modules.core.exceptions.PresetCFREncodeVideoError:1
-#: openav.modules.core.exceptions.SRInputTypeError:1
-#: openav.modules.core.exceptions.SamplingRateError:1
-#: openav.modules.core.exceptions.TypeEncodeVideoError:1
-#: openav.modules.core.exceptions.TypeMessagesError:1
-#: openav.modules.core.exceptions.WindowSizeSamplesError:1
-msgid ""
-"Базовые классы: "
-":py:class:`~openav.modules.core.exceptions.CustomException`"
+#: 2c652d794f774d768107ea2e2cb177d3 of
+#: openav.modules.core.exceptions.FlipLRProbabilityError:1
+msgid "Указано неверное значение вероятности отражения по вертикальной оси"
+msgstr ""
+
+#: 120c95fbd71940479b1c0b2456de08ff of
+#: openav.modules.core.exceptions.FlipUDProbabilityError:1
+msgid "Указано неверное значение вероятности отражения по горизонтальной оси"
 msgstr ""
 
 #: 576e45975be0415f975d9b8a993d25ed of
@@ -74,11 +113,21 @@ msgstr ""
 msgid "Вложенная директория, для видеофрагментов не найдена"
 msgstr ""
 
+#: 404ae473b7fb425e91e3b396833db971 of
+#: openav.modules.core.exceptions.MixUpAlphaError:1
+msgid "Указан неверный коэффициент для MixUp-аугментации"
+msgstr ""
+
 #: b1d5c00934974747b5d1bd1b3fd328ed of
 #: openav.modules.core.exceptions.PresetCFREncodeVideoError:1
 msgid ""
 "Указан неподдерживаемый параметр обеспечивающий определенную скорость "
 "кодирования и сжатия видео"
+msgstr ""
+
+#: 52edec64264840a9a2b4ea970766771d of
+#: openav.modules.core.exceptions.RotateError:1
+msgid "Указан неверный диапазон значений угла наклона"
 msgstr ""
 
 #: 404ae473b7fb425e91e3b396833db971 of
@@ -89,6 +138,11 @@ msgstr ""
 #: 196b78242a7045699cf9d2b3f373320a of
 #: openav.modules.core.exceptions.SamplingRateError:1
 msgid "Указана неподдерживаемая частота дискретизации речевого сигнала"
+msgstr ""
+
+#: 22f0915367084ac5b7a26369517e31d7 of
+#: openav.modules.core.exceptions.ScaleError:1
+msgid "Указан неверный диапазон значений масштабирования"
 msgstr ""
 
 #: e01362e8540d40c0949cc2834fa8b767 of
