@@ -169,7 +169,7 @@ class RunVAD(MessagesVAD):
         curr_valid_layer = 0  # Валидное количество разделов
 
         # Проход по всем разделам конфигурационного файла
-        for (key, val) in config.items():
+        for key, val in config.items():
             # 1. Скрытие метаданных
             # 2. Скрытие версий установленных библиотек
             # 3. Принудительная загрузка модели из сети
@@ -278,7 +278,7 @@ class RunVAD(MessagesVAD):
                     continue
 
                 # Проход по всем подразделам текущего раздела
-                for (k, v) in val.items():
+                for k, v in val.items():
                     # Проверка значения
                     if type(v) is not str or not v:
                         continue
@@ -358,7 +358,7 @@ class RunVAD(MessagesVAD):
             return False
 
         # Проход по всем разделам конфигурационного файла
-        for (k, v) in config_yaml.items():
+        for k, v in config_yaml.items():
             self._args[k] = v  # Добавление значения из конфигурационного файла в словарь аргументов командной строки
 
         return True

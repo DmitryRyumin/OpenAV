@@ -1,0 +1,15 @@
+---
+hide_metadata: false
+hide_libs_vers: false
+path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
+len_audio: 19456
+size_spec:
+  width: 224
+  height: 224
+padding_spec: true
+seed: 42
+batch_size: 8
+channels_spec: 1
+lr: 0.0001
+epoch: 100
+epoch_stop: 5

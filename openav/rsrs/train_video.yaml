@@ -1,0 +1,15 @@
+---
+hide_metadata: false
+hide_libs_vers: false
+path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
+len_video: 29
+size_lips:
+  width: 112
+  height: 112
+padding_lips: true
+seed: 42
+batch_size: 8
+channels_lips: 3
+lr: 0.0001
+epoch: 100
+epoch_stop: 5

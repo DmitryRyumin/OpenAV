@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-Аугментация аудиовизуальных сигналов
+"""Автоматическое обучение на аудиоданных
 """
 
 import os
@@ -24,7 +23,7 @@ for warn in [UserWarning, FutureWarning]:
 
 from dataclasses import dataclass  # Класс данных
 
-import logging  # Логирование
+import logging  # Логирование Функции создающие итераторы для эффективного цикла
 
 # Типы данных
 from typing import Dict, Union, Any
@@ -43,7 +42,7 @@ from openav.modules.core.logging import ARG_PATH_TO_LOGS
 # Сообщения
 # ######################################################################################################################
 @dataclass
-class MessagesAugmentation(Run):
+class MessagesTrainAudio(Run):
     """Класс для сообщений"""
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -53,7 +52,7 @@ class MessagesAugmentation(Run):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._description: str = self._("Аугментация аудиовизуальных сигналов")
+        self._description: str = self._("Автоматическое обучение на аудиоданных")
         self._description_time: str = "{}" * 2 + self._description + self._em + "{}"
 
         self._check_config_file_valid = self._("Проверка данных на валидность") + self._em
@@ -63,8 +62,8 @@ class MessagesAugmentation(Run):
 # Выполняем только в том случае, если файл запущен сам по себе
 # ######################################################################################################################
 @dataclass
-class RunAugmentation(MessagesAugmentation):
-    """Класс для детектирования речевой активности в аудиовизуальном сигнале"""
+class RunTrainAudio(MessagesTrainAudio):
+    """Класс для автоматического обучения на аудиоданных"""
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
@@ -73,10 +72,10 @@ class RunAugmentation(MessagesAugmentation):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 25  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 12  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
-        self._logger_runvad: logging.Logger = logging.getLogger(__class__.__name__)
+        self._logger_run_train: logging.Logger = logging.getLogger(__class__.__name__)
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
@@ -117,7 +116,7 @@ class RunAugmentation(MessagesAugmentation):
             help=self._(
                 "Автоматическая проверка конфигурационного файла в момент работы программы (работает при заданном"
             )
-            + " --config)",
+            + " --config",
         )
         self._ap.add_argument(
             "--no_clear_shell", action="store_false", help=self._("Не очищать консоль перед выполнением")
@@ -129,10 +128,10 @@ class RunAugmentation(MessagesAugmentation):
             return vars(args)  # Преобразование списка аргументов командной строки в словарь
 
     def _valid_yaml_config(self, config: Dict[str, Union[str, bool, int, float]], out: bool = True) -> bool:
-        """Проверка настроек YAML на валидность
+        """Проверка настроек JSON на валидность
 
         Args:
-            config (Dict[str, Union[str, bool, int, float]]): Словарь из YAML файла
+            config (Dict[str, Union[str, bool, int, float]]): Словарь из JSON файла
             out (bool): Печатать процесс выполнения
 
         Returns:
@@ -164,8 +163,8 @@ class RunAugmentation(MessagesAugmentation):
         for key, val in config.items():
             # 1. Скрытие метаданных
             # 2. Скрытие версий установленных библиотек
-            # 3. Очистка директории для сохранения фрагментов аудиовизуального сигнала
-            if key == "hide_metadata" or key == "hide_libs_vers" or key == "clear_diraug":
+            # 3. Растягивать спектрограммы до указанных размеров или заполнять 0
+            if key == "hide_metadata" or key == "hide_libs_vers" or key == "padding_spec":
                 # Проверка значения
                 if type(val) is not bool:
                     continue
@@ -173,182 +172,94 @@ class RunAugmentation(MessagesAugmentation):
                 curr_valid_layer += 1
 
             # 1. Путь к директории набора данных
-            # 2. Путь к директории результирующих данных
-            if key == "path_to_input_directory" or key == "path_to_output_directory":
+            if key == "path_to_dataset":
                 # Проверка значения
                 if type(val) is not str or not val:
                     continue
 
                 curr_valid_layer += 1
 
-            # Глубина иерархии для получения данных
-            if key == "depth":
+            # Длина аудио
+            if key == "len_audio":
                 # Проверка значения
-                if type(val) is not int or not (1 <= val <= 10):
+                if type(val) is not int or not (0 <= val <= 50000):
                     continue
 
                 curr_valid_layer += 1
 
-            # Минимальное количество пикселей для обрезания
-            if key == "crop_px_min":
-                # Проверка значения
-                if type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Максимальное количество пикселей для обрезания
-            if key == "crop_px_max":
-                # Проверка значения
-                if type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Минимальный процент обрезания
-            if key == "crop_percent_min":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Максимальный процент обрезания
-            if key == "crop_percent_max":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Вероятность поворота по вертикальной оси
-            if key == "flip_lr_probability":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Вероятность поворота по горизонтальной оси
-            if key == "flip_ud_probability":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Минимальное размытие
-            if key == "blur_min":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Максимальное размытие
-            if key == "blur_max":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Минимальное масштабирование х
-            if key == "scale_x_min":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Максимальное масштабирование х
-            if key == "scale_x_max":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Минимально масштабирование у
-            if key == "scale_y_min":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Максимальное масштабирование у
-            if key == "scale_y_max":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-            # Минимальный поворот
-            if key == "rotate_min":
-                # Проверка значения
-                if type(val) is not int and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Максимальный поворот
-            if key == "rotate_max":
-                # Проверка значения
-                if type(val) is not int and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Контраст мин
-            if key == "contrast_min":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Контраст макс
-            if key == "contrast_max":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Коэффициент MixUp
-            if key == "alpha":
-                # Проверка значения
-                if type(val) is not float and type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Количество применений аугментации
-            if key == "count":
-                # Проверка значения
-                if type(val) is not int:
-                    continue
-
-                curr_valid_layer += 1
-            # Расширения искомых файлов
-            if key == "ext_search_files":
+            # Размер спектрограмм
+            if key == "size_spec":
+                all_layer_2 = 2  # Общее количество подразделов в текущем разделе
                 curr_valid_layer_2 = 0  # Валидное количество подразделов в текущем разделе
 
                 # Проверка значения
-                if type(val) is not list or len(val) == 0:
+                if type(val) is not dict or len(val) == 0:
                     continue
 
                 # Проход по всем подразделам текущего раздела
-                for v in val:
+                for k, v in val.items():
                     # Проверка значения
-                    if type(v) is not str or not v:
+                    if type(v) is not int or not (0 <= v <= 512):
                         continue
 
-                    curr_valid_layer_2 += 1
+                    # 1. Ширина
+                    # 2. Высота
+                    if k == "width" or k == "height":
+                        curr_valid_layer_2 += 1
 
-                if curr_valid_layer_2 > 0:
+                if all_layer_2 == curr_valid_layer_2:
                     curr_valid_layer += 1
+
+            # Случайное число для запуска процесса обучения
+            if key == "seed":
+                # Проверка значения
+                if type(val) is not int or not 0 <= val:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Размер пакетов для обучения
+            if key == "batch_size":
+                # Проверка значения
+                if type(val) is not int or not 1 <= val or not val % 2 == 0:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Количество каналов в изображении
+            if key == "channels_spec":
+                # Проверка значения
+                if type(val) is not int or (1 != val and 3 != val):
+                    continue
+
+                curr_valid_layer += 1
+
+            # Скорость обучения
+            if key == "lr":
+                # Проверка значения
+                if type(val) is not float or not 0 <= val:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Количество эпох
+            if key == "epoch":
+                # Проверка значения
+                if type(val) is not int or not (0 <= val <= 10000):
+                    continue
+
+                curr_valid_layer += 1
+
+            # Прерывание если точность не улучшается в течение N эпох
+            if key == "epoch_stop":
+                # Проверка значения
+                if type(val) is not int or not (0 <= val <= 50):
+                    continue
+
+                curr_valid_layer += 1
+
+        print(self._all_layer_in_yaml, curr_valid_layer)
+
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
         if self._all_layer_in_yaml != curr_valid_layer:
             try:
@@ -359,7 +270,7 @@ class RunAugmentation(MessagesAugmentation):
 
         return True  # Результат
 
-    def _load_config_yaml(self, resources: ModuleType = rsrs, config="augmentation.yaml", out: bool = True) -> bool:
+    def _load_config_yaml(self, resources: ModuleType = rsrs, config="vosk_sr.yaml", out: bool = True) -> bool:
         """Загрузка и проверка конфигурационного файла
 
         Args:
@@ -407,7 +318,7 @@ class RunAugmentation(MessagesAugmentation):
     # ------------------------------------------------------------------------------------------------------------------
 
     def run(self, metadata: ModuleType = openav, resources: ModuleType = rsrs, out: bool = True) -> bool:
-        """Запуск аугментации аудиовизуальных сигналов
+        """Запуск процесса обучения
 
         Args:
             metadata (ModuleType): Модуль из которого необходимо извлечь информацию
@@ -440,7 +351,7 @@ class RunAugmentation(MessagesAugmentation):
             # Приветствие
             Shell.add_line()  # Добавление линии во весь экран
             print(self._description_time.format(self.text_bold, self.color_blue, self.text_end))
-            self._logger_runvad.info(self._description)
+            self._logger_run_train.info(self._description)
             Shell.add_line()  # Добавление линии во весь экран
 
         # Загрузка и проверка конфигурационного файла
@@ -461,49 +372,19 @@ class RunAugmentation(MessagesAugmentation):
             self.libs_vers(out=out)
             Shell.add_line()  # Добавление линии во весь экран
 
-        self.path_to_input_augmentation_directory = self._args[
-            "path_to_input_directory"
-        ]  # Путь к директории данных для обработки
-        self.path_to_output_augmentation_directory = self._args[
-            "path_to_output_directory"
-        ]  # Путь к директории сохранения обработанных данных
-        self.ext_search_files = self._args["ext_search_files"]  # Расширения искомых файлов
+        self.path_to_dataset = self._args["path_to_dataset"]  # Путь к директории набора данных
 
-        # print()
-        # return
-
-        self.augmentation(
-            depth=self._args["depth"],  # Глубина иерархии для получения данных
-            crop_px_min=self._args["crop_px_min"],  # Обрезка в пикселях мин
-            crop_px_max=self._args["crop_px_max"],  # Обрезка в пикселях макс
-            crop_percent_min=self._args["crop_percent_min"],  # Обрезка в процентах мин
-            crop_percent_max=self._args["crop_percent_max"],  # Обрезка в процентах макс
-            flip_lr_probability=self._args["flip_lr_probability"],  # Вероятность отражения по вертикали
-            flip_ud_probability=self._args["flip_ud_probability"],  # Вероятность отражения по горизонтали
-            blur_min=self._args["blur_min"],  # Размытие мин
-            blur_max=self._args["blur_max"],  # Размытие макс
-            scale_x_min=self._args["scale_x_min"],  # Масштабирование Х мин
-            scale_x_max=self._args["scale_x_max"],  # Масштабирование Х макс
-            scale_y_min=self._args["scale_y_min"],  # Масштабирование Y мин
-            scale_y_max=self._args["scale_y_max"],  # Масштабирование Y макс
-            rotate_min=self._args["rotate_min"],  # Поворот мин
-            rotate_max=self._args["rotate_max"],  # Поворот макс
-            contrast_min=self._args["contrast_min"],  # Контраст мин
-            contrast_max=self._args["contrast_max"],  # Контраст макс
-            alpha=self._args["alpha"],  # Альфа для MixUp
-            count=self._args["count"],  # Количество применений аугментации
-            # Очистка директории для сохранения фрагментов аудиовизуального сигнала
-            clear_diraug=self._args["clear_diraug"],
-            out=out,
-        )
+        # self.train(
+        #     out=out,
+        # )
 
         return True
 
 
 def main():
-    # Запуск детектирования речевой активности в аудиовизуальном сигнале
-    aug = RunAugmentation(lang="ru", path_to_logs="./openav/logs")
-    aug.run(out=True)
+    # Запуск процесса обучения
+    vad = RunTrainAudio(lang="ru", path_to_logs="./openav/logs")
+    vad.run(out=True)
 
 
 if __name__ == "__main__":
