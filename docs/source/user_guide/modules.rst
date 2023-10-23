@@ -10,3 +10,4 @@
    modules/audio_preprocessing
    modules/video_preprocessing
    modules/augmentation
+   modules/train_index
