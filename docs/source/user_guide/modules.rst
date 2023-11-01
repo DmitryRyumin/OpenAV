@@ -11,3 +11,4 @@
    modules/video_preprocessing
    modules/augmentation
    modules/train_index
+   modules/test_index

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-23 13:01+0300\n"
+"POT-Creation-Date: 2023-11-01 12:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -54,9 +54,7 @@ msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:10
 #: f025abb13152465a90db6deb19515a8f
-msgid ""
-"Команда для запуска детектирования речевой активности в аудиовизуальном "
-"сигнале:"
+msgid "Команда для запуска процесса обучения акустических нейросетевых моделей:"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:12
@@ -241,8 +239,8 @@ msgid "``True``"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:1
-#: 9f5df43787b74f76a6de8b0966ee50f2
-msgid "Включение паддингов"
+#: 103fa6f8abe144b8bb46203d7d2be989
+msgid "Добавление отступов на изображениях спектрограмм"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:1
@@ -256,8 +254,10 @@ msgid "``42``"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:1
-#: 4c2477d66cd0436baaacfb6e971de1eb
-msgid "Число seed"
+#: b62875acf84c45bd92f85eb827737518
+msgid ""
+"Параметр для инициализации случайных процессов, который обеспечивает "
+"воспроизводимость результатов и одинаковые начальные условия"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:1
@@ -356,4 +356,15 @@ msgid ""
 "точностью. Данный параметр позволяет предотварить переобучение модели, а "
 "также снизить длительность обучения"
 msgstr ""
+
+#~ msgid ""
+#~ "Команда для запуска детектирования речевой "
+#~ "активности в аудиовизуальном сигнале:"
+#~ msgstr ""
+
+#~ msgid "Число seed"
+#~ msgstr ""
+
+#~ msgid "Включение паддингов"
+#~ msgstr ""
 

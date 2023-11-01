@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-23 13:01+0300\n"
+"POT-Creation-Date: 2023-11-01 12:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -54,9 +54,7 @@ msgstr ""
 
 #: ../../source/user_guide/modules/train/video.rst:10
 #: 39784a3d70134743893c114692ba8390
-msgid ""
-"Команда для запуска детектирования речевой активности в аудиовизуальном "
-"сигнале:"
+msgid "Команда для запуска процесса обучения визуальных нейросетевых моделей:"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/video.rst:12
@@ -256,8 +254,10 @@ msgid "``42``"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/video.rst:1
-#: c2856612bebe4cec983611ea891f9cfd
-msgid "Число seed"
+#: da87228c7304420b9b324006c51236ad
+msgid ""
+"Параметр для инициализации случайных процессов, который обеспечивает "
+"воспроизводимость результатов и одинаковые начальные условия"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/video.rst:1
@@ -356,4 +356,12 @@ msgid ""
 "точностью. Данный параметр позволяет предотварить переобучение модели, а "
 "также снизить длительность обучения"
 msgstr ""
+
+#~ msgid ""
+#~ "Команда для запуска детектирования речевой "
+#~ "активности в аудиовизуальном сигнале:"
+#~ msgstr ""
+
+#~ msgid "Число seed"
+#~ msgstr ""
 
