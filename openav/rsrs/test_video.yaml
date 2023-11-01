@@ -1,0 +1,15 @@
+---
+hide_metadata: false
+hide_libs_vers: false
+path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
+size_spec:
+  width: 224
+  height: 224
+channels_spec: 1
+depth: 3
+ext_search_files:
+- mov
+- mp4
+- webm
+path_to_model: "/Users/dl/@DmitryRyumin/Models/OpenAV_video.pt"
+metric: "accuracy"

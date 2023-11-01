@@ -270,7 +270,7 @@ class RunTrainAudio(MessagesTrainAudio):
 
         return True  # Результат
 
-    def _load_config_yaml(self, resources: ModuleType = rsrs, config="vosk_sr.yaml", out: bool = True) -> bool:
+    def _load_config_yaml(self, resources: ModuleType = rsrs, config="train_audio.yaml", out: bool = True) -> bool:
         """Загрузка и проверка конфигурационного файла
 
         Args:
@@ -326,7 +326,7 @@ class RunTrainAudio(MessagesTrainAudio):
             out (bool): Печатать процесс выполнения
 
         Returns:
-             bool: **True** если детектирование речевой активности в аудиовизуальном сигнале произведено успешно,
+             bool: **True** если процесс обучения нейросетевой модели произведен успешно,
                    в обратном случае **False**
         """
 

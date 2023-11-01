@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Автоматическое обучение на видеоданных
+"""Автоматическое тестирование на аудиоданных
 """
 
 import os
@@ -36,13 +36,14 @@ from openav.modules.lab.build import Run  # Сборка библиотеки
 from openav import rsrs  # Ресурсы библиотеки
 
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
+from openav.modules.lab.audio import METRICS_AUDIO
 
 
 # ######################################################################################################################
 # Сообщения
 # ######################################################################################################################
 @dataclass
-class MessagesTrainVideo(Run):
+class MessagesTestAudio(Run):
     """Класс для сообщений"""
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -52,7 +53,7 @@ class MessagesTrainVideo(Run):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._description: str = self._("Автоматическое обучение на видеоданных")
+        self._description: str = self._("Автоматическое тестирование на аудиоданных")
         self._description_time: str = "{}" * 2 + self._description + self._em + "{}"
 
         self._check_config_file_valid = self._("Проверка данных на валидность") + self._em
@@ -62,8 +63,8 @@ class MessagesTrainVideo(Run):
 # Выполняем только в том случае, если файл запущен сам по себе
 # ######################################################################################################################
 @dataclass
-class RunTrainVideo(MessagesTrainVideo):
-    """Класс для автоматического обучения на видеоданных"""
+class RunTestAudio(MessagesTestAudio):
+    """Класс для автоматического тестирования на аудиоданных"""
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
@@ -72,10 +73,10 @@ class RunTrainVideo(MessagesTrainVideo):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 12  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 9  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
-        self._logger_run_train: logging.Logger = logging.getLogger(__class__.__name__)
+        self._logger_run_test: logging.Logger = logging.getLogger(__class__.__name__)
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
@@ -163,8 +164,7 @@ class RunTrainVideo(MessagesTrainVideo):
         for key, val in config.items():
             # 1. Скрытие метаданных
             # 2. Скрытие версий установленных библиотек
-            # 3. Растягивать области губ до указанных размеров или заполнять 0
-            if key == "hide_metadata" or key == "hide_libs_vers" or key == "padding_lips":
+            if key == "hide_metadata" or key == "hide_libs_vers":
                 # Проверка значения
                 if type(val) is not bool:
                     continue
@@ -172,23 +172,16 @@ class RunTrainVideo(MessagesTrainVideo):
                 curr_valid_layer += 1
 
             # 1. Путь к директории набора данных
-            if key == "path_to_dataset":
+            # 2. Путь до обученной нейросетевой модели
+            if key == "path_to_dataset" or key == "path_to_model":
                 # Проверка значения
                 if type(val) is not str or not val:
                     continue
 
                 curr_valid_layer += 1
 
-            # Длина видео
-            if key == "len_video":
-                # Проверка значения
-                if type(val) is not int or not (0 <= val <= 240):
-                    continue
-
-                curr_valid_layer += 1
-
-            # Размер области губ
-            if key == "size_lips":
+            # Размер спектрограмм
+            if key == "size_spec":
                 all_layer_2 = 2  # Общее количество подразделов в текущем разделе
                 curr_valid_layer_2 = 0  # Валидное количество подразделов в текущем разделе
 
@@ -210,55 +203,48 @@ class RunTrainVideo(MessagesTrainVideo):
                 if all_layer_2 == curr_valid_layer_2:
                     curr_valid_layer += 1
 
-            # Случайное число для запуска процесса обучения
-            if key == "seed":
-                # Проверка значения
-                if type(val) is not int or not 0 <= val:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Размер пакетов для обучения
-            if key == "batch_size":
-                # Проверка значения
-                if type(val) is not int or not 1 <= val or not val % 2 == 0:
-                    continue
-
-                curr_valid_layer += 1
-
             # Количество каналов в изображении
-            if key == "channels_lips":
+            if key == "channels_spec":
                 # Проверка значения
                 if type(val) is not int or (1 != val and 3 != val):
                     continue
 
                 curr_valid_layer += 1
 
-            # Скорость обучения
-            if key == "lr":
+            # Глубина иерархии для получения данных
+            if key == "depth":
                 # Проверка значения
-                if type(val) is not float or not 0 <= val:
+                if type(val) is not int or not (1 <= val <= 10):
                     continue
 
                 curr_valid_layer += 1
 
-            # Количество эпох
-            if key == "epoch":
+            # Расширения искомых файлов
+            if key == "ext_search_files":
+                curr_valid_layer_2 = 0  # Валидное количество подразделов в текущем разделе
+
                 # Проверка значения
-                if type(val) is not int or not (0 <= val <= 10000):
+                if type(val) is not list or len(val) == 0:
+                    continue
+
+                # Проход по всем подразделам текущего раздела
+                for v in val:
+                    # Проверка значения
+                    if type(v) is not str or not v:
+                        continue
+
+                    curr_valid_layer_2 += 1
+
+                if curr_valid_layer_2 > 0:
+                    curr_valid_layer += 1
+
+            # Метрика оценки обученной нейросетевой модели
+            if key == "metric":
+                # Проверка значения
+                if type(val) is not str or (val in METRICS_AUDIO) is False:
                     continue
 
                 curr_valid_layer += 1
-
-            # Прерывание если точность не улучшается в течение N эпох
-            if key == "epoch_stop":
-                # Проверка значения
-                if type(val) is not int or not (0 <= val <= 50):
-                    continue
-
-                curr_valid_layer += 1
-
-        print(self._all_layer_in_yaml, curr_valid_layer)
 
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
         if self._all_layer_in_yaml != curr_valid_layer:
@@ -270,7 +256,7 @@ class RunTrainVideo(MessagesTrainVideo):
 
         return True  # Результат
 
-    def _load_config_yaml(self, resources: ModuleType = rsrs, config="train_video.yaml", out: bool = True) -> bool:
+    def _load_config_yaml(self, resources: ModuleType = rsrs, config="test_audio.yaml", out: bool = True) -> bool:
         """Загрузка и проверка конфигурационного файла
 
         Args:
@@ -318,7 +304,7 @@ class RunTrainVideo(MessagesTrainVideo):
     # ------------------------------------------------------------------------------------------------------------------
 
     def run(self, metadata: ModuleType = openav, resources: ModuleType = rsrs, out: bool = True) -> bool:
-        """Запуск процесса обучения
+        """Запуск процесса тестирования
 
         Args:
             metadata (ModuleType): Модуль из которого необходимо извлечь информацию
@@ -326,7 +312,7 @@ class RunTrainVideo(MessagesTrainVideo):
             out (bool): Печатать процесс выполнения
 
         Returns:
-             bool: **True** если процесс обучения нейросетевой модели произведен успешно,
+             bool: **True** если тестирование обученной нейросетевой модели произведено успешно,
                    в обратном случае **False**
         """
 
@@ -351,7 +337,7 @@ class RunTrainVideo(MessagesTrainVideo):
             # Приветствие
             Shell.add_line()  # Добавление линии во весь экран
             print(self._description_time.format(self.text_bold, self.color_blue, self.text_end))
-            self._logger_run_train.info(self._description)
+            self._logger_run_test.info(self._description)
             Shell.add_line()  # Добавление линии во весь экран
 
         # Загрузка и проверка конфигурационного файла
@@ -374,7 +360,7 @@ class RunTrainVideo(MessagesTrainVideo):
 
         self.path_to_dataset = self._args["path_to_dataset"]  # Путь к директории набора данных
 
-        # self.train(
+        # self.test(
         #     out=out,
         # )
 
@@ -382,8 +368,8 @@ class RunTrainVideo(MessagesTrainVideo):
 
 
 def main():
-    # Запуск процесса обучения
-    vad = RunTrainVideo(lang="ru", path_to_logs="./openav/logs")
+    # Запуск процесса тестирования
+    vad = RunTestAudio(lang="ru", path_to_logs="./openav/logs")
     vad.run(out=True)
 
 

@@ -16,8 +16,16 @@ for warn in [UserWarning, FutureWarning]:
 
 from dataclasses import dataclass  # Класс данных
 
+# Типы данных
+from typing import List
+
 # Персональные
 from openav.modules.file_manager.json_manager import Json  # Класс для работы с Json
+
+# Метрики оценки нейросетевой модели
+METRICS_VIDEO: List[str] = [
+    "accuracy",
+]
 
 
 # ######################################################################################################################
