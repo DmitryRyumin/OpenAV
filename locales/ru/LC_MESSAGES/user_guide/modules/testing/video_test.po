@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-01 12:58+0300\n"
+"POT-Creation-Date: 2023-11-02 15:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -250,7 +250,7 @@ msgstr ""
 
 #: ../../source/user_guide/modules/testing/video_test.rst:1
 #: e85507cdcdbf439db4419b45fdfeefba
-msgid "channels_spec"
+msgid "channels_lips"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/video_test.rst:1
@@ -283,5 +283,8 @@ msgid ""
 msgstr ""
 
 #~ msgid "``[\"mov\", \"mp4\",`` |br| ``\"webm\"]``"
+#~ msgstr ""
+
+#~ msgid "channels_spec"
 #~ msgstr ""
 
