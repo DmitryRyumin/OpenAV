@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-01 12:55+0300\n"
+"POT-Creation-Date: 2023-11-02 15:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -186,12 +186,26 @@ msgid ""
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 5813131a7bca43aa8b57ccfd102e588c
+msgid "path_to_model"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 0b8ee03e8d544ecdb77291581782474c
+msgid "``<путь_к_моделям>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: b41fae675e894855a4befc81f3bde80b
+msgid "Директория, где размещаются обученные нейросетевые модели"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
 #: b159e39da17a4b96a24d0d0615214039
 msgid "depth"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/audio_test.rst:1
-#: 0ace0c0e32264ad9871859462bb1ce63 b0da0f658ad8430e9e65780c97f7eda1
 #: bb78f4c4ab064809b96a34e67e978065
 msgid "int"
 msgstr ""

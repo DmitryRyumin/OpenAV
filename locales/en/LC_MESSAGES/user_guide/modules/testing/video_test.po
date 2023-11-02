@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-02 15:10+0300\n"
+"POT-Creation-Date: 2023-11-02 15:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -186,12 +186,27 @@ msgid ""
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 4dcb58abf0f1463fb2d732e24d9a3ea3
+msgid "path_to_model"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: aef972960e434a3da9c2ceafe21cf7ea
+msgid "``<путь_к_моделям>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 08f92bc659be4804857676690cee986c
+msgid "Директория, где размещаются обученные нейросетевые модели"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
 #: bfd7e6ded39d4af7a726f5fdfa4080cb
 msgid "depth"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/video_test.rst:1
-#: 086bc1ecc2e748f998b7adbdbd88c645 eaeffb8e7c0949efa030f33ed6aaf0c2
+#: 086bc1ecc2e748f998b7adbdbd88c645
 msgid "int"
 msgstr ""
 
@@ -227,7 +242,7 @@ msgstr ""
 msgid "Список  расширений файлов, которые будут обрабатываться"
 msgstr ""
 
-#: ../../source/user_guide/modules/testing/video_test.rst:62
+#: ../../source/user_guide/modules/testing/video_test.rst:63
 #: 08f92bc659be4804857676690cee986c
 msgid "Параметры процесса тестирования обученных визуальных нейросетевых моделей"
 msgstr ""
