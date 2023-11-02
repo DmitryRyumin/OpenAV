@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-23 12:00+0300\n"
+"POT-Creation-Date: 2023-11-02 14:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -473,8 +473,8 @@ msgstr ""
 #: ../../source/user_guide/modules/augmentation.rst:1
 #: 72d6f874505a451187cfcc81a1e2980d
 msgid ""
-"Минимальное значение коэффициента контрастности по оси Y. Диапазон "
-"значений от ``-10.0`` и ``10.0``"
+"Минимальное значение коэффициента контрастности. Диапазон значений от "
+"``-10.0`` и ``10.0``"
 msgstr ""
 
 #: ../../source/user_guide/modules/augmentation.rst:1
@@ -490,8 +490,8 @@ msgstr ""
 #: ../../source/user_guide/modules/augmentation.rst:1
 #: f1b7e7c0a3aa4274a92bd46aee2a3b90
 msgid ""
-"Максимальное значение коэффициента контрастности по оси Y. Диапазон "
-"значений от ``-10.0`` и ``10.0``"
+"Максимальное значение коэффициента контрастности. Диапазон значений от "
+"``-10.0`` и ``10.0``"
 msgstr ""
 
 #: ../../source/user_guide/modules/augmentation.rst:1
@@ -668,5 +668,17 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Значения коэффициента MixUp. Диапазон значений от ``-10.0`` и ``10.0``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Минимальное значение коэффициента контрастности "
+#~ "по оси Y. Диапазон значений от "
+#~ "``-10.0`` и ``10.0``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Максимальное значение коэффициента контрастности "
+#~ "по оси Y. Диапазон значений от "
+#~ "``-10.0`` и ``10.0``"
 #~ msgstr ""
 
