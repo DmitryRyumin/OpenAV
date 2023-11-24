@@ -39,6 +39,7 @@
    user_guide/modules
    api/index
    api/class_diagram
+   dataset
    about
    faq
    changelog

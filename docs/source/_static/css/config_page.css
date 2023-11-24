@@ -178,3 +178,13 @@
     font-style: italic;
     text-align: center;
 }
+
+.dataset-table video {
+    width: 100%;
+}
+
+.dataset-table .video-cap {
+    font-weight: 400;
+    margin-top: 30px;
+
+}
