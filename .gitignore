@@ -170,7 +170,6 @@ dmypy.json
 # Custom
 openav/samples/
 openav/models/
-dataset/
 dataset_vad/
 dataset_vosk/
 openav/dataset/
