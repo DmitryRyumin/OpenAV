@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Record</title>
+    <script src = "script.js"></script>
+</head>
+<body>
+    <!-- <div class = "header">
+        <h1>Welcome to our Video Recorder</h1>
+        <p>Web tool for collecting visual data.</p>
+        <div class="intro">
+            <p>You should make a video while answering some question <b><i>like in interview</i></b>. When finished, the recorded video will be automatically downloaded to your device, so you can submit it via our form.</p>
+        </div>
+    </div>
+    
+    <div class = "Note">
+        <h3 class="ribbon-highlight"><i>Please read all the instructions, before you start recording.</i></h3>
+    </div>
+    <div class = "Warp">
+        <div class = "LEFT1">
+            <h3> Instructions: </h3>
+            <ol>
+                <li>When you are ready to start click on <b>Start recording</b>.</li>
+                <li>When you finish answering a question click on <b>Next</b> to go to the next question.</li>
+                <li>After answering all the questions click on <b>Stop recording</b>.</li>
+            </ol>
+        </div>
+
+        <div class = "RIGHT1">
+            <h3>Considerations: </h3>
+            <ol>
+                <li>Make sure that your face is always visable during the whole video.</li>
+                <li>Your voice must be clear and the duration of the video should not exceed 3 minutes.</li>
+                <li>Be yourself, Be spontaneous.</li>
+            </ol>
+        </div>
+    </div> -->
+    <div class = "Note">
+        <p> Пожалуйста, введите свое имя. Когда вы закончите запись, пожалуйста, подождите, пока не появится кнопка <b>Загрузить</b></p>
+    </div>
+
+    <div class = "Note">
+        <h3 class="ribbon-highlight">Удачи!</h3>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="userName">Ваше Имя:</label>
+        <input type="text" id="userName" placeholder="Введите свое имя" required>
+    </div>
+    
+    <div class = "warpper">
+        <video muted id = "video" autoplay></video>
+        <div class = "TEXT">
+            <h3 id = "title">Инструкции</h3>
+            <p id = "question"> Вопросы появятся здесь, когда вы нажмете кнопку Далее.</p>
+        </div>
+        <div class = "clear"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <div id = "BB">
+        <img src="../static/images/red.png" alt="green_button" id = 'image'>
+        <button class = "button-54" id="startButton" disabled>Начать запись</button>
+        <button class = "button-54" id = "next" disabled> Далее </button>
+        <button class = "button-54" id="stopButton" disabled>Остановить запись</button>
+        <button class = "button-54" id="uploadButton" disabled>Загрузить</button>
+    </div>
+
+    <div>
+        <p id="Timer"> 00:00</p>
+    </div>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+</body>
+</html>

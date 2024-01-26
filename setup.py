@@ -28,6 +28,8 @@ REQUIRED_PACKAGES = [
     "pymediainfo >= 6.0.1",
     "pillow >= 9.5.0",
     "imgaug >= 0.4.0",
+    "flask >= 2.3.3",
+    "ffmpeg >= 1.4"
 ]
 
 CLASSIFIERS = """\
