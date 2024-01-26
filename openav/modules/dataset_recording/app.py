@@ -23,7 +23,7 @@ output_dir = 'cuted'
 
 def read_questions_from_csv():
     questions = []
-    with open('questions.csv', mode='r', newline='') as file:
+    with open('questions.csv', mode='r', newline='', encoding='utf-8') as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
             question_number = int(row['QuestionNumber'])
