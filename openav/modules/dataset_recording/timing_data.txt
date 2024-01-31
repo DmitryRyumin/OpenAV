@@ -1,3 +1,0 @@
-Question: Start_recording, Timestamp: 11:30:59 AM
-Question: 1, Timestamp: 11:31:01 AM
-Question: 2, Timestamp: 11:31:03 AM

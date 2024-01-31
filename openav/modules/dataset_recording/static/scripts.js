@@ -47,6 +47,8 @@ let nextButtonEnabled = true;
 function enableNextButton() {
     nextButtonEnabled = true;
     nextButton.disabled = false;
+    var questionElement = document.getElementById('question');
+    questionElement.style.visibility = "visible";
 }
 
 document.getElementById('next').onclick = function () {
@@ -67,6 +69,8 @@ document.getElementById('next').onclick = function () {
                 // Disable the "Next" button
                 nextButtonEnabled = false;
                 nextButton.disabled = true;
+                var questionElement = document.getElementById('question');
+                questionElement.style.visibility = "hidden";
                 console.log(currentQuestion.Disable_time);
                 setTimeout(enableNextButton, currentQuestion.Disable_time);
             }
@@ -95,9 +99,9 @@ navigator.mediaDevices.getUserMedia(constraints)
                 document.getElementById('Timer').innerHTML= mm + ":" + ss;
                 }
             }, 1000);
-        
 
-        mediaRecorder = new MediaRecorder(stream);
+
+        mediaRecorder = new MediaRecorder(stream, {mimeType: 'video/webm; codecs=vp9'});
         // mediaRecorder.start(1000);
 
         mediaRecorder.ondataavailable = function (event) {
@@ -216,7 +220,7 @@ uploadButton.addEventListener('click', () => {
     const userName = getUserName();
     
     // You can use the userName to name the downloaded video
-    const videoFileName = `${userName}.mp4`;
+    const videoFileName = `${userName}.webm`;
     const textFileName = `${userName}.txt`;
 
 

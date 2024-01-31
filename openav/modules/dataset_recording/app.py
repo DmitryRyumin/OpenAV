@@ -1,18 +1,10 @@
 from flask import Flask, request, render_template, jsonify, send_from_directory, send_file
 import os
-import ffmpeg
+import subprocess
 import csv
-# import keras.backend as k
-# from keras.models import Model, load_model
-# import numpy as np
-# from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = 'your_secret_key'  # Set a secret key for security
-# socketio = SocketIO(app)
 
-# app = Flask(__name__)
-# app.debug = True
 global video_path, output_dir
 global processing_finished
 
@@ -38,31 +30,11 @@ def get_questions():
     return jsonify(questions=questions)
 
 
-
 def convert_webm_to_mp4(input_path, output_path):
-    try:
-        (
-            ffmpeg.input(input_path)
-            .output(
-                output_path,
-                vf="scale=1280:720",
-                vcodec="libvpx",       # Video codec: VP8
-                acodec="libopus",      # Audio codec: Opus
-                ar=48000,              # Audio sample rate: 48000Hz
-                ac=1,                  # Mono audio (1 channel)
-                ab="256k",             # Set Opus bit rate to 256,000 bps
-                r=30,                  # Frames per second: 30
-                f="webm",              # Specify WebM container format
-            )
-            .run(overwrite_output=True)
-        )
-        print(f"Video successfully converted to {output_path}")
-    except ffmpeg.Error as e:
-        if e.stderr is not None:
-            print(f"Error: {e.stderr.decode()}")
+    line = ('ffmpeg.exe -i ' + os.getcwd() + "/" + input_path
+            + " " + os.getcwd() + "/" + output_path)
+    subprocess.run(line)
 
-        
-        
 
 # Configure the upload folder for recorded videos
 app.config['UPLOAD_FOLDER'] = 'static/recorded-video'
@@ -99,8 +71,8 @@ def upload():
             video_path = os.path.join(app.config['UPLOAD_FOLDER'], video_file.filename) + '.webm'
             print(video_path)
             # video_file.save(video_path)
-            video_file.save('temp_dir/video.mp4')
-            # convert_webm_to_mp4('temp_dir/video.webm', 'temp_dir/video.mp4')
+            video_file.save('temp_dir/video.webm')
+            # convert_webm_to_mp4('temp_dir\\video.webm', 'temp_dir\\video.mp4')
             print('Done')
             processing_finished = True
 
@@ -117,7 +89,7 @@ def upload():
 
 @app.route('/download_processed_video')
 def download_processed_video():
-    processed_video_path = 'temp_dir/video.mp4'
+    processed_video_path = 'temp_dir/video.webm'
     return send_file(processed_video_path, as_attachment=True)
 
 @app.route('/download_timing_data')
