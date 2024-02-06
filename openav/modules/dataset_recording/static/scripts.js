@@ -64,6 +64,9 @@ document.getElementById('next').onclick = function () {
                 titleElement.innerHTML = 'Вопрос ' + currentQuestion.QuestionNumber;
                 questionElement.innerHTML = currentQuestion.QuestionText;
                 timingData.push({ question: currentQuestion.QuestionNumber, timestamp: currentTime });
+            } else {
+                stop();
+                return;
             }
             if (nextButtonEnabled) {
                 // Disable the "Next" button
@@ -132,8 +135,7 @@ startButton.addEventListener('click', () => {
     timingData.push({ question: 'Start_recording', timestamp: currentTime });
 });
 
-
-stopButton.addEventListener('click', () => {
+function stop() {
     flag = false;
     mins = 0;
     sec = 0;
@@ -171,7 +173,9 @@ stopButton.addEventListener('click', () => {
             });
         }
     }
-});
+}
+
+stopButton.addEventListener('click', stop);
 
 const userNameInput = document.getElementById('userName'); // Get a reference to the input field
 
@@ -283,6 +287,12 @@ uploadButton.addEventListener('click', () => {
 
         // timingData.length = 0;
         counter = 0;
+        let sec = 0;
+        let mins = 0;
+
+        var questionElement = document.getElementById('question');
+        questionElement.style.visibility = "visible";
+
         var titleElement = document.getElementById('title');
         var questionElement = document.getElementById('question');
         titleElement.innerHTML = "Инструкции";
