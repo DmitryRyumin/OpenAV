@@ -24,9 +24,9 @@ import torchvision  # Работа с видео от Facebook
 import torchaudio  # Работа с аудио от Facebook
 import filetype  # Определение типа файла и типа MIME
 import json  # Кодирование и декодирование данных в удобном формате
-from PIL import Image # Считывание изображений
-from imgaug import augmenters as iaa # Базовая аугментация
-import random # Случайные числа
+from PIL import Image  # Считывание изображений
+from imgaug import augmenters as iaa  # Базовая аугментация
+import random  # Случайные числа
 
 # Парсинг URL
 import urllib.parse
@@ -53,8 +53,16 @@ from openav.modules.core.exceptions import (
     IsNestedDirectoryVNotFoundError,
     IsNestedDirectoryANotFoundError,
     SamplingRateError,
-    WindowSizeSamplesError, CropPXError, CropPercentsError, FlipLRProbabilityError, FlipUDProbabilityError, BlurError,
-    ScaleError, RotateError, ContrastError, MixUpAlphaError,
+    WindowSizeSamplesError,
+    CropPXError,
+    CropPercentsError,
+    FlipLRProbabilityError,
+    FlipUDProbabilityError,
+    BlurError,
+    ScaleError,
+    RotateError,
+    ContrastError,
+    MixUpAlphaError,
 )
 from openav.modules.file_manager.yaml_manager import Yaml  # Класс для работы с YAML
 
@@ -99,7 +107,10 @@ VOSK_SPEECH_RIGHT_PAD_MS: int = 0  # Внутренний правый отст�
 AUGMENTATION_CROP_PX: List[int] = [0, 1000000]  # Диапазон значений обрезки в пикселях
 AUGMENTATION_CROP_PERCENT: List[float] = [0, 1.0]  # Диапазон значений обрезки в процентах
 AUGMENTATION_FLIP_LR_PROBABILITY: List[float] = [0, 1.0]  # Диапазон значений вероятности отражения по вертикальной оси
-AUGMENTATION_FLIP_UD_PROBABILITY: List[float] = [0, 1.0]  # Диапазон значений вероятности отражения по горизонтальной оси
+AUGMENTATION_FLIP_UD_PROBABILITY: List[float] = [
+    0,
+    1.0,
+]  # Диапазон значений вероятности отражения по горизонтальной оси
 AUGMENTATION_BLUR: List[float] = [0, 3.0]  # Диапазон значений размытия
 AUGMENTATION_SCALE_X: List[float] = [0, 10.0]  # Диапазон значений масштабирования по оси X
 AUGMENTATION_SCALE_Y: List[float] = [0, 10.0]  # Диапазон значений масштабирования по оси Y
@@ -112,6 +123,7 @@ AUGMENTATION_COUNT: List[int] = [0, 10000]  # Количество примен�
 METRICS_AUDIO: List[str] = [
     "accuracy",
 ]
+
 
 # ######################################################################################################################
 # Сообщения
@@ -134,15 +146,15 @@ class AudioMessages(Yaml):
 
         self._wrong_type_encode: str = self._('Тип кодирования видео должен быть одним из "{}"') + self._em
         self._wrong_preset_crf_encode: str = (
-                self._("Скорость кодирования и сжатия видео должна быть " 'одной из "{}"') + self._em
+            self._("Скорость кодирования и сжатия видео должна быть " 'одной из "{}"') + self._em
         )
         self._wrong_sr_input_type: str = self._('Тип файлов для распознавания должен быть одним из "{}"') + self._em
         self._wrong_sampling_rate_vad: str = (
-                self._('Частота дискретизации речевого сигнала должна быть одной из "{}"') + self._em
+            self._('Частота дискретизации речевого сигнала должна быть одной из "{}"') + self._em
         )
         self._wrong_window_size_samples_type: str = (
-                self._('Для частоты дискретизации "{}" количество выборок в каждом окне должно быть одним из "{}"')
-                + self._em
+            self._('Для частоты дискретизации "{}" количество выборок в каждом окне должно быть одним из "{}"')
+            + self._em
         )
 
         self._download_model_from_repo: str = self._('Загрузка VAD модели "{}" из репозитория {}') + self._em
@@ -154,41 +166,29 @@ class AudioMessages(Yaml):
         self._vosk_model_activation: str = self._("Активация Vosk модели") + ' "{}"' + self._em
         self._sr_not_recognized: str = self._("Речь не найдена") + self._em
 
-        self._wrong_crop_px_aug: str = (
-                self._('Значение обрезки в пикселях должно быть в пределах "{}"') + self._em
-        )
+        self._wrong_crop_px_aug: str = self._('Значение обрезки в пикселях должно быть в пределах "{}"') + self._em
         self._wrong_crop_percent_aug: str = (
-                self._('Значение обрезки в процентах должно быть в пределах "{}"') + self._em
+            self._('Значение обрезки в процентах должно быть в пределах "{}"') + self._em
         )
         self._wrong_flip_lr_prob_aug: str = (
-                self._('Значение вероятности отражения по вертикальной оси должно быть в пределах "{}"') + self._em
+            self._('Значение вероятности отражения по вертикальной оси должно быть в пределах "{}"') + self._em
         )
         self._wrong_flip_ud_prob_aug: str = (
-                self._('Значение вероятности отражения по горизонтальной оси должно быть в пределах "{}"') + self._em
+            self._('Значение вероятности отражения по горизонтальной оси должно быть в пределах "{}"') + self._em
         )
-        self._wrong_blur_aug: str = (
-                self._('Значение размытия должно быть в пределах "{}"') + self._em
-        )
-        self._wrong_scale_aug: str = (
-                self._('Значение масштабирования должно быть в пределах "{}"') + self._em
-        )
-        self._wrong_rotate_aug: str = (
-                self._('Значение угла поворота должно быть в пределах "{}"') + self._em
-        )
-        self._wrong_contrast_aug: str = (
-                self._('Значение контрастности должно быть в пределах "{}"') + self._em
-        )
-        self._wrong_alpha_aug: str = (
-                self._('Значение коэффициента для MixUp должно быть в пределах "{}"') + self._em
-        )
+        self._wrong_blur_aug: str = self._('Значение размытия должно быть в пределах "{}"') + self._em
+        self._wrong_scale_aug: str = self._('Значение масштабирования должно быть в пределах "{}"') + self._em
+        self._wrong_rotate_aug: str = self._('Значение угла поворота должно быть в пределах "{}"') + self._em
+        self._wrong_contrast_aug: str = self._('Значение контрастности должно быть в пределах "{}"') + self._em
+        self._wrong_alpha_aug: str = self._('Значение коэффициента для MixUp должно быть в пределах "{}"') + self._em
 
         self._subfolders_search: str = (
-                self._('Поиск вложенных директорий в директории "{}" (глубина вложенности: {})') + self._em
+            self._('Поиск вложенных директорий в директории "{}" (глубина вложенности: {})') + self._em
         )
         self._subfolders_not_found: str = self._("В указанной директории вложенные директории не найдены") + self._em
 
         self._files_av_find: str = (
-                self._('Поиск файлов с расширениями "{}" в директории "{}" (глубина вложенности: {})') + self._em
+            self._('Поиск файлов с расширениями "{}" в директории "{}" (глубина вложенности: {})') + self._em
         )
 
         self._files_analysis: str = self._("Анализ файлов") + self._em
@@ -357,7 +357,7 @@ class Audio(AudioMessages):
     # Детальная информация о текущем процессе распознавания речи (Vosk)
     @staticmethod
     def __speech_rec_result(
-            keys: List[str], speech_rec_res: Dict[str, Union[List[Dict[str, Union[float, str]]], str]]
+        keys: List[str], speech_rec_res: Dict[str, Union[List[Dict[str, Union[float, str]]], str]]
     ) -> List[Union[str, float]]:
         """Детальная информация о текущем процессе распознавания речи (Vosk)
 
@@ -399,9 +399,9 @@ class Audio(AudioMessages):
             # https://trac.ffmpeg.org/wiki/audio%20types
             # Выполнение в новом процессе
             with subprocess.Popen(
-                    ["ffmpeg", "-loglevel", "quiet", "-i", self.__curr_path]
-                    + ["-ar", str(self.__freq_sr), "-ac", str(1), "-f", "s16le", "-"],
-                    stdout=subprocess.PIPE,
+                ["ffmpeg", "-loglevel", "quiet", "-i", self.__curr_path]
+                + ["-ar", str(self.__freq_sr), "-ac", str(1), "-f", "s16le", "-"],
+                stdout=subprocess.PIPE,
             ) as process:
                 results_recognized = []  # Результаты распознавания
 
@@ -476,21 +476,21 @@ class Audio(AudioMessages):
                 # https://trac.ffmpeg.org/wiki/audio%20types
                 # Выполнение в новом процессе
                 with subprocess.Popen(
-                        ["ffmpeg", "-loglevel", "quiet", "-i", self.__curr_path]
-                        + [
-                            "-ar",
-                            str(self.__freq_sr),
-                            "-map_channel",
-                            channel,
-                            "-acodec",
-                            "pcm_s16le",
-                            "-ac",
-                            str(1),
-                            "-f",
-                            "s16le",
-                            "-",
-                        ],
-                        stdout=subprocess.PIPE,
+                    ["ffmpeg", "-loglevel", "quiet", "-i", self.__curr_path]
+                    + [
+                        "-ar",
+                        str(self.__freq_sr),
+                        "-map_channel",
+                        channel,
+                        "-acodec",
+                        "pcm_s16le",
+                        "-ac",
+                        str(1),
+                        "-f",
+                        "s16le",
+                        "-",
+                    ],
+                    stdout=subprocess.PIPE,
                 ) as process:
                     while True:
                         data = process.stdout.read(4000)
@@ -924,8 +924,6 @@ class Audio(AudioMessages):
 
         # Распознавание речи по аудио
         if type(self.__subprocess_vosk_sr) is dict:
-            print("Тестирование")
-
             # Проход по всем найденным меткам
             for key, val in enumerate(self.__subprocess_vosk_sr.items()):
                 # Проход по всем найденным меткам
@@ -1001,21 +999,21 @@ class Audio(AudioMessages):
     # ------------------------------------------------------------------------------------------------------------------
 
     def vad(
-            self,
-            depth: int = 1,
-            type_encode: str = TYPES_ENCODE[1],
-            crf_value: int = CRF_VALUE,
-            presets_crf_encode: str = PRESETS_CRF_ENCODE[5],
-            sr_input_type: str = SR_INPUT_TYPES[0],
-            sampling_rate: int = SAMPLING_RATE_VAD[1],
-            threshold: float = THRESHOLD_VAD,
-            min_speech_duration_ms: int = MIN_SPEECH_DURATION_MS_VAD,
-            min_silence_duration_ms: int = MIN_SILENCE_DURATION_MS_VAD,
-            window_size_samples: int = WINDOW_SIZE_SAMPLES_VAD[SAMPLING_RATE_VAD[1]][2],
-            speech_pad_ms: int = SPEECH_PAD_MS,
-            force_reload: bool = True,
-            clear_dirvad: bool = False,
-            out: bool = True,
+        self,
+        depth: int = 1,
+        type_encode: str = TYPES_ENCODE[1],
+        crf_value: int = CRF_VALUE,
+        presets_crf_encode: str = PRESETS_CRF_ENCODE[5],
+        sr_input_type: str = SR_INPUT_TYPES[0],
+        sampling_rate: int = SAMPLING_RATE_VAD[1],
+        threshold: float = THRESHOLD_VAD,
+        min_speech_duration_ms: int = MIN_SPEECH_DURATION_MS_VAD,
+        min_silence_duration_ms: int = MIN_SILENCE_DURATION_MS_VAD,
+        window_size_samples: int = WINDOW_SIZE_SAMPLES_VAD[SAMPLING_RATE_VAD[1]][2],
+        speech_pad_ms: int = SPEECH_PAD_MS,
+        force_reload: bool = True,
+        clear_dirvad: bool = False,
+        out: bool = True,
     ) -> bool:
         """VAD (Voice Activity Detector) или (детектирование голосовой активности)
 
@@ -1051,21 +1049,21 @@ class Audio(AudioMessages):
         try:
             # Проверка аргументов
             if (
-                    type(depth) is not int
-                    or depth < 1
-                    or type(crf_value) is not int
-                    or not (0 <= crf_value <= 51)
-                    or type(threshold) is not float
-                    or not (0.0 <= threshold <= 1.0)
-                    or type(min_speech_duration_ms) is not int
-                    or min_speech_duration_ms < 1
-                    or type(min_silence_duration_ms) is not int
-                    or min_silence_duration_ms < 1
-                    or type(speech_pad_ms) is not int
-                    or speech_pad_ms < 1
-                    or type(force_reload) is not bool
-                    or type(clear_dirvad) is not bool
-                    or type(out) is not bool
+                type(depth) is not int
+                or depth < 1
+                or type(crf_value) is not int
+                or not (0 <= crf_value <= 51)
+                or type(threshold) is not float
+                or not (0.0 <= threshold <= 1.0)
+                or type(min_speech_duration_ms) is not int
+                or min_speech_duration_ms < 1
+                or type(min_silence_duration_ms) is not int
+                or min_silence_duration_ms < 1
+                or type(speech_pad_ms) is not int
+                or speech_pad_ms < 1
+                or type(force_reload) is not bool
+                or type(clear_dirvad) is not bool
+                or type(out) is not bool
             ):
                 raise TypeError
         except TypeError:
@@ -1083,8 +1081,8 @@ class Audio(AudioMessages):
                 if type(sampling_rate) is not int or (sampling_rate in [x for x in SAMPLING_RATE_VAD]) is False:
                     raise SamplingRateError
                 if (
-                        type(window_size_samples) is not int
-                        or (window_size_samples in [x for x in WINDOW_SIZE_SAMPLES_VAD[sampling_rate]]) is False
+                    type(window_size_samples) is not int
+                    or (window_size_samples in [x for x in WINDOW_SIZE_SAMPLES_VAD[sampling_rate]]) is False
                 ):
                     raise WindowSizeSamplesError
             except TypeEncodeVideoError:
@@ -1261,7 +1259,7 @@ class Audio(AudioMessages):
 
                         # Локальный путь
                         self.__local_path = lambda lp: os.path.join(
-                            *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))):]
+                            *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))) :]
                         )
 
                         # Проход по всем найденным аудиовизуальных файлам
@@ -1341,9 +1339,9 @@ class Audio(AudioMessages):
         try:
             # Проверка аргументов
             if (
-                    ((type(new_name) is not str or not new_name) and new_name is not None)
-                    or type(force_reload) is not bool
-                    or type(out) is not bool
+                ((type(new_name) is not str or not new_name) and new_name is not None)
+                or type(force_reload) is not bool
+                or type(out) is not bool
             ):
                 raise TypeError
         except TypeError:
@@ -1405,17 +1403,17 @@ class Audio(AudioMessages):
                     return False
 
     def vosk_sr(
-            self,
-            depth: int = 1,
-            type_encode: str = TYPES_ENCODE[1],
-            crf_value: int = CRF_VALUE,
-            presets_crf_encode: str = PRESETS_CRF_ENCODE[5],
-            new_name: Optional[str] = None,
-            speech_left_pad_ms: int = VOSK_SPEECH_LEFT_PAD_MS,
-            speech_right_pad_ms: int = VOSK_SPEECH_RIGHT_PAD_MS,
-            force_reload: bool = True,
-            clear_dirvosk_sr: bool = False,
-            out: bool = True,
+        self,
+        depth: int = 1,
+        type_encode: str = TYPES_ENCODE[1],
+        crf_value: int = CRF_VALUE,
+        presets_crf_encode: str = PRESETS_CRF_ENCODE[5],
+        new_name: Optional[str] = None,
+        speech_left_pad_ms: int = VOSK_SPEECH_LEFT_PAD_MS,
+        speech_right_pad_ms: int = VOSK_SPEECH_RIGHT_PAD_MS,
+        force_reload: bool = True,
+        clear_dirvosk_sr: bool = False,
+        out: bool = True,
     ) -> bool:
         """VAD + SR (Voice Activity Detector + Speech Recognition) или (детектирование голосовой активности и
         распознавание речи)
@@ -1440,18 +1438,18 @@ class Audio(AudioMessages):
         try:
             # Проверка аргументов
             if (
-                    type(depth) is not int
-                    or depth < 1
-                    or type(crf_value) is not int
-                    or not (0 <= crf_value <= 51)
-                    or ((type(new_name) is not str or not new_name) and new_name is not None)
-                    or type(speech_left_pad_ms) is not int
-                    or speech_left_pad_ms < 0
-                    or type(speech_right_pad_ms) is not int
-                    or speech_right_pad_ms < 0
-                    or type(force_reload) is not bool
-                    or type(clear_dirvosk_sr) is not bool
-                    or type(out) is not bool
+                type(depth) is not int
+                or depth < 1
+                or type(crf_value) is not int
+                or not (0 <= crf_value <= 51)
+                or ((type(new_name) is not str or not new_name) and new_name is not None)
+                or type(speech_left_pad_ms) is not int
+                or speech_left_pad_ms < 0
+                or type(speech_right_pad_ms) is not int
+                or speech_right_pad_ms < 0
+                or type(force_reload) is not bool
+                or type(clear_dirvosk_sr) is not bool
+                or type(out) is not bool
             ):
                 raise TypeError
         except TypeError:
@@ -1566,7 +1564,7 @@ class Audio(AudioMessages):
 
                     # Локальный путь
                     self.__local_path = lambda lp: os.path.join(
-                        *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))):]
+                        *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))) :]
                     )
 
                     # Проход по всем найденным аудиовизуальных файлам
@@ -1629,38 +1627,43 @@ class Audio(AudioMessages):
                     if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
                         self.message_true(self._vad_true, space=self._space, out=out)
 
-    def augmentation_check_settings(self,
-                                    crop_px_min: int,
-                                    crop_px_max: int,
-                                    crop_percent_min: float,
-                                    crop_percent_max: float,
-                                    flip_lr_probability: float,
-                                    flip_ud_probability: float,
-                                    blur_min: float,
-                                    blur_max: float,
-                                    scale_x_min: float,
-                                    scale_x_max: float,
-                                    scale_y_min: float,
-                                    scale_y_max: float,
-                                    rotate_min: int,
-                                    rotate_max: int,
-                                    contrast_min: float,
-                                    contrast_max: float,
-                                    alpha: float,
-                                    count: int,
-                                    out: bool,
-                                    ) -> bool:
+    def augmentation_check_settings(
+        self,
+        crop_px_min: int,
+        crop_px_max: int,
+        crop_percent_min: float,
+        crop_percent_max: float,
+        flip_lr_probability: float,
+        flip_ud_probability: float,
+        blur_min: float,
+        blur_max: float,
+        scale_x_min: float,
+        scale_x_max: float,
+        scale_y_min: float,
+        scale_y_max: float,
+        rotate_min: int,
+        rotate_max: int,
+        contrast_min: float,
+        contrast_max: float,
+        alpha: float,
+        count: int,
+        out: bool,
+    ) -> bool:
         try:
             # Проверка настроек
             if (AUGMENTATION_CROP_PX[0] <= crop_px_min <= crop_px_max <= AUGMENTATION_CROP_PX[1]) is False:
                 raise CropPXError
-            if (AUGMENTATION_CROP_PERCENT[0] <= crop_percent_min <= crop_percent_max <= AUGMENTATION_CROP_PERCENT[1]) is False:
+            if (
+                AUGMENTATION_CROP_PERCENT[0] <= crop_percent_min <= crop_percent_max <= AUGMENTATION_CROP_PERCENT[1]
+            ) is False:
                 raise CropPercentsError
-            if ((AUGMENTATION_FLIP_LR_PROBABILITY[0] <= flip_lr_probability <= AUGMENTATION_FLIP_LR_PROBABILITY[1])
-                    is False):
+            if (
+                AUGMENTATION_FLIP_LR_PROBABILITY[0] <= flip_lr_probability <= AUGMENTATION_FLIP_LR_PROBABILITY[1]
+            ) is False:
                 raise FlipLRProbabilityError
-            if ((AUGMENTATION_FLIP_UD_PROBABILITY[0] <= flip_ud_probability <= AUGMENTATION_FLIP_UD_PROBABILITY[1])
-                    is False):
+            if (
+                AUGMENTATION_FLIP_UD_PROBABILITY[0] <= flip_ud_probability <= AUGMENTATION_FLIP_UD_PROBABILITY[1]
+            ) is False:
                 raise FlipUDProbabilityError
             if (AUGMENTATION_BLUR[0] <= blur_min <= blur_max <= AUGMENTATION_BLUR[1]) is False:
                 raise BlurError
@@ -1668,8 +1671,11 @@ class Audio(AudioMessages):
                 raise ScaleError
             if (AUGMENTATION_SCALE_Y[0] <= scale_y_min <= scale_y_max <= AUGMENTATION_SCALE_Y[1]) is False:
                 raise ScaleError
-            if (type(rotate_min) is not int or type(rotate_max) is not int or
-                    (AUGMENTATION_ROTATE[0] <= rotate_min <= rotate_max <= AUGMENTATION_ROTATE[1]) is False):
+            if (
+                type(rotate_min) is not int
+                or type(rotate_max) is not int
+                or (AUGMENTATION_ROTATE[0] <= rotate_min <= rotate_max <= AUGMENTATION_ROTATE[1]) is False
+            ):
                 raise RotateError
             if (AUGMENTATION_CONTRAST[0] <= contrast_min <= contrast_max <= AUGMENTATION_CONTRAST[1]) is False:
                 raise ContrastError
@@ -1677,9 +1683,7 @@ class Audio(AudioMessages):
                 raise MixUpAlphaError
         except CropPXError:
             self.message_error(
-                self._wrong_crop_px_aug.format(
-                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_CROP_PX))
-                ),
+                self._wrong_crop_px_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_CROP_PX))),
                 out=out,
             )
             return False
@@ -1709,41 +1713,31 @@ class Audio(AudioMessages):
             return False
         except BlurError:
             self.message_error(
-                self._wrong_blur_aug.format(
-                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_BLUR))
-                ),
+                self._wrong_blur_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_BLUR))),
                 out=out,
             )
             return False
         except ScaleError:
             self.message_error(
-                self._wrong_scale_aug.format(
-                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_SCALE_X))
-                ),
+                self._wrong_scale_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_SCALE_X))),
                 out=out,
             )
             return False
         except RotateError:
             self.message_error(
-                self._wrong_rotate_aug.format(
-                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_ROTATE))
-                ),
+                self._wrong_rotate_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_ROTATE))),
                 out=out,
             )
             return False
         except ContrastError:
             self.message_error(
-                self._wrong_contrast_aug.format(
-                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_CONTRAST))
-                ),
+                self._wrong_contrast_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_CONTRAST))),
                 out=out,
             )
             return False
         except MixUpAlphaError:
             self.message_error(
-                self._wrong_alpha_aug.format(
-                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_ALPHA))
-                ),
+                self._wrong_alpha_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_ALPHA))),
                 out=out,
             )
             return False
@@ -1772,51 +1766,62 @@ class Audio(AudioMessages):
         print()
         return True
 
-    def augmentation_validate_arguments(self,
-                                        depth: int,
-                                        crop_px_min: int,
-                                        crop_px_max: int,
-                                        crop_percent_min: float,
-                                        crop_percent_max: float,
-                                        flip_lr_probability: float,
-                                        flip_ud_probability: float,
-                                        blur_min: float,
-                                        blur_max: float,
-                                        scale_x_min: float,
-                                        scale_x_max: float,
-                                        scale_y_min: float,
-                                        scale_y_max: float,
-                                        rotate_min: int,
-                                        rotate_max: int,
-                                        contrast_min: float,
-                                        contrast_max: float,
-                                        alpha: float,
-                                        count: int,
-                                        clear_diraug: bool,
-                                        out: bool,
-                                        ) -> bool:
+    def augmentation_validate_arguments(
+        self,
+        depth: int,
+        crop_px_min: int,
+        crop_px_max: int,
+        crop_percent_min: float,
+        crop_percent_max: float,
+        flip_lr_probability: float,
+        flip_ud_probability: float,
+        blur_min: float,
+        blur_max: float,
+        scale_x_min: float,
+        scale_x_max: float,
+        scale_y_min: float,
+        scale_y_max: float,
+        rotate_min: int,
+        rotate_max: int,
+        contrast_min: float,
+        contrast_max: float,
+        alpha: float,
+        count: int,
+        clear_diraug: bool,
+        out: bool,
+    ) -> bool:
         try:
             # Проверка аргументов
-            if (
-                    type(depth) is not int
-                    or depth < 1
-                    or type(clear_diraug) is not bool
-                    or type(out) is not bool
-            ):
+            if type(depth) is not int or depth < 1 or type(clear_diraug) is not bool or type(out) is not bool:
                 raise TypeError
         except TypeError:
             self.inv_args(__class__.__name__, self.vad.__name__, out=out)
             return False
         else:
-            self.augmentation_check_settings(crop_px_min, crop_px_max, crop_percent_min, crop_percent_max,
-                                             flip_lr_probability, flip_ud_probability, blur_min, blur_max, scale_x_min,
-                                             scale_x_max, scale_y_min, scale_y_max, rotate_min, rotate_max,
-                                             contrast_min, contrast_max, alpha, count, out)
+            self.augmentation_check_settings(
+                crop_px_min,
+                crop_px_max,
+                crop_percent_min,
+                crop_percent_max,
+                flip_lr_probability,
+                flip_ud_probability,
+                blur_min,
+                blur_max,
+                scale_x_min,
+                scale_x_max,
+                scale_y_min,
+                scale_y_max,
+                rotate_min,
+                rotate_max,
+                contrast_min,
+                contrast_max,
+                alpha,
+                count,
+                out,
+            )
         return True
 
-    def augmentation_parce_directories(self,
-                                       depth: int,
-                                       out: bool) -> [str]:
+    def augmentation_parce_directories(self, depth: int, out: bool) -> [str]:
         # Информационное сообщение
         self.message_info(
             self._subfolders_search.format(
@@ -1852,9 +1857,7 @@ class Audio(AudioMessages):
         )
         return nested_paths
 
-    def augmentation_parce_files(self,
-                                 depth: int,
-                                 out: bool) -> [str]:
+    def augmentation_parce_files(self, depth: int, out: bool) -> [str]:
         nested_paths = self.augmentation_parce_directories(depth, out)
 
         paths = []  # Пути до аудиовизуальных файлов
@@ -1868,9 +1871,7 @@ class Audio(AudioMessages):
                     paths.append(p.resolve())
         return paths
 
-    def augmentation_input_directory_is_not_empty(self,
-                                                  paths: [str],
-                                                  out: bool) -> bool:
+    def augmentation_input_directory_is_not_empty(self, paths: [str], out: bool) -> bool:
         # Директория с набором данных не содержит аудиовизуальных файлов с необходимыми расширениями
         try:
             self.__len_paths = len(paths)  # Количество аудиовизуальных файлов
@@ -1884,20 +1885,14 @@ class Audio(AudioMessages):
             self.message_error(self._unknown_err, space=self._space, out=out)
             return False
 
-    def augmentation_prepare_directory(self,
-                                       paths: [str],
-                                       clear_diraug: bool,
-                                       out: bool) -> bool:
+    def augmentation_prepare_directory(self, paths: [str], clear_diraug: bool, out: bool) -> bool:
         if self.augmentation_input_directory_is_not_empty(paths, out):
             # Очистка директории для сохранения обработанных аудиовизуальных сигналов
             if clear_diraug is True and os.path.exists(self.path_to_output_augmentation_directory) is True:
                 if self.clear_folder(self.path_to_output_augmentation_directory, out=False) is False:
                     return False
 
-    def augmentation_process_files(self,
-                                   paths: [str],
-                                   clear_diraug: bool,
-                                   out: bool) -> bool:
+    def augmentation_process_files(self, paths: [str], clear_diraug: bool, out: bool) -> bool:
 
         self.augmentation_prepare_directory(paths, clear_diraug, out)
 
@@ -1908,8 +1903,7 @@ class Audio(AudioMessages):
 
         # Локальный путь
         self.__local_path = lambda lp: os.path.join(
-            *Path(lp).parts[
-             -abs((len(Path(lp).parts) - len(Path(self.path_to_input_augmentation_directory).parts))):]
+            *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_input_augmentation_directory).parts))) :]
         )
 
         # Проход по всем найденным аудиовизуальных файлам
@@ -1938,32 +1932,35 @@ class Audio(AudioMessages):
                 for k in range(self.__count):
                     # Тип файла
                     kind = filetype.guess(self.__curr_path)
-                    directory = os.path.join(self.path_to_output_augmentation_directory, Path(self.__curr_path).parent
-                                             .relative_to(Path(self.path_to_input_augmentation_directory)))
+                    directory = os.path.join(
+                        self.path_to_output_augmentation_directory,
+                        Path(self.__curr_path).parent.relative_to(Path(self.path_to_input_augmentation_directory)),
+                    )
                     os.makedirs(directory, exist_ok=True)
 
                     self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
 
                     path = os.path.join(
                         directory,
-                        Path(self.__curr_path).stem
-                        + "_"
-                        + self.__curr_ts
-                        + "."
-                        + EXT_AUDIO_AUG,
+                        Path(self.__curr_path).stem + "_" + self.__curr_ts + "." + EXT_AUDIO_AUG,
                     )
-                    seq = iaa.Sequential([
-                        iaa.Crop(px=(self.__crop_px_min, self.__crop_px_max)),
-                        iaa.Crop(percent=(self.__crop_percent_min, self.__crop_percent_max)),
-                        iaa.Fliplr(self.__flip_lr_probability),
-                        iaa.Flipud(p=self.__flip_ud_probability),
-                        iaa.GaussianBlur(sigma=(self.__blur_min, self.__blur_max)),
-                        iaa.Affine(
-                           scale={"x": (self.__scale_x_min, self.__scale_x_max), "y": (self.__scale_y_min, self.__scale_y_max)},
-                           rotate=(self.__rotate_min, self.__rotate_max),
-                        ),
-                        iaa.LinearContrast((self.__contrast_min, self.__contrast_max))
-                    ])
+                    seq = iaa.Sequential(
+                        [
+                            iaa.Crop(px=(self.__crop_px_min, self.__crop_px_max)),
+                            iaa.Crop(percent=(self.__crop_percent_min, self.__crop_percent_max)),
+                            iaa.Fliplr(self.__flip_lr_probability),
+                            iaa.Flipud(p=self.__flip_ud_probability),
+                            iaa.GaussianBlur(sigma=(self.__blur_min, self.__blur_max)),
+                            iaa.Affine(
+                                scale={
+                                    "x": (self.__scale_x_min, self.__scale_x_max),
+                                    "y": (self.__scale_y_min, self.__scale_y_max),
+                                },
+                                rotate=(self.__rotate_min, self.__rotate_max),
+                            ),
+                            iaa.LinearContrast((self.__contrast_min, self.__contrast_max)),
+                        ]
+                    )
                     alpha = self.__alpha
                     img = Image.open(self.__curr_path)
                     img_array = np.array(img)
@@ -1976,7 +1973,6 @@ class Audio(AudioMessages):
                     img_res = np.array(img_res)
 
                     Image.fromarray(img_res).save(path)
-
 
             except Exception as err:
                 print(err)
@@ -1994,28 +1990,28 @@ class Audio(AudioMessages):
             return True
 
     def augmentation(
-            self,
-            depth: int = 1,
-            crop_px_min: int = AUGMENTATION_CROP_PX[0],
-            crop_px_max: int = AUGMENTATION_CROP_PX[0],
-            crop_percent_min: float = AUGMENTATION_CROP_PERCENT[0],
-            crop_percent_max: float = AUGMENTATION_CROP_PERCENT[0],
-            flip_lr_probability: float = AUGMENTATION_FLIP_LR_PROBABILITY[0],
-            flip_ud_probability: float = AUGMENTATION_FLIP_UD_PROBABILITY[0],
-            blur_min: float = AUGMENTATION_BLUR[0],
-            blur_max: float = AUGMENTATION_BLUR[0],
-            scale_x_min: float = AUGMENTATION_SCALE_X[0],
-            scale_x_max: float = AUGMENTATION_SCALE_X[0],
-            scale_y_min: float = AUGMENTATION_SCALE_Y[0],
-            scale_y_max: float = AUGMENTATION_SCALE_Y[0],
-            rotate_min: int = AUGMENTATION_ROTATE[0],
-            rotate_max: int = AUGMENTATION_ROTATE[0],
-            contrast_min: float = AUGMENTATION_CONTRAST[0],
-            contrast_max: float = AUGMENTATION_CONTRAST[0],
-            alpha: float = AUGMENTATION_ALPHA[0],
-            count: int = 1,
-            clear_diraug: bool = False,
-            out: bool = True,
+        self,
+        depth: int = 1,
+        crop_px_min: int = AUGMENTATION_CROP_PX[0],
+        crop_px_max: int = AUGMENTATION_CROP_PX[0],
+        crop_percent_min: float = AUGMENTATION_CROP_PERCENT[0],
+        crop_percent_max: float = AUGMENTATION_CROP_PERCENT[0],
+        flip_lr_probability: float = AUGMENTATION_FLIP_LR_PROBABILITY[0],
+        flip_ud_probability: float = AUGMENTATION_FLIP_UD_PROBABILITY[0],
+        blur_min: float = AUGMENTATION_BLUR[0],
+        blur_max: float = AUGMENTATION_BLUR[0],
+        scale_x_min: float = AUGMENTATION_SCALE_X[0],
+        scale_x_max: float = AUGMENTATION_SCALE_X[0],
+        scale_y_min: float = AUGMENTATION_SCALE_Y[0],
+        scale_y_max: float = AUGMENTATION_SCALE_Y[0],
+        rotate_min: int = AUGMENTATION_ROTATE[0],
+        rotate_max: int = AUGMENTATION_ROTATE[0],
+        contrast_min: float = AUGMENTATION_CONTRAST[0],
+        contrast_max: float = AUGMENTATION_CONTRAST[0],
+        alpha: float = AUGMENTATION_ALPHA[0],
+        count: int = 1,
+        clear_diraug: bool = False,
+        out: bool = True,
     ) -> bool:
         """Аугментация аудиовизуальных сигналов
 
@@ -2051,9 +2047,28 @@ class Audio(AudioMessages):
 
         .. deprecated:: 0.1.0
         """
-        self.augmentation_validate_arguments(depth, crop_px_min, crop_px_max, crop_percent_min, crop_percent_max,
-                                             flip_lr_probability, flip_ud_probability, blur_min, blur_max, scale_x_min,
-                                             scale_x_max, scale_y_min, scale_y_max, rotate_min, rotate_max,
-                                             contrast_min, contrast_max, alpha, count, clear_diraug, out)
+        self.augmentation_validate_arguments(
+            depth,
+            crop_px_min,
+            crop_px_max,
+            crop_percent_min,
+            crop_percent_max,
+            flip_lr_probability,
+            flip_ud_probability,
+            blur_min,
+            blur_max,
+            scale_x_min,
+            scale_x_max,
+            scale_y_min,
+            scale_y_max,
+            rotate_min,
+            rotate_max,
+            contrast_min,
+            contrast_max,
+            alpha,
+            count,
+            clear_diraug,
+            out,
+        )
         paths = self.augmentation_parce_files(depth, out)
         return self.augmentation_process_files(paths, clear_diraug, out)

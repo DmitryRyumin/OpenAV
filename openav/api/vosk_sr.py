@@ -430,6 +430,7 @@ class RunVoskSR(MessagesVoskSR):
         self.path_to_dataset = self._args["path_to_dataset"]  # Путь к директории набора данных
         # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала
         self.path_to_dataset_vad = self._args["path_to_dataset_vosk_sr"]
+        self.path_to_dataset_vosk_sr = self._args["path_to_dataset_vosk_sr"]
         self.dir_va_names = self._args["dir_va_names"]  # Названия директорий для видео и аудио
         self.ext_search_files = self._args["ext_search_files"]  # Расширения искомых файлов
         self.vosk_language_sr = self._args["lang_model"]  # Языковая модель
