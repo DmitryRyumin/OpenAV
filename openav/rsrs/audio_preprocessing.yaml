@@ -17,3 +17,4 @@ power: 2.0
 pad_mode: 'reflect'
 norm: 'slaney'
 center: true
+clear_dir_audio: true

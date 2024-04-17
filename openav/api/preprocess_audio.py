@@ -383,6 +383,13 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
         # Путь к директории набора данных состоящего из спектрограмм
         self.path_to_dataset_audio = self._args["path_to_dataset_audio"]
 
+        self.preprocess_audio(
+            depth=self._args["depth"],  # Глубина иерархии для получения данных
+            # Очистка директории для сохранения аудиоданных после предобработки
+            clear_dir_audio=self._args["clear_dir_audio"],
+            out=out,
+        )
+
         return True
 
 

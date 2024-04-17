@@ -1823,7 +1823,7 @@ class Audio(AudioMessages):
             )
         return True
 
-    def augmentation_parce_directories(self, depth: int, out: bool) -> [str]:
+    def augmentation_parce_directories(self, depth: int, out: bool) -> List[str]:
         # Информационное сообщение
         self.message_info(
             self._subfolders_search.format(
@@ -1859,7 +1859,7 @@ class Audio(AudioMessages):
         )
         return nested_paths
 
-    def augmentation_parce_files(self, depth: int, out: bool) -> [str]:
+    def augmentation_parce_files(self, depth: int, out: bool) -> List[str]:
         nested_paths = self.augmentation_parce_directories(depth, out)
 
         paths = []  # Пути до аудиовизуальных файлов
@@ -1873,7 +1873,7 @@ class Audio(AudioMessages):
                     paths.append(p.resolve())
         return paths
 
-    def augmentation_input_directory_is_not_empty(self, paths: [str], out: bool) -> bool:
+    def augmentation_input_directory_is_not_empty(self, paths: List[str], out: bool) -> bool:
         # Директория с набором данных не содержит аудиовизуальных файлов с необходимыми расширениями
         try:
             self.__len_paths = len(paths)  # Количество аудиовизуальных файлов
@@ -1887,14 +1887,14 @@ class Audio(AudioMessages):
             self.message_error(self._unknown_err, space=self._space, out=out)
             return False
 
-    def augmentation_prepare_directory(self, paths: [str], clear_diraug: bool, out: bool) -> bool:
+    def augmentation_prepare_directory(self, paths: List[str], clear_diraug: bool, out: bool) -> bool:
         if self.augmentation_input_directory_is_not_empty(paths, out):
             # Очистка директории для сохранения обработанных аудиовизуальных сигналов
             if clear_diraug is True and os.path.exists(self.path_to_output_augmentation_directory) is True:
                 if self.clear_folder(self.path_to_output_augmentation_directory, out=False) is False:
                     return False
 
-    def augmentation_process_files(self, paths: [str], clear_diraug: bool, out: bool) -> bool:
+    def augmentation_process_files(self, paths: List[str], clear_diraug: bool, out: bool) -> bool:
 
         self.augmentation_prepare_directory(paths, clear_diraug, out)
 
@@ -1933,7 +1933,7 @@ class Audio(AudioMessages):
             try:
                 for k in range(self.__count):
                     # Тип файла
-                    kind = filetype.guess(self.__curr_path)
+                    _ = filetype.guess(self.__curr_path)
                     directory = os.path.join(
                         self.path_to_output_augmentation_directory,
                         Path(self.__curr_path).parent.relative_to(Path(self.path_to_input_augmentation_directory)),
@@ -2074,3 +2074,6 @@ class Audio(AudioMessages):
         )
         paths = self.augmentation_parce_files(depth, out)
         return self.augmentation_process_files(paths, clear_diraug, out)
+
+    def preprocess_audio():
+        pass

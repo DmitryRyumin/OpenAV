@@ -429,14 +429,6 @@ class RunVAD(MessagesVAD):
         self.dir_va_names = self._args["dir_va_names"]  # Названия директорий для видео и аудио
         self.ext_search_files = self._args["ext_search_files"]  # Расширения искомых файлов
 
-        # print()
-        # print(self._args["threshold"])
-        # print(self._args["min_speech_duration_ms"])
-        # print(self._args["min_silence_duration_ms"])
-        # print(self._args["window_size_samples"])
-        # print(self._args["speech_pad_ms"])
-        # return
-
         self.vad(
             depth=self._args["depth"],  # Глубина иерархии для получения данных
             type_encode=self._args["type_encode"],  # Тип кодирования
