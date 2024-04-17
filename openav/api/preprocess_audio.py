@@ -394,7 +394,7 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
 
 
 def main():
-    # Запуск детектирования речевой активности в аудиовизуальном сигнале
+    # Запуск предобработки речевых аудиоданных
     vad = RunPreprocessAudio(lang="ru", path_to_logs="./openav/logs")
     vad.run(out=True)
 

@@ -2075,5 +2075,25 @@ class Audio(AudioMessages):
         paths = self.augmentation_parce_files(depth, out)
         return self.augmentation_process_files(paths, clear_diraug, out)
 
-    def preprocess_audio():
-        pass
+    def preprocess_audio(self, depth: int = 1, clear_dir_audio: bool = False, out: bool = True) -> bool:
+        """Предобработка речевых аудиоданных
+
+        Args:
+            depth (int): Глубина иерархии для получения данных
+            clear_dir_audio (bool): Очистка директории для сохранения аудиоданных после предобработки
+            out (bool) Отображение
+
+        Returns:
+            bool: **True** если предобработка речевых аудиоданных произведено, в обратном случае
+            **False**
+        """
+
+        try:
+            # Проверка аргументов
+            if type(depth) is not int or depth < 1 or type(clear_dir_audio) is not bool or type(out) is not bool:
+                raise TypeError
+        except TypeError:
+            self.inv_args(__class__.__name__, self.preprocess_audio.__name__, out=out)
+            return False
+        else:
+            pass
