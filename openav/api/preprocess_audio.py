@@ -257,7 +257,7 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
 
                 curr_valid_layer += 1
 
-            # Управление оступами
+            # Коэффициенты треугольных mel-фильтров делятся на ширину соответствующих mel-полос
             if key == "norm":
                 # Проверка значения
                 if type(val) is not str or val != "slaney":
@@ -382,9 +382,19 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
         self.path_to_dataset = self._args["path_to_dataset"]  # Путь к директории набора данных
         # Путь к директории набора данных состоящего из спектрограмм
         self.path_to_dataset_audio = self._args["path_to_dataset_audio"]
+        self.ext_search_files = self._args["ext_search_files"]  # Расширения искомых файлов
 
         self.preprocess_audio(
             depth=self._args["depth"],  # Глубина иерархии для получения данных
+            sample_rate=self._args["sample_rate"],  # Частота дискретизации
+            n_fft=self._args["n_fft"],  # Размер параметра FFT
+            hop_length=self._args["hop_length"],  # Длина перехода между окнами STFT
+            n_mels=self._args["n_mels"],  # Количество фильтроблоков mel
+            power=self._args["power"],  # Показатель степени магнитудной спектрограммы
+            pad_mode=self._args["pad_mode"],  # Управление оступами
+            # Коэффициенты треугольных mel-фильтров делятся на ширину соответствующих mel-полос
+            norm=self._args["norm"],
+            center=self._args["center"],  # Отступы с обеих сторон относительно центра аудиодорожки
             # Очистка директории для сохранения аудиоданных после предобработки
             clear_dir_audio=self._args["clear_dir_audio"],
             out=out,

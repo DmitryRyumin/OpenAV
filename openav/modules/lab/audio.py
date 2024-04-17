@@ -2075,11 +2075,32 @@ class Audio(AudioMessages):
         paths = self.augmentation_parce_files(depth, out)
         return self.augmentation_process_files(paths, clear_diraug, out)
 
-    def preprocess_audio(self, depth: int = 1, clear_dir_audio: bool = False, out: bool = True) -> bool:
+    def preprocess_audio(
+        self,
+        depth: int = 1,
+        sample_rate: int = 16000,
+        n_fft: int = 2048,
+        hop_length: int = 512,
+        n_mels: int = 128,
+        power: float = 2.0,
+        pad_mode: str = "reflect",
+        norm: str = "slaney",
+        center: bool = True,
+        clear_dir_audio: bool = False,
+        out: bool = True,
+    ) -> bool:
         """Предобработка речевых аудиоданных
 
         Args:
             depth (int): Глубина иерархии для получения данных
+            sample_rate (int): Частота дискретизации
+            n_fft (int): Размер параметра FFT
+            hop_length (int): Длина перехода между окнами STFT
+            n_mels (int): Количество фильтроблоков mel
+            power (float): Показатель степени магнитудной спектрограммы
+            pad_mode (str): Управление оступами
+            norm (str): Коэффициенты треугольных mel-фильтров делятся на ширину соответствующих mel-полос
+            center (bool): Отступы с обеих сторон относительно центра аудиодорожки
             clear_dir_audio (bool): Очистка директории для сохранения аудиоданных после предобработки
             out (bool) Отображение
 
