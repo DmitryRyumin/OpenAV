@@ -195,6 +195,8 @@ class AudioMessages(Yaml):
 
         self._files_analysis: str = self._("Анализ файлов") + self._em
 
+        self.preprocess_audio_files: str = self._("Предобработка речевых аудиоданных") + self._em
+
         self._url_error: str = self._("Не удалось скачать модель{}") + self._em
         self._url_error_code: str = self._(" (ошибка {})")
 
@@ -257,6 +259,7 @@ class Audio(AudioMessages):
 
         self.__dataset_video_vad: List[str] = []  # Пути до директорий с разделенными видеофрагментами
         self.__dataset_audio_vad: List[str] = []  # Пути до директорий с разделенными аудиофрагментами
+        self.__dataset_preprocess_audio: List[str] = []  # Пути до директорий с спектрограммами
         self.__unprocessed_files: List[str] = []  # Пути к файлам на которых VAD не отработал
         self.__not_saved_files: List[str] = []  # Пути к файлам которые не сохранились при обработке VAD
 
@@ -2198,3 +2201,15 @@ class Audio(AudioMessages):
                 if clear_dir_audio is True and os.path.exists(self.path_to_dataset_audio) is True:
                     if self.clear_folder(self.path_to_dataset_audio, out=False) is False:
                         return False
+
+                self.__dataset_preprocess_audio = []  # Пути до директорий с спектрограммами
+
+                self.__unprocessed_files = []  # Пути к файлам из которых спектрограммы не сформированы
+
+                # Информационное сообщение
+                self.message_info(self.preprocess_audio_files, out=out)
+
+                # Локальный путь
+                self.__local_path = lambda lp: os.path.join(
+                    *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))) :]
+                )
