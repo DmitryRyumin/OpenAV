@@ -84,11 +84,13 @@ PRESETS_CRF_ENCODE: List[str] = [
     "veryslow",
 ]
 SR_INPUT_TYPES: List[str] = ["audio", "video"]  # Типы файлов для распознавания речи
-SAMPLING_RATE_VAD: List[str] = [8000, 16000]  # Частота дискретизации
+SAMPLING_RATE_VAD: List[int] = [8000, 16000]  # Частота дискретизации
 THRESHOLD_VAD: float = 0.56  # Порог вероятности речи (от 0.0 до 1.0)
 MIN_SPEECH_DURATION_MS_VAD: int = 250  # Минимальная длительность речевого фрагмента в миллисекундах
 # Минимальная длительность тишины в выборках между отдельными речевыми фрагментами
 MIN_SILENCE_DURATION_MS_VAD: int = 50
+SAMPLING_RATE_MS: List[int] = [16000, 22050, 44100, 48000]  # Частота дискретизации
+PAD_MODE_MS: List[int] = ["constant", "reflect", "replicate", "circular"]  # Управление оступами
 
 # Количество выборок в каждом окне
 # (512, 1024, 1536 для частоты дискретизации 16000 или 256, 512, 768 для частоты дискретизации 8000)
