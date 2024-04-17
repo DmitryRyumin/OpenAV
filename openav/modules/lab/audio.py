@@ -2111,10 +2111,90 @@ class Audio(AudioMessages):
 
         try:
             # Проверка аргументов
-            if type(depth) is not int or depth < 1 or type(clear_dir_audio) is not bool or type(out) is not bool:
+            if (
+                type(depth) is not int
+                or depth < 1
+                or type(sample_rate) is not int
+                or (sample_rate in SAMPLING_RATE_MS) is False
+                or type(n_fft) is not int
+                or not (256 <= n_fft <= 2048)
+                or type(hop_length) is not int
+                or not (64 <= hop_length <= 512)
+                or type(n_mels) is not int
+                or not (20 <= n_mels <= 512)
+                or type(power) is not float
+                or (power in [1.0, 2.0]) is False
+                or type(pad_mode) is not str
+                or (pad_mode in PAD_MODE_MS) is False
+                or type(norm) is not str
+                or norm != "slaney"
+                or type(center) is not bool
+                or type(clear_dir_audio) is not bool
+                or type(out) is not bool
+            ):
                 raise TypeError
         except TypeError:
             self.inv_args(__class__.__name__, self.preprocess_audio.__name__, out=out)
             return False
         else:
-            pass
+            # Информационное сообщение
+            self.message_info(
+                self._subfolders_search.format(
+                    self.message_line(self.path_to_dataset),
+                    self.message_line(str(depth)),
+                ),
+                out=out,
+            )
+
+            # Создание директории, где хранятся данные
+            if self.create_folder(self.path_to_dataset, out=False) is False:
+                return False
+
+            # Получение вложенных директорий, где хранятся данные
+            nested_paths = self.get_paths(self.path_to_dataset, depth=depth, out=False)
+
+            # Вложенные директории не найдены
+            try:
+                if len(nested_paths) == 0:
+                    raise IsNestedCatalogsNotFoundError
+            except IsNestedCatalogsNotFoundError:
+                self.message_error(self._subfolders_not_found, space=self._space, out=out)
+                return False
+
+            # Информационное сообщение
+            self.message_info(
+                self._files_av_find.format(
+                    self.message_line(", ".join(x.replace(".", "") for x in self.ext_search_files)),
+                    self.message_line(self.path_to_dataset),
+                    self.message_line(str(depth)),
+                ),
+                out=out,
+            )
+
+            paths = []  # Пути до аудиовизуальных файлов
+
+            # Проход по всем вложенным директориям
+            for nested_path in nested_paths:
+                # Формирование списка с видеофайлами
+                for p in Path(nested_path).glob("*"):
+                    # Добавление текущего пути к видеофайлу в список
+                    if p.suffix.lower() in self.ext_search_files:
+                        paths.append(p.resolve())
+
+            # Директория с набором данных не содержит аудиовизуальных файлов с необходимыми расширениями
+            try:
+                self.__len_paths = len(paths)  # Количество аудиовизуальных файлов
+
+                if self.__len_paths == 0:
+                    raise TypeError
+            except TypeError:
+                self.message_error(self._files_not_found, space=self._space, out=out)
+                return False
+            except Exception:
+                self.message_error(self._unknown_err, space=self._space, out=out)
+                return False
+            else:
+                # Очистка директории для сохранения фрагментов аудиовизуального сигнала
+                if clear_dir_audio is True and os.path.exists(self.path_to_dataset_audio) is True:
+                    if self.clear_folder(self.path_to_dataset_audio, out=False) is False:
+                        return False
