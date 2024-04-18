@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-17 11:17+0300\n"
+"POT-Creation-Date: 2024-04-18 17:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -33,16 +33,9 @@ msgid "Класс для сообщений"
 msgstr ""
 
 #: 482c37ad6ad2466a8b9984bf036c32bf 5f34e52e3c874e32bbd26b7e6bab83ff
-#: 6180aa00147a4ab5a2c16978ff979104 8fa0f02a480c4b10bb99ed3b7dc0d184
-#: e2a178ca078b4cd882a7a73a0276e995 fcbd26b78d104f3b95cf47b7a4b74ef3 of
+#: 6180aa00147a4ab5a2c16978ff979104 e2a178ca078b4cd882a7a73a0276e995 of
 #: openav.modules.lab.audio.Audio openav.modules.lab.audio.Audio.augmentation
-#: openav.modules.lab.audio.Audio.augmentation_check_settings
-#: openav.modules.lab.audio.Audio.augmentation_input_directory_is_not_empty
-#: openav.modules.lab.audio.Audio.augmentation_parce_directories
-#: openav.modules.lab.audio.Audio.augmentation_parce_files
-#: openav.modules.lab.audio.Audio.augmentation_prepare_directory
-#: openav.modules.lab.audio.Audio.augmentation_process_files
-#: openav.modules.lab.audio.Audio.augmentation_validate_arguments
+#: openav.modules.lab.audio.Audio.preprocess_audio
 #: openav.modules.lab.audio.Audio.vad openav.modules.lab.audio.Audio.vosk
 #: openav.modules.lab.audio.Audio.vosk_dict_language_sr
 #: openav.modules.lab.audio.Audio.vosk_language_sr
@@ -76,6 +69,7 @@ msgstr ""
 
 #: dadd31f795424ef2afee06bff23f8fcb ff280fa789c8412ca554778d5bd1def6 of
 #: openav.modules.lab.audio.Audio.augmentation:3
+#: openav.modules.lab.audio.Audio.preprocess_audio:3
 #: openav.modules.lab.audio.Audio.vad:3
 #: openav.modules.lab.audio.Audio.vosk_sr:4
 msgid "Глубина иерархии для получения данных"
@@ -83,92 +77,92 @@ msgstr ""
 
 #: d07211735fd1451b92bdda31efcaa31c of
 #: openav.modules.lab.audio.Audio.augmentation:5
-msgid "# Обрезка в пикселях мин"
+msgid "Обрезка в пикселях мин"
 msgstr ""
 
 #: 7725b361fb4a481f95261e961c3e4e86 of
 #: openav.modules.lab.audio.Audio.augmentation:7
-msgid "# Обрезка в пикселях макс"
+msgid "Обрезка в пикселях макс"
 msgstr ""
 
 #: ff4f7b1d0b39461d8842ecf720c68ff7 of
 #: openav.modules.lab.audio.Audio.augmentation:9
-msgid "# Обрезка в процентах мин"
+msgid "Обрезка в процентах мин"
 msgstr ""
 
 #: 3ec737fd75e943fab8075a60470d3803 of
 #: openav.modules.lab.audio.Audio.augmentation:11
-msgid "# Обрезка в процентах макс"
+msgid "Обрезка в процентах макс"
 msgstr ""
 
 #: f7dfb3a3bf374ec1ae87f6ee0636dfbc of
 #: openav.modules.lab.audio.Audio.augmentation:13
-msgid "# Вероятность отражения по вертикали"
+msgid "Вероятность отражения по вертикали"
 msgstr ""
 
 #: ae423738cdd54f98aaa4440c3b67454c of
 #: openav.modules.lab.audio.Audio.augmentation:15
-msgid "# Вероятность отражения по горизонтали"
+msgid "Вероятность отражения по горизонтали"
 msgstr ""
 
 #: abb679f7747b47fabd6d7e4e053c73d0 of
 #: openav.modules.lab.audio.Audio.augmentation:17
-msgid "# Размытие мин"
+msgid "Размытие мин"
 msgstr ""
 
 #: 18497aaf038e44e8a69615a096f437a1 of
 #: openav.modules.lab.audio.Audio.augmentation:19
-msgid "# Размытие макс"
+msgid "Размытие макс"
 msgstr ""
 
 #: 9cadadb75862480c940755c2c13420ba of
 #: openav.modules.lab.audio.Audio.augmentation:21
-msgid "# Масштабирование Х мин"
+msgid "Масштабирование Х мин"
 msgstr ""
 
 #: 9cadadb75862480c940755c2c13420ba of
 #: openav.modules.lab.audio.Audio.augmentation:23
-msgid "# Масштабирование Х макс"
+msgid "Масштабирование Х макс"
 msgstr ""
 
 #: 9cadadb75862480c940755c2c13420ba of
 #: openav.modules.lab.audio.Audio.augmentation:25
-msgid "# Масштабирование Y мин"
+msgid "Масштабирование Y мин"
 msgstr ""
 
 #: 9cadadb75862480c940755c2c13420ba of
 #: openav.modules.lab.audio.Audio.augmentation:27
-msgid "# Масштабирование Y макс"
+msgid "Масштабирование Y макс"
 msgstr ""
 
 #: 8dcfe4def05246dfb1b4e92e4923ff8c of
 #: openav.modules.lab.audio.Audio.augmentation:29
-msgid "# Поворот мин"
+msgid "Поворот мин"
 msgstr ""
 
 #: a8d9caffa82e4f509d3c8e211cc3a1db of
 #: openav.modules.lab.audio.Audio.augmentation:31
-msgid "# Поворот макс"
+msgid "Поворот макс"
 msgstr ""
 
 #: b0197f202e57428c85c2def6b18b9dd9 of
 #: openav.modules.lab.audio.Audio.augmentation:33
-msgid "# Контраст мин"
+msgid "Контраст мин"
 msgstr ""
 
 #: 1fdedc37cf9d43c2933436767870ebbe of
 #: openav.modules.lab.audio.Audio.augmentation:35
-msgid "# Контраст макс"
+msgid "Контраст макс"
 msgstr ""
 
 #: c77f72faa4ec46329998ac388d725143 of
 #: openav.modules.lab.audio.Audio.augmentation:37
-msgid "# Альфа для MixUp"
+msgid "Альфа для MixUp"
 msgstr ""
 
 #: 8d60014ea8bd45ba84036224683d2bfc of
 #: openav.modules.lab.audio.Audio.augmentation:39
-msgid "# Количество применений аугментации"
+msgid "Количество применений аугментации"
 msgstr ""
 
 #: 649968ea29b3459984fc822a73c01dbc of
@@ -186,6 +180,7 @@ msgstr ""
 
 #: 7320c362e5ce420faab5c2c477f6a699 of
 #: openav.modules.lab.audio.Audio.augmentation
+#: openav.modules.lab.audio.Audio.preprocess_audio
 #: openav.modules.lab.audio.Audio.vad openav.modules.lab.audio.Audio.vosk
 #: openav.modules.lab.audio.Audio.vosk_dict_language_sr
 #: openav.modules.lab.audio.Audio.vosk_language_sr
@@ -202,18 +197,86 @@ msgstr ""
 
 #: 62f0663b1b504f0b805b92504cad92eb of
 #: openav.modules.lab.audio.Audio.augmentation
-#: openav.modules.lab.audio.Audio.augmentation_check_settings
-#: openav.modules.lab.audio.Audio.augmentation_input_directory_is_not_empty
-#: openav.modules.lab.audio.Audio.augmentation_parce_directories
-#: openav.modules.lab.audio.Audio.augmentation_parce_files
-#: openav.modules.lab.audio.Audio.augmentation_prepare_directory
-#: openav.modules.lab.audio.Audio.augmentation_process_files
-#: openav.modules.lab.audio.Audio.augmentation_validate_arguments
+#: openav.modules.lab.audio.Audio.preprocess_audio
 #: openav.modules.lab.audio.Audio.vad openav.modules.lab.audio.Audio.vosk
 #: openav.modules.lab.audio.Audio.vosk_dict_language_sr
 #: openav.modules.lab.audio.Audio.vosk_language_sr
 #: openav.modules.lab.audio.Audio.vosk_sr
 msgid "Тип результата"
+msgstr ""
+
+#: be0fc12553834c7885edc064e59999f7 of
+#: openav.modules.lab.audio.Audio.preprocess_audio:1
+msgid "Предобработка речевых аудиоданных"
+msgstr ""
+
+#: 5511391a70f6437f8032d4ab5fd1c085 of
+#: openav.modules.lab.audio.Audio.preprocess_audio:5
+msgid "Частота дискретизации"
+msgstr ""
+
+#: e319e6d1e6e944999741b8451a619af1 of
+#: openav.modules.lab.audio.Audio.preprocess_audio:7
+msgid "Размер параметра FFT"
+msgstr ""
+
+#: 15eb53456b5d40389a21cfd3c7070768 of
+#: openav.modules.lab.audio.Audio.preprocess_audio:9
+msgid "Длина перехода между окнами STFT"
+msgstr ""
+
+#: aa0952f66a9e4b9daa47af8f77c5598a of
+#: openav.modules.lab.audio.Audio.preprocess_audio:11
+msgid "Количество фильтроблоков mel"
+msgstr ""
+
+#: 3cfb47c975794bf6b65e32272b9b1af8 of
+#: openav.modules.lab.audio.Audio.preprocess_audio:13
+msgid "Показатель степени магнитудной спектрограммы"
+msgstr ""
+
+#: 9534ab56c4d84dd1b8c3048e7bb88951 of
+#: openav.modules.lab.audio.Audio.preprocess_audio:15
+msgid "Управление оступами"
+msgstr ""
+
+#: b45fc5d468094d299871a912c6503325 of
+#: openav.modules.lab.audio.Audio.preprocess_audio:17
+msgid ""
+"Коэффициенты треугольных mel-фильтров делятся на ширину соответствующих "
+"mel-полос"
+msgstr ""
+
+#: 428169165c674adb825d454f2204af19 of
+#: openav.modules.lab.audio.Audio.preprocess_audio:19
+msgid "Отступы с обеих сторон относительно центра аудиодорожки"
+msgstr ""
+
+#: 094334409ecb4399919b7b77edf3f49e of
+#: openav.modules.lab.audio.Audio.preprocess_audio:21
+msgid "DPI"
+msgstr ""
+
+#: 3cfb47c975794bf6b65e32272b9b1af8 of
+#: openav.modules.lab.audio.Audio.preprocess_audio:23
+msgid "Градиент для спектрограммы"
+msgstr ""
+
+#: ca9e69113cd64f358ab28ac37e39e3e6 of
+#: openav.modules.lab.audio.Audio.preprocess_audio:25
+msgid "Сохранение сырых данных мел-спектрограммы в формате .npy"
+msgstr ""
+
+#: 649968ea29b3459984fc822a73c01dbc of
+#: openav.modules.lab.audio.Audio.preprocess_audio:27
+msgid "Очистка директории для сохранения аудиоданных после предобработки"
+msgstr ""
+
+#: 781ad22e2c574604a5121387372dc935 of
+#: openav.modules.lab.audio.Audio.preprocess_audio:32
+msgid ""
+"**True** если предобработка речевых аудиоданных произведено, в обратном "
+"случае **False**"
 msgstr ""
 
 #: b87037f096964470a8bc45699059d31d of openav.modules.lab.audio.Audio.vad:1
@@ -346,4 +409,58 @@ msgid ""
 "**True** если детектирование голосовой активности и распознавание речи "
 "произведено, в обратном случае **False**"
 msgstr ""
+
+#~ msgid "# Обрезка в пикселях мин"
+#~ msgstr ""
+
+#~ msgid "# Обрезка в пикселях макс"
+#~ msgstr ""
+
+#~ msgid "# Обрезка в процентах мин"
+#~ msgstr ""
+
+#~ msgid "# Обрезка в процентах макс"
+#~ msgstr ""
+
+#~ msgid "# Вероятность отражения по вертикали"
+#~ msgstr ""
+
+#~ msgid "# Вероятность отражения по горизонтали"
+#~ msgstr ""
+
+#~ msgid "# Размытие мин"
+#~ msgstr ""
+
+#~ msgid "# Размытие макс"
+#~ msgstr ""
+
+#~ msgid "# Масштабирование Х мин"
+#~ msgstr ""
+
+#~ msgid "# Масштабирование Х макс"
+#~ msgstr ""
+
+#~ msgid "# Масштабирование Y мин"
+#~ msgstr ""
+
+#~ msgid "# Масштабирование Y макс"
+#~ msgstr ""
+
+#~ msgid "# Поворот мин"
+#~ msgstr ""
+
+#~ msgid "# Поворот макс"
+#~ msgstr ""
+
+#~ msgid "# Контраст мин"
+#~ msgstr ""
+
+#~ msgid "# Контраст макс"
+#~ msgstr ""
+
+#~ msgid "# Альфа для MixUp"
+#~ msgstr ""
+
+#~ msgid "# Количество применений аугментации"
+#~ msgstr ""
 

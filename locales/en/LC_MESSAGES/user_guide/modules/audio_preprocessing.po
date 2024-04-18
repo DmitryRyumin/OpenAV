@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-17 11:17+0300\n"
+"POT-Creation-Date: 2024-04-18 17:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "</b>"
 msgstr ""
 
-#: ../../source/reuse_content/general.rst:13 6e4b3a0dfda6452b8c1c923dac671907
+#: ../../source/reuse_content/general.rst:14 6e4b3a0dfda6452b8c1c923dac671907
 #: 8de4a335775a44b8936b2a2c5b9a0717
 msgid "</a>"
 msgstr ""
@@ -55,42 +55,58 @@ msgstr ""
 #: 38179b8bdde5411088b9944b886fedae
 msgid ""
 "Модуль выполняет предобработку речевых аудиоданных, в данном случае "
-"извлекается спектрограмма из исходной аудиодорожки."
+"извлекается спектрограмма из исходной аудиодорожки. Команда для запуска "
+"предобработки речевых аудиоданных:"
 msgstr ""
 
-#: ../../source/user_guide/modules/audio_preprocessing.rst:10
+#: ../../source/user_guide/modules/audio_preprocessing.rst:9
+#: 3f690689367244c2827b687120332760
+msgid ""
+"openav_preprocess_audio --config "
+"<путь_к_вашему_конфигурационному_файлу>.yaml"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:14
+#: 158deab48818452da7f66f1f697164c2
+msgid ""
+"Для запуска команды необходимо обязательно указать путь к "
+"конфигурационному файлу. Запускать программу необходимо из директории, "
+"где она расположена."
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:17
 #: 45969988a27741aabd76ccdb088f5d27
 msgid "Конфигурационный файл"
 msgstr ""
 
-#: ../../source/user_guide/modules/audio_preprocessing.rst:12
+#: ../../source/user_guide/modules/audio_preprocessing.rst:19
 #: a85479ff1b8a45c8b26107ff71e48215
 msgid "Конфигурационный файл включает в себя следующие настройки:"
 msgstr ""
 
-#: ../../source/user_guide/modules/audio_preprocessing.rst:14
+#: ../../source/user_guide/modules/audio_preprocessing.rst:21
 #: 993ff7728d6742d299cf203aba84cb55
 msgid "Отображение процесса выполнения программы в терминале (командной строке)"
 msgstr ""
 
-#: ../../source/user_guide/modules/audio_preprocessing.rst:15
-#: ../../source/user_guide/modules/audio_preprocessing.rst:38
+#: ../../source/user_guide/modules/audio_preprocessing.rst:22
+#: ../../source/user_guide/modules/audio_preprocessing.rst:45
 #: 693e0fa66db248cfaa6ff81f24fdcd7d
 msgid "Работа с файловой системой"
 msgstr ""
 
-#: ../../source/user_guide/modules/audio_preprocessing.rst:16
-#: ../../source/user_guide/modules/audio_preprocessing.rst:53
+#: ../../source/user_guide/modules/audio_preprocessing.rst:23
+#: ../../source/user_guide/modules/audio_preprocessing.rst:61
 #: 9cef50f02d1b46ba898aea7d5ce4fabc
 msgid "Параметры предобработки речевых аудиоданных"
 msgstr ""
 
-#: ../../source/user_guide/modules/audio_preprocessing.rst:20
+#: ../../source/user_guide/modules/audio_preprocessing.rst:27
 #: 8e5e2a5416da42b0a221ddec1bd46255
 msgid "|a_config| Пример конфигурационного файла |/a|"
 msgstr ""
 
-#: ../../source/user_guide/modules/audio_preprocessing.rst:25
+#: ../../source/user_guide/modules/audio_preprocessing.rst:32
 #: 560a0fd317fa4771b29ae33a25dde47d
 msgid "Отображение процесса выполнения команды в терминале"
 msgstr ""
@@ -151,7 +167,7 @@ msgid "path_to_dataset"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: 4a23f11a2666482eab47b1ff3bf9ddbf 5528eaa95bb7437eb2f788fd91f1545a
+#: 5528eaa95bb7437eb2f788fd91f1545a
 msgid "str"
 msgstr ""
 
@@ -227,6 +243,21 @@ msgid ""
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 2c0c81b927584e38b914a374a47506ae
+msgid "clear_dir_audio"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: f5e55df369184fda8726a6c2c80d968c
+msgid "``true``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 6dbd5fb27996439aa6dc0d42a5ece621
+msgid "Предварительная очистка директории с предобработанными аудиоданными"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
 #: 7042bdafe7f9494b8149d749f80a3c84
 msgid "sampling_rate"
 msgstr ""
@@ -237,8 +268,10 @@ msgid "``16000``"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: d29ec905b3554422b775d7d292535202
-msgid "Частота дискретизации аудиосигнала"
+#: d6feb6ee2c034a849df4f40aa4af08cf
+msgid ""
+"Частота дискретизации аудиосигнала. Доступные значения ``16000; 22050; "
+"44100; 48000``"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
@@ -252,8 +285,10 @@ msgid "``2048``"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: 347ca18a8fcd4002a79ff4d68036b021
-msgid "Размер параметра FFT, создает ``n_fft // 2 + 1`` бин"
+#: d8f64e1c2c964dc2ba434a6491a542ea
+msgid ""
+"Размер параметра FFT, создает ``n_fft // 2 + 1`` бин. Допустимы значения "
+"в пределе от ``256`` до ``2048``"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
@@ -267,8 +302,10 @@ msgid "``512``"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: 7920b6e4bc004809a665c26316393ad3
-msgid "Длина перехода между окнами STFT"
+#: 17e239b5cdab4a96bdeed5a54af729a7
+msgid ""
+"Длина перехода между окнами STFT. Допустимы значения в пределе от ``64`` "
+"до ``512``"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
@@ -282,8 +319,10 @@ msgid "``128``"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: 8f1a4940033f4ff98f47d456761efcf8
-msgid "Количество фильтроблоков mel"
+#: ed33950829c44d6c882d00354ac8a5c7
+msgid ""
+"Количество фильтроблоков mel. Допустимы значения в пределе от ``20`` до "
+"``512``"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
@@ -303,7 +342,9 @@ msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
 #: 48e857c1dcf94acb87a86c6b35d64cdf
-msgid "Показатель степени магнитудной спектрограммы. Должно быть ``> 0``"
+msgid ""
+"Показатель степени магнитудной спектрограммы. Должен быть либо ``1.0``, "
+"либо ``2.0``"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
@@ -312,15 +353,10 @@ msgid "center"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: f5e55df369184fda8726a6c2c80d968c
-msgid "``true``"
-msgstr ""
-
-#: ../../source/user_guide/modules/audio_preprocessing.rst:1
 #: cd1a54ffa58d4065a0e7d5c335304764
 msgid ""
-"Включение установки отступов с обеих сторон относительно центра "
-"аудиодорожки"
+"Включение установки отступов с обеих сторон относительно центральной "
+"части аудиодорожки"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
@@ -329,12 +365,12 @@ msgid "pad_mode"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: 0daf173beb6549238184fce228cef0ab d4b6a934fe7f40c79ea1dcedb1788e9f
+#: d4b6a934fe7f40c79ea1dcedb1788e9f
 msgid "``reflect``"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: 367ed4f20e964aaab519d816fb299296 ce70e75eb6ba4565afe8b991d0538180
+#: ce70e75eb6ba4565afe8b991d0538180
 msgid ""
 "Управление оступами, применяется когда значение параметра ``center = "
 "True``. Доступные значения ``constant, reflect, replicate, circular``. По"
@@ -344,6 +380,60 @@ msgstr ""
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
 #: 2d6b8e67c5264cf5b818394823d8d4d4
 msgid "norm"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: d4b6a934fe7f40c79ea1dcedb1788e9f
+msgid "``slaney``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 8f0b018fc9c14e4ba62724f91f5ba0c4
+msgid "Нормализация площади. Отношение треугольных мел-весов к ширине мел-зоны"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 085e910a686e40859f982fab5d26b26a
+msgid "dpi"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: b65e053d01d84f35821dd4652f3be74e
+msgid "``600``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: d6feb6ee2c034a849df4f40aa4af08cf
+msgid ""
+"Качество изображения спектрограммы. Доступные значения ``72; 96; 150; "
+"300; 600; 1200``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 19ee4fc4cb1447b6a3481082cbbd737e
+msgid "color_gradients"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: d4b6a934fe7f40c79ea1dcedb1788e9f
+msgid "``magma``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 20581299d9584e4bbbbe00a97c324386
+msgid ""
+"Выбор цветовой схемы итогового изображения спектрограммы. Доступные "
+"значения ``viridis, plasma, inferno, magma, cividis``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 7042bdafe7f9494b8149d749f80a3c84
+msgid "save_raw_data"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: cfcafe35f5ac4b588c4d31057f249907
+msgid "Сохранение данных в формате numpy"
 msgstr ""
 
 #~ msgid ""
@@ -578,5 +668,36 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Устарело"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Модуль выполняет предобработку речевых "
+#~ "аудиоданных, в данном случае извлекается "
+#~ "спектрограмма из исходной аудиодорожки."
+#~ msgstr ""
+
+#~ msgid "Частота дискретизации аудиосигнала"
+#~ msgstr ""
+
+#~ msgid "Размер параметра FFT, создает ``n_fft // 2 + 1`` бин"
+#~ msgstr ""
+
+#~ msgid "Длина перехода между окнами STFT"
+#~ msgstr ""
+
+#~ msgid "Количество фильтроблоков mel"
+#~ msgstr ""
+
+#~ msgid "Показатель степени магнитудной спектрограммы. Должно быть ``> 0``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "python ./openav/api/preprocess_audio.py --config "
+#~ "<путь_к_вашему_конфигурационному_файлу>.yaml"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Включение установки отступов с обеих "
+#~ "сторон относительно центра аудиодорожки"
 #~ msgstr ""
 
