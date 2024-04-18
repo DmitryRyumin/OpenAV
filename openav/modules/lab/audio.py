@@ -98,7 +98,7 @@ WINDOW_SIZE_SAMPLES_VAD: Dict[int, List[int]] = {8000: [256, 512, 768], 16000: [
 SPEECH_PAD_MS: int = 150  # Внутренние отступы для итоговых речевых фрагментов
 # Суффиксы каналов аудиофрагментов
 FRONT: Dict[str, List[str]] = {"mono": ["_mono"], "stereo": ["_left", "_right"]}
-EXT_AUDIO_AUG: str = "jpg"  # Расширение для сохраняемого аудио
+EXT_AUDIO_AUG: str = "png"  # Расширение для сохраняемого аудио
 EXT_AUDIO: str = "wav"  # Расширение для сохраняемого аудио
 VOSK_SUPPORTED_LANGUAGES: List[str] = ["ru", "en"]  # Поддерживаемые языки (Vosk)
 VOSK_SUPPORTED_DICTS: List[str] = ["small", "big"]  # Размеры словарей (Vosk)
@@ -1340,7 +1340,7 @@ class Audio(AudioMessages):
                     img_res = ((alpha * img_aug) + ((1 - alpha) * img2_array)).astype(np.uint8)
                     img_res = np.array(img_res)
 
-                    Image.fromarray(img_res).save(path)
+                    Image.fromarray(img_res).save(path, dpi=(600, 600))
 
             except Exception as err:
                 print(err)
@@ -2022,24 +2022,24 @@ class Audio(AudioMessages):
 
         Args:
             depth (int): Глубина иерархии для получения данных
-            crop_px_min (int): # Обрезка в пикселях мин
-            crop_px_max (int): # Обрезка в пикселях макс
-            crop_percent_min (float): # Обрезка в процентах мин
-            crop_percent_max (float): # Обрезка в процентах макс
-            flip_lr_probability (float): # Вероятность отражения по вертикали
-            flip_ud_probability (float): # Вероятность отражения по горизонтали
-            blur_min (float): # Размытие мин
-            blur_max (float): # Размытие макс
-            scale_x_min (float): # Масштабирование Х мин
-            scale_x_max (float): # Масштабирование Х макс
-            scale_y_min (float): # Масштабирование Y мин
-            scale_y_max (float): # Масштабирование Y макс
-            rotate_min (int): # Поворот мин
-            rotate_max (int): # Поворот макс
-            contrast_min (float): # Контраст мин
-            contrast_max (float): # Контраст макс
-            alpha (float): # Альфа для MixUp
-            count (int): # Количество применений аугментации
+            crop_px_min (int): Обрезка в пикселях мин
+            crop_px_max (int): Обрезка в пикселях макс
+            crop_percent_min (float): Обрезка в процентах мин
+            crop_percent_max (float): Обрезка в процентах макс
+            flip_lr_probability (float): Вероятность отражения по вертикали
+            flip_ud_probability (float): Вероятность отражения по горизонтали
+            blur_min (float): Размытие мин
+            blur_max (float): Размытие макс
+            scale_x_min (float): Масштабирование Х мин
+            scale_x_max (float): Масштабирование Х макс
+            scale_y_min (float): Масштабирование Y мин
+            scale_y_max (float): Масштабирование Y макс
+            rotate_min (int): Поворот мин
+            rotate_max (int): Поворот макс
+            contrast_min (float): Контраст мин
+            contrast_max (float): Контраст макс
+            alpha (float): Альфа для MixUp
+            count (int): Количество применений аугментации
             clear_diraug (bool): Очистка директории для сохранения аугментированных аудиовизуальных сигналов
             out (bool): Отображение
 
