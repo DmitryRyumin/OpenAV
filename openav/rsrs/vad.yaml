@@ -7,14 +7,14 @@ presets_crf_encode: medium
 sr_input_type: audio
 path_to_save_models: "./models"
 # path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
-path_to_dataset: "D:/test/"
-path_to_dataset_vad: "D:/test/Cutted"
+path_to_dataset: "E:/OpenAV/Original"
+path_to_dataset_vad: "E:/OpenAV/Splitted"
 dir_va_names:
   video: Video
   audio: Audio
 force_reload: false
 clear_dirvad: true
-depth: 1
+depth: 0
 ext_search_files:
 - mov
 - mp4
