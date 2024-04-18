@@ -29,7 +29,9 @@ REQUIRED_PACKAGES = [
     "pillow >= 9.5.0",
     "imgaug >= 0.4.0",
     "flask >= 2.3.3",
-    "ffmpeg >= 1.4"
+    "ffmpeg >= 1.4",
+    "librosa >= 0.10.1",
+    "matplotlib >= 3.6.3",
 ]
 
 CLASSIFIERS = """\

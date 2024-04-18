@@ -27,6 +27,10 @@ import json  # Кодирование и декодирование данных
 from PIL import Image  # Считывание изображений
 from imgaug import augmenters as iaa  # Базовая аугментация
 import random  # Случайные числа
+import librosa
+import librosa.display
+import matplotlib.pyplot as plt
+from matplotlib import cm
 
 # Парсинг URL
 import urllib.parse
@@ -91,6 +95,8 @@ MIN_SPEECH_DURATION_MS_VAD: int = 250  # Минимальная длительн
 MIN_SILENCE_DURATION_MS_VAD: int = 50
 SAMPLING_RATE_MS: List[int] = [16000, 22050, 44100, 48000]  # Частота дискретизации
 PAD_MODE_MS: List[int] = ["constant", "reflect", "replicate", "circular"]  # Управление оступами
+DPI: List[int] = [72, 96, 150, 300, 600, 1200]  # DPI
+COLOR_GRADIENTS: List[str] = ["viridis", "plasma", "inferno", "magma", "cividis"]
 
 # Количество выборок в каждом окне
 # (512, 1024, 1536 для частоты дискретизации 16000 или 256, 512, 768 для частоты дискретизации 8000)
@@ -99,7 +105,9 @@ SPEECH_PAD_MS: int = 150  # Внутренние отступы для итог�
 # Суффиксы каналов аудиофрагментов
 FRONT: Dict[str, List[str]] = {"mono": ["_mono"], "stereo": ["_left", "_right"]}
 EXT_AUDIO_AUG: str = "jpg"  # Расширение для сохраняемого аудио
+EXT_AUDIO_SPEC: str = "png"  # Расширение для сохраняемой MelSpectrogram
 EXT_AUDIO: str = "wav"  # Расширение для сохраняемого аудио
+EXT_NPY: str = 'npy'  # Расширения для сохранения сырых данных MelSpectrogram
 VOSK_SUPPORTED_LANGUAGES: List[str] = ["ru", "en"]  # Поддерживаемые языки (Vosk)
 VOSK_SUPPORTED_DICTS: List[str] = ["small", "big"]  # Размеры словарей (Vosk)
 VOSK_SPEECH_LEFT_PAD_MS: int = 0  # Внутренний левый отступ для итоговых речевых фрагментов
@@ -203,6 +211,8 @@ class AudioMessages(Yaml):
         self._vad_true: str = self._("Все файлы успешно проанализированы") + self._em
 
         self._aug_true: str = self._("Все файлы успешно обработаны") + self._em
+
+        self._preprocess_true: str = self._("Все файлы успешно предобработаны") + self._em
 
 
 # ######################################################################################################################
@@ -2089,6 +2099,9 @@ class Audio(AudioMessages):
         pad_mode: str = "reflect",
         norm: str = "slaney",
         center: bool = True,
+        dpi: int = 1200,
+        color_gradients: str = "magma",
+        save_raw_data: bool = True,
         clear_dir_audio: bool = False,
         out: bool = True,
     ) -> bool:
@@ -2104,6 +2117,9 @@ class Audio(AudioMessages):
             pad_mode (str): Управление оступами
             norm (str): Коэффициенты треугольных mel-фильтров делятся на ширину соответствующих mel-полос
             center (bool): Отступы с обеих сторон относительно центра аудиодорожки
+            dpi (int): DPI
+            color_gradients (str): Градиент для спектрограммы
+            save_raw_data (bool): Сохранение сырых данных мел-спектрограммы в формате .npy
             clear_dir_audio (bool): Очистка директории для сохранения аудиоданных после предобработки
             out (bool) Отображение
 
@@ -2132,6 +2148,11 @@ class Audio(AudioMessages):
                 or type(norm) is not str
                 or norm != "slaney"
                 or type(center) is not bool
+                or type(dpi) is not int
+                or (dpi in DPI) is False
+                or type(color_gradients) is not str
+                or (color_gradients in COLOR_GRADIENTS) is False
+                or type(save_raw_data) is not bool
                 or type(clear_dir_audio) is not bool
                 or type(out) is not bool
             ):
@@ -2213,3 +2234,108 @@ class Audio(AudioMessages):
                 self.__local_path = lambda lp: os.path.join(
                     *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))) :]
                 )
+
+                # Проход по всем найденным аудиовизуальных файлам
+                for i, path in enumerate(paths):
+                    self.__curr_path = path  # Текущий аудиовизуальный файл
+                    self.__i = i + 1  # Счетчик
+
+                    self.message_progressbar(
+                        self._curr_progress.format(
+                            self.__i,
+                            self.__len_paths,
+                            round(self.__i * 100 / self.__len_paths, 2),
+                            self.message_line(self.__local_path(self.__curr_path)),
+                        ),
+                        space=self._space,
+                        out=out,
+                    )
+
+                    self.__splitted_path = str(self.__curr_path.parent.relative_to(Path(self.path_to_dataset))).strip()
+
+                    self.__curr_path = str(self.__curr_path)
+
+                    # Пропуск невалидных значений
+                    if not self.__splitted_path or re.search(r"\s", self.__splitted_path) is not None:
+                        continue
+
+                    # Тип файла
+                    kind = filetype.guess(self.__curr_path)
+
+                    try:
+                        # Видео или аудио
+                        if kind.mime.startswith("video/") is True or kind.mime.startswith("audio/") is True:
+                            # Формирование мел-спектрограммы
+                            waveform, sample_rate = librosa.load(self.__curr_path, sr=sample_rate)
+                            waveform = torch.Tensor(waveform)
+
+                            torchaudio_melspec = torchaudio.transforms.MelSpectrogram(
+                                sample_rate=sample_rate,
+                                n_fft=n_fft,
+                                win_length=None,
+                                hop_length=hop_length,
+                                center=center,
+                                pad_mode=pad_mode,
+                                power=power,
+                                norm=norm,
+                                onesided=True,
+                                n_mels=n_mels,
+                                f_max=None,
+                            )(waveform)
+
+                            # Преобразование мел-спектрограммы в децибелы
+                            melspectogram_db_transform = torchaudio.transforms.AmplitudeToDB()
+                            melspec_db = melspectogram_db_transform(torchaudio_melspec)
+
+                            # Преобразование мел-спектрограммы в numpy-массив
+                            melspec_np = melspec_db.numpy()
+
+                            # Текущее время (TimeStamp)
+                            # см. datetime.fromtimestamp()
+                            self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
+
+                            # Путь до мел-спектрограммы
+                            melspec_path = os.path.join(
+                                self.path_to_dataset_audio,
+                                Path(self.__curr_path).stem + "_" + self.__curr_ts + "." + EXT_AUDIO_SPEC,
+                            )
+
+                            if not os.path.exists(self.path_to_dataset_audio):
+                                # Директория не создана
+                                if self.create_folder(self.path_to_dataset_audio, out=False) is False:
+                                    raise FileNotFoundError
+
+                            # Нормализация значений мел-спектрограммы в диапазон [0, 1]
+                            melspec_np = (melspec_np - melspec_np.min()) / (melspec_np.max() - melspec_np.min())
+
+                            # Переворот массива по вертикали
+                            melspec_np = np.flip(melspec_np, axis=0)
+
+                            # Применение цветовой карты
+                            # color_gradients: viridis, plasma, inferno, magma, cividis
+                            cmap = cm.get_cmap(color_gradients)
+                            melspec_rgb = cmap(melspec_np)[:, :, :3]  # Извлечение только RGB-каналов
+
+                            # Нормализация значений в диапазон [0, 255]
+                            melspec_rgb = (melspec_rgb * 255).astype("uint8")
+
+                            # Создание и сохранение изображения с помощью Pillow
+                            img = Image.fromarray(melspec_rgb)
+                            img.save(melspec_path, dpi=(dpi, dpi))
+
+                            if save_raw_data:
+                                # Сохранение сырых данных мел-спектрограммы в формате .npy
+                                raw_data_path = melspec_path.replace("." + EXT_AUDIO_SPEC, "." + EXT_NPY)
+                                np.save(raw_data_path, melspec_np)
+                    except Exception:
+                        self.__unprocessed_files.append(self.__curr_path)
+                        self.message_progressbar(close=True, out=out)
+                        continue
+
+                self.message_progressbar(close=True, out=out)
+
+                # Файлы на которых предварительная обработка не отработала
+                unprocessed_files_unique = np.unique(np.array(self.__unprocessed_files)).tolist()
+
+                if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
+                    self.message_true(self._preprocess_true, space=self._space, out=out)

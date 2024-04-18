@@ -31,6 +31,9 @@ import filetype  # Определение типа файла и типа MIME
 import logging  # Логирование
 import yaml  # Кодирование и декодирование данные в удобном формате
 import pymediainfo  # Получение meta данных из медиафайлов
+import librosa
+import librosa.display
+import matplotlib as mpl
 
 from datetime import datetime  # Работа со временем
 from prettytable import PrettyTable  # Отображение таблиц в терминале
@@ -644,6 +647,7 @@ class Core(CoreMessages):
                     "TorchVision",
                     "NumPy",
                     "Pandas",
+                    "Matplotlib",
                     "PyAV",
                     "FileType",
                     "IPython",
@@ -651,6 +655,7 @@ class Core(CoreMessages):
                     "Prettytable",
                     "PyYAML",
                     "PyMediaInfo",
+                    "Librosa",
                     "Streamlit",
                     "Vosk",
                 ],
@@ -662,6 +667,7 @@ class Core(CoreMessages):
                         torchvision,
                         np,
                         pd,
+                        mpl,
                         av,
                         filetype,
                         IPython,
@@ -669,6 +675,7 @@ class Core(CoreMessages):
                         prettytable,
                         yaml,
                         pymediainfo,
+                        librosa,
                     ]
                 ],
             }

@@ -2,7 +2,7 @@
 hide_metadata: false
 hide_libs_vers: false
 path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
-depth: 1
+depth: 2
 ext_search_files:
 - mov
 - mp4
@@ -17,4 +17,7 @@ power: 2.0
 pad_mode: 'reflect'
 norm: 'slaney'
 center: true
+dpi: 600
+color_gradients: 'magma'
 clear_dir_audio: true
+save_raw_data: true

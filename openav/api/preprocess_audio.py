@@ -37,7 +37,7 @@ from openav.modules.lab.build import Run  # Сборка библиотеки
 from openav import rsrs  # Ресурсы библиотеки
 
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
-from openav.modules.lab.audio import SAMPLING_RATE_MS, PAD_MODE_MS
+from openav.modules.lab.audio import SAMPLING_RATE_MS, PAD_MODE_MS, DPI, COLOR_GRADIENTS
 
 
 # ######################################################################################################################
@@ -74,7 +74,7 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 14  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 17  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_preprocess_audio: logging.Logger = logging.getLogger(__class__.__name__)
@@ -166,7 +166,8 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
             # 1. Скрытие метаданных
             # 2. Скрытие версий установленных библиотек
             # 3. Включение установки отступов с обеих сторон относительно центра аудиодорожки
-            if key == "hide_metadata" or key == "hide_libs_vers" or key == "center":
+            # 4. Сохранение сырых данных мел-спектрограммы в формате .npy
+            if key == "hide_metadata" or key == "hide_libs_vers" or key == "center" or key == "save_raw_data":
                 # Проверка значения
                 if type(val) is not bool:
                     continue
@@ -261,6 +262,22 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
             if key == "norm":
                 # Проверка значения
                 if type(val) is not str or val != "slaney":
+                    continue
+
+                curr_valid_layer += 1
+
+            # DPI
+            if key == "dpi":
+                # Проверка значения
+                if type(val) is not int or (val in DPI) is False:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Градиент для спектрограммы
+            if key == "color_gradients":
+                # Проверка значения
+                if type(val) is not str or (val in COLOR_GRADIENTS) is False:
                     continue
 
                 curr_valid_layer += 1
@@ -397,6 +414,10 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
             center=self._args["center"],  # Отступы с обеих сторон относительно центра аудиодорожки
             # Очистка директории для сохранения аудиоданных после предобработки
             clear_dir_audio=self._args["clear_dir_audio"],
+            dpi=self._args["dpi"],  # DPI
+            color_gradients=self._args["color_gradients"],  # Градиент для спектрограммы
+            # Сохранение сырых данных мел-спектрограммы в формате .npy
+            save_raw_data=self._args["save_raw_data"],
             out=out,
         )
 
