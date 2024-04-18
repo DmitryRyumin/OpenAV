@@ -995,6 +995,368 @@ class Audio(AudioMessages):
 
         return True
 
+    def __augmentation_check_settings(
+            self,
+            crop_px_min: int,
+            crop_px_max: int,
+            crop_percent_min: float,
+            crop_percent_max: float,
+            flip_lr_probability: float,
+            flip_ud_probability: float,
+            blur_min: float,
+            blur_max: float,
+            scale_x_min: float,
+            scale_x_max: float,
+            scale_y_min: float,
+            scale_y_max: float,
+            rotate_min: int,
+            rotate_max: int,
+            contrast_min: float,
+            contrast_max: float,
+            alpha: float,
+            count: int,
+            out: bool,
+    ) -> bool:
+        try:
+            # Проверка настроек
+            if (AUGMENTATION_CROP_PX[0] <= crop_px_min <= crop_px_max <= AUGMENTATION_CROP_PX[1]) is False:
+                raise CropPXError
+            if (
+                    AUGMENTATION_CROP_PERCENT[0] <= crop_percent_min <= crop_percent_max <= AUGMENTATION_CROP_PERCENT[1]
+            ) is False:
+                raise CropPercentsError
+            if (
+                    AUGMENTATION_FLIP_LR_PROBABILITY[0] <= flip_lr_probability <= AUGMENTATION_FLIP_LR_PROBABILITY[1]
+            ) is False:
+                raise FlipLRProbabilityError
+            if (
+                    AUGMENTATION_FLIP_UD_PROBABILITY[0] <= flip_ud_probability <= AUGMENTATION_FLIP_UD_PROBABILITY[1]
+            ) is False:
+                raise FlipUDProbabilityError
+            if (AUGMENTATION_BLUR[0] <= blur_min <= blur_max <= AUGMENTATION_BLUR[1]) is False:
+                raise BlurError
+            if (AUGMENTATION_SCALE_X[0] <= scale_x_min <= scale_x_max <= AUGMENTATION_SCALE_X[1]) is False:
+                raise ScaleError
+            if (AUGMENTATION_SCALE_Y[0] <= scale_y_min <= scale_y_max <= AUGMENTATION_SCALE_Y[1]) is False:
+                raise ScaleError
+            if (
+                    type(rotate_min) is not int
+                    or type(rotate_max) is not int
+                    or (AUGMENTATION_ROTATE[0] <= rotate_min <= rotate_max <= AUGMENTATION_ROTATE[1]) is False
+            ):
+                raise RotateError
+            if (AUGMENTATION_CONTRAST[0] <= contrast_min <= contrast_max <= AUGMENTATION_CONTRAST[1]) is False:
+                raise ContrastError
+            if (AUGMENTATION_ALPHA[0] <= alpha <= AUGMENTATION_ALPHA[1]) is False:
+                raise MixUpAlphaError
+        except CropPXError:
+            self.message_error(
+                self._wrong_crop_px_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_CROP_PX))),
+                out=out,
+            )
+            return False
+        except CropPercentsError:
+            self.message_error(
+                self._wrong_crop_percent_aug.format(
+                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_CROP_PERCENT))
+                ),
+                out=out,
+            )
+            return False
+        except FlipLRProbabilityError:
+            self.message_error(
+                self._wrong_flip_lr_prob_aug.format(
+                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_FLIP_LR_PROBABILITY))
+                ),
+                out=out,
+            )
+            return False
+        except FlipUDProbabilityError:
+            self.message_error(
+                self._wrong_flip_ud_prob_aug.format(
+                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_FLIP_UD_PROBABILITY))
+                ),
+                out=out,
+            )
+            return False
+        except BlurError:
+            self.message_error(
+                self._wrong_blur_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_BLUR))),
+                out=out,
+            )
+            return False
+        except ScaleError:
+            self.message_error(
+                self._wrong_scale_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_SCALE_X))),
+                out=out,
+            )
+            return False
+        except RotateError:
+            self.message_error(
+                self._wrong_rotate_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_ROTATE))),
+                out=out,
+            )
+            return False
+        except ContrastError:
+            self.message_error(
+                self._wrong_contrast_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_CONTRAST))),
+                out=out,
+            )
+            return False
+        except MixUpAlphaError:
+            self.message_error(
+                self._wrong_alpha_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_ALPHA))),
+                out=out,
+            )
+            return False
+        else:
+            # Только для внутреннего использования внутри класса
+            self.__crop_px_min = crop_px_min
+            self.__crop_px_max = crop_px_max
+            self.__crop_percent_min = crop_percent_min
+            self.__crop_percent_max = crop_percent_max
+            self.__flip_lr_probability = flip_lr_probability
+            self.__flip_ud_probability = flip_ud_probability
+            self.__blur_min = blur_min
+            self.__blur_max = blur_max
+            self.__scale_x_min = scale_x_min
+            self.__scale_x_max = scale_x_max
+            self.__scale_y_min = scale_y_min
+            self.__scale_y_max = scale_y_max
+            self.__rotate_min = rotate_min
+            self.__rotate_max = rotate_max
+            self.__contrast_min = contrast_min
+            self.__contrast_max = contrast_max
+            self.__alpha = alpha
+            self.__count = count
+            # Метаданные для видео и аудио
+            self.__file_metadata["video_fps"], self.__file_metadata["audio_fps"] = 0.0, 0
+        print()
+        return True
+
+    def __augmentation_validate_arguments(
+            self,
+            depth: int,
+            crop_px_min: int,
+            crop_px_max: int,
+            crop_percent_min: float,
+            crop_percent_max: float,
+            flip_lr_probability: float,
+            flip_ud_probability: float,
+            blur_min: float,
+            blur_max: float,
+            scale_x_min: float,
+            scale_x_max: float,
+            scale_y_min: float,
+            scale_y_max: float,
+            rotate_min: int,
+            rotate_max: int,
+            contrast_min: float,
+            contrast_max: float,
+            alpha: float,
+            count: int,
+            clear_diraug: bool,
+            out: bool,
+    ) -> bool:
+        try:
+            # Проверка аргументов
+            if type(depth) is not int or depth < 1 or type(clear_diraug) is not bool or type(out) is not bool:
+                raise TypeError
+        except TypeError:
+            self.inv_args(__class__.__name__, self.vad.__name__, out=out)
+            return False
+        else:
+            self.__augmentation_check_settings(
+                crop_px_min,
+                crop_px_max,
+                crop_percent_min,
+                crop_percent_max,
+                flip_lr_probability,
+                flip_ud_probability,
+                blur_min,
+                blur_max,
+                scale_x_min,
+                scale_x_max,
+                scale_y_min,
+                scale_y_max,
+                rotate_min,
+                rotate_max,
+                contrast_min,
+                contrast_max,
+                alpha,
+                count,
+                out,
+            )
+        return True
+
+    def __augmentation_parce_directories(self, depth: int, out: bool) -> List[str]:
+        # Информационное сообщение
+        self.message_info(
+            self._subfolders_search.format(
+                self.message_line(self.path_to_input_augmentation_directory),
+                self.message_line(str(depth)),
+            ),
+            out=out,
+        )
+
+        # Создание директории, где хранятся данные
+        if self.create_folder(self.path_to_input_augmentation_directory, out=False) is False:
+            return False
+
+        # Получение вложенных директорий, где хранятся данные
+        nested_paths = self.get_paths(self.path_to_input_augmentation_directory, depth=depth, out=False)
+
+        # Вложенные директории не найдены
+        try:
+            if len(nested_paths) == 0:
+                raise IsNestedCatalogsNotFoundError
+        except IsNestedCatalogsNotFoundError:
+            self.message_error(self._subfolders_not_found, space=self._space, out=out)
+            return False
+
+        # Информационное сообщение
+        self.message_info(
+            self._files_av_find.format(
+                self.message_line(", ".join(x.replace(".", "") for x in self.ext_search_files)),
+                self.message_line(self.path_to_input_augmentation_directory),
+                self.message_line(str(depth)),
+            ),
+            out=out,
+        )
+        return nested_paths
+
+    def __augmentation_parce_files(self, depth: int, out: bool) -> List[str]:
+        nested_paths = self.__augmentation_parce_directories(depth, out)
+
+        paths = []  # Пути до аудиовизуальных файлов
+
+        # Проход по всем вложенным директориям
+        for nested_path in nested_paths:
+            # Формирование списка с видеофайлами
+            for p in Path(nested_path).glob("*"):
+                # Добавление текущего пути к видеофайлу в список
+                if p.suffix.lower() in self.ext_search_files:
+                    paths.append(p.resolve())
+        return paths
+
+    def __augmentation_input_directory_is_not_empty(self, paths: List[str], out: bool) -> bool:
+        # Директория с набором данных не содержит аудиовизуальных файлов с необходимыми расширениями
+        try:
+            self.__len_paths = len(paths)  # Количество аудиовизуальных файлов
+
+            if self.__len_paths == 0:
+                raise TypeError
+        except TypeError:
+            self.message_error(self._files_not_found, space=self._space, out=out)
+            return False
+        except Exception:
+            self.message_error(self._unknown_err, space=self._space, out=out)
+            return False
+
+    def __augmentation_prepare_directory(self, paths: List[str], clear_diraug: bool, out: bool) -> bool:
+        if self.__augmentation_input_directory_is_not_empty(paths, out):
+            # Очистка директории для сохранения обработанных аудиовизуальных сигналов
+            if clear_diraug is True and os.path.exists(self.path_to_output_augmentation_directory) is True:
+                if self.clear_folder(self.path_to_output_augmentation_directory, out=False) is False:
+                    return False
+
+    def __augmentation_process_files(self, paths: List[str], clear_diraug: bool, out: bool) -> bool:
+
+        self.__augmentation_prepare_directory(paths, clear_diraug, out)
+
+        self.__unprocessed_files = []  # Пути к файлам на которых аугментация не отработала
+
+        # Информационное сообщение
+        self.message_info(self._files_analysis, out=out)
+
+        # Локальный путь
+        self.__local_path = lambda lp: os.path.join(
+            *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_input_augmentation_directory).parts))):]
+        )
+
+        # Проход по всем найденным аудиовизуальных файлам
+        for i, path in enumerate(paths):
+            self.__curr_path = path  # Текущий аудиовизуальный файл
+            self.__i = i + 1  # Счетчик
+
+            self.message_progressbar(
+                self._curr_progress.format(
+                    self.__i,
+                    self.__len_paths,
+                    round(self.__i * 100 / self.__len_paths, 2),
+                    self.message_line(self.__local_path(self.__curr_path)),
+                ),
+                space=self._space,
+                out=out,
+            )
+
+            self.__splitted_path = str(
+                self.__curr_path.parent.relative_to(Path(self.path_to_input_augmentation_directory))
+            ).strip()
+
+            self.__curr_path = str(self.__curr_path)
+
+            try:
+                for k in range(self.__count):
+                    # Тип файла
+                    _ = filetype.guess(self.__curr_path)
+                    directory = os.path.join(
+                        self.path_to_output_augmentation_directory,
+                        Path(self.__curr_path).parent.relative_to(Path(self.path_to_input_augmentation_directory)),
+                    )
+                    os.makedirs(directory, exist_ok=True)
+
+                    self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
+
+                    path = os.path.join(
+                        directory,
+                        Path(self.__curr_path).stem + "_" + self.__curr_ts + "." + EXT_AUDIO_AUG,
+                    )
+                    seq = iaa.Sequential(
+                        [
+                            iaa.Crop(px=(self.__crop_px_min, self.__crop_px_max)),
+                            iaa.Crop(percent=(self.__crop_percent_min, self.__crop_percent_max)),
+                            iaa.Fliplr(self.__flip_lr_probability),
+                            iaa.Flipud(p=self.__flip_ud_probability),
+                            iaa.GaussianBlur(sigma=(self.__blur_min, self.__blur_max)),
+                            iaa.Affine(
+                                scale={
+                                    "x": (self.__scale_x_min, self.__scale_x_max),
+                                    "y": (self.__scale_y_min, self.__scale_y_max),
+                                },
+                                rotate=(self.__rotate_min, self.__rotate_max),
+                            ),
+                            iaa.LinearContrast((self.__contrast_min, self.__contrast_max)),
+                        ]
+                    )
+                    alpha = self.__alpha
+                    img = Image.open(self.__curr_path)
+                    img_array = np.array(img)
+                    img_aug = seq(image=img_array)
+
+                    img2 = Image.open(paths[random.randint(0, len(paths) - 1)])
+                    img2_array = np.array(img2)
+
+                    img_res = ((alpha * img_aug) + ((1 - alpha) * img2_array)).astype(np.uint8)
+                    img_res = np.array(img_res)
+
+                    Image.fromarray(img_res).save(path)
+
+            except Exception as err:
+                print(err)
+                self.__unprocessed_files.append(self.__curr_path)
+                self.message_progressbar(close=True, out=out)
+                continue
+
+        self.message_progressbar(close=True, out=out)
+
+        # Файлы на которых аугментация не отработала
+        unprocessed_files_unique = np.unique(np.array(self.__unprocessed_files)).tolist()
+
+        if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
+            self.message_true(self._aug_true, space=self._space, out=out)
+            return True
+
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
     # ------------------------------------------------------------------------------------------------------------------
@@ -1632,368 +1994,6 @@ class Audio(AudioMessages):
                     if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
                         self.message_true(self._vad_true, space=self._space, out=out)
 
-    def augmentation_check_settings(
-        self,
-        crop_px_min: int,
-        crop_px_max: int,
-        crop_percent_min: float,
-        crop_percent_max: float,
-        flip_lr_probability: float,
-        flip_ud_probability: float,
-        blur_min: float,
-        blur_max: float,
-        scale_x_min: float,
-        scale_x_max: float,
-        scale_y_min: float,
-        scale_y_max: float,
-        rotate_min: int,
-        rotate_max: int,
-        contrast_min: float,
-        contrast_max: float,
-        alpha: float,
-        count: int,
-        out: bool,
-    ) -> bool:
-        try:
-            # Проверка настроек
-            if (AUGMENTATION_CROP_PX[0] <= crop_px_min <= crop_px_max <= AUGMENTATION_CROP_PX[1]) is False:
-                raise CropPXError
-            if (
-                AUGMENTATION_CROP_PERCENT[0] <= crop_percent_min <= crop_percent_max <= AUGMENTATION_CROP_PERCENT[1]
-            ) is False:
-                raise CropPercentsError
-            if (
-                AUGMENTATION_FLIP_LR_PROBABILITY[0] <= flip_lr_probability <= AUGMENTATION_FLIP_LR_PROBABILITY[1]
-            ) is False:
-                raise FlipLRProbabilityError
-            if (
-                AUGMENTATION_FLIP_UD_PROBABILITY[0] <= flip_ud_probability <= AUGMENTATION_FLIP_UD_PROBABILITY[1]
-            ) is False:
-                raise FlipUDProbabilityError
-            if (AUGMENTATION_BLUR[0] <= blur_min <= blur_max <= AUGMENTATION_BLUR[1]) is False:
-                raise BlurError
-            if (AUGMENTATION_SCALE_X[0] <= scale_x_min <= scale_x_max <= AUGMENTATION_SCALE_X[1]) is False:
-                raise ScaleError
-            if (AUGMENTATION_SCALE_Y[0] <= scale_y_min <= scale_y_max <= AUGMENTATION_SCALE_Y[1]) is False:
-                raise ScaleError
-            if (
-                type(rotate_min) is not int
-                or type(rotate_max) is not int
-                or (AUGMENTATION_ROTATE[0] <= rotate_min <= rotate_max <= AUGMENTATION_ROTATE[1]) is False
-            ):
-                raise RotateError
-            if (AUGMENTATION_CONTRAST[0] <= contrast_min <= contrast_max <= AUGMENTATION_CONTRAST[1]) is False:
-                raise ContrastError
-            if (AUGMENTATION_ALPHA[0] <= alpha <= AUGMENTATION_ALPHA[1]) is False:
-                raise MixUpAlphaError
-        except CropPXError:
-            self.message_error(
-                self._wrong_crop_px_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_CROP_PX))),
-                out=out,
-            )
-            return False
-        except CropPercentsError:
-            self.message_error(
-                self._wrong_crop_percent_aug.format(
-                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_CROP_PERCENT))
-                ),
-                out=out,
-            )
-            return False
-        except FlipLRProbabilityError:
-            self.message_error(
-                self._wrong_flip_lr_prob_aug.format(
-                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_FLIP_LR_PROBABILITY))
-                ),
-                out=out,
-            )
-            return False
-        except FlipUDProbabilityError:
-            self.message_error(
-                self._wrong_flip_ud_prob_aug.format(
-                    self.message_line(" - ".join(str(x) for x in AUGMENTATION_FLIP_UD_PROBABILITY))
-                ),
-                out=out,
-            )
-            return False
-        except BlurError:
-            self.message_error(
-                self._wrong_blur_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_BLUR))),
-                out=out,
-            )
-            return False
-        except ScaleError:
-            self.message_error(
-                self._wrong_scale_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_SCALE_X))),
-                out=out,
-            )
-            return False
-        except RotateError:
-            self.message_error(
-                self._wrong_rotate_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_ROTATE))),
-                out=out,
-            )
-            return False
-        except ContrastError:
-            self.message_error(
-                self._wrong_contrast_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_CONTRAST))),
-                out=out,
-            )
-            return False
-        except MixUpAlphaError:
-            self.message_error(
-                self._wrong_alpha_aug.format(self.message_line(" - ".join(str(x) for x in AUGMENTATION_ALPHA))),
-                out=out,
-            )
-            return False
-        else:
-            # Только для внутреннего использования внутри класса
-            self.__crop_px_min = crop_px_min
-            self.__crop_px_max = crop_px_max
-            self.__crop_percent_min = crop_percent_min
-            self.__crop_percent_max = crop_percent_max
-            self.__flip_lr_probability = flip_lr_probability
-            self.__flip_ud_probability = flip_ud_probability
-            self.__blur_min = blur_min
-            self.__blur_max = blur_max
-            self.__scale_x_min = scale_x_min
-            self.__scale_x_max = scale_x_max
-            self.__scale_y_min = scale_y_min
-            self.__scale_y_max = scale_y_max
-            self.__rotate_min = rotate_min
-            self.__rotate_max = rotate_max
-            self.__contrast_min = contrast_min
-            self.__contrast_max = contrast_max
-            self.__alpha = alpha
-            self.__count = count
-            # Метаданные для видео и аудио
-            self.__file_metadata["video_fps"], self.__file_metadata["audio_fps"] = 0.0, 0
-        print()
-        return True
-
-    def augmentation_validate_arguments(
-        self,
-        depth: int,
-        crop_px_min: int,
-        crop_px_max: int,
-        crop_percent_min: float,
-        crop_percent_max: float,
-        flip_lr_probability: float,
-        flip_ud_probability: float,
-        blur_min: float,
-        blur_max: float,
-        scale_x_min: float,
-        scale_x_max: float,
-        scale_y_min: float,
-        scale_y_max: float,
-        rotate_min: int,
-        rotate_max: int,
-        contrast_min: float,
-        contrast_max: float,
-        alpha: float,
-        count: int,
-        clear_diraug: bool,
-        out: bool,
-    ) -> bool:
-        try:
-            # Проверка аргументов
-            if type(depth) is not int or depth < 1 or type(clear_diraug) is not bool or type(out) is not bool:
-                raise TypeError
-        except TypeError:
-            self.inv_args(__class__.__name__, self.vad.__name__, out=out)
-            return False
-        else:
-            self.augmentation_check_settings(
-                crop_px_min,
-                crop_px_max,
-                crop_percent_min,
-                crop_percent_max,
-                flip_lr_probability,
-                flip_ud_probability,
-                blur_min,
-                blur_max,
-                scale_x_min,
-                scale_x_max,
-                scale_y_min,
-                scale_y_max,
-                rotate_min,
-                rotate_max,
-                contrast_min,
-                contrast_max,
-                alpha,
-                count,
-                out,
-            )
-        return True
-
-    def augmentation_parce_directories(self, depth: int, out: bool) -> List[str]:
-        # Информационное сообщение
-        self.message_info(
-            self._subfolders_search.format(
-                self.message_line(self.path_to_input_augmentation_directory),
-                self.message_line(str(depth)),
-            ),
-            out=out,
-        )
-
-        # Создание директории, где хранятся данные
-        if self.create_folder(self.path_to_input_augmentation_directory, out=False) is False:
-            return False
-
-        # Получение вложенных директорий, где хранятся данные
-        nested_paths = self.get_paths(self.path_to_input_augmentation_directory, depth=depth, out=False)
-
-        # Вложенные директории не найдены
-        try:
-            if len(nested_paths) == 0:
-                raise IsNestedCatalogsNotFoundError
-        except IsNestedCatalogsNotFoundError:
-            self.message_error(self._subfolders_not_found, space=self._space, out=out)
-            return False
-
-        # Информационное сообщение
-        self.message_info(
-            self._files_av_find.format(
-                self.message_line(", ".join(x.replace(".", "") for x in self.ext_search_files)),
-                self.message_line(self.path_to_input_augmentation_directory),
-                self.message_line(str(depth)),
-            ),
-            out=out,
-        )
-        return nested_paths
-
-    def augmentation_parce_files(self, depth: int, out: bool) -> List[str]:
-        nested_paths = self.augmentation_parce_directories(depth, out)
-
-        paths = []  # Пути до аудиовизуальных файлов
-
-        # Проход по всем вложенным директориям
-        for nested_path in nested_paths:
-            # Формирование списка с видеофайлами
-            for p in Path(nested_path).glob("*"):
-                # Добавление текущего пути к видеофайлу в список
-                if p.suffix.lower() in self.ext_search_files:
-                    paths.append(p.resolve())
-        return paths
-
-    def augmentation_input_directory_is_not_empty(self, paths: List[str], out: bool) -> bool:
-        # Директория с набором данных не содержит аудиовизуальных файлов с необходимыми расширениями
-        try:
-            self.__len_paths = len(paths)  # Количество аудиовизуальных файлов
-
-            if self.__len_paths == 0:
-                raise TypeError
-        except TypeError:
-            self.message_error(self._files_not_found, space=self._space, out=out)
-            return False
-        except Exception:
-            self.message_error(self._unknown_err, space=self._space, out=out)
-            return False
-
-    def augmentation_prepare_directory(self, paths: List[str], clear_diraug: bool, out: bool) -> bool:
-        if self.augmentation_input_directory_is_not_empty(paths, out):
-            # Очистка директории для сохранения обработанных аудиовизуальных сигналов
-            if clear_diraug is True and os.path.exists(self.path_to_output_augmentation_directory) is True:
-                if self.clear_folder(self.path_to_output_augmentation_directory, out=False) is False:
-                    return False
-
-    def augmentation_process_files(self, paths: List[str], clear_diraug: bool, out: bool) -> bool:
-
-        self.augmentation_prepare_directory(paths, clear_diraug, out)
-
-        self.__unprocessed_files = []  # Пути к файлам на которых аугментация не отработала
-
-        # Информационное сообщение
-        self.message_info(self._files_analysis, out=out)
-
-        # Локальный путь
-        self.__local_path = lambda lp: os.path.join(
-            *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_input_augmentation_directory).parts))) :]
-        )
-
-        # Проход по всем найденным аудиовизуальных файлам
-        for i, path in enumerate(paths):
-            self.__curr_path = path  # Текущий аудиовизуальный файл
-            self.__i = i + 1  # Счетчик
-
-            self.message_progressbar(
-                self._curr_progress.format(
-                    self.__i,
-                    self.__len_paths,
-                    round(self.__i * 100 / self.__len_paths, 2),
-                    self.message_line(self.__local_path(self.__curr_path)),
-                ),
-                space=self._space,
-                out=out,
-            )
-
-            self.__splitted_path = str(
-                self.__curr_path.parent.relative_to(Path(self.path_to_input_augmentation_directory))
-            ).strip()
-
-            self.__curr_path = str(self.__curr_path)
-
-            try:
-                for k in range(self.__count):
-                    # Тип файла
-                    _ = filetype.guess(self.__curr_path)
-                    directory = os.path.join(
-                        self.path_to_output_augmentation_directory,
-                        Path(self.__curr_path).parent.relative_to(Path(self.path_to_input_augmentation_directory)),
-                    )
-                    os.makedirs(directory, exist_ok=True)
-
-                    self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
-
-                    path = os.path.join(
-                        directory,
-                        Path(self.__curr_path).stem + "_" + self.__curr_ts + "." + EXT_AUDIO_AUG,
-                    )
-                    seq = iaa.Sequential(
-                        [
-                            iaa.Crop(px=(self.__crop_px_min, self.__crop_px_max)),
-                            iaa.Crop(percent=(self.__crop_percent_min, self.__crop_percent_max)),
-                            iaa.Fliplr(self.__flip_lr_probability),
-                            iaa.Flipud(p=self.__flip_ud_probability),
-                            iaa.GaussianBlur(sigma=(self.__blur_min, self.__blur_max)),
-                            iaa.Affine(
-                                scale={
-                                    "x": (self.__scale_x_min, self.__scale_x_max),
-                                    "y": (self.__scale_y_min, self.__scale_y_max),
-                                },
-                                rotate=(self.__rotate_min, self.__rotate_max),
-                            ),
-                            iaa.LinearContrast((self.__contrast_min, self.__contrast_max)),
-                        ]
-                    )
-                    alpha = self.__alpha
-                    img = Image.open(self.__curr_path)
-                    img_array = np.array(img)
-                    img_aug = seq(image=img_array)
-
-                    img2 = Image.open(paths[random.randint(0, len(paths) - 1)])
-                    img2_array = np.array(img2)
-
-                    img_res = ((alpha * img_aug) + ((1 - alpha) * img2_array)).astype(np.uint8)
-                    img_res = np.array(img_res)
-
-                    Image.fromarray(img_res).save(path)
-
-            except Exception as err:
-                print(err)
-                self.__unprocessed_files.append(self.__curr_path)
-                self.message_progressbar(close=True, out=out)
-                continue
-
-        self.message_progressbar(close=True, out=out)
-
-        # Файлы на которых аугментация не отработала
-        unprocessed_files_unique = np.unique(np.array(self.__unprocessed_files)).tolist()
-
-        if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
-            self.message_true(self._aug_true, space=self._space, out=out)
-            return True
-
     def augmentation(
         self,
         depth: int = 1,
@@ -2052,7 +2052,7 @@ class Audio(AudioMessages):
 
         .. deprecated:: 0.1.0
         """
-        self.augmentation_validate_arguments(
+        self.__augmentation_validate_arguments(
             depth,
             crop_px_min,
             crop_px_max,
@@ -2075,8 +2075,8 @@ class Audio(AudioMessages):
             clear_diraug,
             out,
         )
-        paths = self.augmentation_parce_files(depth, out)
-        return self.augmentation_process_files(paths, clear_diraug, out)
+        paths = self.__augmentation_parce_files(depth, out)
+        return self.__augmentation_process_files(paths, clear_diraug, out)
 
     def preprocess_audio(
         self,
