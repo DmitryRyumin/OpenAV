@@ -48,6 +48,8 @@ License :: OSI Approved :: MIT License
 Programming Language :: Python
 Programming Language :: Python :: 3
 Programming Language :: Python :: 3.9
+Programming Language :: Python :: 3.10
+Programming Language :: Python :: 3.11
 Programming Language :: Python :: 3 :: Only
 Programming Language :: Python :: Implementation :: CPython
 Topic :: Scientific/Engineering
@@ -113,6 +115,7 @@ with open("README.md", "r") as fh:
             "console_scripts": [
                 "openav_vad = openav.api.vad:main",
                 "openav_vosk_sr = openav.api.vosk_sr:main",
+                "openav_preprocess_audio = openav.api.preprocess_audio:main",
             ],
         },
         project_urls={
