@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Предобработка речевых аудиоданных
+Предобработка речевых видеоданных
 """
 
 import os
@@ -37,14 +37,14 @@ from openav.modules.lab.build import Run  # Сборка библиотеки
 from openav import rsrs  # Ресурсы библиотеки
 
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
-from openav.modules.lab.audio import SAMPLING_RATE_MS, PAD_MODE_MS, DPI, COLOR_GRADIENTS, EXT_AUDIO
+from openav.modules.lab.video import DPI, COLOR_MODE, EXT_VIDEO
 
 
 # ######################################################################################################################
 # Сообщения
 # ######################################################################################################################
 @dataclass
-class MessagesPreprocessAudio(Run):
+class MessagesPreprocessVideo(Run):
     """Класс для сообщений"""
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ class MessagesPreprocessAudio(Run):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._description: str = self._("Предобработка речевых аудиоданных")
+        self._description: str = self._("Предобработка речевых видеоданных")
         self._description_time: str = "{}" * 2 + self._description + self._em + "{}"
 
         self._check_config_file_valid = self._("Проверка данных на валидность") + self._em
@@ -64,8 +64,8 @@ class MessagesPreprocessAudio(Run):
 # Выполняем только в том случае, если файл запущен сам по себе
 # ######################################################################################################################
 @dataclass
-class RunPreprocessAudio(MessagesPreprocessAudio):
-    """Класс для предобработки речевых аудиоданных"""
+class RunPreprocessVideo(MessagesPreprocessVideo):
+    """Класс для предобработки речевых видеоданных"""
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
@@ -74,10 +74,10 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 18  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 11  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
-        self._logger_run_preprocess_audio: logging.Logger = logging.getLogger(__class__.__name__)
+        self._logger_run_preprocess_video: logging.Logger = logging.getLogger(__class__.__name__)
 
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
@@ -165,16 +165,9 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
         for key, val in config.items():
             # 1. Скрытие метаданных
             # 2. Скрытие версий установленных библиотек
-            # 3. Включение установки отступов с обеих сторон относительно центра аудиодорожки
-            # 4. Очистка директории для сохранения аудиоданных после предобработки
-            # 5. Сохранение сырых данных мел-спектрограммы в формате .npy
-            if (
-                key == "hide_metadata"
-                or key == "hide_libs_vers"
-                or key == "center"
-                or key == "clear_dir_audio"
-                or key == "save_raw_data"
-            ):
+            # 3. Очистка директории для сохранения видеоданных после предобработки
+            # 4. Сохранение сырых данных с областями губ в формате .npy
+            if key == "hide_metadata" or key == "hide_libs_vers" or key == "clear_dir_video" or key == "save_raw_data":
                 # Проверка значения
                 if type(val) is not bool:
                     continue
@@ -200,76 +193,20 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
                 # Проход по всем подразделам текущего раздела
                 for v in val:
                     # Проверка значения
-                    if type(v) is not str or not v or (v in EXT_AUDIO) is False:
+                    if type(v) is not str or not v or (v in EXT_VIDEO) is False:
                         curr_valid_layer_2 += 100
                         continue
 
                     curr_valid_layer_2 += 1
 
-                if curr_valid_layer_2 <= len(EXT_AUDIO):
+                if curr_valid_layer_2 <= len(EXT_VIDEO):
                     curr_valid_layer += 1
 
             # 1. Путь к директории набора данных
-            # 2. Путь к директории набора данных состоящего из спектрограмм
-            if key == "path_to_dataset" or key == "path_to_dataset_audio":
+            # 2. Путь к директории набора данных состоящего из изобращений с губами
+            if key == "path_to_dataset" or key == "path_to_dataset_video":
                 # Проверка значения
                 if type(val) is not str or not val:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Частота дискретизации
-            if key == "sample_rate":
-                # Проверка значения
-                if type(val) is not int or (val in SAMPLING_RATE_MS) is False:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Размер параметра FFT
-            if key == "n_fft":
-                # Проверка значения
-                if type(val) is not int or not (256 <= val <= 2048):
-                    continue
-
-                curr_valid_layer += 1
-
-            # Длина перехода между окнами STFT
-            if key == "hop_length":
-                # Проверка значения
-                if type(val) is not int or not (64 <= val <= 512):
-                    continue
-
-                curr_valid_layer += 1
-
-            # Количество фильтроблоков mel
-            if key == "n_mels":
-                # Проверка значения
-                if type(val) is not int or not (20 <= val <= 512):
-                    continue
-
-                curr_valid_layer += 1
-
-            # Показатель степени магнитудной спектрограммы
-            if key == "power":
-                # Проверка значения
-                if type(val) is not float or (val in [1.0, 2.0]) is False:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Управление оступами
-            if key == "pad_mode":
-                # Проверка значения
-                if type(val) is not str or (val in PAD_MODE_MS) is False:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Коэффициенты треугольных mel-фильтров делятся на ширину соответствующих mel-полос
-            if key == "norm":
-                # Проверка значения
-                if type(val) is not str or val != "slaney":
                     continue
 
                 curr_valid_layer += 1
@@ -282,10 +219,33 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
 
                 curr_valid_layer += 1
 
-            # Градиент для спектрограммы
-            if key == "color_gradients":
+            # Размер кадра с найденной областью губ
+            if key == "size_lips":
+                all_layer_2 = 2  # Общее количество подразделов в текущем разделе
+                curr_valid_layer_2 = 0  # Валидное количество подразделов в текущем разделе
+
                 # Проверка значения
-                if type(val) is not str or (val in COLOR_GRADIENTS) is False:
+                if type(val) is not dict or len(val) == 0:
+                    continue
+
+                # Проход по всем подразделам текущего раздела
+                for k, v in val.items():
+                    # Проверка значения
+                    if type(v) is not int or v <= 0:
+                        continue
+
+                    # 1. Ширина
+                    # 2. Высота
+                    if k == "width" or k == "height":
+                        curr_valid_layer_2 += 1
+
+                if all_layer_2 == curr_valid_layer_2:
+                    curr_valid_layer += 1
+
+            # Цветовая гамма конечного изображения
+            if key == "color_mode":
+                # Проверка значения
+                if type(val) is not str or (val in COLOR_MODE) is False:
                     continue
 
                 curr_valid_layer += 1
@@ -301,7 +261,7 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
         return True  # Результат
 
     def _load_config_yaml(
-        self, resources: ModuleType = rsrs, config="audio_preprocessing.yaml", out: bool = True
+        self, resources: ModuleType = rsrs, config="video_preprocessing.yaml", out: bool = True
     ) -> bool:
         """Загрузка и проверка конфигурационного файла
 
@@ -350,7 +310,7 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
     # ------------------------------------------------------------------------------------------------------------------
 
     def run(self, metadata: ModuleType = openav, resources: ModuleType = rsrs, out: bool = True) -> bool:
-        """Запуск предобработки речевых аудиоданных
+        """Запуск предобработки речевых видеоданных
 
         Args:
             metadata (ModuleType): Модуль из которого необходимо извлечь информацию
@@ -358,7 +318,7 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
             out (bool): Печатать процесс выполнения
 
         Returns:
-             bool: **True** если предобработка речевых аудиоданных произведена успешно,
+             bool: **True** если предобработка речевых видеоданных произведена успешно,
                    в обратном случае **False**
         """
 
@@ -383,7 +343,7 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
             # Приветствие
             Shell.add_line()  # Добавление линии во весь экран
             print(self._description_time.format(self.text_bold, self.color_blue, self.text_end))
-            self._logger_run_preprocess_audio.info(self._description)
+            self._logger_run_preprocess_video.info(self._description)
             Shell.add_line()  # Добавление линии во весь экран
 
         # Загрузка и проверка конфигурационного файла
@@ -405,26 +365,16 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
             Shell.add_line()  # Добавление линии во весь экран
 
         self.path_to_dataset = self._args["path_to_dataset"]  # Путь к директории набора данных
-        # Путь к директории набора данных состоящего из спектрограмм
-        self.path_to_dataset_audio = self._args["path_to_dataset_audio"]
+        # Путь к директории набора данных состоящего из изобращений с губами
+        self.path_to_dataset_video = self._args["path_to_dataset_video"]
         self.ext_search_files = self._args["ext_search_files"]  # Расширения искомых файлов
 
-        self.preprocess_audio(
+        self.preprocess_video(
             depth=self._args["depth"],  # Глубина иерархии для получения данных
-            sample_rate=self._args["sample_rate"],  # Частота дискретизации
-            n_fft=self._args["n_fft"],  # Размер параметра FFT
-            hop_length=self._args["hop_length"],  # Длина перехода между окнами STFT
-            n_mels=self._args["n_mels"],  # Количество фильтроблоков mel
-            power=self._args["power"],  # Показатель степени магнитудной спектрограммы
-            pad_mode=self._args["pad_mode"],  # Управление оступами
-            # Коэффициенты треугольных mel-фильтров делятся на ширину соответствующих mel-полос
-            norm=self._args["norm"],
-            center=self._args["center"],  # Отступы с обеих сторон относительно центра аудиодорожки
-            # Очистка директории для сохранения аудиоданных после предобработки
-            clear_dir_audio=self._args["clear_dir_audio"],
+            # Очистка директории для сохранения изобращений с губами после предобработки
+            clear_dir_video=self._args["clear_dir_video"],
             dpi=self._args["dpi"],  # DPI
-            color_gradients=self._args["color_gradients"],  # Градиент для спектрограммы
-            # Сохранение сырых данных мел-спектрограммы в формате .npy
+            # Сохранение сырых данных с областями губ в формате .npy
             save_raw_data=self._args["save_raw_data"],
             out=out,
         )
@@ -434,7 +384,7 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
 
 def main():
     # Запуск предобработки речевых аудиоданных
-    vad = RunPreprocessAudio(lang="ru", path_to_logs="./openav/logs")
+    vad = RunPreprocessVideo(lang="ru", path_to_logs="./openav/logs")
     vad.run(out=True)
 
 

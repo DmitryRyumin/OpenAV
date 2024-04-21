@@ -46,6 +46,7 @@ DIR_VA_NAMES: List[str] = [
 EXT_SEARCH_FILES: List[str] = [
     "mov",
     "mp4",
+    "webm",
     "wav",
 ]
 CHUNK_SIZE: int = 1000000  # Размер загрузки файла из сети за 1 шаг
@@ -86,8 +87,12 @@ class Settings(Messages):
 
         self.path_to_save_models: str = PATH_TO_SAVE_MODELS  # Путь к директории для сохранения моделей
         self.path_to_dataset: str = PATH_TO_DATASET  # Путь к директории набора данных
-        self.path_to_input_augmentation_directory: str = PATH_TO_INPUT_AUGMENTATION_DIRECTORY  # Путь к директории набора данных для обработки
-        self.path_to_output_augmentation_directory: str = PATH_TO_OUTPUT_AUGMENTATION_DIRECTORY  # Путь к директории результирующих данных аугментации
+        self.path_to_input_augmentation_directory: str = (
+            PATH_TO_INPUT_AUGMENTATION_DIRECTORY  # Путь к директории набора данных для обработки
+        )
+        self.path_to_output_augmentation_directory: str = (
+            PATH_TO_OUTPUT_AUGMENTATION_DIRECTORY  # Путь к директории результирующих данных аугментации
+        )
         # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VAD)
         self.path_to_dataset_vad: str = PATH_TO_DATASET_VAD
         # Путь к директории набора данных состоящего из фрагментов аудиовизуального сигнала (VOSK)

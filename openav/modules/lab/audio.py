@@ -96,6 +96,7 @@ SAMPLING_RATE_MS: List[int] = [16000, 22050, 44100, 48000]  # Частота д�
 PAD_MODE_MS: List[int] = ["constant", "reflect", "replicate", "circular"]  # Управление оступами
 DPI: List[int] = [72, 96, 150, 300, 600, 1200]  # DPI
 COLOR_GRADIENTS: List[str] = ["viridis", "plasma", "inferno", "magma", "cividis"]
+EXT_AUDIO: List[str] = ["mov", "mp4", "webm", "wav"]  # Расширения искомых файлов
 
 # Количество выборок в каждом окне
 # (512, 1024, 1536 для частоты дискретизации 16000 или 256, 512, 768 для частоты дискретизации 8000)
@@ -106,7 +107,7 @@ FRONT: Dict[str, List[str]] = {"mono": ["_mono"], "stereo": ["_left", "_right"]}
 EXT_AUDIO_AUG: str = "png"  # Расширение для сохраняемого аудио
 EXT_AUDIO_SPEC: str = "png"  # Расширение для сохраняемой MelSpectrogram
 EXT_AUDIO: str = "wav"  # Расширение для сохраняемого аудио
-EXT_NPY: str = 'npy'  # Расширения для сохранения сырых данных MelSpectrogram
+EXT_NPY: str = "npy"  # Расширения для сохранения сырых данных MelSpectrogram
 VOSK_SUPPORTED_LANGUAGES: List[str] = ["ru", "en"]  # Поддерживаемые языки (Vosk)
 VOSK_SUPPORTED_DICTS: List[str] = ["small", "big"]  # Размеры словарей (Vosk)
 VOSK_SPEECH_LEFT_PAD_MS: int = 0  # Внутренний левый отступ для итоговых речевых фрагментов
@@ -1005,41 +1006,41 @@ class Audio(AudioMessages):
         return True
 
     def __augmentation_check_settings(
-            self,
-            crop_px_min: int,
-            crop_px_max: int,
-            crop_percent_min: float,
-            crop_percent_max: float,
-            flip_lr_probability: float,
-            flip_ud_probability: float,
-            blur_min: float,
-            blur_max: float,
-            scale_x_min: float,
-            scale_x_max: float,
-            scale_y_min: float,
-            scale_y_max: float,
-            rotate_min: int,
-            rotate_max: int,
-            contrast_min: float,
-            contrast_max: float,
-            alpha: float,
-            count: int,
-            out: bool,
+        self,
+        crop_px_min: int,
+        crop_px_max: int,
+        crop_percent_min: float,
+        crop_percent_max: float,
+        flip_lr_probability: float,
+        flip_ud_probability: float,
+        blur_min: float,
+        blur_max: float,
+        scale_x_min: float,
+        scale_x_max: float,
+        scale_y_min: float,
+        scale_y_max: float,
+        rotate_min: int,
+        rotate_max: int,
+        contrast_min: float,
+        contrast_max: float,
+        alpha: float,
+        count: int,
+        out: bool,
     ) -> bool:
         try:
             # Проверка настроек
             if (AUGMENTATION_CROP_PX[0] <= crop_px_min <= crop_px_max <= AUGMENTATION_CROP_PX[1]) is False:
                 raise CropPXError
             if (
-                    AUGMENTATION_CROP_PERCENT[0] <= crop_percent_min <= crop_percent_max <= AUGMENTATION_CROP_PERCENT[1]
+                AUGMENTATION_CROP_PERCENT[0] <= crop_percent_min <= crop_percent_max <= AUGMENTATION_CROP_PERCENT[1]
             ) is False:
                 raise CropPercentsError
             if (
-                    AUGMENTATION_FLIP_LR_PROBABILITY[0] <= flip_lr_probability <= AUGMENTATION_FLIP_LR_PROBABILITY[1]
+                AUGMENTATION_FLIP_LR_PROBABILITY[0] <= flip_lr_probability <= AUGMENTATION_FLIP_LR_PROBABILITY[1]
             ) is False:
                 raise FlipLRProbabilityError
             if (
-                    AUGMENTATION_FLIP_UD_PROBABILITY[0] <= flip_ud_probability <= AUGMENTATION_FLIP_UD_PROBABILITY[1]
+                AUGMENTATION_FLIP_UD_PROBABILITY[0] <= flip_ud_probability <= AUGMENTATION_FLIP_UD_PROBABILITY[1]
             ) is False:
                 raise FlipUDProbabilityError
             if (AUGMENTATION_BLUR[0] <= blur_min <= blur_max <= AUGMENTATION_BLUR[1]) is False:
@@ -1049,9 +1050,9 @@ class Audio(AudioMessages):
             if (AUGMENTATION_SCALE_Y[0] <= scale_y_min <= scale_y_max <= AUGMENTATION_SCALE_Y[1]) is False:
                 raise ScaleError
             if (
-                    type(rotate_min) is not int
-                    or type(rotate_max) is not int
-                    or (AUGMENTATION_ROTATE[0] <= rotate_min <= rotate_max <= AUGMENTATION_ROTATE[1]) is False
+                type(rotate_min) is not int
+                or type(rotate_max) is not int
+                or (AUGMENTATION_ROTATE[0] <= rotate_min <= rotate_max <= AUGMENTATION_ROTATE[1]) is False
             ):
                 raise RotateError
             if (AUGMENTATION_CONTRAST[0] <= contrast_min <= contrast_max <= AUGMENTATION_CONTRAST[1]) is False:
@@ -1144,28 +1145,28 @@ class Audio(AudioMessages):
         return True
 
     def __augmentation_validate_arguments(
-            self,
-            depth: int,
-            crop_px_min: int,
-            crop_px_max: int,
-            crop_percent_min: float,
-            crop_percent_max: float,
-            flip_lr_probability: float,
-            flip_ud_probability: float,
-            blur_min: float,
-            blur_max: float,
-            scale_x_min: float,
-            scale_x_max: float,
-            scale_y_min: float,
-            scale_y_max: float,
-            rotate_min: int,
-            rotate_max: int,
-            contrast_min: float,
-            contrast_max: float,
-            alpha: float,
-            count: int,
-            clear_diraug: bool,
-            out: bool,
+        self,
+        depth: int,
+        crop_px_min: int,
+        crop_px_max: int,
+        crop_percent_min: float,
+        crop_percent_max: float,
+        flip_lr_probability: float,
+        flip_ud_probability: float,
+        blur_min: float,
+        blur_max: float,
+        scale_x_min: float,
+        scale_x_max: float,
+        scale_y_min: float,
+        scale_y_max: float,
+        rotate_min: int,
+        rotate_max: int,
+        contrast_min: float,
+        contrast_max: float,
+        alpha: float,
+        count: int,
+        clear_diraug: bool,
+        out: bool,
     ) -> bool:
         try:
             # Проверка аргументов
@@ -1280,7 +1281,7 @@ class Audio(AudioMessages):
 
         # Локальный путь
         self.__local_path = lambda lp: os.path.join(
-            *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_input_augmentation_directory).parts))):]
+            *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_input_augmentation_directory).parts))) :]
         )
 
         # Проход по всем найденным аудиовизуальных файлам

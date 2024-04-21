@@ -2,14 +2,16 @@
 hide_metadata: false
 hide_libs_vers: false
 path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
-depth: 1
+depth: 2
 ext_search_files:
 - mov
 - mp4
 - webm
-- wav
 path_to_dataset_video: "./dataset_video"
-width: 112
-height: 112
-# gray or rgb
+dpi: 600
+size_lips:
+  width: 112
+  height: 112
 color_mode: gray
+clear_dir_video: true
+save_raw_data: true
