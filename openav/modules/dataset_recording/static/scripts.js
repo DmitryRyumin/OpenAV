@@ -34,8 +34,8 @@ const constraints = {
         bitrate: 1536000,
     },
     video: {
-        width: { min: 1280, ideal: 1920 },
-        height: { min: 720, ideal: 1080 },
+        width: { min: 640, ideal: 1920 },
+        height: { min: 480, ideal: 1080 },
         frameRate: 30,
     }
     }
@@ -53,10 +53,10 @@ function enableNextButton() {
 
 document.getElementById('next').onclick = function () {
     counter += 1;
-    fetch('/get_questions')
+    fetch('./get_questions')
         .then(response => response.json())
         .then(data => {
-            const currentTime = new Date().toLocaleTimeString();
+            const currentTime = Date.now();
             var currentQuestion = data.questions.find(question => question.QuestionNumber === counter);
             if (currentQuestion) {
                 var titleElement = document.getElementById('title');
@@ -64,6 +64,9 @@ document.getElementById('next').onclick = function () {
                 titleElement.innerHTML = 'Вопрос ' + currentQuestion.QuestionNumber;
                 questionElement.innerHTML = currentQuestion.QuestionText;
                 timingData.push({ question: currentQuestion.QuestionNumber, timestamp: currentTime });
+            } else {
+                stop();
+                return;
             }
             if (nextButtonEnabled) {
                 // Disable the "Next" button
@@ -120,24 +123,23 @@ navigator.mediaDevices.getUserMedia(constraints)
 
 startButton.addEventListener('click', () => {
     flag = true;
-    document.getElementById('image').src="../static/images/green.png";
-    mediaRecorder.start();
+    document.getElementById('image').src="./static/images/green.png";
+    mediaRecorder.start(1000);
     startButton.disabled = true;
     stopButton.disabled = false;
     nextButton.disabled = false;
-    
+
     // Capture the current timestamp
-    const currentTime = new Date().toLocaleTimeString();
+    const currentTime = Date.now();
     // Add the timing data to the array
     timingData.push({ question: 'Start_recording', timestamp: currentTime });
 });
 
-
-stopButton.addEventListener('click', () => {
+function stop() {
     flag = false;
     mins = 0;
     sec = 0;
-    document.getElementById('image').src = "../static/images/red.png";
+    document.getElementById('image').src = "./static/images/red.png";
     mediaRecorder.stop();
     startButton.disabled = false;
     stopButton.disabled = true;
@@ -154,7 +156,7 @@ stopButton.addEventListener('click', () => {
             const formData = new FormData();
             formData.append('video', blob);
 
-            fetch('/upload', {
+            fetch('./upload', {
                 method: 'POST',
                 body: formData,
             })
@@ -171,7 +173,9 @@ stopButton.addEventListener('click', () => {
             });
         }
     }
-});
+}
+
+stopButton.addEventListener('click', stop);
 
 const userNameInput = document.getElementById('userName'); // Get a reference to the input field
 
@@ -218,14 +222,14 @@ window.addEventListener('load', clearUserName);
 
 uploadButton.addEventListener('click', () => {
     const userName = getUserName();
-    
+
     // You can use the userName to name the downloaded video
     const videoFileName = `${userName}.webm`;
     const textFileName = `${userName}.txt`;
 
 
     // Send the timing data to the server
-    fetch('/store_timing_data', {
+    fetch('./store_timing_data', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -237,9 +241,9 @@ uploadButton.addEventListener('click', () => {
             console.log(data); // Log the response from the server
         });
 
-    
+
     // After processing, initiate automatic downloads
-    fetch('/download_processed_video')
+    fetch('./download_processed_video')
         .then(response => response.blob())
         .then(blob => {
             const url = window.URL.createObjectURL(blob);
@@ -249,7 +253,7 @@ uploadButton.addEventListener('click', () => {
             document.body.appendChild(a);
             a.click();
             window.URL.revokeObjectURL(url);
-            
+
         });
 
     // fetch('/download_timing_data')
@@ -262,7 +266,7 @@ uploadButton.addEventListener('click', () => {
     //         document.body.appendChild(a);
     //         a.click();
     //         window.URL.revokeObjectURL(url);
-            
+
     //     });
         // Create a text representation of the timingData array
         const timingDataText = timingData.map(item => `Question: ${item.question}, Timestamp: ${item.timestamp}`).join('\n');
@@ -283,6 +287,12 @@ uploadButton.addEventListener('click', () => {
 
         // timingData.length = 0;
         counter = 0;
+        let sec = 0;
+        let mins = 0;
+
+        var questionElement = document.getElementById('question');
+        questionElement.style.visibility = "visible";
+
         var titleElement = document.getElementById('title');
         var questionElement = document.getElementById('question');
         titleElement.innerHTML = "Инструкции";

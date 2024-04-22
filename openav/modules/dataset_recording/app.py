@@ -2,9 +2,11 @@ from flask import Flask, request, render_template, jsonify, send_from_directory,
 import os
 import subprocess
 import csv
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 app = Flask(__name__)
-
+app.wsgi_app = ProxyFix(
+    app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 global video_path, output_dir
 global processing_finished
 
@@ -21,8 +23,10 @@ def read_questions_from_csv():
             question_number = int(row['QuestionNumber'])
             question_text = row['QuestionText']
             disable_time = row['Disable_time']
-            questions.append({'QuestionNumber': question_number, 'QuestionText': question_text, 'Disable_time' : disable_time})
+            questions.append(
+                {'QuestionNumber': question_number, 'QuestionText': question_text, 'Disable_time': disable_time})
     return questions
+
 
 @app.route('/get_questions', methods=['GET'])
 def get_questions():
@@ -31,9 +35,10 @@ def get_questions():
 
 
 def convert_webm_to_mp4(input_path, output_path):
-    line = ('ffmpeg.exe -i ' + os.getcwd() + "/" + input_path
+    line = ('ffmpeg -y -i ' + os.getcwd() + "/" + input_path
             + " " + os.getcwd() + "/" + output_path)
-    subprocess.run(line)
+    print(line)
+    subprocess.run(line.split(" "))
 
 
 # Configure the upload folder for recorded videos
@@ -42,11 +47,13 @@ app.config['UPLOAD_FOLDER'] = 'static/recorded-video'
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.makedirs(app.config['UPLOAD_FOLDER'])
 
+
 @app.route('/')
 def index():
     global processing_finished
     processing_finished = False
     return render_template('index_home.html')
+
 
 @app.route('/store_timing_data', methods=['POST'])
 def store_timing_data():
@@ -57,7 +64,7 @@ def store_timing_data():
         with open('timing_data.txt', 'w', encoding='utf-8') as file:
             for item in data:
                 file.write(f"Question: {item['question']}, Timestamp: {item['timestamp']}\n")
-            
+
             file.close()
         return "Data stored successfully"
 
@@ -71,13 +78,15 @@ def upload():
             video_path = os.path.join(app.config['UPLOAD_FOLDER'], video_file.filename) + '.webm'
             print(video_path)
             # video_file.save(video_path)
+            if not os.path.exists('temp_dir'):
+                os.makedirs('temp_dir')
             video_file.save('temp_dir/video.webm')
-            # convert_webm_to_mp4('temp_dir\\video.webm', 'temp_dir\\video.mp4')
+            # convert_webm_to_mp4('temp_dir/video.webm', 'temp_dir/video.mp4')
             print('Done')
             processing_finished = True
 
             return "DONE"
-    
+
     return "No video data received."
 
 
@@ -92,6 +101,7 @@ def download_processed_video():
     processed_video_path = 'temp_dir/video.webm'
     return send_file(processed_video_path, as_attachment=True)
 
+
 @app.route('/download_timing_data')
 def download_timing_data():
     timing_data_path = 'timing_data.txt'  # Path to the file
@@ -99,6 +109,7 @@ def download_timing_data():
     response = send_file(timing_data_path, as_attachment=True, mimetype='text/plain')
     response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
     return response
+
 
 if __name__ == '__main__':
     # questions = read_questions_from_csv()
