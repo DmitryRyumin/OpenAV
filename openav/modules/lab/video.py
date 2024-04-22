@@ -8,21 +8,42 @@
 # ######################################################################################################################
 # Импорт необходимых инструментов
 # ######################################################################################################################
-# Подавление Warning
 import warnings
+import logging
+import absl.logging
+import sys
+import os  # Взаимодействие с файловой системой
+import math
 
-for warn in [UserWarning, FutureWarning]:
-    warnings.filterwarnings("ignore", category=warn)
+# Настройте фильтрацию предупреждений до импорта mediapipe
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
+
+# Установите уровень логирования
+logging.getLogger().setLevel(logging.ERROR)
+
+# Установите уровень логирования absl
+absl.logging.set_verbosity(absl.logging.ERROR)
 
 from dataclasses import dataclass  # Класс данных
 
-import os  # Взаимодействие с файловой системой
 import numpy as np  # Научные вычисления
 import re  # Регулярные выражения
 import filetype  # Определение типа файла и типа MIME
+from PIL import Image  # Считывание изображений
+
+with open(os.devnull, "w") as devnull:
+    sys.stdout = devnull
+    sys.stderr = devnull
+
+    import mediapipe as mp
+    import cv2
+
+mp.solutions.face_mesh.FaceMesh()
 
 # Типы данных
-from typing import List
+from typing import List, Set, Optional
+from types import ModuleType
 
 from pathlib import Path  # Работа с путями в файловой системе
 
@@ -32,13 +53,19 @@ from openav.modules.core.exceptions import (
 )
 from openav.modules.file_manager.json_manager import Json  # Класс для работы с Json
 
+sys.stdout = sys.__stdout__
+sys.stderr = sys.__stderr__
+
 # Метрики оценки нейросетевой модели
 METRICS_VIDEO: List[str] = [
     "accuracy",
 ]
 DPI: List[int] = [72, 96, 150, 300, 600, 1200]  # DPI
 COLOR_MODE: List[str] = ["gray", "rgb"]  # Цветовая гамма конечного изображения
+RESIZE_RESAMPLE_MODE: List[str] = ["nearest", "bilinear", "lanczos"]  # Фильтры для масштабирования
 EXT_VIDEO: List[str] = ["mov", "mp4", "webm"]  # Расширения искомых файлов
+EXT_LIP: str = "png"
+EXT_NPY: str = "npy"  # Расширения для сохранения сырых данных
 
 
 # ######################################################################################################################
@@ -98,6 +125,64 @@ class Video(VideoMessages):
         self.__unprocessed_files: List[str] = []  # Пути к файлам из которых области губ не извлечены
         self.__not_saved_files: List[str] = []  # Пути к файлам которые не сохранились при обработке
 
+        self.__mp_face_mesh: Optional[ModuleType] = None
+
+        self.__mp_drawing: Optional[ModuleType] = None
+        self.__drawing_spec: Optional[mp.solutions.drawing_utils.DrawingSpec] = None
+
+        self._lip_coords: Set[int] = set(
+            [
+                61,
+                146,
+                91,
+                181,
+                84,
+                17,
+                314,
+                405,
+                321,
+                375,
+                291,
+                185,
+                40,
+                39,
+                37,
+                0,
+                267,
+                269,
+                270,
+                409,
+                291,
+                78,
+                95,
+                88,
+                178,
+                87,
+                14,
+                317,
+                402,
+                318,
+                324,
+                308,
+                191,
+                80,
+                81,
+                82,
+                13,
+                312,
+                311,
+                310,
+                415,
+                308,
+            ]
+        )
+
+        self.__min_max_coords: List[int] = [-1, -1, -1, -1]  # min x, max x, min y, max y
+
+        self._area_lip: List[int] = []
+        self._area_lip_original: int = 0
+        self._cnt_lip: int = 1
+
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
     # ------------------------------------------------------------------------------------------------------------------
@@ -117,6 +202,11 @@ class Video(VideoMessages):
     def preprocess_video(
         self,
         depth: int = 1,
+        resize: bool = True,
+        resize_resample: str = "nearest",
+        size_width: int = 112,
+        size_height: int = 112,
+        color_mode: str = "rgb",
         dpi: int = 1200,
         save_raw_data: bool = True,
         clear_dir_video: bool = False,
@@ -126,6 +216,11 @@ class Video(VideoMessages):
 
         Args:
             depth (int): Глубина иерархии для получения данных
+            resize (bool):  Изменение размера кадра с найденной областью губ
+            resize_resample (str): Фильтр для масштабирования
+            size_width (int): Ширина области губ
+            size_height (int): Высота области губ
+            color_mode (str):  Цветовая гамма
             dpi (int): DPI
             save_raw_data (bool): Сохранение сырых данных с областями губ в формате .npy
             clear_dir_video (bool): Очистка директории для сохранения видео данных после предобработки
@@ -141,6 +236,11 @@ class Video(VideoMessages):
             if (
                 type(depth) is not int
                 or depth < 1
+                or type(resize) is not bool
+                or type(size_width) is not int
+                or type(size_height) is not int
+                or type(color_mode) is not str
+                or (color_mode in COLOR_MODE) is False
                 or type(dpi) is not int
                 or (dpi in DPI) is False
                 or type(save_raw_data) is not bool
@@ -209,8 +309,6 @@ class Video(VideoMessages):
                 self.message_error(self._unknown_err, space=self._space, out=out)
                 return False
             else:
-                pass
-
                 # Очистка директории для сохранения фрагментов визуального сигнала
                 if clear_dir_video is True and os.path.exists(self.path_to_dataset_video) is True:
                     if self.clear_folder(self.path_to_dataset_video, out=False) is False:
@@ -228,107 +326,175 @@ class Video(VideoMessages):
                     *Path(lp).parts[-abs((len(Path(lp).parts) - len(Path(self.path_to_dataset).parts))) :]
                 )
 
-                # Проход по всем найденным визуальных файлам
-                for i, path in enumerate(paths):
-                    self.__curr_path = path  # Текущий визуальный файл
-                    self.__i = i + 1  # Счетчик
+                try:
+                    self.__mp_face_mesh = mp.solutions.face_mesh
 
-                    self.message_progressbar(
-                        self._curr_progress.format(
-                            self.__i,
-                            self.__len_paths,
-                            round(self.__i * 100 / self.__len_paths, 2),
-                            self.message_line(self.__local_path(self.__curr_path)),
-                        ),
-                        space=self._space,
-                        out=out,
-                    )
+                    self.__mp_drawing = mp.solutions.drawing_utils
+                    self.__drawing_spec = self.__mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
+                except Exception:
+                    self.message_error(self._unknown_err, space=self._space, out=out)
+                    return False
+                else:
+                    # Проход по всем найденным визуальных файлам
+                    for i, path in enumerate(paths):
+                        self._cnt_lip = 1
 
-                    self.__splitted_path = str(self.__curr_path.parent.relative_to(Path(self.path_to_dataset))).strip()
+                        self.__curr_path = path  # Текущий визуальный файл
+                        self.__i = i + 1  # Счетчик
 
-                    self.__curr_path = str(self.__curr_path)
+                        self.message_progressbar(
+                            self._curr_progress.format(
+                                self.__i,
+                                self.__len_paths,
+                                round(self.__i * 100 / self.__len_paths, 2),
+                                self.message_line(self.__local_path(self.__curr_path)),
+                            ),
+                            space=self._space,
+                            out=out,
+                        )
 
-                    # Пропуск невалидных значений
-                    if not self.__splitted_path or re.search(r"\s", self.__splitted_path) is not None:
-                        continue
+                        self.__splitted_path = str(
+                            self.__curr_path.parent.relative_to(Path(self.path_to_dataset))
+                        ).strip()
 
-                    # Тип файла
-                    kind = filetype.guess(self.__curr_path)
+                        self.__curr_path = str(self.__curr_path)
 
-                #     try:
-                #         # Видео или аудио
-                #         if kind.mime.startswith("video/") is True or kind.mime.startswith("audio/") is True:
-                #             # Формирование мел-спектрограммы
-                #             waveform, sample_rate = librosa.load(self.__curr_path, sr=sample_rate)
-                #             waveform = torch.Tensor(waveform)
+                        # Пропуск невалидных значений
+                        if not self.__splitted_path or re.search(r"\s", self.__splitted_path) is not None:
+                            continue
 
-                #             torchaudio_melspec = torchaudio.transforms.MelSpectrogram(
-                #                 sample_rate=sample_rate,
-                #                 n_fft=n_fft,
-                #                 win_length=None,
-                #                 hop_length=hop_length,
-                #                 center=center,
-                #                 pad_mode=pad_mode,
-                #                 power=power,
-                #                 norm=norm,
-                #                 onesided=True,
-                #                 n_mels=n_mels,
-                #                 f_max=None,
-                #             )(waveform)
+                        # Тип файла
+                        kind = filetype.guess(self.__curr_path)
 
-                #             # Преобразование мел-спектрограммы в децибелы
-                #             melspectogram_db_transform = torchaudio.transforms.AmplitudeToDB()
-                #             melspec_db = melspectogram_db_transform(torchaudio_melspec)
+                        try:
+                            # Видео
+                            if kind.mime.startswith("video/") is True:
+                                cap = cv2.VideoCapture(self.__curr_path)
 
-                #             # Преобразование мел-спектрограммы в numpy-массив
-                #             melspec_np = melspec_db.numpy()
+                                if not os.path.exists(self.path_to_dataset_video):
+                                    # Директория не создана
+                                    if self.create_folder(self.path_to_dataset_video, out=False) is False:
+                                        raise FileNotFoundError
 
-                #             # Текущее время (TimeStamp)
-                #             # см. datetime.fromtimestamp()
-                #             self.__curr_ts = str(datetime.now().timestamp()).replace(".", "_")
+                                path_to_subfolder = os.path.join(
+                                    self.path_to_dataset_video, Path(self.__curr_path).stem
+                                )
 
-                #             # Путь до мел-спектрограммы
-                #             melspec_path = os.path.join(
-                #                 self.path_to_dataset_audio,
-                #                 Path(self.__curr_path).stem + "_" + self.__curr_ts + "." + EXT_AUDIO_SPEC,
-                #             )
+                                # Очистка директории
+                                if clear_dir_video is True and os.path.exists(path_to_subfolder) is True:
+                                    if (
+                                        self.clear_folder(
+                                            path_to_subfolder,
+                                            out=False,
+                                        )
+                                        is False
+                                    ):
+                                        return False
 
-                #             if not os.path.exists(self.path_to_dataset_audio):
-                #                 # Директория не создана
-                #                 if self.create_folder(self.path_to_dataset_audio, out=False) is False:
-                #                     raise FileNotFoundError
+                                if not os.path.exists(path_to_subfolder):
+                                    # Директория не создана
+                                    if (
+                                        self.create_folder(
+                                            path_to_subfolder,
+                                            out=False,
+                                        )
+                                        is False
+                                    ):
+                                        raise FileNotFoundError
 
-                #             # Нормализация значений мел-спектрограммы в диапазон [0, 1]
-                #             melspec_np = (melspec_np - melspec_np.min()) / (melspec_np.max() - melspec_np.min())
+                                with self.__mp_face_mesh.FaceMesh(
+                                    static_image_mode=False,
+                                    max_num_faces=1,
+                                    min_detection_confidence=0.5,
+                                ) as face_mesh:
+                                    while cap.isOpened():
+                                        _, curr_frame = cap.read()
 
-                #             # Переворот массива по вертикали
-                #             melspec_np = np.flip(melspec_np, axis=0)
+                                        if curr_frame is None:
+                                            break
 
-                #             # Применение цветовой карты
-                #             # color_gradients: viridis, plasma, inferno, magma, cividis
-                #             cmap = cm.get_cmap(color_gradients)
-                #             melspec_rgb = cmap(melspec_np)[:, :, :3]  # Извлечение только RGB-каналов
+                                        results = face_mesh.process(cv2.cvtColor(curr_frame, cv2.COLOR_BGR2RGB))
 
-                #             # Нормализация значений в диапазон [0, 255]
-                #             melspec_rgb = (melspec_rgb * 255).astype("uint8")
+                                        if results.multi_face_landmarks:
+                                            frame_height, frame_width, _ = curr_frame.shape
 
-                #             # Создание и сохранение изображения с помощью Pillow
-                #             img = Image.fromarray(melspec_rgb)
-                #             img.save(melspec_path, dpi=(dpi, dpi))
+                                            for face_landmarks in results.multi_face_landmarks:
+                                                land_x = []
+                                                land_y = []
 
-                #             if save_raw_data:
-                #                 # Сохранение сырых данных мел-спектрограммы в формате .npy
-                #                 raw_data_path = melspec_path.replace("." + EXT_AUDIO_SPEC, "." + EXT_NPY)
-                #                 np.save(raw_data_path, melspec_np)
-                #     except Exception:
-                #         self.__unprocessed_files.append(self.__curr_path)
-                #         self.message_progressbar(close=True, out=out)
-                #         continue
+                                                for idx5, landmark in enumerate(face_landmarks.landmark):
+                                                    x = min(math.floor(landmark.x * frame_width), frame_width - 1)
+                                                    y = min(math.floor(landmark.y * frame_height), frame_height - 1)
 
-                self.message_progressbar(close=True, out=out)
+                                                    if idx5 in self._lip_coords:
+                                                        land_x.append(x)
+                                                        land_y.append(y)
 
-                # Файлы на которых предварительная обработка не отработала
-                unprocessed_files_unique = np.unique(np.array(self.__unprocessed_files)).tolist()
+                                                self.__min_max_coords[0] = min(land_x)
+                                                self.__min_max_coords[1] = max(land_x)
+                                                self.__min_max_coords[2] = min(land_y)
+                                                self.__min_max_coords[3] = max(land_y)
 
-                if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
-                    self.message_true(self._preprocess_true, space=self._space, out=out)
+                                                area = (self.__min_max_coords[1] - self.__min_max_coords[0]) * (
+                                                    self.__min_max_coords[3] - self.__min_max_coords[2]
+                                                )
+
+                                                if self._cnt_lip == 0:
+                                                    self._area_lip_original = area
+
+                                                self._area_lip.append(area)
+
+                                                lip_roi = curr_frame[
+                                                    self.__min_max_coords[2] : self.__min_max_coords[3],
+                                                    self.__min_max_coords[0] : self.__min_max_coords[1],
+                                                    :,
+                                                ]
+
+                                                lip_roi_path = os.path.join(
+                                                    path_to_subfolder, str(self._cnt_lip) + "." + EXT_LIP
+                                                )
+
+                                                lip_roi = lip_roi[:, :, ::-1]
+
+                                                # Создание и сохранение изображения с помощью Pillow
+                                                img = Image.fromarray(lip_roi)
+
+                                                if color_mode == COLOR_MODE[0]:
+                                                    img = img.convert("L")
+
+                                                if resize is True:
+                                                    if resize_resample is RESIZE_RESAMPLE_MODE[0]:
+                                                        resize_resample = Image.NEAREST
+                                                    elif resize_resample is RESIZE_RESAMPLE_MODE[1]:
+                                                        resize_resample = Image.BILINEAR
+                                                    elif resize_resample is RESIZE_RESAMPLE_MODE[2]:
+                                                        resize_resample = Image.LANCZOS
+                                                    else:
+                                                        resize_resample = Image.NEAREST
+
+                                                    img = img.resize(
+                                                        (size_width, size_height), resample=resize_resample
+                                                    )
+
+                                                img.save(lip_roi_path, dpi=(dpi, dpi))
+
+                                                if save_raw_data:
+                                                    # Сохранение сырых данных в формате .npy
+                                                    raw_data_path = lip_roi_path.replace("." + EXT_LIP, "." + EXT_NPY)
+                                                    np.save(raw_data_path, lip_roi)
+                                        else:
+                                            self.__min_max_coords = [-1, -1, -1, -1]
+
+                                        self._cnt_lip += 1
+                        except Exception:
+                            self.__unprocessed_files.append(self.__curr_path)
+                            self.message_progressbar(close=True, out=out)
+                            continue
+
+                    self.message_progressbar(close=True, out=out)
+
+                    # Файлы на которых предварительная обработка не отработала
+                    unprocessed_files_unique = np.unique(np.array(self.__unprocessed_files)).tolist()
+
+                    if len(unprocessed_files_unique) == 0 and len(self.__not_saved_files) == 0:
+                        self.message_true(self._preprocess_true, space=self._space, out=out)

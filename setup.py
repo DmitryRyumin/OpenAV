@@ -32,6 +32,8 @@ REQUIRED_PACKAGES = [
     "ffmpeg >= 1.4",
     "librosa >= 0.10.1",
     "matplotlib >= 3.6.3",
+    "mediapipe == 0.9.3.0",
+    "opencv_contrib_python >= 4.9.0.80",
 ]
 
 CLASSIFIERS = """\
@@ -116,6 +118,7 @@ with open("README.md", "r") as fh:
                 "openav_vad = openav.api.vad:main",
                 "openav_vosk_sr = openav.api.vosk_sr:main",
                 "openav_preprocess_audio = openav.api.preprocess_audio:main",
+                "openav_preprocess_video = openav.api.preprocess_video:main",
             ],
         },
         project_urls={

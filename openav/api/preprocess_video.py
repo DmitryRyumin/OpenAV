@@ -37,7 +37,7 @@ from openav.modules.lab.build import Run  # Сборка библиотеки
 from openav import rsrs  # Ресурсы библиотеки
 
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
-from openav.modules.lab.video import DPI, COLOR_MODE, EXT_VIDEO
+from openav.modules.lab.video import DPI, COLOR_MODE, EXT_VIDEO, RESIZE_RESAMPLE_MODE
 
 
 # ######################################################################################################################
@@ -74,7 +74,7 @@ class RunPreprocessVideo(MessagesPreprocessVideo):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 11  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 13  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_preprocess_video: logging.Logger = logging.getLogger(__class__.__name__)
@@ -165,9 +165,16 @@ class RunPreprocessVideo(MessagesPreprocessVideo):
         for key, val in config.items():
             # 1. Скрытие метаданных
             # 2. Скрытие версий установленных библиотек
-            # 3. Очистка директории для сохранения видеоданных после предобработки
-            # 4. Сохранение сырых данных с областями губ в формате .npy
-            if key == "hide_metadata" or key == "hide_libs_vers" or key == "clear_dir_video" or key == "save_raw_data":
+            # 3. Изменение размера кадра с найденной областью губ
+            # 4. Очистка директории для сохранения видеоданных после предобработки
+            # 5. Сохранение сырых данных с областями губ в формате .npy
+            if (
+                key == "hide_metadata"
+                or key == "hide_libs_vers"
+                or key == "resize"
+                or key == "clear_dir_video"
+                or key == "save_raw_data"
+            ):
                 # Проверка значения
                 if type(val) is not bool:
                     continue
@@ -246,6 +253,14 @@ class RunPreprocessVideo(MessagesPreprocessVideo):
             if key == "color_mode":
                 # Проверка значения
                 if type(val) is not str or (val in COLOR_MODE) is False:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Фильтр для масштабирования
+            if key == "resize_resample":
+                # Проверка значения
+                if type(val) is not str or (val in RESIZE_RESAMPLE_MODE) is False:
                     continue
 
                 curr_valid_layer += 1
@@ -373,6 +388,11 @@ class RunPreprocessVideo(MessagesPreprocessVideo):
             depth=self._args["depth"],  # Глубина иерархии для получения данных
             # Очистка директории для сохранения изобращений с губами после предобработки
             clear_dir_video=self._args["clear_dir_video"],
+            resize=self._args["resize"],  # Изменение размера кадра с найденной областью губ
+            resize_resample=self._args["resize_resample"],  # Фильтр для масштабирования
+            size_width=self._args["size_lips"]["width"],
+            size_height=self._args["size_lips"]["height"],
+            color_mode=self._args["color_mode"],  # Цветовая гамма конечного изображения
             dpi=self._args["dpi"],  # DPI
             # Сохранение сырых данных с областями губ в формате .npy
             save_raw_data=self._args["save_raw_data"],

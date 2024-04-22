@@ -34,6 +34,8 @@ import pymediainfo  # Получение meta данных из медиафай
 import librosa
 import librosa.display
 import matplotlib as mpl
+import mediapipe as mp
+import cv2
 
 from datetime import datetime  # Работа со временем
 from prettytable import PrettyTable  # Отображение таблиц в терминале
@@ -656,6 +658,8 @@ class Core(CoreMessages):
                     "PyYAML",
                     "PyMediaInfo",
                     "Librosa",
+                    "MediaPipe",
+                    "OpenCV",
                     "Streamlit",
                     "Vosk",
                 ],
@@ -676,6 +680,8 @@ class Core(CoreMessages):
                         yaml,
                         pymediainfo,
                         librosa,
+                        mp,
+                        cv2,
                     ]
                 ],
             }

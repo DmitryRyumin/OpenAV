@@ -9,9 +9,11 @@ ext_search_files:
 - webm
 path_to_dataset_video: "./dataset_video"
 dpi: 600
+resize: true
+resize_resample: nearest
 size_lips:
   width: 112
   height: 112
-color_mode: gray
+color_mode: rgb
 clear_dir_video: true
 save_raw_data: true
