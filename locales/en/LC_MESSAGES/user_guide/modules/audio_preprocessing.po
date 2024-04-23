@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-18 17:24+0300\n"
+"POT-Creation-Date: 2024-04-23 12:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -96,7 +96,7 @@ msgid "Работа с файловой системой"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:23
-#: ../../source/user_guide/modules/audio_preprocessing.rst:61
+#: ../../source/user_guide/modules/audio_preprocessing.rst:62
 #: 9cef50f02d1b46ba898aea7d5ce4fabc
 msgid "Параметры предобработки речевых аудиоданных"
 msgstr ""
@@ -238,8 +238,8 @@ msgstr ""
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
 #: 662db9eb5cd041ccb9c31e6666e32ab3
 msgid ""
-"Список  расширений файлов, которые будут обрабатываться. Указывать  можно"
-" как для видео, так и для аудио"
+"Список  расширений файлов, которые будут обрабатываться. Указывать можно "
+"как для видео, так и для аудио"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
@@ -255,6 +255,16 @@ msgstr ""
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
 #: 6dbd5fb27996439aa6dc0d42a5ece621
 msgid "Предварительная очистка директории с предобработанными аудиоданными"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 7042bdafe7f9494b8149d749f80a3c84
+msgid "save_raw_data"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: cfcafe35f5ac4b588c4d31057f249907
+msgid "Сохранение данных в формате numpy"
 msgstr ""
 
 #: ../../source/user_guide/modules/audio_preprocessing.rst:1
@@ -424,16 +434,6 @@ msgstr ""
 msgid ""
 "Выбор цветовой схемы итогового изображения спектрограммы. Доступные "
 "значения ``viridis, plasma, inferno, magma, cividis``"
-msgstr ""
-
-#: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: 7042bdafe7f9494b8149d749f80a3c84
-msgid "save_raw_data"
-msgstr ""
-
-#: ../../source/user_guide/modules/audio_preprocessing.rst:1
-#: cfcafe35f5ac4b588c4d31057f249907
-msgid "Сохранение данных в формате numpy"
 msgstr ""
 
 #~ msgid ""
@@ -699,5 +699,11 @@ msgstr ""
 #~ msgid ""
 #~ "Включение установки отступов с обеих "
 #~ "сторон относительно центра аудиодорожки"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Список  расширений файлов, которые будут "
+#~ "обрабатываться. Указывать  можно как для "
+#~ "видео, так и для аудио"
 #~ msgstr ""
 
