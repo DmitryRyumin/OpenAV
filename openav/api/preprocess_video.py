@@ -403,7 +403,7 @@ class RunPreprocessVideo(MessagesPreprocessVideo):
 
 
 def main():
-    # Запуск предобработки речевых аудиоданных
+    # Запуск предобработки речевых видеоданных
     vad = RunPreprocessVideo(lang="ru", path_to_logs="./openav/logs")
     vad.run(out=True)
 

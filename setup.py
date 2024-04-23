@@ -119,6 +119,7 @@ with open("README.md", "r") as fh:
                 "openav_vosk_sr = openav.api.vosk_sr:main",
                 "openav_preprocess_audio = openav.api.preprocess_audio:main",
                 "openav_preprocess_video = openav.api.preprocess_video:main",
+                "openav_train_audiovisual = openav.api_train_audiovisual:main",
             ],
         },
         project_urls={
