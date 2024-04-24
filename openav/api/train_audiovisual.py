@@ -295,6 +295,10 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
 
         self.path_to_dataset = self._args["path_to_dataset"]  # Путь к директории набора данных
 
+        self.train_audiovisual(
+            out=out,
+        )
+
         return True
 
 

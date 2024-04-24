@@ -20,6 +20,9 @@ for warn in [
         category=warn,
     )
 
+import os
+import glob
+
 from dataclasses import (
     dataclass,
 )  # Класс данных
@@ -84,6 +87,21 @@ class AV(AVMessages):
     # Внутренние методы (приватные)
     # ------------------------------------------------------------------------------------------------------------------
 
+    def __get_hierarchy_from_paths(self, paths):
+        hierarchies = []
+
+        for path in paths:
+            hierarchy = []
+            while True:
+                path, dir_name = os.path.split(path)
+                if not dir_name:
+                    hierarchy.append(path)
+                    break
+                hierarchy.append(dir_name)
+            hierarchies.append(hierarchy)
+
+        return hierarchies
+
     # ------------------------------------------------------------------------------------------------------------------
     # Внутренние методы (защищенные)
     # ------------------------------------------------------------------------------------------------------------------
@@ -91,3 +109,32 @@ class AV(AVMessages):
     # ------------------------------------------------------------------------------------------------------------------
     # Внешние методы
     # ------------------------------------------------------------------------------------------------------------------
+
+    def train_audiovisual(
+        self,
+        out: bool = True,
+    ) -> bool:
+        """Автоматическое обучение на аудиовизуальных данных
+
+        Args:
+            out (bool) Отображение
+
+        Returns:
+            bool: **True** если автоматическое обучение на аудиовизуальных данных произведено, в обратном случае
+            **False**
+        """
+
+        try:
+            # Проверка аргументов
+            if type(out) is not bool:
+                raise TypeError
+        except TypeError:
+            self.inv_args(__class__.__name__, self.train_audiovisual.__name__, out=out)
+            return False
+        else:
+            paths = glob.glob(os.path.join(self.path_to_dataset, "*/*/*/*.mp4"))
+
+            nested_paths = self.get_paths(self.path_to_dataset, depth=2, out=False)
+
+            print(len(paths))
+            print(self.__get_hierarchy_from_paths(nested_paths))
