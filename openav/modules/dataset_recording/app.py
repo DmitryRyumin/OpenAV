@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template, jsonify, send_file
 import os
-import subprocess
 import csv
 from werkzeug.middleware.proxy_fix import ProxyFix
 
@@ -30,14 +29,9 @@ def read_questions_from_csv():
 
 @app.route("/get_questions", methods=["GET"])
 def get_questions():
+    """Получение списка вопросов"""
     questions = read_questions_from_csv()
     return jsonify(questions=questions)
-
-
-def convert_webm_to_mp4(input_path, output_path):
-    line = "ffmpeg -y -i " + os.getcwd() + "/" + input_path + " " + os.getcwd() + "/" + output_path
-    print(line)
-    subprocess.run(line.split(" "))
 
 
 # Configure the upload folder for recorded videos
@@ -49,6 +43,7 @@ if not os.path.exists(app.config["UPLOAD_FOLDER"]):
 
 @app.route("/")
 def index():
+    """Отображение основной страницы записи"""
     global processing_finished
     processing_finished = False
     return render_template("index_home.html")
@@ -56,6 +51,7 @@ def index():
 
 @app.route("/store_timing_data", methods=["POST"])
 def store_timing_data():
+    """Сохранение файла временных отметок записи"""
     if request.method == "POST":
         data = request.json
         if os.path.exists("timing_data.txt"):
@@ -70,6 +66,7 @@ def store_timing_data():
 
 @app.route("/upload", methods=["POST"])
 def upload():
+    """Сохранение файла записи"""
     global processing_finished
     if "video" in request.files:
         video_file = request.files["video"]
@@ -89,21 +86,16 @@ def upload():
     return "No video data received."
 
 
-# @app.route('/check_processing_status')
-# def check_processing_status():
-#     global processing_finished
-#     print(str(processing_finished))
-#     return str(processing_finished)
-
-
 @app.route("/download_processed_video")
 def download_processed_video():
+    """Выгрузка файла записи"""
     processed_video_path = "temp_dir/video.webm"
     return send_file(processed_video_path, as_attachment=True)
 
 
 @app.route("/download_timing_data")
 def download_timing_data():
+    """Выгрузка файла временных отметок записи"""
     timing_data_path = "timing_data.txt"  # Path to the file
     # Set cache-control headers to prevent caching
     response = send_file(timing_data_path, as_attachment=True, mimetype="text/plain")
@@ -112,9 +104,4 @@ def download_timing_data():
 
 
 if __name__ == "__main__":
-    # questions = read_questions_from_csv()
-    # print(questions)
     app.run()
-
-# if __name__ == '__main__':
-#     socketio.run(app, debug=True)
