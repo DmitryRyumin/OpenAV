@@ -37,7 +37,7 @@ from openav.modules.lab.build import Run  # Сборка библиотеки
 from openav import rsrs  # Ресурсы библиотеки
 
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
-from openav.modules.lab.audio import SAMPLING_RATE_MS, PAD_MODE_MS, DPI, COLOR_GRADIENTS, EXT_AUDIO
+from openav.modules.lab.audio import SAMPLING_RATE_MS, PAD_MODE_MS, DPI, COLOR_GRADIENTS, EXT_AUDIO_L, EXT_AUDIO
 
 
 # ######################################################################################################################
@@ -200,13 +200,13 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
                 # Проход по всем подразделам текущего раздела
                 for v in val:
                     # Проверка значения
-                    if type(v) is not str or not v or (v in EXT_AUDIO) is False:
+                    if type(v) is not str or not v or (v in EXT_AUDIO_L) is False:
                         curr_valid_layer_2 += 100
                         continue
 
                     curr_valid_layer_2 += 1
 
-                if curr_valid_layer_2 <= len(EXT_AUDIO):
+                if curr_valid_layer_2 <= len(EXT_AUDIO_L):
                     curr_valid_layer += 1
 
             # 1. Путь к директории набора данных
