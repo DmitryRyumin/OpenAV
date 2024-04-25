@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-24. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-25 11:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/api/dataset_recording/app.rst:2
+#: 10c7a94cc7c64303ac0c740815d3777c
+msgid "Запись базы данных"
+msgstr ""
+
+#: 9c7216ba6ae24fb5bf36005b99197ef1 of
+#: openav.modules.dataset_recording.app.download_processed_video:1
+msgid "Выгрузка файла записи"
+msgstr ""
+
+#: 9f4900ad2b1642329bdc513736638fd1 of
+#: openav.modules.dataset_recording.app.download_timing_data:1
+msgid "Выгрузка файла временных отметок записи"
+msgstr ""
+
+#: dce7c788778e4dd89b7b6ce9be5b1de3 of
+#: openav.modules.dataset_recording.app.get_questions:1
+msgid "Получение списка вопросов"
+msgstr ""
+
+#: ffd7f9363f444e59ad408380b67441ff of
+#: openav.modules.dataset_recording.app.index:1
+msgid "Отображение основной страницы записи"
+msgstr ""
+
+#: 02965ca966084066a7caf75145191e7a of
+#: openav.modules.dataset_recording.app.store_timing_data:1
+msgid "Сохранение файла временных отметок записи"
+msgstr ""
+
+#: 7615269ca9df46b8a691b06916854e58 of
+#: openav.modules.dataset_recording.app.upload:1
+msgid "Сохранение файла записи"
+msgstr ""
+

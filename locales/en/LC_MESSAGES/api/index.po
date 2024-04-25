@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 12:37+0300\n"
+"POT-Creation-Date: 2024-04-24 19:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -28,131 +28,139 @@ msgstr ""
 msgid "API"
 msgstr ""
 
-#: ../../source/api/index.rst:27 7f3f8aa607ed4ace9b344979c9023609
+#: ../../source/api/index.rst:28 7f3f8aa607ed4ace9b344979c9023609
 msgid ":doc:`trml/shell`"
 msgstr ""
 
-#: ../../source/api/index.rst:27 d03a131327e24ee7ae0481ee5162ae60
+#: ../../source/api/index.rst:28 d03a131327e24ee7ae0481ee5162ae60
 msgid "Документация для файла ``modules/trml/shell.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:30 4a0587acc8f24a888e0365c658ff3675
+#: ../../source/api/index.rst:31 4a0587acc8f24a888e0365c658ff3675
 msgid ":doc:`core/exceptions`"
 msgstr ""
 
-#: ../../source/api/index.rst:30 ec8ad6f3bf684fa6a7f98f55cefab003
+#: ../../source/api/index.rst:31 ec8ad6f3bf684fa6a7f98f55cefab003
 msgid "Документация для файла ``modules/core/exceptions.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:33 d7e1a5f52252428d84604004eed35480
+#: ../../source/api/index.rst:34 d7e1a5f52252428d84604004eed35480
 msgid ":doc:`core/logging`"
 msgstr ""
 
-#: ../../source/api/index.rst:33 50bf80b91a83431eb1e4919ad672fd3c
+#: ../../source/api/index.rst:34 50bf80b91a83431eb1e4919ad672fd3c
 msgid "Документация для файла ``modules/core/logging.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:36 735ed952d33a43d6b201dd9623788409
+#: ../../source/api/index.rst:37 735ed952d33a43d6b201dd9623788409
 msgid ":doc:`core/language`"
 msgstr ""
 
-#: ../../source/api/index.rst:36 0c5b5f83b8bb44a5bc9d583d0efd96fc
+#: ../../source/api/index.rst:37 0c5b5f83b8bb44a5bc9d583d0efd96fc
 msgid "Документация для файла ``modules/core/language.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:39 91fe14f193094d63870fd30a3ff2dff9
+#: ../../source/api/index.rst:40 91fe14f193094d63870fd30a3ff2dff9
 msgid ":doc:`core/messages`"
 msgstr ""
 
-#: ../../source/api/index.rst:39 7001dc7b831b40eb8bb70c430c28da24
+#: ../../source/api/index.rst:40 7001dc7b831b40eb8bb70c430c28da24
 msgid "Документация для файла ``modules/core/messages.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:42 dc6102077313487b9b923753cda9c108
+#: ../../source/api/index.rst:43 dc6102077313487b9b923753cda9c108
 msgid ":doc:`core/settings`"
 msgstr ""
 
-#: ../../source/api/index.rst:42 15f901a6771d4f57bdc4b33a8285e5e9
+#: ../../source/api/index.rst:43 15f901a6771d4f57bdc4b33a8285e5e9
 msgid "Документация для файла ``modules/core/settings.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:45 50083064253a49aba5417676fa43cfe1
+#: ../../source/api/index.rst:46 50083064253a49aba5417676fa43cfe1
 msgid ":doc:`core/core`"
 msgstr ""
 
-#: ../../source/api/index.rst:45 a2c9da67435545a199473ffdb63900f6
+#: ../../source/api/index.rst:46 a2c9da67435545a199473ffdb63900f6
 msgid "Документация для файла ``modules/core/core.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:48 93c8c82025a44d3cae5d552a3809c78b
+#: ../../source/api/index.rst:49 131891d931e54571ac4cf986d7a870dc
+msgid ":doc:`dataset_recording/app`"
+msgstr ""
+
+#: ../../source/api/index.rst:49 d4edec1744b84862b4580aa673e98628
+msgid "Документация для файла ``modules/dataset_recording/app.py``"
+msgstr ""
+
+#: ../../source/api/index.rst:52 93c8c82025a44d3cae5d552a3809c78b
 msgid ":doc:`file_manager/unzip`"
 msgstr ""
 
-#: ../../source/api/index.rst:48 cf2de1debed146a28fddf9ae8d463c54
+#: ../../source/api/index.rst:52 cf2de1debed146a28fddf9ae8d463c54
 msgid "Документация для файла ``modules/file_manager/unzip.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:51 8dd2f4a86e8045aa82405f4b72e38b33
+#: ../../source/api/index.rst:55 8dd2f4a86e8045aa82405f4b72e38b33
 msgid ":doc:`file_manager/file_manager`"
 msgstr ""
 
-#: ../../source/api/index.rst:51 5da92c61b0f64f5ab361c62f7831c5ba
+#: ../../source/api/index.rst:55 5da92c61b0f64f5ab361c62f7831c5ba
 msgid "Документация для файла ``modules/file_manager/file_manager.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:54 48f6d00624ef40b888bce3c8fb628d8f
+#: ../../source/api/index.rst:58 48f6d00624ef40b888bce3c8fb628d8f
 msgid ":doc:`file_manager/download`"
 msgstr ""
 
-#: ../../source/api/index.rst:54 45e1544e08d74f8ab6fdc1a4ee273445
+#: ../../source/api/index.rst:58 45e1544e08d74f8ab6fdc1a4ee273445
 msgid "Документация для файла ``modules/file_manager/download.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:57 9764768db46f4ed99f596136e2e39444
+#: ../../source/api/index.rst:61 9764768db46f4ed99f596136e2e39444
 msgid ":doc:`file_manager/json_manager`"
 msgstr ""
 
-#: ../../source/api/index.rst:57 aa36e2949e5d41e3a7b2e9b76d231a45
+#: ../../source/api/index.rst:61 aa36e2949e5d41e3a7b2e9b76d231a45
 msgid "Документация для файла ``modules/file_manager/json_manager.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:60 911db4df9644409aa40100767e60f0ea
+#: ../../source/api/index.rst:64 911db4df9644409aa40100767e60f0ea
 msgid ":doc:`file_manager/yaml_manager`"
 msgstr ""
 
-#: ../../source/api/index.rst:60 7c6366e86a7a4cc18107c9485d28997a
+#: ../../source/api/index.rst:64 7c6366e86a7a4cc18107c9485d28997a
 msgid "Документация для файла ``modules/file_manager/yaml_manager.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:63 a2a69c6541154d41a2b18900ed673bbd
+#: ../../source/api/index.rst:67 a2a69c6541154d41a2b18900ed673bbd
 msgid ":doc:`lab/audio`"
 msgstr ""
 
-#: ../../source/api/index.rst:63 5874554dc2b744dc9edc175a9252dbdb
+#: ../../source/api/index.rst:67 5874554dc2b744dc9edc175a9252dbdb
 msgid "Документация для файла ``modules/lab/audio.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:66 14a20e9bb7e74ac9b8cb73e50d771e25
+#: ../../source/api/index.rst:70 14a20e9bb7e74ac9b8cb73e50d771e25
 msgid ":doc:`lab/video`"
 msgstr ""
 
-#: ../../source/api/index.rst:66 d4da95d25eaf4ee6a65c6d612274061c
+#: ../../source/api/index.rst:70 d4da95d25eaf4ee6a65c6d612274061c
 msgid "Документация для файла ``modules/lab/video.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:69 813b3593dc0048b9a32f12b5c7d37a4c
+#: ../../source/api/index.rst:73 813b3593dc0048b9a32f12b5c7d37a4c
 msgid ":doc:`lab/audiovisual`"
 msgstr ""
 
-#: ../../source/api/index.rst:69 d4edec1744b84862b4580aa673e98628
+#: ../../source/api/index.rst:73 d4edec1744b84862b4580aa673e98628
 msgid "Документация для файла ``modules/lab/audiovisual.py``"
 msgstr ""
 
-#: ../../source/api/index.rst:71 114f80e93c27445cb4e3240ebdaf6c5b
+#: ../../source/api/index.rst:75 114f80e93c27445cb4e3240ebdaf6c5b
 msgid ":doc:`lab/build`"
 msgstr ""
 
-#: ../../source/api/index.rst:72 73d9783d7d4b4d19882a675b7dfa1284
+#: ../../source/api/index.rst:76 73d9783d7d4b4d19882a675b7dfa1284
 msgid "Документация для файла ``modules/lab/build.py``"
 msgstr ""
 

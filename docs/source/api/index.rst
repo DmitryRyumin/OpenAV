@@ -13,6 +13,7 @@ API
    core/messages
    core/settings
    core/core
+   dataset_recording/app
    file_manager/unzip
    file_manager/file_manager
    file_manager/download
@@ -43,6 +44,9 @@ API
 
 :doc:`core/core`
    Документация для файла ``modules/core/core.py``
+
+:doc:`dataset_recording/app`
+   Документация для файла ``modules/dataset_recording/app.py``
 
 :doc:`file_manager/unzip`
    Документация для файла ``modules/file_manager/unzip.py``

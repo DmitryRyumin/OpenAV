@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 12:37+0300\n"
+"POT-Creation-Date: 2024-04-24 18:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -36,8 +36,10 @@ msgstr ""
 msgid "Класс для сообщений"
 msgstr ""
 
-#: 2a46ccc5121a40f5aefb5972f9d39b3c 6640d6a780614f74adfa6e8d2508efa9 of
-#: openav.modules.lab.audiovisual.AV openav.modules.lab.audiovisual.AVMessages
+#: 2a46ccc5121a40f5aefb5972f9d39b3c 651ea925f592473899257436af6a20e2
+#: 6640d6a780614f74adfa6e8d2508efa9 of openav.modules.lab.audiovisual.AV
+#: openav.modules.lab.audiovisual.AV.train_audiovisual
+#: openav.modules.lab.audiovisual.AVMessages
 msgid "Параметры"
 msgstr ""
 
@@ -59,5 +61,27 @@ msgstr ""
 
 #: 4a79530be02c423e8269d097e2da55a0 of openav.modules.lab.audiovisual.AV:1
 msgid "Класс для мультимодального объединения аудио- и видеомодальностей"
+msgstr ""
+
+#: de65326c7a3d4b029da22b96a455c0f8 of
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:1
+msgid "Автоматическое обучение на аудиовизуальных данных"
+msgstr ""
+
+#: da6dcaf424aa4899885ed5790223bb51 of
+#: openav.modules.lab.audiovisual.AV.train_audiovisual
+msgid "Результат"
+msgstr ""
+
+#: 5c2e2eb1a712472fb83d529b7404abf1 of
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:6
+msgid ""
+"**True** если автоматическое обучение на аудиовизуальных данных "
+"произведено, в обратном случае **False**"
+msgstr ""
+
+#: c5c74b48100945e5ad31619f1a20770a of
+#: openav.modules.lab.audiovisual.AV.train_audiovisual
+msgid "Тип результата"
 msgstr ""
 

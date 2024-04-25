@@ -1,15 +1,15 @@
 ---
 hide_metadata: false
 hide_libs_vers: false
-path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
-depth: 2
+path_to_dataset: "C:/Prgrm/_datasets"
+depth: 1
 ext_search_files:
 - mov
 - mp4
 - webm
 path_to_dataset_video: "./dataset_video"
 dpi: 600
-resize: true
+resize: false
 resize_resample: nearest
 size_lips:
   width: 112
