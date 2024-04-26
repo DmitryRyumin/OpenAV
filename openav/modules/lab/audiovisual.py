@@ -158,11 +158,29 @@ class AV(AVMessages):
         self,
         subfolders: Dict[str, str],
         classes: List[str],
+        batch_size: int,
+        max_segment: int,
+        epochs: int,
+        seed: int,
+        leaning_rate: float,
+        hidden_units: int,
+        hidden_features: int,
+        input_dim: int,
         out: bool = True,
     ) -> bool:
         """Автоматическое обучение на аудиовизуальных данных
 
         Args:
+            subfolders (Dict[str, str]): Словарь с подкаталогами с данными
+            classes (List[str]): Список классов
+            batch_size (int): Размер батча
+            max_segment (int): Максимальная длительность сегмента видео
+            epochs (int): Количество эпох
+            seed (int): Начальное состояние обучения
+            leaning_rate (float): Скорость обучения
+            hidden_units (int): Количество скрытых нейронов
+            hidden_features (int): Количество скрытых признаков
+            input_dim (int): Количество входных признаков
             out (bool) Отображение
 
         Returns:
@@ -170,32 +188,9 @@ class AV(AVMessages):
             **False**
         """
 
-        bs = 2
-        max_segment = 2
-
-        epochs = 150
-        seed = 42
-        lr = 0.0001
-        h_u = 356
-        h_f = 128
-        input_dim = 512
-
         n_class = 26  # количество классов, зависит от корпуса
-        shape_audio = (
-            None,
-            max_segment,
-            1,
-            64,
-            306,
-        )
-        shape_video = (
-            None,
-            max_segment,
-            29,
-            3,
-            88,
-            88,
-        )
+        shape_audio = (None, max_segment, 1, 64, 306)
+        shape_video = (None, max_segment, 29, 3, 88, 88)
 
         patience = 15
 
@@ -216,6 +211,18 @@ class AV(AVMessages):
                 or not all(subfolder in subfolders for subfolder in SUBFOLDERS)
                 or type(classes) is not list
                 or len(classes) == 0
+                or type(batch_size) is not int
+                or not 0 <= batch_size
+                or type(max_segment) is not int
+                or not (1 <= max_segment <= 10)
+                or type(epochs) is not int
+                or not (0 <= epochs <= 1000)
+                or type(seed) is not int
+                or not (0 < seed)
+                or type(leaning_rate) is not float
+                or type(hidden_units) is not int
+                or type(hidden_features) is not int
+                or type(input_dim) is not int
                 or type(out) is not bool
             ):
                 raise TypeError
@@ -353,13 +360,12 @@ class AV(AVMessages):
                 test_data = AVDataset(path_files=path_test, labels=lb_test, subset="test", max_segment=max_segment)
                 val_data = AVDataset(path_files=path_val, labels=lb_val, subset="val", max_segment=max_segment)
 
-                train_dataloader = DataLoader(train_data, batch_size=bs, shuffle=True)
-                val_dataloader = DataLoader(val_data, batch_size=bs, shuffle=False)
-                test_dataloader = DataLoader(test_data, batch_size=bs, shuffle=False)
+                train_dataloader = DataLoader(train_data, batch_size=batch_size, shuffle=True)
+                val_dataloader = DataLoader(val_data, batch_size=batch_size, shuffle=False)
+                test_dataloader = DataLoader(test_data, batch_size=batch_size, shuffle=False)
 
                 torch.autograd.set_detect_anomaly(True)
 
-                stop_training = False
                 stop_flag_training = 0
 
                 fix_seeds(seed)
@@ -368,8 +374,8 @@ class AV(AVMessages):
                     shape_audio=shape_audio,
                     shape_video=shape_video,
                     input_dim=input_dim,
-                    h_u=h_u,
-                    h_f=h_f,
+                    h_u=hidden_units,
+                    h_f=hidden_features,
                     n_class=n_class,
                 ).to(self.__device)
                 model.feature_audio.load_state_dict(torch.load("models/resnet18_torch_audio.pt"))
@@ -380,7 +386,7 @@ class AV(AVMessages):
                         param.requires_grad = False
 
                 criterion = CrossEntropyLoss()
-                optimizer = Lion(model.parameters(), lr=lr, weight_decay=0)
+                optimizer = Lion(model.parameters(), lr=leaning_rate, weight_decay=0)
 
                 max_acc = 0
                 max_test_acc = 0

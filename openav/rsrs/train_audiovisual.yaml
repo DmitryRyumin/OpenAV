@@ -33,3 +33,11 @@ classes:
 - "24_Выделить_все"
 - "25_Пуск"
 - "26_Калибровка"
+batch_size: 2
+max_segment: 2
+epochs: 150
+seed: 42
+leaning_rate: 0.0001
+hidden_units: 356
+hidden_features: 128
+input_dim: 512

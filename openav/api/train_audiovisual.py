@@ -74,7 +74,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 5  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 13  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_train_audiovisual: logging.Logger = logging.getLogger(__class__.__name__)
@@ -215,6 +215,56 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
 
                 curr_valid_layer += 1
 
+            # Размер батча
+            if key == "batch_size":
+                # Проверка значения
+                if type(val) is not int or not 0 <= val:
+                    continue
+
+                curr_valid_layer += 1
+
+            # Максимальная длительность сегмента видео
+            if key == "max_segment":
+                # Проверка значения
+                if type(val) is not int or not (1 <= val <= 10):
+                    continue
+
+                curr_valid_layer += 1
+
+            # Количество эпох
+            if key == "epochs":
+                # Проверка значения
+                if type(val) is not int or not (0 <= val <= 1000):
+                    continue
+
+                curr_valid_layer += 1
+
+            # Seed
+            if key == "seed":
+                # Проверка значения
+                if type(val) is not int or not (0 < val):
+                    continue
+
+                curr_valid_layer += 1
+
+            # Скорость обучения
+            if key == "leaning_rate":
+                # Проверка значения
+                if type(val) is not float:
+                    continue
+
+                curr_valid_layer += 1
+
+            # 1. Количество скрытых нейронов
+            # 2. Количество скрытых признаков
+            # 3. Количество входных признаков
+            if key == "hidden_units" or key == "hidden_features" or key == "input_dim":
+                # Проверка значения
+                if type(val) is not int:
+                    continue
+
+                curr_valid_layer += 1
+
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
         if self._all_layer_in_yaml != curr_valid_layer:
             try:
@@ -334,6 +384,14 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
         self.train_audiovisual(
             subfolders=self._args["subfolders"],
             classes=self._args["classes"],
+            batch_size=self._args["batch_size"],
+            max_segment=self._args["max_segment"],
+            epochs=self._args["epochs"],
+            seed=self._args["seed"],
+            leaning_rate=self._args["leaning_rate"],
+            hidden_units=self._args["hidden_units"],
+            hidden_features=self._args["hidden_features"],
+            input_dim=self._args["input_dim"],
             out=out,
         )
 
