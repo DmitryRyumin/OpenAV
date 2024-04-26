@@ -260,10 +260,10 @@ class AV(AVMessages):
             shape_video = (
                 None,
                 max_segment,
-                shape_video[SHAPE_AUDIO[0]],
-                shape_video[SHAPE_AUDIO[1]],
-                shape_video[SHAPE_AUDIO[3]],
-                shape_video[SHAPE_AUDIO[2]],
+                shape_video[SHAPE_VIDEO[0]],
+                shape_video[SHAPE_VIDEO[1]],
+                shape_video[SHAPE_VIDEO[3]],
+                shape_video[SHAPE_VIDEO[2]],
             )
 
             # Информационное сообщение
