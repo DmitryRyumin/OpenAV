@@ -34,6 +34,10 @@ REQUIRED_PACKAGES = [
     "matplotlib >= 3.6.3",
     "mediapipe == 0.9.3.0",
     "opencv_contrib_python >= 4.9.0.80",
+    "einops >= 0.7.0",
+    "lion_pytorch >= 0.1.4",
+    "scikit-learn >= 1.4.2",
+    "tqdm >= 4.66.2",
 ]
 
 CLASSIFIERS = """\

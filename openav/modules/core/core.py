@@ -36,6 +36,9 @@ import librosa.display
 import matplotlib as mpl
 import mediapipe as mp
 import cv2
+import einops
+import tqdm
+import sklearn
 
 from datetime import datetime  # Работа со временем
 from prettytable import PrettyTable  # Отображение таблиц в терминале
@@ -660,6 +663,10 @@ class Core(CoreMessages):
                     "Librosa",
                     "MediaPipe",
                     "OpenCV",
+                    "Einops",
+                    "Tqdm",
+                    "Scikit-learn",
+                    "lion-pytorch",
                     "Streamlit",
                     "Vosk",
                 ],
@@ -682,9 +689,13 @@ class Core(CoreMessages):
                         librosa,
                         mp,
                         cv2,
+                        einops,
+                        tqdm,
+                        sklearn,
                     ]
                 ],
             }
+            pkgs["Version"].append(pkg_resources.get_distribution("lion_pytorch").version)
             pkgs["Version"].append(pkg_resources.get_distribution("streamlit").version)
             pkgs["Version"].append(pkg_resources.get_distribution("vosk").version)
 

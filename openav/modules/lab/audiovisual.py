@@ -21,23 +21,33 @@ for warn in [
     )
 
 import os
-import glob
 
-from dataclasses import (
-    dataclass,
-)  # Класс данных
+from dataclasses import dataclass  # Класс данных
+
+# Типы данных
+from typing import List, Dict
+
+from pathlib import Path  # Работа с путями в файловой системе
+import torch
+from torch.utils.data import DataLoader
+from torch.nn import CrossEntropyLoss
+from lion_pytorch import Lion
+import datetime
 
 # Персональные
-from openav.modules.lab.audio import (
-    Audio,
-)  # Аудиомодальность
-from openav.modules.lab.video import (
-    Video,
-)  # Видеомодальность
+from openav.modules.core.exceptions import IsNestedCatalogsNotFoundError
+from openav.modules.lab.audio import Audio  # Аудиомодальность
+from openav.modules.lab.video import Video  # Видеомодальность
+from openav.modules.nn.av_dataset import AVDataset
+from openav.modules.nn.utils import fix_seeds, train_one_epoch, val_one_epoch
+from openav.modules.nn.models import AVModel
 
 # ######################################################################################################################
 # Константы
 # ######################################################################################################################
+
+SUBFOLDERS: List[str] = ["train", "val", "test"]
+EXT_AV_VIDEO: List[str] = ["mov", "mp4", "webm"]  # Расширения искомых файлов
 
 
 # ######################################################################################################################
@@ -59,6 +69,33 @@ class AVMessages(Audio, Video):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
+        self._subfolders_search: str = (
+            self._('Поиск вложенных директорий в директории "{}" (глубина вложенности: {})') + self._em
+        )
+
+        self._files_audiovisual_find: str = (
+            self._('Поиск файлов с расширениями "{}" в директории "{}" (глубина вложенности: {})') + self._em
+        )
+
+        self._files_audiovisual_find: str = (
+            self._('Поиск файлов с расширениями "{}" в директории "{}" (глубина вложенности: {})') + self._em
+        )
+
+        self._sampling_nn: str = (
+            self._("Разбиение найденных файлов на выборки (обучающая, валидационная, тестовая)") + self._em
+        )
+
+        self._sampling_nn_error: str = (
+            self._(
+                "Минимум одна выборка пустая (обучающая - {}, валидационная - {}, тестовая - {}) или количество меток "
+                + "не совпадает с количеством файлов"
+            )
+            + self._em
+        )
+
+        self._sampling_nn_true: str = self._("Обучающая - {} {}, валидационная - {} {}, тестовая - {} {}") + self._em
+        self._format_percentage = lambda x: "({}%)".format(x)
+
 
 # ######################################################################################################################
 # Видео
@@ -79,6 +116,10 @@ class AV(AVMessages):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
+        # ----------------------- Только для внутреннего использования внутри класса
+
+        self.__device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
     # ------------------------------------------------------------------------------------------------------------------
@@ -87,7 +128,7 @@ class AV(AVMessages):
     # Внутренние методы (приватные)
     # ------------------------------------------------------------------------------------------------------------------
 
-    def __get_hierarchy_from_paths(self, paths):
+    def __get_hierarchy_from_paths(self, paths, num_levels=0):
         hierarchies = []
 
         for path in paths:
@@ -98,7 +139,10 @@ class AV(AVMessages):
                     hierarchy.append(path)
                     break
                 hierarchy.append(dir_name)
-            hierarchies.append(hierarchy)
+            if num_levels > 0:
+                hierarchy = hierarchy[:num_levels]
+            if hierarchy[-1] in SUBFOLDERS:
+                hierarchies.append(hierarchy)
 
         return hierarchies
 
@@ -112,6 +156,8 @@ class AV(AVMessages):
 
     def train_audiovisual(
         self,
+        subfolders: Dict[str, str],
+        classes: List[str],
         out: bool = True,
     ) -> bool:
         """Автоматическое обучение на аудиовизуальных данных
@@ -124,17 +170,257 @@ class AV(AVMessages):
             **False**
         """
 
+        bs = 2
+        max_segment = 2
+
+        epochs = 150
+        seed = 42
+        lr = 0.0001
+        h_u = 356
+        h_f = 128
+        input_dim = 512
+
+        n_class = 26  # количество классов, зависит от корпуса
+        shape_audio = (
+            None,
+            max_segment,
+            1,
+            64,
+            306,
+        )
+        shape_video = (
+            None,
+            max_segment,
+            29,
+            3,
+            88,
+            88,
+        )
+
+        patience = 15
+
+        current_directory = os.getcwd()
+        session_path = os.path.join(current_directory, "models")
+        date_time = datetime.datetime.now()
+        date_path = date_time.strftime("created_at_%d_%m_%Y_%H-%M")
+        session_path = os.path.join(session_path, date_path)
+
+        if not os.path.exists(session_path):
+            os.makedirs(session_path)
+
         try:
             # Проверка аргументов
-            if type(out) is not bool:
+            if (
+                type(subfolders) is not dict
+                or len(subfolders) == 0
+                or not all(subfolder in subfolders for subfolder in SUBFOLDERS)
+                or type(classes) is not list
+                or len(classes) == 0
+                or type(out) is not bool
+            ):
                 raise TypeError
         except TypeError:
             self.inv_args(__class__.__name__, self.train_audiovisual.__name__, out=out)
             return False
         else:
-            paths = glob.glob(os.path.join(self.path_to_dataset, "*/*/*/*.mp4"))
+            depth = 3
+            classes = [cls.lower() for cls in classes]
 
-            nested_paths = self.get_paths(self.path_to_dataset, depth=2, out=False)
+            # Информационное сообщение
+            self.message_info(
+                self._subfolders_search.format(
+                    self.message_line(self.path_to_dataset),
+                    self.message_line(str(depth)),
+                ),
+                out=out,
+            )
 
-            print(len(paths))
-            print(self.__get_hierarchy_from_paths(nested_paths))
+            nested_paths = self.get_paths(self.path_to_dataset, depth=depth, out=False)
+
+            # Вложенные директории не найдены
+            try:
+                if len(nested_paths) == 0:
+                    raise IsNestedCatalogsNotFoundError
+            except IsNestedCatalogsNotFoundError:
+                self.message_error(self._subfolders_not_found, space=self._space, out=out)
+                return False
+
+            # Информационное сообщение
+            self.message_info(
+                self._files_audiovisual_find.format(
+                    self.message_line(", ".join(x.replace(".", "") for x in EXT_AV_VIDEO)),
+                    self.message_line(self.path_to_dataset),
+                    self.message_line(str(depth)),
+                ),
+                out=out,
+            )
+
+            hierarchy_from_paths = self.__get_hierarchy_from_paths(nested_paths, depth)
+
+            # Информационное сообщение
+            self.message_info(
+                self._sampling_nn,
+                out=out,
+            )
+
+            path_train, lb_train = [], []
+            path_val, lb_val = [], []
+            path_test, lb_test = [], []
+
+            # Проход по всем вложенным директориям
+            for nested_path in hierarchy_from_paths:
+                if nested_path[0].lower() in classes:
+                    # Формирование списка с видеофайлами
+                    for p in Path(os.path.join(self.path_to_dataset, *reversed(nested_path))).glob("*"):
+                        # Добавление текущего пути к видеофайлу в список
+                        if p.suffix.lower().replace(".", "") in EXT_AV_VIDEO:
+                            [index for index, cls in enumerate(classes) if cls.lower() == nested_path[0].lower()]
+
+                            if nested_path[-1] == subfolders[SUBFOLDERS[0]]:
+                                path_train.append(p.resolve())
+                                lb_train.append(classes.index(nested_path[0].lower()))
+                            elif nested_path[-1] == subfolders[SUBFOLDERS[1]]:
+                                path_val.append(p.resolve())
+                                lb_val.append(classes.index(nested_path[0].lower()))
+                            elif nested_path[-1] == subfolders[SUBFOLDERS[2]]:
+                                path_test.append(p.resolve())
+                                lb_test.append(classes.index(nested_path[0].lower()))
+                            else:
+                                pass
+
+            # Директории с поднаборами данных не содержат визуальных файлов с необходимыми расширениями
+            try:
+                len_path_train = len(path_train)
+                len_lb_train = len(lb_train)
+
+                len_path_val = len(path_val)
+                len_lb_val = len(lb_val)
+
+                len_path_test = len(path_test)
+                len_lb_test = len(lb_test)
+
+                if (
+                    len_path_train == 0
+                    or len_lb_train == 0
+                    or len_path_val == 0
+                    or len_lb_val == 0
+                    or len_path_test == 0
+                    or len_lb_test == 0
+                    or len_path_train != len_lb_train
+                    or len_path_val != len_lb_val
+                    or len_path_test != len_lb_test
+                ):
+                    raise ValueError
+            except ValueError:
+                self.message_error(
+                    self._sampling_nn_error.format(
+                        self.message_line(str(len_path_train)),
+                        self.message_line(str(len_path_val)),
+                        self.message_line(str(len_lb_test)),
+                    ),
+                    space=self._space,
+                    out=out,
+                )
+                return False
+            except Exception:
+                self.message_error(self._unknown_err, space=self._space, out=out)
+                return False
+            else:
+                total_samples = len_path_train + len_path_val + len_path_test
+
+                train_percentage = round((len_path_train / total_samples) * 100, 2)
+                val_percentage = round((len_path_val / total_samples) * 100, 2)
+                test_percentage = round((len_path_test / total_samples) * 100, 2)
+
+                self.message_info(
+                    self._sampling_nn_true.format(
+                        self.message_line(str(len_path_train)),
+                        self.message_line(self._format_percentage(train_percentage)),
+                        self.message_line(str(len_path_val)),
+                        self.message_line(self._format_percentage(val_percentage)),
+                        self.message_line(str(len_path_test)),
+                        self.message_line(self._format_percentage(test_percentage)),
+                    ),
+                    space=self._space,
+                    out=out,
+                )
+
+                train_data = AVDataset(
+                    path_files=path_train, labels=lb_train, subset="train", len_video=29, max_segment=2
+                )
+
+                train_data = AVDataset(path_files=path_train, labels=lb_train, subset="train", max_segment=max_segment)
+                test_data = AVDataset(path_files=path_test, labels=lb_test, subset="test", max_segment=max_segment)
+                val_data = AVDataset(path_files=path_val, labels=lb_val, subset="val", max_segment=max_segment)
+
+                train_dataloader = DataLoader(train_data, batch_size=bs, shuffle=True)
+                val_dataloader = DataLoader(val_data, batch_size=bs, shuffle=False)
+                test_dataloader = DataLoader(test_data, batch_size=bs, shuffle=False)
+
+                torch.autograd.set_detect_anomaly(True)
+
+                stop_training = False
+                stop_flag_training = 0
+
+                fix_seeds(seed)
+
+                model = AVModel(
+                    shape_audio=shape_audio,
+                    shape_video=shape_video,
+                    input_dim=input_dim,
+                    h_u=h_u,
+                    h_f=h_f,
+                    n_class=n_class,
+                ).to(self.__device)
+                model.feature_audio.load_state_dict(torch.load("models/resnet18_torch_audio.pt"))
+                model.feature_video.load_state_dict(torch.load("models/resnet18_lstm_torch_video.pt"))
+
+                for name, param in model.named_parameters():
+                    if any(layer_name.split(".")[0] in name for layer_name in ["feature_audio", "feature_video"]):
+                        param.requires_grad = False
+
+                criterion = CrossEntropyLoss()
+                optimizer = Lion(model.parameters(), lr=lr, weight_decay=0)
+
+                max_acc = 0
+                max_test_acc = 0
+
+                for e in range(epochs):
+                    print(f"Epoch: {e}/{epochs}")
+
+                    # обучение
+                    model.train()
+                    avg_loss = train_one_epoch(train_dataloader, optimizer, criterion, model, self.__device)
+
+                    # валидирование
+                    model.eval()
+                    acc, avg_vloss = val_one_epoch(val_dataloader, criterion, model, self.__device)
+
+                    # тестирование
+                    model.eval()
+                    test_acc, avg_tloss = val_one_epoch(test_dataloader, criterion, model, self.__device)
+
+                    # аналогично можно добавить тестирования
+
+                    print("LOSS train {} valid {} test {}".format(avg_loss, avg_vloss, avg_tloss))
+
+                    if max_acc < acc:
+                        stop_flag_training = 0
+                        print(f"validation acc: {acc} | test accuracy: {test_acc}")
+                        print(f"Validation Acc Increased ({max_acc:.6f}--->{acc:.6f}) \t Saving The Model")
+                        max_acc = acc
+                        torch.save(
+                            model.state_dict(), "{}/e{}_{:.6f}.pth".format(session_path, e, acc)
+                        )  # записываем веса модели
+
+                    if max_test_acc < test_acc:
+                        print(f"test accuracy: {test_acc}")
+                        print(f"Test Acc Increased ({max_test_acc:.6f}--->{test_acc:.6f})")
+                        max_test_acc = test_acc
+
+                    else:
+                        stop_flag_training += 1
+
+                    if stop_flag_training > patience:
+                        print("Обучение закончилось")
+                        break

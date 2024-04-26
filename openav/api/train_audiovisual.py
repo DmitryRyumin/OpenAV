@@ -37,6 +37,7 @@ from openav.modules.lab.build import Run  # Сборка библиотеки
 from openav import rsrs  # Ресурсы библиотеки
 
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
+from openav.modules.lab.audiovisual import SUBFOLDERS
 
 
 # ######################################################################################################################
@@ -73,7 +74,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 3  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 5  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_train_audiovisual: logging.Logger = logging.getLogger(__class__.__name__)
@@ -176,6 +177,41 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
                 # Проверка значения
                 if type(val) is not str or not val:
                     continue
+
+                curr_valid_layer += 1
+
+            # Подкаталоги с данными
+            if key == "subfolders":
+                curr_valid_layer_2 = 0
+
+                # Проверка значения
+                if type(val) is not dict or len(val) == 0 or not all(subfolder in val for subfolder in SUBFOLDERS):
+                    continue
+
+                # Проход по всем подкаталогам
+                for _, v in val.items():
+                    # Проверка значения
+                    if type(v) is not str or not v:
+                        continue
+
+                    curr_valid_layer_2 += 1
+
+                if curr_valid_layer_2 == 3:
+                    curr_valid_layer += 1
+
+            # Классы
+            if key == "classes":
+                print(type(val), len(val))
+
+                # Проверка значения
+                if type(val) is not list or len(val) == 0:
+                    continue
+
+                # Проход по всем классам
+                for v in val:
+                    # Проверка значения
+                    if type(v) is not str or not v:
+                        continue
 
                 curr_valid_layer += 1
 
@@ -296,6 +332,8 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
         self.path_to_dataset = self._args["path_to_dataset"]  # Путь к директории набора данных
 
         self.train_audiovisual(
+            subfolders=self._args["subfolders"],
+            classes=self._args["classes"],
             out=out,
         )
 
