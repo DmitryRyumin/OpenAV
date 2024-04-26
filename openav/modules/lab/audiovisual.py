@@ -157,9 +157,11 @@ class AV(AVMessages):
     def train_audiovisual(
         self,
         subfolders: Dict[str, str],
+        n_classes: int,
         classes: List[str],
         batch_size: int,
         max_segment: int,
+        patience: int,
         epochs: int,
         seed: int,
         leaning_rate: float,
@@ -172,9 +174,11 @@ class AV(AVMessages):
 
         Args:
             subfolders (Dict[str, str]): Словарь с подкаталогами с данными
+            n_classes (int): Количество классов
             classes (List[str]): Список классов
             batch_size (int): Размер батча
             max_segment (int): Максимальная длительность сегмента видео
+            patience (int): Количество неудачных эпох
             epochs (int): Количество эпох
             seed (int): Начальное состояние обучения
             leaning_rate (float): Скорость обучения
@@ -188,11 +192,8 @@ class AV(AVMessages):
             **False**
         """
 
-        n_class = 26  # количество классов, зависит от корпуса
         shape_audio = (None, max_segment, 1, 64, 306)
         shape_video = (None, max_segment, 29, 3, 88, 88)
-
-        patience = 15
 
         current_directory = os.getcwd()
         session_path = os.path.join(current_directory, "models")
@@ -209,6 +210,8 @@ class AV(AVMessages):
                 type(subfolders) is not dict
                 or len(subfolders) == 0
                 or not all(subfolder in subfolders for subfolder in SUBFOLDERS)
+                or type(n_classes) is not int
+                or not (0 < n_classes)
                 or type(classes) is not list
                 or len(classes) == 0
                 or type(batch_size) is not int
@@ -221,8 +224,13 @@ class AV(AVMessages):
                 or not (0 < seed)
                 or type(leaning_rate) is not float
                 or type(hidden_units) is not int
+                or not (0 < hidden_units)
                 or type(hidden_features) is not int
+                or not (0 < hidden_features)
+                or type(patience) is not int
+                or not (0 < patience)
                 or type(input_dim) is not int
+                or not (0 < input_dim)
                 or type(out) is not bool
             ):
                 raise TypeError
@@ -376,7 +384,7 @@ class AV(AVMessages):
                     input_dim=input_dim,
                     h_u=hidden_units,
                     h_f=hidden_features,
-                    n_class=n_class,
+                    n_class=n_classes,
                 ).to(self.__device)
                 model.feature_audio.load_state_dict(torch.load("models/resnet18_torch_audio.pt"))
                 model.feature_video.load_state_dict(torch.load("models/resnet18_lstm_torch_video.pt"))

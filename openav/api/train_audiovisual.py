@@ -74,7 +74,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 13  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 15  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_train_audiovisual: logging.Logger = logging.getLogger(__class__.__name__)
@@ -255,12 +255,20 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
 
                 curr_valid_layer += 1
 
-            # 1. Количество скрытых нейронов
-            # 2. Количество скрытых признаков
-            # 3. Количество входных признаков
-            if key == "hidden_units" or key == "hidden_features" or key == "input_dim":
+            # 1. Количество классов
+            # 2. Количество скрытых нейронов
+            # 3. Количество скрытых признаков
+            # 4. Количество входных признаков
+            # 5. Количество неудачных эпох
+            if (
+                key == "n_classes"
+                or key == "hidden_units"
+                or key == "hidden_features"
+                or key == "input_dim"
+                or key == "patience"
+            ):
                 # Проверка значения
-                if type(val) is not int:
+                if type(val) is not int or not (0 < val):
                     continue
 
                 curr_valid_layer += 1
@@ -383,9 +391,11 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
 
         self.train_audiovisual(
             subfolders=self._args["subfolders"],
+            n_classes=self._args["n_classes"],
             classes=self._args["classes"],
             batch_size=self._args["batch_size"],
             max_segment=self._args["max_segment"],
+            patience=self._args["patience"],
             epochs=self._args["epochs"],
             seed=self._args["seed"],
             leaning_rate=self._args["leaning_rate"],
