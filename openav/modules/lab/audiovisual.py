@@ -250,14 +250,20 @@ class AV(AVMessages):
             depth = 3
             classes = [cls.lower() for cls in classes]
 
-            shape_audio = (None, max_segment, shape_audio["channels"], shape_audio["n_mels"], shape_audio["samples"])
+            shape_audio = (
+                None,
+                max_segment,
+                shape_audio[SHAPE_AUDIO[0]],
+                shape_audio[SHAPE_AUDIO[1]],
+                shape_audio[SHAPE_AUDIO[2]],
+            )
             shape_video = (
                 None,
                 max_segment,
-                shape_video["frames"],
-                shape_video["channels"],
-                shape_video["height"],
-                shape_video["width"],
+                shape_video[SHAPE_AUDIO[0]],
+                shape_video[SHAPE_AUDIO[1]],
+                shape_video[SHAPE_AUDIO[3]],
+                shape_video[SHAPE_AUDIO[2]],
             )
 
             # Информационное сообщение
