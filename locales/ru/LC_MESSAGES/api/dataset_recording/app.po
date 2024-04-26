@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-25 11:54+0300\n"
+"POT-Creation-Date: 2024-04-26 12:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -31,9 +31,25 @@ msgstr ""
 msgid "Выгрузка файла записи"
 msgstr ""
 
+#: 1fa2a0f20b044ef98e256cd8ba6034df a3c496a9d9204d358d0e2f03a4cb3ecc of
+#: openav.modules.dataset_recording.app.download_processed_video:3
+#: openav.modules.dataset_recording.app.download_timing_data:3
+msgid "GET /download_processed_video"
+msgstr ""
+
+#: 118f989bfdb44552885563e58df12b1a of
+#: openav.modules.dataset_recording.app.download_processed_video:5
+msgid "Скачивает файл с записью в формате webm"
+msgstr ""
+
 #: 9f4900ad2b1642329bdc513736638fd1 of
 #: openav.modules.dataset_recording.app.download_timing_data:1
 msgid "Выгрузка файла временных отметок записи"
+msgstr ""
+
+#: 02965ca966084066a7caf75145191e7a of
+#: openav.modules.dataset_recording.app.download_timing_data:5
+msgid "Скачивает файл временных отметок записи в формате txt"
 msgstr ""
 
 #: dce7c788778e4dd89b7b6ce9be5b1de3 of
@@ -41,9 +57,29 @@ msgstr ""
 msgid "Получение списка вопросов"
 msgstr ""
 
+#: b136aee0c5c1451f922bbe6ff3b82dea of
+#: openav.modules.dataset_recording.app.get_questions:3
+msgid "GET /get_questions"
+msgstr ""
+
+#: cf8ce22f24324636b5dac00fa9d38331 of
+#: openav.modules.dataset_recording.app.get_questions:5
+msgid "Возвращает список вопросов в json формате"
+msgstr ""
+
 #: ffd7f9363f444e59ad408380b67441ff of
 #: openav.modules.dataset_recording.app.index:1
 msgid "Отображение основной страницы записи"
+msgstr ""
+
+#: 37b65eb71f44423c91c091e3404692ef of
+#: openav.modules.dataset_recording.app.index:3
+msgid "GET /"
+msgstr ""
+
+#: 6bf78910301e45fbba5d9a644ac2bb94 of
+#: openav.modules.dataset_recording.app.index:5
+msgid "Отображает статику страницы записи. Является точкой входа в приложение"
 msgstr ""
 
 #: 02965ca966084066a7caf75145191e7a of
@@ -51,8 +87,30 @@ msgstr ""
 msgid "Сохранение файла временных отметок записи"
 msgstr ""
 
+#: 767a5e6b2d954e7294b90573f6fea6d3 of
+#: openav.modules.dataset_recording.app.store_timing_data:3
+msgid "POST /store_timing_data"
+msgstr ""
+
+#: fbc33c57049b4e83b986b308c7dc0784 of
+#: openav.modules.dataset_recording.app.store_timing_data:5
+msgid ""
+"Сохраняет файл временных отметок записи, который предается в виде json в "
+"теле запроса"
+msgstr ""
+
 #: 7615269ca9df46b8a691b06916854e58 of
 #: openav.modules.dataset_recording.app.upload:1
 msgid "Сохранение файла записи"
+msgstr ""
+
+#: 8922ee14044e42568198a1742d92162b of
+#: openav.modules.dataset_recording.app.upload:3
+msgid "POST /upload"
+msgstr ""
+
+#: 53cf5da8cd4e404cac030bd4eb01247d of
+#: openav.modules.dataset_recording.app.upload:5
+msgid "Сохраняет файл записи, который предается в виде файла видео в теле запроса"
 msgstr ""
 
