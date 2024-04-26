@@ -6,3 +6,4 @@
 
    train/audio
    train/video
+   train/audiovisual
