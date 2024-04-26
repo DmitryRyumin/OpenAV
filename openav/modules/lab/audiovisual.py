@@ -399,8 +399,8 @@ class AV(AVMessages):
                 max_acc = 0
                 max_test_acc = 0
 
-                for e in range(epochs):
-                    print(f"Epoch: {e}/{epochs}")
+                for e in range(1, epochs, 1):
+                    print(f"Эпоха: {e} из {epochs}")
 
                     # обучение
                     model.train()
