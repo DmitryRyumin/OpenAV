@@ -29,7 +29,12 @@ def read_questions_from_csv():
 
 @app.route("/get_questions", methods=["GET"])
 def get_questions():
-    """Получение списка вопросов"""
+    """Получение списка вопросов
+
+    GET /get_questions
+
+    Возвращает список вопросов в json формате
+    """
     questions = read_questions_from_csv()
     return jsonify(questions=questions)
 
@@ -43,7 +48,12 @@ if not os.path.exists(app.config["UPLOAD_FOLDER"]):
 
 @app.route("/")
 def index():
-    """Отображение основной страницы записи"""
+    """Отображение основной страницы записи
+
+    GET /
+
+    Отображает статику страницы записи. Является точкой входа в приложение
+    """
     global processing_finished
     processing_finished = False
     return render_template("index_home.html")
@@ -51,7 +61,12 @@ def index():
 
 @app.route("/store_timing_data", methods=["POST"])
 def store_timing_data():
-    """Сохранение файла временных отметок записи"""
+    """Сохранение файла временных отметок записи
+
+    POST /store_timing_data
+
+    Сохраняет файл временных отметок записи, который предается в виде json в теле запроса
+    """
     if request.method == "POST":
         data = request.json
         if os.path.exists("timing_data.txt"):
@@ -66,7 +81,12 @@ def store_timing_data():
 
 @app.route("/upload", methods=["POST"])
 def upload():
-    """Сохранение файла записи"""
+    """Сохранение файла записи
+
+    POST /upload
+
+    Сохраняет файл записи, который предается в виде файла видео в теле запроса
+    """
     global processing_finished
     if "video" in request.files:
         video_file = request.files["video"]
@@ -88,14 +108,24 @@ def upload():
 
 @app.route("/download_processed_video")
 def download_processed_video():
-    """Выгрузка файла записи"""
+    """Выгрузка файла записи
+
+    GET /download_processed_video
+
+    Скачивает файл с записью в формате webm
+    """
     processed_video_path = "temp_dir/video.webm"
     return send_file(processed_video_path, as_attachment=True)
 
 
 @app.route("/download_timing_data")
 def download_timing_data():
-    """Выгрузка файла временных отметок записи"""
+    """Выгрузка файла временных отметок записи
+
+    GET /download_processed_video
+
+    Скачивает файл временных отметок записи в формате txt
+    """
     timing_data_path = "timing_data.txt"  # Path to the file
     # Set cache-control headers to prevent caching
     response = send_file(timing_data_path, as_attachment=True, mimetype="text/plain")
