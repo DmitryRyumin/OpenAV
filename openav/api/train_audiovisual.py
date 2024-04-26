@@ -37,7 +37,7 @@ from openav.modules.lab.build import Run  # Сборка библиотеки
 from openav import rsrs  # Ресурсы библиотеки
 
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
-from openav.modules.lab.audiovisual import SUBFOLDERS
+from openav.modules.lab.audiovisual import SUBFOLDERS, SHAPE_AUDIO, SHAPE_VIDEO
 
 
 # ######################################################################################################################
@@ -74,7 +74,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 15  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 17  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_train_audiovisual: logging.Logger = logging.getLogger(__class__.__name__)
@@ -201,8 +201,6 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
 
             # Классы
             if key == "classes":
-                print(type(val), len(val))
-
                 # Проверка значения
                 if type(val) is not list or len(val) == 0:
                     continue
@@ -272,6 +270,44 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
                     continue
 
                 curr_valid_layer += 1
+
+            # Входная размерность аудио лог-мел спектрограммы
+            if key == "shape_audio":
+                curr_valid_layer_2 = 0
+
+                # Проверка значения
+                if type(val) is not dict or len(val) == 0 or not all(shape in val for shape in SHAPE_AUDIO):
+                    continue
+
+                # Проход по всем подкаталогам
+                for _, v in val.items():
+                    # Проверка значения
+                    if type(v) is not int or (v < 1):
+                        continue
+
+                    curr_valid_layer_2 += 1
+
+                if curr_valid_layer_2 == 3:
+                    curr_valid_layer += 1
+
+            # Входная размерность видеокадров
+            if key == "shape_video":
+                curr_valid_layer_2 = 0
+
+                # Проверка значения
+                if type(val) is not dict or len(val) == 0 or not all(shape in val for shape in SHAPE_VIDEO):
+                    continue
+
+                # Проход по всем подкаталогам
+                for _, v in val.items():
+                    # Проверка значения
+                    if type(v) is not int or (v < 1):
+                        continue
+
+                    curr_valid_layer_2 += 1
+
+                if curr_valid_layer_2 == 4:
+                    curr_valid_layer += 1
 
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
         if self._all_layer_in_yaml != curr_valid_layer:
@@ -402,6 +438,8 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
             hidden_units=self._args["hidden_units"],
             hidden_features=self._args["hidden_features"],
             input_dim=self._args["input_dim"],
+            shape_audio=self._args["shape_audio"],
+            shape_video=self._args["shape_video"],
             out=out,
         )
 

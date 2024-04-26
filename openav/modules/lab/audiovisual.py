@@ -47,6 +47,8 @@ from openav.modules.nn.models import AVModel
 # ######################################################################################################################
 
 SUBFOLDERS: List[str] = ["train", "val", "test"]
+SHAPE_AUDIO: List[str] = ["channels", "n_mels", "samples"]
+SHAPE_VIDEO: List[str] = ["frames", "channels", "width", "height"]
 EXT_AV_VIDEO: List[str] = ["mov", "mp4", "webm"]  # Расширения искомых файлов
 
 
@@ -168,6 +170,8 @@ class AV(AVMessages):
         hidden_units: int,
         hidden_features: int,
         input_dim: int,
+        shape_audio: Dict[str, int],
+        shape_video: Dict[str, int],
         out: bool = True,
     ) -> bool:
         """Автоматическое обучение на аудиовизуальных данных
@@ -185,15 +189,14 @@ class AV(AVMessages):
             hidden_units (int): Количество скрытых нейронов
             hidden_features (int): Количество скрытых признаков
             input_dim (int): Количество входных признаков
+            shape_audio (Dict[str, int]): Входная размерность аудио лог-мел спектрограммы
+            shape_video (Dict[str, int]): Входная размерность видеокадров
             out (bool) Отображение
 
         Returns:
             bool: **True** если автоматическое обучение на аудиовизуальных данных произведено, в обратном случае
             **False**
         """
-
-        shape_audio = (None, max_segment, 1, 64, 306)
-        shape_video = (None, max_segment, 29, 3, 88, 88)
 
         current_directory = os.getcwd()
         session_path = os.path.join(current_directory, "models")
@@ -231,6 +234,12 @@ class AV(AVMessages):
                 or not (0 < patience)
                 or type(input_dim) is not int
                 or not (0 < input_dim)
+                or type(shape_audio) is not dict
+                or len(shape_audio) == 0
+                or not all(shape in shape_audio for shape in SHAPE_AUDIO)
+                or type(shape_video) is not dict
+                or len(shape_video) == 0
+                or not all(shape in shape_video for shape in SHAPE_VIDEO)
                 or type(out) is not bool
             ):
                 raise TypeError
@@ -240,6 +249,16 @@ class AV(AVMessages):
         else:
             depth = 3
             classes = [cls.lower() for cls in classes]
+
+            shape_audio = (None, max_segment, shape_audio["channels"], shape_audio["n_mels"], shape_audio["samples"])
+            shape_video = (
+                None,
+                max_segment,
+                shape_video["frames"],
+                shape_video["channels"],
+                shape_video["height"],
+                shape_video["width"],
+            )
 
             # Информационное сообщение
             self.message_info(

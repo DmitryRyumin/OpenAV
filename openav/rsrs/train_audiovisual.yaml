@@ -43,3 +43,12 @@ hidden_units: 356
 hidden_features: 128
 input_dim: 512
 patience: 10
+shape_audio:
+  channels: 1
+  n_mels: 64
+  samples: 306
+shape_video:
+  frames: 29
+  channels: 3
+  width: 88
+  height: 88
