@@ -52,3 +52,5 @@ shape_video:
   channels: 3
   width: 88
   height: 88
+path_to_model_fa: "/Users/dl/GitHub/OpenAV/models/resnet18_torch_audio.pt"
+path_to_model_fv: "/Users/dl/GitHub/OpenAV/models/resnet18_lstm_torch_video.pt"

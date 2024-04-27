@@ -7,6 +7,7 @@
 
 import os
 import sys
+from pathlib import Path
 
 PATH_TO_SOURCE = os.path.abspath(os.path.dirname(__file__))
 PATH_TO_ROOT = os.path.join(PATH_TO_SOURCE, "..", "..")
@@ -37,7 +38,7 @@ from openav.modules.lab.build import Run  # Сборка библиотеки
 from openav import rsrs  # Ресурсы библиотеки
 
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
-from openav.modules.lab.audiovisual import SUBFOLDERS, SHAPE_AUDIO, SHAPE_VIDEO
+from openav.modules.lab.audiovisual import SUBFOLDERS, SHAPE_AUDIO, SHAPE_VIDEO, EXT_MODELS
 
 
 # ######################################################################################################################
@@ -74,7 +75,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 17  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 19  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_train_audiovisual: logging.Logger = logging.getLogger(__class__.__name__)
@@ -172,7 +173,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
 
                 curr_valid_layer += 1
 
-            # 1. Путь к директории набора данных
+            # Путь к директории набора данных
             if key == "path_to_dataset":
                 # Проверка значения
                 if type(val) is not str or not val:
@@ -309,6 +310,20 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
                 if curr_valid_layer_2 == 4:
                     curr_valid_layer += 1
 
+            # Пути к моделям
+            if key == "path_to_model_fa" or key == "path_to_model_fv":
+                # Проверка значения
+                if type(val) is not str or not val:
+                    continue
+
+                # Проверка существования файла и расширения
+                file_path = Path(val)
+
+                if not file_path.is_file() or file_path.suffix.replace(".", "") != EXT_MODELS:
+                    continue
+
+                curr_valid_layer += 1
+
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
         if self._all_layer_in_yaml != curr_valid_layer:
             try:
@@ -440,6 +455,8 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
             input_dim=self._args["input_dim"],
             shape_audio=self._args["shape_audio"],
             shape_video=self._args["shape_video"],
+            path_to_model_fa=self._args["path_to_model_fa"],
+            path_to_model_fv=self._args["path_to_model_fv"],
             out=out,
         )
 

@@ -50,6 +50,7 @@ SUBFOLDERS: List[str] = ["train", "val", "test"]
 SHAPE_AUDIO: List[str] = ["channels", "n_mels", "samples"]
 SHAPE_VIDEO: List[str] = ["frames", "channels", "width", "height"]
 EXT_AV_VIDEO: List[str] = ["mov", "mp4", "webm"]  # Расширения искомых файлов
+EXT_MODELS: str = "pt"
 
 
 # ######################################################################################################################
@@ -172,6 +173,8 @@ class AV(AVMessages):
         input_dim: int,
         shape_audio: Dict[str, int],
         shape_video: Dict[str, int],
+        path_to_model_fa: str,
+        path_to_model_fv: str,
         out: bool = True,
     ) -> bool:
         """Автоматическое обучение на аудиовизуальных данных
@@ -191,6 +194,8 @@ class AV(AVMessages):
             input_dim (int): Количество входных признаков
             shape_audio (Dict[str, int]): Входная размерность аудио лог-мел спектрограммы
             shape_video (Dict[str, int]): Входная размерность видеокадров
+            path_to_model_fa (str): Путь к нейросетевой модели (аудио)
+            path_to_model_fv (str): Путь к нейросетевой модели (видео)
             out (bool) Отображение
 
         Returns:
@@ -240,6 +245,14 @@ class AV(AVMessages):
                 or type(shape_video) is not dict
                 or len(shape_video) == 0
                 or not all(shape in shape_video for shape in SHAPE_VIDEO)
+                or type(path_to_model_fa) is not str
+                or not path_to_model_fa
+                or type(path_to_model_fv) is not str
+                or not path_to_model_fv
+                or not Path(path_to_model_fa).is_file()
+                or Path(path_to_model_fa).suffix.replace(".", "") != EXT_MODELS
+                or not Path(path_to_model_fv).is_file()
+                or Path(path_to_model_fv).suffix.replace(".", "") != EXT_MODELS
                 or type(out) is not bool
             ):
                 raise TypeError
@@ -411,8 +424,8 @@ class AV(AVMessages):
                     h_f=hidden_features,
                     n_class=n_classes,
                 ).to(self.__device)
-                model.feature_audio.load_state_dict(torch.load("models/resnet18_torch_audio.pt"))
-                model.feature_video.load_state_dict(torch.load("models/resnet18_lstm_torch_video.pt"))
+                model.feature_audio.load_state_dict(torch.load(path_to_model_fa))
+                model.feature_video.load_state_dict(torch.load(path_to_model_fv))
 
                 for name, param in model.named_parameters():
                     if any(layer_name.split(".")[0] in name for layer_name in ["feature_audio", "feature_video"]):
