@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-27 15:57+0300\n"
+"POT-Creation-Date: 2024-04-27 16:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -270,13 +270,50 @@ msgid "Параметры процесса обучения аудиовизуа
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 005bd94f1b4d4293b07b54573ed9040c
-msgid "seed"
+#: b194d0f97e914d1b9ea935f1f16c24cc
+msgid "n_classes"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
 #: aea4774a879c44aa81d1f841162c8b19
 msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 14097515edcc43709d4fe443a7b6d039
+msgid "``26``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: bc49d65216984f8d91e91f92a22492f8
+msgid ""
+"Количество классов для задачи классификации. Соответствуют количеству "
+"фраз из базы данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 4c662de3336948be97782fbcb9afd70b
+msgid "classes"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 050ae20cdeb94c39a9948b1e830ad481
+msgid "list"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 37f49c9f022946ec9544856bf2379690
+msgid "``[\"1_Левая\", \"2_Правая\",`` |br| ``...`` |br| ``\"26_Калибровка\"]``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 56d2820d7329463693d584b22397f347
+msgid "Список названий классов, которые представлены в базе данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 005bd94f1b4d4293b07b54573ed9040c
+msgid "seed"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
@@ -561,5 +598,11 @@ msgstr ""
 #~ " используются для извлечения визуальных "
 #~ "признаков. Предобученную модель можно скачать"
 #~ " по |a_model_fм| ссылке |/a|"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Количество классов для задачи классификации."
+#~ " Соответствую количеству фраз из "
+#~ "предоставляемой базы данных"
 #~ msgstr ""
 
