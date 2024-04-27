@@ -102,6 +102,14 @@ class AVMessages(Audio, Video):
         self._run_train: str = self._("Запуск процесса обучения") + self._em
         self._epoch: str = self._("Эпоха: {} из {}") + self._em
         self._loss: str = self._("Значения ошибки: обучение - {}, валидация - {}, тест - {}")
+        self._acc_valid_and_test: str = self._("Валидация: точность {} | Тест: точность {}")
+        self._acc_valid_up: str = (
+            self._("Точность на валидационной выборке увеличилась ({} ---> {}). Сохранение модели") + self._em
+        )
+        self._acc_test: str = self._("Точность для тестовой выборке: {}")
+        self._acc_test_up: str = self._("Точность на тестовой выборке увеличилась ({} ---> {})")
+
+        self._end_train: str = self._("Процесс обучения завершен") + self._em
 
 
 # ######################################################################################################################
@@ -471,32 +479,58 @@ class AV(AVMessages):
                     model.eval()
                     test_acc, avg_tloss = val_one_epoch(test_dataloader, criterion, model, self.__device)
 
+                    round_f = 6
+
                     self.message_info(
                         self._loss.format(
-                            self.message_line(str(avg_loss)),
-                            self.message_line(str(avg_vloss)),
-                            self.message_line(str(avg_tloss)),
+                            self.message_line(str(round(avg_loss, round_f))),
+                            self.message_line(str(round(avg_vloss, round_f))),
+                            self.message_line(str(round(avg_tloss, round_f))),
                         ),
                         out=out,
                     )
 
                     if max_acc < acc:
                         stop_flag_training = 0
-                        print(f"validation acc: {acc} | test accuracy: {test_acc}")
-                        print(f"Validation Acc Increased ({max_acc:.6f}--->{acc:.6f}) \t Saving The Model")
+
+                        self.message_info(
+                            self._acc_valid_and_test.format(
+                                self.message_line(str(round(acc, round_f))),
+                                self.message_line(str(round(test_acc, round_f))),
+                            ),
+                            out=out,
+                        )
+                        self.message_info(
+                            self._acc_valid_up.format(
+                                self.message_line(str(round(max_acc, round_f))),
+                                self.message_line(str(round(acc, round_f))),
+                            ),
+                            out=out,
+                        )
                         max_acc = acc
-                        torch.save(
-                            model.state_dict(), "{}/e{}_{:.6f}.pth".format(session_path, e, acc)
-                        )  # записываем веса модели
+                        torch.save(model.state_dict(), "{}/e{}_{:.6f}.pth".format(session_path, e, acc))
 
                     if max_test_acc < test_acc:
-                        print(f"test accuracy: {test_acc}")
-                        print(f"Test Acc Increased ({max_test_acc:.6f}--->{test_acc:.6f})")
+                        self.message_info(
+                            self._acc_test.format(
+                                self.message_line(str(round(test_acc, round_f))),
+                            ),
+                            out=out,
+                        )
+                        self.message_info(
+                            self._acc_test_up.format(
+                                self.message_line(str(round(max_test_acc, round_f))),
+                                self.message_line(str(round(test_acc, round_f))),
+                            ),
+                            out=out,
+                        )
+
                         max_test_acc = test_acc
 
                     else:
                         stop_flag_training += 1
 
                     if stop_flag_training > patience:
-                        print("Обучение закончилось")
-                        break
+                        self.message_info(self._end_train, out=out)
+
+                        return True
