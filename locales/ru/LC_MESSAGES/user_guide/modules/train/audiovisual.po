@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-26 10:53+0300\n"
+"POT-Creation-Date: 2024-04-27 15:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -22,6 +22,7 @@ msgstr ""
 "Generated-By: Babel 2.11.0\n"
 
 #: ../../source/reuse_content/general.rst:1 0b729f46410f47dc826efa88a9fcbc2a
+#: 5e8c4ee4571d4141b3e2219fb181ccff
 msgid "</br>"
 msgstr ""
 
@@ -34,7 +35,7 @@ msgid "</b>"
 msgstr ""
 
 #: ../../source/reuse_content/general.rst:14 4989cd7e55d9465ebb9b2d676aa5aab4
-#: cd54d0a044a241bbae7daba4e049b048
+#: 5e8c4ee4571d4141b3e2219fb181ccff cd54d0a044a241bbae7daba4e049b048
 msgid "</a>"
 msgstr ""
 
@@ -46,26 +47,42 @@ msgid ""
 " target=\"_blank\">"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:8
+#: ../../source/user_guide/modules/train/audiovisual.rst:7
+#: c3512f87283842a38d5ce8590a2467e6
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/models/resnet18_torch_audio.pt\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:11
+#: 87a507042e2c41c08507114a9c39c8bb c3512f87283842a38d5ce8590a2467e6
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/models/resnet18_lstm_torch_video.pt\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:16
 #: f4b3387499ca4d8d91a73b44e0f380b3
 msgid "Обучение аудиовизуальных нейросетевых моделей"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:10
+#: ../../source/user_guide/modules/train/audiovisual.rst:18
 #: 04fc35d4d37042c38d9654f49798f22a
 msgid ""
 "Команда для запуска процесса обучения аудиовизуальных нейросетевых "
 "моделей:"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:12
+#: ../../source/user_guide/modules/train/audiovisual.rst:20
 #: 8a36c8070c814439bc47cfade7c0f665
 msgid ""
 "openav_train_audiovisual --config "
 "<путь_к_вашему_конфигурационному_файлу>.yaml"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:17
+#: ../../source/user_guide/modules/train/audiovisual.rst:25
 #: 6f136e58b9f94962bfbc720ca3a1e0f5
 msgid ""
 "Для запуска команды необходимо обязательно указать путь к "
@@ -73,63 +90,59 @@ msgid ""
 "где она расположена."
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:20
+#: ../../source/user_guide/modules/train/audiovisual.rst:28
 #: b3d385e7a9e24527b9c41d312c2d2fd4
 msgid "Конфигурационный файл"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:22
+#: ../../source/user_guide/modules/train/audiovisual.rst:30
 #: b93c000409934a46a40589a2e73d9f01
 msgid "Конфигурационный файл включает в себя следующие настройки:"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:24
+#: ../../source/user_guide/modules/train/audiovisual.rst:32
 #: f80e981b17cf428e987a26f1968d36ff
 msgid "Отображение процесса выполнения программы в терминале (командной строке)"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:25
-#: ../../source/user_guide/modules/train/audiovisual.rst:48
-#: 0db3025a686f4ad2991037aad1a863d2 7eae0651b17c4f02b71bc6585b10fd7a
+#: ../../source/user_guide/modules/train/audiovisual.rst:33
+#: ../../source/user_guide/modules/train/audiovisual.rst:56
+#: 7eae0651b17c4f02b71bc6585b10fd7a
 msgid "Работа с файловой системой"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:26
+#: ../../source/user_guide/modules/train/audiovisual.rst:34
 #: 7cc46efc541a4fecacff7ae62bca8736
 msgid "Параметры настройки процесса обучения нейросетевых моделей"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:30
+#: ../../source/user_guide/modules/train/audiovisual.rst:38
 #: b7d34368889e4f4181ae84df80e293aa
 msgid "|a_config| Пример конфигурационного файла |/a|"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:35
+#: ../../source/user_guide/modules/train/audiovisual.rst:43
 #: 26c4237690ae46cfab990f739db7b40b
 msgid "Отображение процесса выполнения команды в терминале"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 27e8efb3ae7041b3a4df1b00c23dddc6 71a6a9b03bd94634a9569edcb2bab8ea
-#: 8189cb1ffbe04e39bab8494155941c6c
+#: 27e8efb3ae7041b3a4df1b00c23dddc6
 msgid "Параметр"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 06670f4c83d7474e97633ce8878e5988 85378bde28d0481f8642d7ac9024950b
-#: fddc2b7f5ffb4f2a9a95464151c61bc8
+#: 06670f4c83d7474e97633ce8878e5988
 msgid "Тип"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 9b75bc8b3fce45279b431f1cb6e3dabe a77161b457ef4a66b97bcada8c4bb7ba
-#: f61d497894de4970a7d52be86dd69a86
+#: 9b75bc8b3fce45279b431f1cb6e3dabe
 msgid "Значение по умолчанию"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 02d498a4dc8b46239ab6a8647115d8ac 5dd27a47784f49bbad1f30dcd76b8889
-#: a96d7c6c32cf4bc2bc46f6c8cf147ece
+#: 02d498a4dc8b46239ab6a8647115d8ac
 msgid "Описание"
 msgstr ""
 
@@ -139,12 +152,12 @@ msgid "hide_metadata"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 0b01084dbb0d4f53b77d6f051dfc704b 4305ec1b2dfa4db68882a2014d416a27
+#: 0b01084dbb0d4f53b77d6f051dfc704b
 msgid "bool"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 53d17a969b214ba79dafc6ea7d6c16eb af43b134d2744388bf036eee3602c644
+#: 53d17a969b214ba79dafc6ea7d6c16eb
 msgid "``false``"
 msgstr ""
 
@@ -164,30 +177,96 @@ msgid "Включение отображения версий установле
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 1c81f1c6114d498983d069b3cd4d2cec
+#: b89dadfc08a34eceb64ec737eba1f500
 msgid "path_to_dataset"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: a2d547da2a344814a056d242fd188db6
+#: 342d54ea193b4ddb97992ec45a29a684 bf737caed87c44bbaf8b86b33b37fcb4
 msgid "str"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: d7a6ec6369724785b263656691d83de6
+#: bbe939231a3348a587b46d9336115e7b
 msgid "``<путь_к_набору_данных>``"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: cf9519361a1b477aa7540671d240f952
+#: d1795d481ce44945ab4c3bacd8933555
 msgid ""
 "Директория, где размещается подготовленный набор данных для обучения "
 "нейросетевых моделей"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:60
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 64c199b9af6d43389177f76fee972272
+msgid "subfolders"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 951974729e23476d81240e868d0fada6
+msgid "``train: \"train\"`` |br| ``val: \"val\"`` |br| ``test: \"test\"``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 4ddc2cece98749f29c67a1ea36550bc8
+msgid "Директории с обучающей, тестовой и валидационной выборками"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: b89dadfc08a34eceb64ec737eba1f500
+msgid "path_to_model_fa"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: bbe939231a3348a587b46d9336115e7b
+msgid "``<путь_к_весам_аудио_модели>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 78b6f918d1ee4569aafcfcb184334650
+msgid ""
+"Путь к к предобученной  модели , которая используются для извлечения "
+"акустических признаков. Предобученную модель можно скачать по "
+"|a_model_fa| ссылке |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: b89dadfc08a34eceb64ec737eba1f500
+msgid "path_to_model_fv"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: bbe939231a3348a587b46d9336115e7b
+msgid "``<путь_к_весам_видео_модели>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 8353852118ec43d3be4ce4fc30ad9e97
+msgid ""
+"Путь к к предобученной модели, которая используются для извлечения "
+"визуальных признаков. Предобученную модель можно скачать по |a_model_fv| "
+"ссылке |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 5ff47465a9b94b1791b483bd25f64f01
+msgid "path_to_save_models"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: a674263fdd8c4afcb6ab0555efa85b67
+msgid "``<путь_сохранения_обученных_моделей>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
 #: 7ed8ad63b1ad4427b5415bf99c49c6f4
-msgid "Параметры процесса обучения визуальных нейросетевых моделей"
+msgid "Путь по которому будут храниться обученные нейросетевые модели"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:71
+#: 7ed8ad63b1ad4427b5415bf99c49c6f4
+msgid "Параметры процесса обучения аудиовизуальных нейросетевых моделей"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
@@ -196,8 +275,7 @@ msgid "seed"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 2d4494cfa35d47e6a8cd6a90d388c5a8 8b8e42f22f5e48e8a0276112d49ed6c4
-#: aea4774a879c44aa81d1f841162c8b19 b7dafd3c81404a3098270b69094b16a1
+#: aea4774a879c44aa81d1f841162c8b19
 msgid "int"
 msgstr ""
 
@@ -207,20 +285,77 @@ msgid "``42``"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 059bea74e3914421a0e4e136432afac2
+#: 499f309a5f7e424488b30c11ddd31c7b
 msgid ""
-"Параметр для инициализации случайных процессов, который обеспечивает "
-"воспроизводимость результатов и одинаковые начальные условия"
+"Параметр, задающий начальное значение генератора псевдослучайных чисел в "
+"PyTorch. Установка фиксированного ``seed`` обеспечивает воспроизводимость"
+" результатов между разными запусками программы. При одинаковом ``seed`` "
+"все случайные операции, такие как инициализация весов нейронной сети, "
+"перемешивание данных и др., будут давать одинаковые результаты."
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 51d62b62a93e4303becac234fdb401c3
+msgid "max_segment"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 2649866f96974358af9609265cd52305
+msgid "``2``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: cd5586f5f40e4f069949dab4d417e332
+msgid ""
+"Гиперпараметр, определяющий максимальное количество перекрывающихся "
+"сегментов, на которые разбиваются длинные последовательности аудио и "
+"видео данных перед подачей их на вход нейронной сети для обучения или "
+"вывода"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 915b53fb02054caca2d1a4f8955ae39c
+msgid "epochs"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 14097515edcc43709d4fe443a7b6d039
+msgid "``150``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: abb2bf7546b5499e8ec34f2760afc43d
+msgid ""
+"Количество эпох обучения модели. Проход одной эпохи значит, что весь "
+"датасет прошел через нейронную сеть в прямом и обратном направлении "
+"только один раз. Параметр ``patience`` позволяет избежать переобучения "
+"модели"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 8e773e95c1d2443a81a2a6df277e7dad
+msgid "patience"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: d28b3eef52e047519ed1e9eef3c43b13
+msgid "``15``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 77647df54490452cb7cd847e9652d6ff
+msgid ""
+"Количество эпох, в течении которых модель не прогрессирует в обучении. "
+"Т.е. если по прошествии, например, ``5`` эпох модель не показывала "
+"прирост ``accuracy`` (либо ваша метрика), то в данном случае процесс "
+"обучения останавливается и сохраняется модель на эпохе с наибольшей "
+"точностью. Данный параметр позволяет предотварить переобучение модели, а "
+"также снизить длительность обучения"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
 #: ef924e3650df466d9d11ad620f943562
 msgid "batch_size"
-msgstr ""
-
-#: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 93e03035c07a43f88ecb3de0f5393aad
-msgid "``8``"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
@@ -231,8 +366,8 @@ msgid ""
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: c057c5c675a544ab97cb0b0cf1c42f3a
-msgid "lr"
+#: 8c89aadaed1b47018254649d3df78c7a
+msgid "leaning_rate"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
@@ -254,42 +389,177 @@ msgid ""
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 915b53fb02054caca2d1a4f8955ae39c
-msgid "epoch"
+#: 502a060d647c4136b93a9a0f39bdf25e
+msgid "hidden_units"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
 #: 14097515edcc43709d4fe443a7b6d039
-msgid "``100``"
+msgid "``256``"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: abb2bf7546b5499e8ec34f2760afc43d
+#: ff4e1f4346fd497a857e5e037a01c8dc
 msgid ""
-"Количество эпох обучения модели. Проход одной эпохи значит, что весь "
-"датасет прошел через нейронную сеть в прямом и обратном направлении "
-"только один раз. Параметр ``epoch_stop`` позволяет избежать переобучения "
-"модели"
+"Количество скрытых единиц (hidden units) в декодере нейронной сети. Этот "
+"параметр определяет размерность внутреннего представления данных в "
+"декодере, что влияет на емкость (expressive capacity) и способность "
+"декодера извлекать и обобщать сложные зависимости в данных. Подбирается "
+"эмипирическим путем"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 00b719b888fc4623b1a3a194e8c3eae3
-msgid "epoch_stop"
+#: 491fe13404d54adcadd7f03f5c50a6c4
+msgid "hidden_features"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 14097515edcc43709d4fe443a7b6d039
+msgid "``128``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 95592576596948bdae7de5edc75c176f
+msgid ""
+"Количество скрытых признаков (hidden features) или временных шагов, "
+"используемых в нейросетевые модели. Этот гиперпараметр связан с тем, как "
+"модель обрабатывает последовательные данные, такие как аудио и видео. "
+"Увеличение этого параметра позволяет модели обрабатывать более длинные "
+"входные последовательности, но также увеличивает вычислительную сложность"
+" и требования к памяти, уменьшение может ускорить обучение, но при этом "
+"модель будет видеть только более короткие временные зависимости. "
+"Подбирается эмпирически"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 3e33d0c36fc2452a869910e7b2867cf6
+msgid "input_dim"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
 #: d28b3eef52e047519ed1e9eef3c43b13
-msgid "``5``"
+msgid "``512``"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 77647df54490452cb7cd847e9652d6ff
+#: 7cb7cd519abc487f9bd48ee67c1e0c54
 msgid ""
-"Количество эпох, в течении которых модель не прогрессирует в обучении. "
-"Т.е. если по прошествии, например, ``5`` эпох модель не показывала "
-"прирост ``accuracy`` (либо ваша метрика), то в данном случае процесс "
-"обучения останавливается и сохраняется модель на эпохе с наибольшей "
-"точностью. Данный параметр позволяет предотварить переобучение модели, а "
-"также снизить длительность обучения"
+"Размерность входных векторов признаков для аудио и видео данных, "
+"подаваемых в модель. Например, параметр ``input_dim=512`` указывает, что "
+"на вход нейронной сети будут подаваться векторы признаков размера 512 для"
+" каждого временного шага последовательности. Размер входного вектора "
+"обычно является результатом предварительной обработки и извлечения "
+"низкоуровневых признаков из исходных аудио/видео данных с помощью "
+"отдельных моделей или методов обработки сигналов."
 msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: c44b42ac89e14024ae6b5342c9d65d56
+msgid "shape_audio"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 3b5f03a4e10b4056be00b485ee31469b
+msgid "``channels: \"1\"`` |br| ``n_mels: \"64\"`` |br| ``samples: \"306\"``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: b5913c8bb9244f7b8f1e3ed8b07ab8fb
+msgid ""
+"Здесь определяется размерность входных тензоров аудиоданных, ожидаемые "
+"моделью. Это форма задается тремя числами ``channels`` - количество "
+"каналов в аудиоданных, чаще всего аудио является моно, поэтому здесь "
+"канал равен ``1``. При стерео он равен ``2``. ``n_mels`` - количество "
+"мел-частотных кепстральных коэффициентов (MFCC), используемых для "
+"представления аудиоданных. ``samples`` - количество временных выборок или"
+" окон, входящих в одно аудио представление. Являются фиксированными "
+"параметрами"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: c44b42ac89e14024ae6b5342c9d65d56
+msgid "shape_video"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 3b5f03a4e10b4056be00b485ee31469b
+msgid ""
+"``frames: \"29\"`` |br| ``channels: \"3\"`` |br| ``width: \"88\"`` |br| "
+"``height: \"88\"``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: b5913c8bb9244f7b8f1e3ed8b07ab8fb
+msgid ""
+"Здесь определяется размерность входных тензоров видеоданных, ожидаемые "
+"моделью. ``frames`` - это количество видеокадров в одном сегменте. "
+"``channels`` - это количество цветовых каналов (R, G, B) в видеокадре. "
+"Для изображения в серых тонах количество каналов равно ``1``. ``width`` -"
+" ширина видеокадра в пикселях. ``height`` - высота видеокадра в пикселях."
+" Являются фиксированными параметрами"
+msgstr ""
+
+#~ msgid "Параметры процесса обучения визуальных нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid "``8``"
+#~ msgstr ""
+
+#~ msgid "lr"
+#~ msgstr ""
+
+#~ msgid "``100``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Количество эпох обучения модели. Проход "
+#~ "одной эпохи значит, что весь датасет "
+#~ "прошел через нейронную сеть в прямом "
+#~ "и обратном направлении только один раз."
+#~ " Параметр ``epoch_stop`` позволяет избежать "
+#~ "переобучения модели"
+#~ msgstr ""
+
+#~ msgid "epoch_stop"
+#~ msgstr ""
+
+#~ msgid "``5``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Параметр для инициализации случайных "
+#~ "процессов, который обеспечивает воспроизводимость"
+#~ " результатов и одинаковые начальные условия"
+#~ msgstr ""
+
+#~ msgid "epoch"
+#~ msgstr ""
+
+#~ msgid "``channels: \"1\"`` |br| ``n_mels: \"64\"`` |br| ``samples: \"64\"``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Путь к к предобученной модели, которая"
+#~ " используются для извлечения визуальных "
+#~ "признаков"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Путь к к предобученной |a_model_fa| "
+#~ "модели |/a|, которая используются для "
+#~ "извлечения акустических признаков"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Путь к к предобученной |a_model_fv| "
+#~ "модели |/a|, которая используются для "
+#~ "извлечения визуальных признаков"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Путь к к предобученной модели, которая"
+#~ " используются для извлечения визуальных "
+#~ "признаков. Предобученную модель можно скачать"
+#~ " по |a_model_fм| ссылке |/a|"
+#~ msgstr ""
 
