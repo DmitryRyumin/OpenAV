@@ -182,4 +182,8 @@ docs/source/user_guide/notebooks/logs
 openav/__garbage__.py
 openav/samples/__test__.py
 jlab/
-models/
+models/*
+
+# Не игнорировать
+!models/resnet18_lstm_torch_video.pt
+!models/resnet18_torch_audio.pt
