@@ -404,8 +404,8 @@ class RunPreprocessVideo(MessagesPreprocessVideo):
 
 def main():
     # Запуск предобработки речевых видеоданных
-    vad = RunPreprocessVideo(lang="ru", path_to_logs="./openav/logs")
-    vad.run(out=True)
+    preprocess_v = RunPreprocessVideo(lang="ru", path_to_logs="./openav/logs")
+    preprocess_v.run(out=True)
 
 
 if __name__ == "__main__":

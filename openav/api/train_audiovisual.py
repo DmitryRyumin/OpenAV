@@ -75,7 +75,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 20  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 21  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_train_audiovisual: logging.Logger = logging.getLogger(__class__.__name__)
@@ -325,6 +325,14 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
 
                 curr_valid_layer += 1
 
+            # Количество энкодеров и декодеров
+            if key == "encoder_decoder":
+                # Проверка значения
+                if type(val) is not int or not (1 <= val <= 50):
+                    continue
+
+                curr_valid_layer += 1
+
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
         if self._all_layer_in_yaml != curr_valid_layer:
             try:
@@ -445,6 +453,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
             subfolders=self._args["subfolders"],
             n_classes=self._args["n_classes"],
             classes=self._args["classes"],
+            encoder_decoder=self._args["encoder_decoder"],
             batch_size=self._args["batch_size"],
             max_segment=self._args["max_segment"],
             patience=self._args["patience"],
@@ -467,8 +476,8 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
 
 def main():
     # Запуск автоматического обучения на аудиовизуальных данных
-    vad = RunTrainAudioVisual(lang="ru", path_to_logs="./openav/logs")
-    vad.run(out=True)
+    train_av = RunTrainAudioVisual(lang="ru", path_to_logs="./openav/logs")
+    train_av.run(out=True)
 
 
 if __name__ == "__main__":

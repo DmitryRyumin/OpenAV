@@ -55,3 +55,4 @@ shape_video:
 path_to_model_fa: "/Users/dl/GitHub/OpenAV/models/resnet18_torch_audio.pt"
 path_to_model_fv: "/Users/dl/GitHub/OpenAV/models/resnet18_lstm_torch_video.pt"
 path_to_save_models: "/Users/dl/GitHub/OpenAV/models"
+encoder_decoder: 5

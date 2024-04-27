@@ -164,6 +164,7 @@ class AV(AVMessages):
         subfolders: Dict[str, str],
         n_classes: int,
         classes: List[str],
+        encoder_decoder: int,
         batch_size: int,
         max_segment: int,
         patience: int,
@@ -186,6 +187,7 @@ class AV(AVMessages):
             subfolders (Dict[str, str]): Словарь с подкаталогами с данными
             n_classes (int): Количество классов
             classes (List[str]): Список классов
+            encoder_decoder (int): Количество энкодеров и декодеров
             batch_size (int): Размер батча
             max_segment (int): Максимальная длительность сегмента видео
             patience (int): Количество неудачных эпох
@@ -217,6 +219,8 @@ class AV(AVMessages):
                 or not (0 < n_classes)
                 or type(classes) is not list
                 or len(classes) == 0
+                or type(encoder_decoder) is not int
+                or not (1 <= encoder_decoder <= 50)
                 or type(batch_size) is not int
                 or not 0 <= batch_size
                 or type(max_segment) is not int
@@ -420,6 +424,7 @@ class AV(AVMessages):
                     h_u=hidden_units,
                     h_f=hidden_features,
                     n_class=n_classes,
+                    encoder_decoder=encoder_decoder,
                 ).to(self.__device)
                 model.feature_audio.load_state_dict(torch.load(path_to_model_fa))
                 model.feature_video.load_state_dict(torch.load(path_to_model_fv))

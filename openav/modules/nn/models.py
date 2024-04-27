@@ -233,45 +233,47 @@ class Decoder(nn.Module):
 
 
 class Transformer(nn.Module):
-    def __init__(self, input_dim=512, h_u=512, n_class=500):
+    def __init__(self, input_dim=512, h_u=512, n_class=500, encoder_decoder=5):
         super(Transformer, self).__init__()
-        self.enc0 = InitialEncoder(input_dim=input_dim)
-        self.enc1 = SecondEncoder(input_dim=input_dim)
-        self.enc2 = SecondEncoder(input_dim=input_dim)
-        self.enc3 = SecondEncoder(input_dim=input_dim)
-        self.enc4 = SecondEncoder(input_dim=input_dim)
-        self.dec0 = Decoder(input_dim=input_dim, h_u=h_u, n_class=n_class)
-        self.dec1 = Decoder(input_dim=input_dim, h_u=h_u, n_class=n_class)
-        self.dec2 = Decoder(input_dim=input_dim, h_u=h_u, n_class=n_class)
-        self.dec3 = Decoder(input_dim=input_dim, h_u=h_u, n_class=n_class)
-        self.dec4 = Decoder(input_dim=input_dim, h_u=h_u, n_class=n_class)
+
+        self.encoders = nn.ModuleList()
+        self.decoders = nn.ModuleList()
+
+        # Создание энкодеров
+        self.encoders.append(InitialEncoder(input_dim=input_dim))
+        for _ in range(encoder_decoder - 1):
+            self.encoders.append(SecondEncoder(input_dim=input_dim))
+
+        # Создание декодеров
+        for _ in range(encoder_decoder):
+            self.decoders.append(Decoder(input_dim=input_dim, h_u=h_u, n_class=n_class))
 
     def forward(self, x):
-        x_w0 = self.enc0(x)
-        x_w1 = self.enc1(x, x_w0)
-        x_w2 = self.enc2(x, x_w1)
-        x_w3 = self.enc3(x, x_w2)
-        x_w4 = self.enc4(x, x_w3)
-        y0 = self.dec0(x_w0)
-        y1 = self.dec1(x_w1)
-        y2 = self.dec2(x_w2)
-        y3 = self.dec3(x_w3)
-        y4 = self.dec4(x_w4)
+        x_w = [x]
 
-        y_all = torch.stack([y0, y1, y2, y3, y4])
+        x_w.append(self.encoders[0](x))
+
+        for encoder in self.encoders[1:]:
+            x_w.append(encoder(x, x_w[-1]))
+
+        y_all = []
+        for i, decoder in enumerate(self.decoders):
+            y_all.append(decoder(x_w[i]))
+
+        y_all = torch.stack(y_all)
         y_mean = torch.mean(y_all, dim=0)
 
         return y_mean
 
 
 class AVModel(nn.Module):
-    def __init__(self, shape_audio, shape_video, input_dim=512, h_u=512, h_f=64, n_class=500):
+    def __init__(self, shape_audio, shape_video, input_dim=512, h_u=512, h_f=64, n_class=500, encoder_decoder=5):
         super(AVModel, self).__init__()
         self.feature_audio = ResNet18(channels=shape_audio[2])
         self.fc_audio = nn.Linear(shape_audio[1], h_f)
         self.feature_video = CNNLSTMPyTorch()
         self.fc_video = nn.Linear(shape_video[1], h_f)
-        self.fusion = Transformer(input_dim=input_dim, h_u=h_u, n_class=n_class)
+        self.fusion = Transformer(input_dim=input_dim, h_u=h_u, n_class=n_class, encoder_decoder=5)
 
     def forward(self, audio, video):
         audio_n = rearrange(audio, "b g c n l-> (b g) c n l")

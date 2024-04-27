@@ -434,8 +434,8 @@ class RunPreprocessAudio(MessagesPreprocessAudio):
 
 def main():
     # Запуск предобработки речевых аудиоданных
-    vad = RunPreprocessAudio(lang="ru", path_to_logs="./openav/logs")
-    vad.run(out=True)
+    preprocess_a = RunPreprocessAudio(lang="ru", path_to_logs="./openav/logs")
+    preprocess_a.run(out=True)
 
 
 if __name__ == "__main__":

@@ -457,8 +457,8 @@ class RunVoskSR(MessagesVoskSR):
 
 def main():
     # Запуск детектирования речевой активности в аудиовизуальном сигнале
-    vad = RunVoskSR(lang="ru", path_to_logs="./openav/logs")
-    vad.run(out=True)
+    vosk_sr = RunVoskSR(lang="ru", path_to_logs="./openav/logs")
+    vosk_sr.run(out=True)
 
 
 if __name__ == "__main__":
