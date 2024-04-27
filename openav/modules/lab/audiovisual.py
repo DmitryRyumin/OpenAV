@@ -123,6 +123,8 @@ class AV(AVMessages):
 
         self.__device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
+        self.__model_session = "created_at_%d_%m_%Y_%H-%M"
+
     # ------------------------------------------------------------------------------------------------------------------
     # Свойства
     # ------------------------------------------------------------------------------------------------------------------
@@ -175,6 +177,7 @@ class AV(AVMessages):
         shape_video: Dict[str, int],
         path_to_model_fa: str,
         path_to_model_fv: str,
+        path_to_save_models: str,
         out: bool = True,
     ) -> bool:
         """Автоматическое обучение на аудиовизуальных данных
@@ -196,21 +199,13 @@ class AV(AVMessages):
             shape_video (Dict[str, int]): Входная размерность видеокадров
             path_to_model_fa (str): Путь к нейросетевой модели (аудио)
             path_to_model_fv (str): Путь к нейросетевой модели (видео)
+            path_to_save_models (str): Путь к директории для сохранения моделей
             out (bool) Отображение
 
         Returns:
             bool: **True** если автоматическое обучение на аудиовизуальных данных произведено, в обратном случае
             **False**
         """
-
-        current_directory = os.getcwd()
-        session_path = os.path.join(current_directory, "models")
-        date_time = datetime.datetime.now()
-        date_path = date_time.strftime("created_at_%d_%m_%Y_%H-%M")
-        session_path = os.path.join(session_path, date_path)
-
-        if not os.path.exists(session_path):
-            os.makedirs(session_path)
 
         try:
             # Проверка аргументов
@@ -253,6 +248,8 @@ class AV(AVMessages):
                 or Path(path_to_model_fa).suffix.replace(".", "") != EXT_MODELS
                 or not Path(path_to_model_fv).is_file()
                 or Path(path_to_model_fv).suffix.replace(".", "") != EXT_MODELS
+                or type(path_to_save_models) is not str
+                or not path_to_save_models
                 or type(out) is not bool
             ):
                 raise TypeError
@@ -436,6 +433,14 @@ class AV(AVMessages):
 
                 max_acc = 0
                 max_test_acc = 0
+
+                date_time = datetime.datetime.now()
+                date_path = date_time.strftime(self.__model_session)
+                session_path = os.path.join(self.path_to_save_models, date_path)
+
+                # Создание директории, где хранятся модели
+                if self.create_folder(session_path, out=False) is False:
+                    return False
 
                 for e in range(1, epochs, 1):
                     print(f"Эпоха: {e} из {epochs}")

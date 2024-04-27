@@ -75,7 +75,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 19  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 20  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_train_audiovisual: logging.Logger = logging.getLogger(__class__.__name__)
@@ -173,8 +173,9 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
 
                 curr_valid_layer += 1
 
-            # Путь к директории набора данных
-            if key == "path_to_dataset":
+            # 1. Путь к директории набора данных
+            # 2. Путь к директории для сохранения моделей
+            if key == "path_to_dataset" or key == "path_to_save_models":
                 # Проверка значения
                 if type(val) is not str or not val:
                     continue
@@ -457,6 +458,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
             shape_video=self._args["shape_video"],
             path_to_model_fa=self._args["path_to_model_fa"],
             path_to_model_fv=self._args["path_to_model_fv"],
+            path_to_save_models=self._args["path_to_save_models"],
             out=out,
         )
 
