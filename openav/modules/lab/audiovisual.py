@@ -51,6 +51,7 @@ SHAPE_AUDIO: List[str] = ["channels", "n_mels", "samples"]
 SHAPE_VIDEO: List[str] = ["frames", "channels", "width", "height"]
 EXT_AV_VIDEO: List[str] = ["mov", "mp4", "webm"]  # Расширения искомых файлов
 EXT_MODELS: str = "pt"
+OPTIMIZERS: List[str] = ["adam", "adamw", "sgd", "lion"]
 
 
 # ######################################################################################################################
@@ -183,6 +184,8 @@ class AV(AVMessages):
         epochs: int,
         seed: int,
         leaning_rate: float,
+        weight_decay: float,
+        optimizer: str,
         hidden_units: int,
         hidden_features: int,
         input_dim: int,
@@ -206,6 +209,8 @@ class AV(AVMessages):
             epochs (int): Количество эпох
             seed (int): Начальное состояние обучения
             leaning_rate (float): Скорость обучения
+            weight_decay (float): Скорость обучения
+            optimizer (str): Оптимизатор
             hidden_units (int): Количество скрытых нейронов
             hidden_features (int): Количество скрытых признаков
             input_dim (int): Количество входных признаков
@@ -242,7 +247,10 @@ class AV(AVMessages):
                 or type(seed) is not int
                 or not (0 < seed)
                 or type(leaning_rate) is not float
+                or type(weight_decay) is not float
                 or type(hidden_units) is not int
+                or type(optimizer) is not str
+                or (optimizer in OPTIMIZERS) is False
                 or not (0 < hidden_units)
                 or type(hidden_features) is not int
                 or not (0 < hidden_features)
@@ -275,6 +283,7 @@ class AV(AVMessages):
         else:
             depth = 3
             classes = [cls.lower() for cls in classes]
+            optimizer = optimizer.lower()
 
             shape_audio = (
                 None,
@@ -446,7 +455,17 @@ class AV(AVMessages):
                         param.requires_grad = False
 
                 criterion = CrossEntropyLoss()
-                optimizer = Lion(model.parameters(), lr=leaning_rate, weight_decay=0)
+
+                if optimizer == OPTIMIZERS[0]:
+                    optimizer = torch.optim.Adam(model.parameters(), lr=leaning_rate, weight_decay=weight_decay)
+                elif optimizer == OPTIMIZERS[1]:
+                    optimizer = torch.optim.AdamW(model.parameters(), lr=leaning_rate, weight_decay=weight_decay)
+                elif optimizer == OPTIMIZERS[2]:
+                    optimizer = torch.optim.SGD(model.parameters(), lr=leaning_rate, weight_decay=weight_decay)
+                elif optimizer == OPTIMIZERS[3]:
+                    optimizer = Lion(model.parameters(), lr=leaning_rate, weight_decay=weight_decay)
+                else:
+                    pass
 
                 max_acc = 0
                 max_test_acc = 0

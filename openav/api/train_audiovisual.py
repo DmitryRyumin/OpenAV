@@ -38,7 +38,7 @@ from openav.modules.lab.build import Run  # Сборка библиотеки
 from openav import rsrs  # Ресурсы библиотеки
 
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
-from openav.modules.lab.audiovisual import SUBFOLDERS, SHAPE_AUDIO, SHAPE_VIDEO, EXT_MODELS
+from openav.modules.lab.audiovisual import SUBFOLDERS, SHAPE_AUDIO, SHAPE_VIDEO, EXT_MODELS, OPTIMIZERS
 
 
 # ######################################################################################################################
@@ -75,7 +75,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 21  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 23  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_train_audiovisual: logging.Logger = logging.getLogger(__class__.__name__)
@@ -247,8 +247,9 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
 
                 curr_valid_layer += 1
 
-            # Скорость обучения
-            if key == "leaning_rate":
+            # 1. Скорость обучения
+            # 2. L2 регуляризатор
+            if key == "leaning_rate" or key == "weight_decay":
                 # Проверка значения
                 if type(val) is not float:
                     continue
@@ -329,6 +330,14 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
             if key == "encoder_decoder":
                 # Проверка значения
                 if type(val) is not int or not (1 <= val <= 50):
+                    continue
+
+                curr_valid_layer += 1
+
+            # Оптимизатор
+            if key == "optimizer":
+                # Проверка значения
+                if type(val) is not str or (val in OPTIMIZERS) is False:
                     continue
 
                 curr_valid_layer += 1
@@ -460,6 +469,8 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
             epochs=self._args["epochs"],
             seed=self._args["seed"],
             leaning_rate=self._args["leaning_rate"],
+            weight_decay=self._args["weight_decay"],
+            optimizer=self._args["optimizer"],
             hidden_units=self._args["hidden_units"],
             hidden_features=self._args["hidden_features"],
             input_dim=self._args["input_dim"],
