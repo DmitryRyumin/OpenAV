@@ -99,6 +99,10 @@ class AVMessages(Audio, Video):
         self._sampling_nn_true: str = self._("Обучающая - {} {}, валидационная - {} {}, тестовая - {} {}") + self._em
         self._format_percentage = lambda x: "({}%)".format(x)
 
+        self._run_train: str = self._("Запуск процесса обучения") + self._em
+        self._epoch: str = self._("Эпоха: {} из {}") + self._em
+        self._loss: str = self._("Значения ошибки: обучение - {}, валидация - {}, тест - {}")
+
 
 # ######################################################################################################################
 # Видео
@@ -447,24 +451,34 @@ class AV(AVMessages):
                 if self.create_folder(session_path, out=False) is False:
                     return False
 
-                for e in range(1, epochs, 1):
-                    print(f"Эпоха: {e} из {epochs}")
+                self.message_info(self._run_train, out=out)
 
-                    # обучение
+                for e in range(1, epochs, 1):
+                    self.message_info(
+                        self._epoch.format(
+                            self.message_line(str(e)),
+                            self.message_line(str(epochs)),
+                        ),
+                        out=out,
+                    )
+
                     model.train()
                     avg_loss = train_one_epoch(train_dataloader, optimizer, criterion, model, self.__device)
 
-                    # валидирование
                     model.eval()
                     acc, avg_vloss = val_one_epoch(val_dataloader, criterion, model, self.__device)
 
-                    # тестирование
                     model.eval()
                     test_acc, avg_tloss = val_one_epoch(test_dataloader, criterion, model, self.__device)
 
-                    # аналогично можно добавить тестирования
-
-                    print("LOSS train {} valid {} test {}".format(avg_loss, avg_vloss, avg_tloss))
+                    self.message_info(
+                        self._loss.format(
+                            self.message_line(str(avg_loss)),
+                            self.message_line(str(avg_vloss)),
+                            self.message_line(str(avg_tloss)),
+                        ),
+                        out=out,
+                    )
 
                     if max_acc < acc:
                         stop_flag_training = 0
