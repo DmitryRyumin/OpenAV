@@ -52,6 +52,7 @@ SHAPE_VIDEO: List[str] = ["frames", "channels", "width", "height"]
 EXT_AV_VIDEO: List[str] = ["mov", "mp4", "webm"]  # Расширения искомых файлов
 EXT_MODELS: str = "pt"
 OPTIMIZERS: List[str] = ["adam", "adamw", "sgd", "lion"]
+REQUIRED_GRAD: List[str] = ["none", "a", "v", "av"]
 
 
 # ######################################################################################################################
@@ -193,6 +194,7 @@ class AV(AVMessages):
         shape_video: Dict[str, int],
         path_to_model_fa: str,
         path_to_model_fv: str,
+        requires_grad: str,
         path_to_save_models: str,
         out: bool = True,
     ) -> bool:
@@ -219,6 +221,7 @@ class AV(AVMessages):
             path_to_model_fa (str): Путь к нейросетевой модели (аудио)
             path_to_model_fv (str): Путь к нейросетевой модели (видео)
             path_to_save_models (str): Путь к директории для сохранения моделей
+            requires_grad (str): Заморозка слоев для извлечения ауди и видео признаков
             out (bool) Отображение
 
         Returns:
@@ -272,6 +275,8 @@ class AV(AVMessages):
                 or Path(path_to_model_fa).suffix.replace(".", "") != EXT_MODELS
                 or not Path(path_to_model_fv).is_file()
                 or Path(path_to_model_fv).suffix.replace(".", "") != EXT_MODELS
+                or type(requires_grad) is not str
+                or (requires_grad in REQUIRED_GRAD) is False
                 or type(path_to_save_models) is not str
                 or not path_to_save_models
                 or type(out) is not bool
@@ -450,9 +455,24 @@ class AV(AVMessages):
                 model.feature_audio.load_state_dict(torch.load(path_to_model_fa))
                 model.feature_video.load_state_dict(torch.load(path_to_model_fv))
 
-                for name, param in model.named_parameters():
-                    if any(layer_name.split(".")[0] in name for layer_name in ["feature_audio", "feature_video"]):
-                        param.requires_grad = False
+                if requires_grad == REQUIRED_GRAD[0]:
+                    for name, param in model.named_parameters():
+                        param.requires_grad = True
+                elif requires_grad == REQUIRED_GRAD[1]:
+                    for name, param in model.named_parameters():
+                        if any(layer_name.split(".")[0] in name for layer_name in ["feature_audio"]):
+                            param.requires_grad = False
+                elif requires_grad == REQUIRED_GRAD[2]:
+                    for name, param in model.named_parameters():
+                        if any(layer_name.split(".")[0] in name for layer_name in ["feature_video"]):
+                            param.requires_grad = False
+                elif requires_grad == REQUIRED_GRAD[3]:
+                    for name, param in model.named_parameters():
+                        if any(layer_name.split(".")[0] in name for layer_name in ["feature_audio", "feature_video"]):
+                            param.requires_grad = False
+                else:
+                    for name, param in model.named_parameters():
+                        param.requires_grad = True
 
                 criterion = CrossEntropyLoss()
 

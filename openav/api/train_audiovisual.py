@@ -38,7 +38,7 @@ from openav.modules.lab.build import Run  # Сборка библиотеки
 from openav import rsrs  # Ресурсы библиотеки
 
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
-from openav.modules.lab.audiovisual import SUBFOLDERS, SHAPE_AUDIO, SHAPE_VIDEO, EXT_MODELS, OPTIMIZERS
+from openav.modules.lab.audiovisual import SUBFOLDERS, SHAPE_AUDIO, SHAPE_VIDEO, EXT_MODELS, OPTIMIZERS, REQUIRED_GRAD
 
 
 # ######################################################################################################################
@@ -75,7 +75,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 23  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 24  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_train_audiovisual: logging.Logger = logging.getLogger(__class__.__name__)
@@ -342,6 +342,14 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
 
                 curr_valid_layer += 1
 
+            # Заморозка слоев для извлечения ауди и видео признаков
+            if key == "requires_grad":
+                # Проверка значения
+                if type(val) is not str or (val in REQUIRED_GRAD) is False:
+                    continue
+
+                curr_valid_layer += 1
+
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
         if self._all_layer_in_yaml != curr_valid_layer:
             try:
@@ -478,6 +486,7 @@ class RunTrainAudioVisual(MessagesTrainAudioVisual):
             shape_video=self._args["shape_video"],
             path_to_model_fa=self._args["path_to_model_fa"],
             path_to_model_fv=self._args["path_to_model_fv"],
+            requires_grad=self._args["requires_grad"],
             path_to_save_models=self._args["path_to_save_models"],
             out=out,
         )
