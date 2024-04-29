@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-27 16:19+0300\n"
+"POT-Creation-Date: 2024-04-29 09:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -181,7 +181,8 @@ msgid "path_to_dataset"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 342d54ea193b4ddb97992ec45a29a684 bf737caed87c44bbaf8b86b33b37fcb4
+#: 342d54ea193b4ddb97992ec45a29a684 374dc61a690a4fe888d955e48239fa4b
+#: ba10968b2b074718b5415f5df33d64fa bf737caed87c44bbaf8b86b33b37fcb4
 msgid "str"
 msgstr ""
 
@@ -274,7 +275,7 @@ msgid "n_classes"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: aea4774a879c44aa81d1f841162c8b19 f8993efba7b44ceab3267b2ebabfd669
+#: aea4774a879c44aa81d1f841162c8b19
 msgid "int"
 msgstr ""
 
@@ -407,7 +408,7 @@ msgid "leaning_rate"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 050ae20cdeb94c39a9948b1e830ad481
+#: 050ae20cdeb94c39a9948b1e830ad481 c9b333be2bcf46fca7fd96b60ad41059
 msgid "float"
 msgstr ""
 
@@ -422,6 +423,24 @@ msgid ""
 "Коэффициент скорости обучения. Чем меньше значение, тем дольше будет идти"
 " обучение модели. Однако, стоит помнить, что может наступить переобучение"
 " модели. Данный коэффициент подбирается эмпирическим путем"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: b7ed958e12274945aa170ea735c6c7be
+msgid "weight_decay"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 14097515edcc43709d4fe443a7b6d039
+msgid "``0.0``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 2f16eea274ec4ad19056c65c0575fa0f
+msgid ""
+"Параметр, используемый для регуляризации весов нейронной сети путем "
+"добавления L2-регуляризации к функции потерь во время обучения. Позволяет"
+" предотвратить переобучение и подбирается экспериментальным путем"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
@@ -554,6 +573,48 @@ msgid ""
 "гиперпараметром и часто подбирается экспериментально в зависимости от "
 "размера данных, доступных вычислительных ресурсов и требуемого качества "
 "модели"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 2a7f9d8fdc5142b095feece27de56b9d
+msgid "optimizer"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 14097515edcc43709d4fe443a7b6d039
+msgid "``lion``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 733615dbaa9d457eb9c8f1d12f7882d2
+msgid ""
+"Выбор оптимизатора обучения нейросетевой модели. Может существенно "
+"оказывать влияние на скорость сходимости, стабильность и окончательную "
+"точность модели. Разные оптимизаторы имеют свои преимущества и "
+"недостатки, подходящие для определенных задач и архитектур моделей. "
+"Доступные варианты ``adam``, ``adamw``, ``sgd``, ``lion``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 7f1a9aaf107d49b9b4f125232945cc73
+msgid "requires_grad"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: 673cbd4ee60b4faaa4f15a37bc499bda
+msgid "``av``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:1
+#: f464d2a3715a433bbff66590e2d1d924
+msgid ""
+"Этот параметр предоставляет гибкий способ настройки режима обучения "
+"сложных моделей, позволяя либо полностью зафиксировать предобученные "
+"компоненты, либо обучать их совместно с основной частью модели. ``none`` "
+"- обучаются все компоненты модели: аудио, видео и трансформер. ``a`` - "
+"заморозка весов для аудио компонента. ``v`` - заморозка весов для видео "
+"компонента. ``av`` - заморозка весов для аудио и видео компонентов, "
+"обучается только трансформер"
 msgstr ""
 
 #~ msgid "Параметры процесса обучения визуальных нейросетевых моделей"

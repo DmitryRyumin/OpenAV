@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-27 16:17+0300\n"
+"POT-Creation-Date: 2024-04-29 08:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -113,49 +113,60 @@ msgstr ""
 msgid "Начальное состояние обучения"
 msgstr ""
 
-#: 30218bcd72f941d2bef0a40bdfc50383 of
+#: 30218bcd72f941d2bef0a40bdfc50383 d2bf85bfd104406293dbb7b80ad2fcab of
 #: openav.modules.lab.audiovisual.AV.train_audiovisual:21
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:23
 msgid "Скорость обучения"
 msgstr ""
 
+#: b29052aea942448a8e028868f884e257 of
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:25
+msgid "Оптимизатор"
+msgstr ""
+
 #: b0d2f65ef3314cbc85a3fbde33d42d5f of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:23
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:27
 msgid "Количество скрытых нейронов"
 msgstr ""
 
 #: bf5480cef3d74fc9843d8d84602da12d of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:25
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:29
 msgid "Количество скрытых признаков"
 msgstr ""
 
 #: 74a84fb7d6734789992fde3138fb5195 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:27
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:31
 msgid "Количество входных признаков"
 msgstr ""
 
 #: a579655106994c4d8ea205a33a82204a of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:29
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:33
 msgid "Входная размерность аудио лог-мел спектрограммы"
 msgstr ""
 
 #: 89d93fc1273e486fa20236d43d219d47 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:31
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:35
 msgid "Входная размерность видеокадров"
 msgstr ""
 
 #: 9701d7ffc80442d5a9099b4b76e21c61 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:33
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:37
 msgid "Путь к нейросетевой модели (аудио)"
 msgstr ""
 
 #: 04b0b13f989f4a99be6591ad5e2fe286 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:35
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:39
 msgid "Путь к нейросетевой модели (видео)"
 msgstr ""
 
 #: 50331c329dd54abb834f43c56d067c52 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:37
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:41
 msgid "Путь к директории для сохранения моделей"
+msgstr ""
+
+#: 7bd57e202abc49008b5e440f776b8542 of
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:43
+msgid "Заморозка слоев для извлечения ауди и видео признаков"
 msgstr ""
 
 #: 2ec03ea734764d7d8ca5aad8d8f2a5ed of
@@ -164,7 +175,7 @@ msgid "Результат"
 msgstr ""
 
 #: 015d6827ef6b43fbb6c75a774f4e9023 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:42
+#: openav.modules.lab.audiovisual.AV.train_audiovisual:48
 msgid ""
 "**True** если автоматическое обучение на аудиовизуальных данных "
 "произведено, в обратном случае **False**"
