@@ -1,0 +1,57 @@
+---
+hide_metadata: false
+hide_libs_vers: false
+path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST/data"
+subfolders:
+  test: "test"
+n_classes: 26
+classes:
+- "1_Левая"
+- "2_Правая"
+- "3_Нажать_левую"
+- "4_Отпустить_левую"
+- "5_Нажать_правую"
+- "6_Отпустить_правую"
+- "7_Двойной_клик"
+- "8_Вверх"
+- "9_Вниз"
+- "10_Ввод"
+- "11_Отменить"
+- "12_Удалить"
+- "13_Выключить_компьютер"
+- "14_Новый"
+- "15_Открыть"
+- "16_Сохранить"
+- "17_Вырезать"
+- "18_Копировать"
+- "19_Закрыть"
+- "20_Вставить"
+- "21_Печать"
+- "22_Вперед"
+- "23_Назад"
+- "24_Выделить_все"
+- "25_Пуск"
+- "26_Калибровка"
+max_segment: 2
+shape_audio:
+  channels: 1
+  n_mels: 64
+  samples: 306
+shape_video:
+  frames: 29
+  channels: 3
+  width: 88
+  height: 88
+encoder_decoder: 1
+hidden_units: 356
+hidden_features: 128
+input_dim: 512
+path_to_model: "/Users/dl/GitHub/OpenAV/models/created_at_03_05_2024_18-16/e1_0.156250.pth"
+save_confusion_matrix: true
+path_to_save_confusion_matrix: "/Users/dl/GitHub/OpenAV/models"
+figsize_confusion_matrix:
+  width: 2600
+  height: 2600
+  font_size: 14
+  dpi: 600
+  pad_inches: 0

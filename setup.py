@@ -38,6 +38,7 @@ REQUIRED_PACKAGES = [
     "lion_pytorch >= 0.1.4",
     "scikit-learn >= 1.4.2",
     "tqdm >= 4.66.2",
+    "Seaborn >= 0.13.2",
 ]
 
 CLASSIFIERS = """\
@@ -123,7 +124,8 @@ with open("README.md", "r") as fh:
                 "openav_vosk_sr = openav.api.vosk_sr:main",
                 "openav_preprocess_audio = openav.api.preprocess_audio:main",
                 "openav_preprocess_video = openav.api.preprocess_video:main",
-                "openav_train_audiovisual = openav.api_train_audiovisual:main",
+                "openav_train_audiovisual = openav.api.train_audiovisual:main",
+                "openav_test_audiovisual = openav.api.test_audiovisual:main",
             ],
         },
         project_urls={

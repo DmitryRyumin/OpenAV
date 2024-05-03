@@ -39,3 +39,4 @@ einops >= 0.7.0
 lion_pytorch >= 0.1.4
 scikit-learn >= 1.4.2
 tqdm >= 4.66.2
+seaborn >= 0.13.2

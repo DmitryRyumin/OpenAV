@@ -39,6 +39,7 @@ import cv2
 import einops
 import tqdm
 import sklearn
+import seaborn as sns
 
 from datetime import datetime  # Работа со временем
 from prettytable import PrettyTable  # Отображение таблиц в терминале
@@ -653,6 +654,7 @@ class Core(CoreMessages):
                     "NumPy",
                     "Pandas",
                     "Matplotlib",
+                    "Seaborn",
                     "PyAV",
                     "FileType",
                     "IPython",
@@ -679,6 +681,7 @@ class Core(CoreMessages):
                         np,
                         pd,
                         mpl,
+                        sns,
                         av,
                         filetype,
                         IPython,
