@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-29 09:26+0300\n"
+"POT-Creation-Date: 2024-05-03 17:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -35,7 +35,7 @@ msgid "</b>"
 msgstr ""
 
 #: ../../source/reuse_content/general.rst:14 4989cd7e55d9465ebb9b2d676aa5aab4
-#: 5e8c4ee4571d4141b3e2219fb181ccff cd54d0a044a241bbae7daba4e049b048
+#: cd54d0a044a241bbae7daba4e049b048
 msgid "</a>"
 msgstr ""
 
@@ -63,26 +63,33 @@ msgid ""
 " target=\"_blank\">"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:16
+#: ../../source/user_guide/modules/train/audiovisual.rst:15
+#: c3512f87283842a38d5ce8590a2467e6
+msgid ""
+"<a href=\"https://pytorch.org/get-started/previous-versions/\" "
+"target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:20
 #: f4b3387499ca4d8d91a73b44e0f380b3
 msgid "Обучение аудиовизуальных нейросетевых моделей"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:18
+#: ../../source/user_guide/modules/train/audiovisual.rst:22
 #: 04fc35d4d37042c38d9654f49798f22a
 msgid ""
 "Команда для запуска процесса обучения аудиовизуальных нейросетевых "
 "моделей:"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:20
+#: ../../source/user_guide/modules/train/audiovisual.rst:24
 #: 8a36c8070c814439bc47cfade7c0f665
 msgid ""
 "openav_train_audiovisual --config "
 "<путь_к_вашему_конфигурационному_файлу>.yaml"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:25
+#: ../../source/user_guide/modules/train/audiovisual.rst:29
 #: 6f136e58b9f94962bfbc720ca3a1e0f5
 msgid ""
 "Для запуска команды необходимо обязательно указать путь к "
@@ -90,38 +97,52 @@ msgid ""
 "где она расположена."
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:28
+#: ../../source/user_guide/modules/train/audiovisual.rst:32
 #: b3d385e7a9e24527b9c41d312c2d2fd4
 msgid "Конфигурационный файл"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:30
+#: ../../source/user_guide/modules/train/audiovisual.rst:34
 #: b93c000409934a46a40589a2e73d9f01
 msgid "Конфигурационный файл включает в себя следующие настройки:"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:32
+#: ../../source/user_guide/modules/train/audiovisual.rst:36
 #: f80e981b17cf428e987a26f1968d36ff
 msgid "Отображение процесса выполнения программы в терминале (командной строке)"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:33
-#: ../../source/user_guide/modules/train/audiovisual.rst:56
+#: ../../source/user_guide/modules/train/audiovisual.rst:37
+#: ../../source/user_guide/modules/train/audiovisual.rst:66
 #: 7eae0651b17c4f02b71bc6585b10fd7a
 msgid "Работа с файловой системой"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:34
+#: ../../source/user_guide/modules/train/audiovisual.rst:38
 #: 7cc46efc541a4fecacff7ae62bca8736
-msgid "Параметры настройки процесса обучения нейросетевых моделей"
+msgid "Параметры настройки процесса обучения аудиовизуальных нейросетевых моделей"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:38
-#: b7d34368889e4f4181ae84df80e293aa
+#: ../../source/user_guide/modules/train/audiovisual.rst:42
+#: 8733f4dbda514bf5ab14be6768feb348
 msgid "|a_config| Пример конфигурационного файла |/a|"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:43
+#: ../../source/user_guide/modules/train/audiovisual.rst:46
+#: 4e376f90da464a1b95962f2ed3a8ef9f
+msgid ""
+"Для обучения на видеоадапторе потребуется вручную установить библиотеку "
+"для машинного обучения PyTorch с использованием GPU."
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:48
+#: 3fc5c0eaf02949fb8fc7459d2ceca59f
+msgid ""
+"|a_guide| Инструкция для обучения нейросетевых моделей с использованием "
+"GPU |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audiovisual.rst:53
 #: 26c4237690ae46cfab990f739db7b40b
 msgid "Отображение процесса выполнения команды в терминале"
 msgstr ""
@@ -182,8 +203,7 @@ msgid "path_to_dataset"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 342d54ea193b4ddb97992ec45a29a684 374dc61a690a4fe888d955e48239fa4b
-#: ba10968b2b074718b5415f5df33d64fa bf737caed87c44bbaf8b86b33b37fcb4
+#: bf737caed87c44bbaf8b86b33b37fcb4
 msgid "str"
 msgstr ""
 
@@ -227,7 +247,7 @@ msgstr ""
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
 #: 78b6f918d1ee4569aafcfcb184334650
 msgid ""
-"Путь к к предобученной  модели , которая используются для извлечения "
+"Путь к предобученной  модели , которая используются для извлечения "
 "акустических признаков. Предобученную модель можно скачать по "
 "|a_model_fa| ссылке |/a|"
 msgstr ""
@@ -245,7 +265,7 @@ msgstr ""
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
 #: 8353852118ec43d3be4ce4fc30ad9e97
 msgid ""
-"Путь к к предобученной модели, которая используются для извлечения "
+"Путь к предобученной модели, которая используются для извлечения "
 "визуальных признаков. Предобученную модель можно скачать по |a_model_fv| "
 "ссылке |/a|"
 msgstr ""
@@ -262,10 +282,10 @@ msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
 #: 7ed8ad63b1ad4427b5415bf99c49c6f4
-msgid "Путь по которому будут храниться обученные нейросетевые модели"
+msgid "Путь, по которому будут храниться обученные нейросетевые модели"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audiovisual.rst:71
+#: ../../source/user_guide/modules/train/audiovisual.rst:81
 #: 7ed8ad63b1ad4427b5415bf99c49c6f4
 msgid "Параметры процесса обучения аудиовизуальных нейросетевых моделей"
 msgstr ""
@@ -387,8 +407,8 @@ msgid ""
 "Т.е. если по прошествии, например, ``5`` эпох модель не показывала "
 "прирост ``accuracy`` (либо ваша метрика), то в данном случае процесс "
 "обучения останавливается и сохраняется модель на эпохе с наибольшей "
-"точностью. Данный параметр позволяет предотварить переобучение модели, а "
-"также снизить длительность обучения"
+"точностью. Данный параметр позволяет предотвратить переобучение модели, а"
+" также снизить длительность обучения"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
@@ -409,7 +429,7 @@ msgid "leaning_rate"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audiovisual.rst:1
-#: 050ae20cdeb94c39a9948b1e830ad481 c9b333be2bcf46fca7fd96b60ad41059
+#: 050ae20cdeb94c39a9948b1e830ad481
 msgid "float"
 msgstr ""
 
@@ -710,5 +730,52 @@ msgstr ""
 #~ "экспериментально в зависимости от размера "
 #~ "данных, доступных вычислительных ресурсов и"
 #~ " требуемого качества модели"
+#~ msgstr ""
+
+#~ msgid "Параметры настройки процесса обучения нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Путь к к предобученной  модели , "
+#~ "которая используются для извлечения "
+#~ "акустических признаков. Предобученную модель "
+#~ "можно скачать по |a_model_fa| ссылке "
+#~ "|/a|"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Путь к к предобученной модели, которая"
+#~ " используются для извлечения визуальных "
+#~ "признаков. Предобученную модель можно скачать"
+#~ " по |a_model_fv| ссылке |/a|"
+#~ msgstr ""
+
+#~ msgid "Путь по которому будут храниться обученные нейросетевые модели"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Количество эпох, в течении которых "
+#~ "модель не прогрессирует в обучении. Т.е."
+#~ " если по прошествии, например, ``5`` "
+#~ "эпох модель не показывала прирост "
+#~ "``accuracy`` (либо ваша метрика), то в"
+#~ " данном случае процесс обучения "
+#~ "останавливается и сохраняется модель на "
+#~ "эпохе с наибольшей точностью. Данный "
+#~ "параметр позволяет предотварить переобучение "
+#~ "модели, а также снизить длительность "
+#~ "обучения"
+#~ msgstr ""
+
+#~ msgid "|a_config| Пример конфигурационного файла |/a|"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|a_config| Инструкция для обучения "
+#~ "нейросетевых моделей с использованием GPU "
+#~ "|/a|"
+#~ msgstr ""
+
+#~ msgid "|a_guide| Инструкция по ручной установке |/a|."
 #~ msgstr ""
 

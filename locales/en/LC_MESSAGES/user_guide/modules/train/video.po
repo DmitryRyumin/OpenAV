@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-01 12:55+0300\n"
+"POT-Creation-Date: 2024-05-03 17:54+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -33,8 +33,8 @@ msgstr ""
 msgid "</b>"
 msgstr ""
 
-#: ../../source/reuse_content/general.rst:13 caf67973b637424fa1c2d00a42b1e40f
-#: d9f1f6aee01e40818ea3b66be2d9b074
+#: ../../source/reuse_content/general.rst:14 7764fedf4a5e4e748dc80a4fad41aa06
+#: caf67973b637424fa1c2d00a42b1e40f d9f1f6aee01e40818ea3b66be2d9b074
 msgid "</a>"
 msgstr ""
 
@@ -46,24 +46,31 @@ msgid ""
 " target=\"_blank\">"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/video.rst:8
+#: ../../source/user_guide/modules/train/video.rst:7
+#: a03bcfc8b4be43d89c495a4ac64f783a b49b4d04b3644843ab65a08f6644f7d8
+msgid ""
+"<a href=\"https://pytorch.org/get-started/previous-versions/\" "
+"target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/video.rst:13
 #: 1c99bbe066074c1d8be5215a2bfb94d6
 msgid "Обучение визуальных нейросетевых моделей"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/video.rst:10
+#: ../../source/user_guide/modules/train/video.rst:15
 #: 39784a3d70134743893c114692ba8390
 msgid "Команда для запуска процесса обучения визуальных нейросетевых моделей:"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/video.rst:12
+#: ../../source/user_guide/modules/train/video.rst:17
 #: 2c5fde41bdce4c168833e4febd3fe7bd
 msgid ""
 "python ./openav/api/train_video.py --config "
 "<путь_к_вашему_конфигурационному_файлу>.yaml"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/video.rst:17
+#: ../../source/user_guide/modules/train/video.rst:22
 #: 27ddcdacba1e4bc6b86aa3c92717f628
 msgid ""
 "Для запуска команды необходимо обязательно указать путь к "
@@ -71,63 +78,73 @@ msgid ""
 "где она расположена."
 msgstr ""
 
-#: ../../source/user_guide/modules/train/video.rst:20
+#: ../../source/user_guide/modules/train/video.rst:25
 #: dac159c028734ad9ac871509d2199d64
 msgid "Конфигурационный файл"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/video.rst:22
+#: ../../source/user_guide/modules/train/video.rst:27
 #: bf94a0becd70418ab9d3de8fef39cd35
 msgid "Конфигурационный файл включает в себя следующие настройки:"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/video.rst:24
+#: ../../source/user_guide/modules/train/video.rst:29
 #: 35c66d50fabd4385a8f4dc6d7bf42ad9
 msgid "Отображение процесса выполнения программы в терминале (командной строке)"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/video.rst:25
-#: ../../source/user_guide/modules/train/video.rst:48
-#: 0cfba861a9b64b768696534c280c2375 55c784473b2c4b37b6d9daac779c135a
+#: ../../source/user_guide/modules/train/video.rst:30
+#: ../../source/user_guide/modules/train/video.rst:59
+#: 0cfba861a9b64b768696534c280c2375
 msgid "Работа с файловой системой"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/video.rst:26
+#: ../../source/user_guide/modules/train/video.rst:31
 #: 0952c4ed0a7f431ea330661898e89608
 msgid "Параметры настройки процесса обучения нейросетевых моделей"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/video.rst:30
+#: ../../source/user_guide/modules/train/video.rst:35
 #: ff4bb1d1063d40ec9f455a60adc6c641
 msgid "|a_config| Пример конфигурационного файла |/a|"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/video.rst:35
+#: ../../source/user_guide/modules/train/video.rst:39
+#: d1a087b173374a01ab9bc0357ad4eb4c
+msgid ""
+"Для обучения на видеоадапторе потребуется вручную установить библиотеку "
+"для машинного обучения PyTorch с использованием GPU."
+msgstr ""
+
+#: ../../source/user_guide/modules/train/video.rst:41
+#: 623b14e9b15141a0bad43e608acae444
+msgid ""
+"|a_guide| Инструкция для обучения нейросетевых моделей с использованием "
+"GPU |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/video.rst:46
 #: 0c7340c0e1e34c9fa4ad84b878ad5ca9
 msgid "Отображение процесса выполнения команды в терминале"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/video.rst:1
-#: 1f752a7e5f2842b0a967b2176feab1e7 35c8cdbb538d4a6fa354a02de202d3b2
 #: 668f9bf99e8842f6be9de1a1d2de4f41
 msgid "Параметр"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/video.rst:1
-#: 970c475f981342aebe7804101ae373c3 9e90ad461b394972b67bffc66f3a3c81
-#: db192e5d1d5f473fafe97a116e1ee286
+#: 9e90ad461b394972b67bffc66f3a3c81
 msgid "Тип"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/video.rst:1
-#: 788b705a439b4b2c9436daba4bff1d55 873001d8bad34200a802adb07b516a78
 #: fa4d12426ab74720b533b1526612a72d
 msgid "Значение по умолчанию"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/video.rst:1
-#: 6b67a263e04b4e7287de1d7670122263 b31d32347f9a4fda97e68347b4a5f55b
-#: f44e71648964414ba007ad3948fc6665
+#: b31d32347f9a4fda97e68347b4a5f55b
 msgid "Описание"
 msgstr ""
 
@@ -137,13 +154,12 @@ msgid "hide_metadata"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/video.rst:1
-#: 112e3c048b6b4185bedf3266e933aed3 9bfe8fafda66468a8ae04d750e7532fc
 #: e8c026ec24b04f15a032b2d345294841
 msgid "bool"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/video.rst:1
-#: 4337f30bf3d84fd3be1f002b16e2e58a c40e80be40f647ed8ee08662c027e94e
+#: c40e80be40f647ed8ee08662c027e94e
 msgid "``false``"
 msgstr ""
 
@@ -184,7 +200,7 @@ msgid ""
 "нейросетевых моделей"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/video.rst:60
+#: ../../source/user_guide/modules/train/video.rst:71
 #: ce0244a5a84a41aba3a849f526a1e1b6
 msgid "Параметры процесса обучения визуальных нейросетевых моделей"
 msgstr ""
@@ -195,10 +211,7 @@ msgid "len_video"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/video.rst:1
-#: 2f56f5a2208f48eb9e6bd7fa550ff604 4823cd47f8bd477d957a0dc36443c700
-#: 4e38b65a37484e62ad3c44009bb049ba 5e0b671f6c1d4e5e80a5fd85af94b875
-#: aa94f2b079e24109a6468c39a4a1127c d2bb706c5f574c3aa5005d5eb83f94ec
-#: f158d6ea54654dfabb28187d1ea1d516
+#: aa94f2b079e24109a6468c39a4a1127c
 msgid "int"
 msgstr ""
 
@@ -352,8 +365,8 @@ msgid ""
 "Т.е. если по прошествии, например, ``5`` эпох модель не показывала "
 "прирост ``accuracy`` (либо ваша метрика), то в данном случае процесс "
 "обучения останавливается и сохраняется модель на эпохе с наибольшей "
-"точностью. Данный параметр позволяет предотварить переобучение модели, а "
-"также снизить длительность обучения"
+"точностью. Данный параметр позволяет предотвратить переобучение модели, а"
+" также снизить длительность обучения"
 msgstr ""
 
 #~ msgid ""
@@ -362,5 +375,22 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Число seed"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Количество эпох, в течении которых "
+#~ "модель не прогрессирует в обучении. Т.е."
+#~ " если по прошествии, например, ``5`` "
+#~ "эпох модель не показывала прирост "
+#~ "``accuracy`` (либо ваша метрика), то в"
+#~ " данном случае процесс обучения "
+#~ "останавливается и сохраняется модель на "
+#~ "эпохе с наибольшей точностью. Данный "
+#~ "параметр позволяет предотварить переобучение "
+#~ "модели, а также снизить длительность "
+#~ "обучения"
+#~ msgstr ""
+
+#~ msgid "|a_guide| Инструкция по ручной установке |/a|."
 #~ msgstr ""
 

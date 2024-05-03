@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-01 12:58+0300\n"
+"POT-Creation-Date: 2024-05-03 17:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "</b>"
 msgstr ""
 
-#: ../../source/reuse_content/general.rst:13 284653102eb54cdda8e865f4104d1c6a
+#: ../../source/reuse_content/general.rst:14 284653102eb54cdda8e865f4104d1c6a
 #: f1709d790c3246f2b5e1139fda56181b
 msgid "</a>"
 msgstr ""
@@ -47,24 +47,31 @@ msgid ""
 " target=\"_blank\">"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audio.rst:8
+#: ../../source/user_guide/modules/train/audio.rst:7
+#: 13d678fae36845a2ae98cfaf1dfa7552
+msgid ""
+"<a href=\"https://pytorch.org/get-started/previous-versions/\" "
+"target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:12
 #: b70af62f70464f8b80437a34930eac6b
 msgid "Обучение акустических нейросетевых моделей"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audio.rst:10
+#: ../../source/user_guide/modules/train/audio.rst:14
 #: f025abb13152465a90db6deb19515a8f
 msgid "Команда для запуска процесса обучения акустических нейросетевых моделей:"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audio.rst:12
+#: ../../source/user_guide/modules/train/audio.rst:16
 #: 19e7475153564254887ade276ad802cb
 msgid ""
 "python ./openav/api/train_audio.py --config "
 "<путь_к_вашему_конфигурационному_файлу>.yaml"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audio.rst:17
+#: ../../source/user_guide/modules/train/audio.rst:21
 #: 4702b41a169044aca3b76bab825cc1af
 msgid ""
 "Для запуска команды необходимо обязательно указать путь к "
@@ -72,63 +79,73 @@ msgid ""
 "где она расположена."
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audio.rst:20
+#: ../../source/user_guide/modules/train/audio.rst:24
 #: e9e86a9ff7ff4a78a454bff864d9e5f3
 msgid "Конфигурационный файл"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audio.rst:22
+#: ../../source/user_guide/modules/train/audio.rst:26
 #: 3aac3508ed6b4dd4a635ddf644439d16
 msgid "Конфигурационный файл включает в себя следующие настройки:"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audio.rst:24
+#: ../../source/user_guide/modules/train/audio.rst:28
 #: d1c705c576914fb5aace0dcc91f7cf17
 msgid "Отображение процесса выполнения программы в терминале (командной строке)"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audio.rst:25
-#: ../../source/user_guide/modules/train/audio.rst:48
-#: 40bf9147691444ea923c07f987363d80 58f7518a65c04b47a944cb8b6d00219e
+#: ../../source/user_guide/modules/train/audio.rst:29
+#: ../../source/user_guide/modules/train/audio.rst:58
+#: 58f7518a65c04b47a944cb8b6d00219e
 msgid "Работа с файловой системой"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audio.rst:26
+#: ../../source/user_guide/modules/train/audio.rst:30
 #: 629eb6b7e98b46c9bd05803f7145796b
 msgid "Параметры настройки процесса обучения нейросетевых моделей"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audio.rst:30
+#: ../../source/user_guide/modules/train/audio.rst:34
 #: 87d1a734ac2442f392e7625988de8c34
 msgid "|a_config| Пример конфигурационного файла |/a|"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audio.rst:35
+#: ../../source/user_guide/modules/train/audio.rst:38
+#: 57e66513dc9f43e3aa5bf691d3c81eb2
+msgid ""
+"Для обучения на видеоадапторе потребуется вручную установить библиотеку "
+"для машинного обучения PyTorch с использованием GPU."
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:40
+#: 69f2c0fc92ce40459099ef0a38609340
+msgid ""
+"|a_guide| Инструкция для обучения нейросетевых моделей с использованием "
+"GPU |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:45
 #: a4d249c63be145bea91c7cafa44d65e6
 msgid "Отображение процесса выполнения команды в терминале"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:1
-#: bbc10d0525594aa39d38bdc8151dbe65 c8ee333436814d929ea701644146f39c
 #: f42e7cbf406b483fb3b0b0bdf20fe471
 msgid "Параметр"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:1
-#: 1b2047cc86d9486bb060618ccce04bb0 6a7083fdd1524ea694db89b3c0378eae
-#: e620f377230941f2bb3351c5fb9ff744
+#: 1b2047cc86d9486bb060618ccce04bb0
 msgid "Тип"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:1
-#: 69ba2fdb63504b17850d1ad9d932ce6c 6cc1531778024af5a8daace085cdabf2
 #: c8907aec833c4756a5657be3fec51f79
 msgid "Значение по умолчанию"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:1
-#: 8d32e16eb5bd4a6a8e2275ec7cbc2ed7 9d23668f24fb4642bd8bbd864be153ae
-#: cec22a3802aa4069b413097ef7a420ca
+#: 8d32e16eb5bd4a6a8e2275ec7cbc2ed7
 msgid "Описание"
 msgstr ""
 
@@ -138,13 +155,12 @@ msgid "hide_metadata"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:1
-#: 0402485d0cfa4076879448f9bb5ea221 2e62388010de46eea4997e770bb7ea60
 #: c6f7fae9ad384022a2eaf8eb4781b6a1
 msgid "bool"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:1
-#: 1421aba952b14f2480c194de92d57ad7 be36fc2c118a458f8a06f1e3105f901c
+#: 1421aba952b14f2480c194de92d57ad7
 msgid "``false``"
 msgstr ""
 
@@ -185,7 +201,7 @@ msgid ""
 "нейросетевых моделей"
 msgstr ""
 
-#: ../../source/user_guide/modules/train/audio.rst:60
+#: ../../source/user_guide/modules/train/audio.rst:70
 #: c79973ca6a8d45d9a8351d618db04c59
 msgid "Параметры процесса обучения акустических нейросетевых моделей"
 msgstr ""
@@ -196,10 +212,7 @@ msgid "len_audio"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:1
-#: 086b6620ac124f70837ecf66416b6a6d 5a563a71da434d73ba5ba4ebe379ce85
-#: 8121b53e6662490fa6c685e48321714a 86c395199f204982b81a58efa20edbf6
-#: b1fc4da91df442daa1817d0a94881a55 d992b78f450949d8b78ff3ac3da13905
-#: df2f1b31777c4c8db8e8a51cc972b406
+#: 8121b53e6662490fa6c685e48321714a
 msgid "int"
 msgstr ""
 
@@ -353,8 +366,8 @@ msgid ""
 "Т.е. если по прошествии, например, ``5`` эпох модель не показывала "
 "прирост ``accuracy`` (либо ваша метрика), то в данном случае процесс "
 "обучения останавливается и сохраняется модель на эпохе с наибольшей "
-"точностью. Данный параметр позволяет предотварить переобучение модели, а "
-"также снизить длительность обучения"
+"точностью. Данный параметр позволяет предотвратить переобучение модели, а"
+" также снизить длительность обучения"
 msgstr ""
 
 #~ msgid ""
@@ -366,5 +379,19 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Включение паддингов"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Количество эпох, в течении которых "
+#~ "модель не прогрессирует в обучении. Т.е."
+#~ " если по прошествии, например, ``5`` "
+#~ "эпох модель не показывала прирост "
+#~ "``accuracy`` (либо ваша метрика), то в"
+#~ " данном случае процесс обучения "
+#~ "останавливается и сохраняется модель на "
+#~ "эпохе с наибольшей точностью. Данный "
+#~ "параметр позволяет предотварить переобучение "
+#~ "модели, а также снизить длительность "
+#~ "обучения"
 #~ msgstr ""
 
