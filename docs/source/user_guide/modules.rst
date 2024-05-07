@@ -12,3 +12,4 @@
    modules/augmentation
    modules/train_index
    modules/test_index
+   modules/fusion_index

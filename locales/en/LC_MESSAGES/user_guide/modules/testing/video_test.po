@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-02 15:35+0300\n"
+"POT-Creation-Date: 2024-05-07 16:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "</b>"
 msgstr ""
 
-#: ../../source/reuse_content/general.rst:13 d1878d86fa914fcf8fe12347b209d315
+#: ../../source/reuse_content/general.rst:14 d1878d86fa914fcf8fe12347b209d315
 #: e13079139fe64ffcadeb47239ab3f6e0
 msgid "</a>"
 msgstr ""
@@ -47,15 +47,13 @@ msgid ""
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/video_test.rst:8
-#: 4ec22361a83a4785aec6db1e3bfe7039
-msgid "Тестирование обученных визуальных нейросетевых моделей"
+#: f27d98e7ef324e088d2c9d488eb74b83
+msgid "Модуль распознавания визуальной речи"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/video_test.rst:10
 #: ac7e323fcade4694a6756f48e24bffd2
-msgid ""
-"Команда для запуска процесса тестирования обученных визуальных "
-"нейросетевых моделей:"
+msgid "Команда для запуска модуля распознавания визуальной речи:"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/video_test.rst:12
@@ -95,8 +93,9 @@ msgid "Работа с файловой системой"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/video_test.rst:26
-#: 733500e8e8b24c9dafaf725a78a91178
-msgid "Параметры настройки процесса тестирования обученных нейросетевых моделей"
+#: ../../source/user_guide/modules/testing/video_test.rst:63
+#: 08f92bc659be4804857676690cee986c
+msgid "Параметры процесса распознавания визуальной речи"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/video_test.rst:30
@@ -242,11 +241,6 @@ msgstr ""
 msgid "Список  расширений файлов, которые будут обрабатываться"
 msgstr ""
 
-#: ../../source/user_guide/modules/testing/video_test.rst:63
-#: 08f92bc659be4804857676690cee986c
-msgid "Параметры процесса тестирования обученных визуальных нейросетевых моделей"
-msgstr ""
-
 #: ../../source/user_guide/modules/testing/video_test.rst:1
 #: 9146ac96bad6464d8e1fb0c8c8890989
 msgid "size_lips"
@@ -300,5 +294,23 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "channels_spec"
+#~ msgstr ""
+
+#~ msgid "Тестирование обученных визуальных нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Команда для запуска процесса тестирования "
+#~ "обученных визуальных нейросетевых моделей:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Параметры настройки процесса тестирования "
+#~ "обученных нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Параметры процесса тестирования обученных "
+#~ "визуальных нейросетевых моделей"
 #~ msgstr ""
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-02 15:35+0300\n"
+"POT-Creation-Date: 2024-05-07 16:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "</b>"
 msgstr ""
 
-#: ../../source/reuse_content/general.rst:13 218d8bafa65f429b9e28eb7610451875
+#: ../../source/reuse_content/general.rst:14 218d8bafa65f429b9e28eb7610451875
 #: 6b88f51abb0447698280a7d54920dd72
 msgid "</a>"
 msgstr ""
@@ -47,15 +47,13 @@ msgid ""
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/audio_test.rst:8
-#: 1439b8797b7d4029b671cfbbec00615f
-msgid "Тестирование обученных акустических нейросетевых моделей"
+#: d78a1992eebf4b8e9e452f2311b02f57
+msgid "Модуль распознавания акустической речи"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/audio_test.rst:10
 #: a80c80cde737490081431ebfd489c9a1
-msgid ""
-"Команда для запуска процесса тестирования обученных акустических "
-"нейросетевых моделей:"
+msgid "Команда для запуска модуля распознавания акустической речи:"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/audio_test.rst:12
@@ -95,8 +93,9 @@ msgid "Работа с файловой системой"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/audio_test.rst:26
-#: 7cacd535d2c441eea4f8083e62261c65
-msgid "Параметры настройки процесса тестирования обученных нейросетевых моделей"
+#: ../../source/user_guide/modules/testing/audio_test.rst:62
+#: b41fae675e894855a4befc81f3bde80b
+msgid "Параметры процесса распознавания акустической речи"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/audio_test.rst:30
@@ -242,13 +241,6 @@ msgstr ""
 msgid "Список расширений файлов, которые будут обрабатываться"
 msgstr ""
 
-#: ../../source/user_guide/modules/testing/audio_test.rst:62
-#: b41fae675e894855a4befc81f3bde80b
-msgid ""
-"Параметры процесса тестирования обученных акустических нейросетевых "
-"моделей"
-msgstr ""
-
 #: ../../source/user_guide/modules/testing/audio_test.rst:1
 #: 6ed543406dfd40708f42d04813583276
 msgid "size_spec"
@@ -297,4 +289,22 @@ msgid ""
 "Метрика, в соответствии с которой будет вывод результатов тестирования "
 "обученных нейросетевых моделей"
 msgstr ""
+
+#~ msgid "Тестирование обученных акустических нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Команда для запуска процесса тестирования "
+#~ "обученных акустических нейросетевых моделей:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Параметры настройки процесса тестирования "
+#~ "обученных нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Параметры процесса тестирования обученных "
+#~ "акустических нейросетевых моделей"
+#~ msgstr ""
 

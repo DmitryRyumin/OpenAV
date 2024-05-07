@@ -1,8 +1,8 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Copyright (C) 2022-24. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
 # Markitantov, Alexey Karpov
 # This file is distributed under the same license as the OpenAV package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 #
 #, fuzzy
 msgid ""
@@ -21,14 +21,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/user_guide/modules/test_index.rst:2
-#: b4b56d856dcc4049942bcacd5d80bb4b
-msgid "Модуль распознавания речи"
+#: ../../source/user_guide/modules/fusion_index.rst:2
+#: f83bfd2d8b234bdead3bfb072d524568
+msgid "Модуль объединения модальностей"
 msgstr ""
-
-#~ msgid "Модуль обучения нейросетевых моделей"
-#~ msgstr ""
-
-#~ msgid "Модуль тестирования обученных нейросетевых моделей"
-#~ msgstr ""
 
