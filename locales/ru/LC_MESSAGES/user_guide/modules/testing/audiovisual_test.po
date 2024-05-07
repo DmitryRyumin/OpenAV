@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 13:48+0300\n"
+"POT-Creation-Date: 2024-05-07 13:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -117,10 +117,9 @@ msgid "Работа с файловой системой"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/audiovisual_test.rst:35
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:71
 #: 647ab28901964c0e95fe9ceaa3c92571
-msgid ""
-"Параметры настройки процесса тестирования аудиовизуальных нейросетевых "
-"моделей"
+msgid "Параметры процесса тестирования аудиовизуальных нейросетевых моделей"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/audiovisual_test.rst:39
@@ -254,11 +253,6 @@ msgstr ""
 #: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
 #: b34703a4a5374868bad0f96ea25df4db
 msgid "Путь, по которому будут храниться матрицы спутывания"
-msgstr ""
-
-#: ../../source/user_guide/modules/testing/audiovisual_test.rst:71
-#: 21eb961e20a94482a3dd86323c6c5de2
-msgid "Параметры процесса обучения аудиовизуальных нейросетевых моделей"
 msgstr ""
 
 #: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
@@ -492,4 +486,12 @@ msgid ""
 " качество изображения. ``pad_inches`` - величина отступов от построенной "
 "матрицы спутывания"
 msgstr ""
+
+#~ msgid ""
+#~ "Параметры настройки процесса тестирования "
+#~ "аудиовизуальных нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid "Параметры процесса обучения аудиовизуальных нейросетевых моделей"
+#~ msgstr ""
 
