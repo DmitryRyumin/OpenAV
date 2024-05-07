@@ -1,0 +1,495 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-24. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-07 13:48+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/general.rst:1 0417e9381c284e0aa6978b4dbcacc39f
+#: 066dea9e304942a09538de654e62af3b 106bbb4d7c424161a3e71b55917c6120
+#: 60153291a3df42538ac56e8b24cdd758 69221bdee26d4767b1b5d54eedaa530e
+#: 976bdf17f05d4e75a80a9d298be91747 bb710e4d9318432da72e8ff04d44ffc8
+#: ce8643eee20c475a9d2112117cf504ac f2bd29b7812747d295e942d9213ced9c
+#: f3636133e0934d7f9571fcd4b7325eb7 f5acacb02c6f4ad1b229a462bad44394
+#: fdd6158a1c8d4e728daaade6981aef61
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 a8517a73780747e2a018d871dbac1cc6
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 0e02da9d7d744c30bcda4002eb9c9c00
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:14 c2618532d92242ef99b88df7fd801015
+#: d8c0487b046a48c388325cf4dad99360
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:3
+#: 44c206fcba5b4618856aaae871e9eed8 90bef85641e64aa596b5f3c0c2d735e3
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/test_audiovisual.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:7
+#: 8e6a83c7694f4c99b1e3c301e1ac1eb6
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/models/resnet18_torch_audio.pt\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:11
+#: f74f9af3708047bc98be94079ac7076c
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/models/resnet18_lstm_torch_video.pt\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:17
+#: 1e47e30941d841f2a3f661027b43355b
+msgid "Тестирование обученных аудиовизуальных нейросетевых моделей"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:19
+#: 2279b85cf2754bdaa477aab58a998c64
+msgid ""
+"Команда для запуска процесса процесса тестирования обученных "
+"аудиовизуальных нейросетевых моделей:"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:21
+#: 6d80beb79b374c45bc635dbd727e04d4
+msgid ""
+"openav_test_audiovisual --config "
+"<путь_к_вашему_конфигурационному_файлу>.yaml"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:26
+#: 3280d3cc5b174afaa6fd1b9ef8120fe9
+msgid ""
+"Для запуска команды необходимо обязательно указать путь к "
+"конфигурационному файлу. Запускать программу необходимо из директории, "
+"где она расположена."
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:29
+#: 1aebce5034514323acda3fe70c5a5e2a
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:31
+#: 76efe03c31c840b1bd3c94349d35c99c
+msgid "Конфигурационный файл включает в себя следующие настройки:"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:33
+#: 406ff025fe624b9bb5b5810663a0f79e
+msgid "Отображение процесса выполнения программы в терминале (командной строке)"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:34
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:57
+#: 3d266adcf313479597cd82ca48997f0a 83d24f0d91f44ad9b2ff04fab863d7d3
+msgid "Работа с файловой системой"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:35
+#: 647ab28901964c0e95fe9ceaa3c92571
+msgid ""
+"Параметры настройки процесса тестирования аудиовизуальных нейросетевых "
+"моделей"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:39
+#: a73e53fee0fa40c9809451ab942ee5de
+msgid "|a_config| Пример конфигурационного файла |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:44
+#: 0d18ebf47907433d9d1596b1f02efb2b
+msgid "Отображение процесса выполнения команды в терминале"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 48ab9384c1e8473688e8b52c4268686b 7980974210044cb3aa85846ecbd7e3fc
+#: d21958a2d63e444f8796fd523b94d38c
+msgid "Параметр"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 2bd3335d1bfc4876a3df7282c737e459 4269d8061c544f20a5df9ff192f0b20b
+#: d2834083f77a4041848a2c0a838a942d
+msgid "Тип"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 4b221e779b084ffa8d5d9f179e2e0c90 bbb89ad160f747a186537fbcd9c366ed
+#: f392232ab6bd4651a28a2d63812c16b8
+msgid "Значение по умолчанию"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 288f5731cb654c90ab4b683cfb13254f 3e97f94af4124477aaacd3dcd134bdd3
+#: a8260249a07a4c999aff28f811e7d860
+msgid "Описание"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 803b896867314394b2031be41b44b16c
+msgid "hide_metadata"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 330dad570d7d4a8f9086043923801844 38fde49f70544a8d9e8d04ceb85d8829
+#: 5351b812ba7842358716105853550c5a
+msgid "bool"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 7f427d5de63144699a44c204e1fc3efa a3924992f7f24763ab22ddeea9c54497
+msgid "``false``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 753f3181be2c4075b00bbb63f7ea399e
+msgid "Включение отображения метаданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 87b082fccaad4f6d813e4fb957aa025d
+msgid "hide_libs_vers"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 718d2b67fd724ddf84ccf28c3e424986
+msgid "Включение отображения версий установленных  библиотек  в командной строке"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 1af7091391b54f9ca2807f2d17ed6205
+msgid "path_to_dataset"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 23eb00bf5848465890d565ad2585a5b0 35661871626e47cf8dc48a7df87618df
+#: 402ba6f6b60d40718229eab5fcca83c8 dead1ca842034ea081befc7c152aa208
+msgid "str"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: cfac0d16692141cba88c97e7e928d524
+msgid "``<путь_к_набору_данных>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: db91914d1d9e43ce8b30f56aaf1280ec
+msgid ""
+"Директория, где размещается подготовленный набор данных для обучения "
+"нейросетевых моделей"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 1f787dad3e6942abb14a031caf63d2a9
+msgid "subfolders"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: e37e52439eb54547b4694e86bd408fd0
+msgid "``test: \"test\"``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 5aed0ecff13240d5943a4f19bca5477a
+msgid "Директория с тестовой выборкой"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: ec54a6a34e894f3abc5f1d085da5d7ab
+msgid "path_to_model"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: ab312c46713c45ffbae6230fb329ab82
+msgid "``<путь_к_обученной_модели>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: dce0139a61a947958c8548c8dcfb0ebb
+msgid "Путь, по которому находится обученная нейросетевая модель"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 5c0b5554e4da44988df201be88b278b4
+msgid "path_to_save_confusion_matrix"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 3e3fea078ee84153bb0bebf0b07a8c20
+msgid "``<путь_сохранения_матриц_спутывания>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: b34703a4a5374868bad0f96ea25df4db
+msgid "Путь, по которому будут храниться матрицы спутывания"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:71
+#: 21eb961e20a94482a3dd86323c6c5de2
+msgid "Параметры процесса обучения аудиовизуальных нейросетевых моделей"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 4467968091be4b2ca99bb8b24f26c295
+msgid "n_classes"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 17422e5d82d249b2b2b623c41faeb3a8 21ea2c72e51b42498862d99ab36c91b0
+#: 2350a6a25816452c9c2d34ae61c41d6a 68b6a7566b0d470cb8a927e13ce1e2b4
+#: 9af6fb84025a42189b6a9148f0260937 9c03a70c697e44ccb6256bf08739cb50
+#: af9c54f26fdd47d4b9a25756232fef16 b5c9a01e142b455fb4c59f831f629dfd
+#: fe508e117906485ba5753eb867735720
+msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 1ecd64174eee4468bfa105005e39c7b2
+msgid "``26``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 9c8f391e9bf1494694d65669495ff48f
+msgid ""
+"Количество классов для задачи классификации. Соответствуют количеству "
+"фраз из базы данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 51770233c5444974845e9fa56ee74292
+msgid "classes"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: bef4cb2d02fd49ffba12a93c9a76095a
+msgid "list"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 9e5246481ea54723810b207ac1e12636
+msgid "``[\"1_Левая\", \"2_Правая\",`` |br| ``...`` |br| ``\"26_Калибровка\"]``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: ff10999546214827a66dd817221c54c2
+msgid "Список названий классов, которые представлены в базе данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 4bd3368550ac42e8bb327e24e1a54438
+msgid "max_segment"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 16f22f6b11654f74969865b4423b1107
+msgid "``2``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 8fb59f087a044491b1f1683bc9212afd
+msgid ""
+"Гиперпараметр, определяющий максимальное количество перекрывающихся "
+"сегментов, на которые разбиваются длинные последовательности аудио и "
+"видео данных перед подачей их на вход нейронной сети для обучения или "
+"вывода"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 895786522625426fa528bb1bd1c97a3c
+msgid "hidden_units"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: dc66e1f2924a401e9f6f075c1e3b7aac
+msgid "``256``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 8328d5cbb0b24151b7890d3ce53e102a
+msgid ""
+"Количество скрытых единиц (hidden units) в декодере нейронной сети. Этот "
+"параметр определяет размерность внутреннего представления данных в "
+"декодере, что влияет на емкость (expressive capacity) и способность "
+"декодера извлекать и обобщать сложные зависимости в данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: eb17bc7cddaa4211bc0f89933fd95d38
+msgid "hidden_features"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: ba9f71940367440e971d4bdaa2f820d4
+msgid "``128``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: b831b5d6dffc4280874a8ce61190b67c
+msgid ""
+"Количество скрытых признаков (hidden features) или временных шагов, "
+"используемых в нейросетевые модели. Этот гиперпараметр связан с тем, как "
+"модель обрабатывает последовательные данные, такие как аудио и видео. "
+"Увеличение этого параметра позволяет модели обрабатывать более длинные "
+"входные последовательности, но также увеличивает вычислительную сложность"
+" и требования к памяти, уменьшение может ускорить обучение, но при этом "
+"модель будет видеть только более короткие временные зависимости"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 612981b9c5cb441f9a1d19532973a6c3
+msgid "input_dim"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: e893b4d1a52a4f5d816a2f97e4e12a39
+msgid "``512``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 207420ba0f6e49688b18c3bdc527e76d
+msgid ""
+"Размерность входных векторов признаков для аудио и видео данных, "
+"подаваемых в модель. Например, параметр ``input_dim=512`` указывает, что "
+"на вход нейронной сети будут подаваться векторы признаков размера 512 для"
+" каждого временного шага последовательности. Размер входного вектора "
+"обычно является результатом предварительной обработки и извлечения "
+"низкоуровневых признаков из исходных аудио/видео данных с помощью "
+"отдельных моделей или методов обработки сигналов."
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 3010a234399d48e6bec562e07caadf1c
+msgid "shape_audio"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 5ac32876409142c398e4623e577990a9
+msgid "``channels: \"1\"`` |br| ``n_mels: \"64\"`` |br| ``samples: \"306\"``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: ad4c3778a3234b02808b01c499a4b7ad
+msgid ""
+"Здесь определяется размерность входных тензоров аудиоданных, ожидаемые "
+"моделью. Это форма задается тремя числами ``channels`` - количество "
+"каналов в аудиоданных, чаще всего аудио является моно, поэтому здесь "
+"канал равен ``1``. При стерео он равен ``2``. ``n_mels`` - количество "
+"мел-частотных кепстральных коэффициентов (MFCC), используемых для "
+"представления аудиоданных. ``samples`` - количество временных выборок или"
+" окон, входящих в одно аудио представление. Являются фиксированными "
+"параметрами"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: b4b3b81061c84f40b81120c9d36193ee
+msgid "shape_video"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 1b64e20788a94ad8b493642411bfd01d
+msgid ""
+"``frames: \"29\"`` |br| ``channels: \"3\"`` |br| ``width: \"88\"`` |br| "
+"``height: \"88\"``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 350a92f3c4cf490baba796bdf1ee8bea
+msgid ""
+"Здесь определяется размерность входных тензоров видеоданных, ожидаемые "
+"моделью. ``frames`` - это количество видеокадров в одном сегменте. "
+"``channels`` - это количество цветовых каналов (R, G, B) в видеокадре. "
+"Для изображения в серых тонах количество каналов равно ``1``. ``width`` -"
+" ширина видеокадра в пикселях. ``height`` - высота видеокадра в пикселях."
+" Являются фиксированными параметрами"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: f2d7374aa211473ba1f61c13882f2d81
+msgid "encoder_decoder"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 3be9f250647747619ac5b2ac7658517a
+msgid "``5``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 4e5b1b64a3dc462b948d7288496ceb8c
+msgid ""
+"Количество блоков энкодера и декодера в архитектуре трансформера, который"
+" используется в этой модели. Доступные значения от ``1`` до ``50``. "
+"Правильный выбор количества энкодер/декодер блоков является важным "
+"гиперпараметром и часто подбирается экспериментально в зависимости от "
+"размера данных, доступных вычислительных ресурсов и требуемого качества "
+"модели"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: c92d30c1e79b41c6907de15cbe86eed4
+msgid "save_confusion_matrix"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 1cb8b14ed10d446886a1570157fbd520
+msgid "``true``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: ce4e8edb28af454c96cc3175260d9699
+msgid "Сохранение построенных матриц спутывания"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: a580b437d05a4a9eae9e0525df05de6e
+msgid "figsize_confusion_matrix"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: 2fb47ca2490c4cf9b79d765bce1c9502
+msgid ""
+"``width: \"2600\"`` |br| ``height: \"2600\"`` |br| ``font_size: \"14\"`` "
+"|br| ``dpi: \"600\"`` |br| ``pad_inches: \"0\"``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:1
+#: e427ab0ab5ee468fbb16d3314fbcf43d
+msgid ""
+"Здесь определяются параметры отображения матрицы спутывания. ``width`` и "
+"``height`` - размер изображения матрицы спутывания в пикселях. "
+"``font_size`` - размер шрифта на изображении матрицы. ``dpi`` - влияет на"
+" качество изображения. ``pad_inches`` - величина отступов от построенной "
+"матрицы спутывания"
+msgstr ""
+

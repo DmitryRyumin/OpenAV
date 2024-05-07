@@ -6,3 +6,4 @@
 
    testing/audio_test
    testing/video_test
+   testing/audiovisual_test
