@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 13:52+0300\n"
+"POT-Creation-Date: 2024-05-07 14:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -21,12 +21,12 @@ msgstr ""
 "Generated-By: Babel 2.11.0\n"
 
 #: ../../source/reuse_content/general.rst:1 0417e9381c284e0aa6978b4dbcacc39f
-#: 066dea9e304942a09538de654e62af3b 106bbb4d7c424161a3e71b55917c6120
-#: 60153291a3df42538ac56e8b24cdd758 69221bdee26d4767b1b5d54eedaa530e
-#: 976bdf17f05d4e75a80a9d298be91747 bb710e4d9318432da72e8ff04d44ffc8
-#: ce8643eee20c475a9d2112117cf504ac f2bd29b7812747d295e942d9213ced9c
-#: f3636133e0934d7f9571fcd4b7325eb7 f5acacb02c6f4ad1b229a462bad44394
-#: fdd6158a1c8d4e728daaade6981aef61
+#: 066dea9e304942a09538de654e62af3b 082f2c6c08964d779a4c9871ddf31fd0
+#: 106bbb4d7c424161a3e71b55917c6120 60153291a3df42538ac56e8b24cdd758
+#: 69221bdee26d4767b1b5d54eedaa530e 976bdf17f05d4e75a80a9d298be91747
+#: bb710e4d9318432da72e8ff04d44ffc8 ce8643eee20c475a9d2112117cf504ac
+#: f2bd29b7812747d295e942d9213ced9c f3636133e0934d7f9571fcd4b7325eb7
+#: f5acacb02c6f4ad1b229a462bad44394 fdd6158a1c8d4e728daaade6981aef61
 msgid "</br>"
 msgstr ""
 
@@ -484,6 +484,21 @@ msgid ""
 "``font_size`` - размер шрифта на изображении матрицы. ``dpi`` - влияет на"
 " качество изображения. ``pad_inches`` - величина отступов от построенной "
 "матрицы спутывания"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:92
+#: d001a99f5ba04e9ebff858043c7a3d76
+msgid "Пример построения матрицы спутывания"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:99
+#: 81f94c8bceab432f90cee231a1ab1aa2
+msgid "Пример построения матрицы спутывания для 26 классов"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audiovisual_test.rst:99
+#: 5dccdabdc99448f29ff0c3b4a09a8335
+msgid "|br|"
 msgstr ""
 
 #~ msgid ""
