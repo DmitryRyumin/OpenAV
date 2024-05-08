@@ -1,0 +1,608 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-10 13:28+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/vad/vad.rst:1 198cc6856d4e4ddba1ca6ac52668db89
+#: e064f7153e464dc6ad2541369771cdc9
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/vad.rst:5 03e2171c357047ec8db2548f7ccfa6a5
+#: 3dc57d4e80644d6eb471417ee592f9cb 4a8c94e7f347477d9ed75dc3a09afe39
+#: c3d40bc0a9fd40bfa5bcb962d6790422
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/vad.rst:9 68a53968568d4135937fd9800bff96ea
+#: 6901a20dbb514fed970a3d6587380b39 c55b568eb4fb48a582f7caeb3ed51240
+#: c9ce33d0e801492ca996631cd12bf132
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/vad.rst:13 6b103fea34a14f04b900d72053df65ba
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/reuse_content/vad/vad.rst:17 c9ce33d0e801492ca996631cd12bf132
+msgid "</a>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/audio_waves.rst:1
+#: c649c7bf5b8f45698ed5c1710e8dedbd
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Аудиозапись до обработки "
+"ВАД</figcaption>\n"
+"   <audio controls class=\"audio-wave\">\n"
+"      <source src=\"../../_static/audio/vad/before_vad.wav\" "
+"type=\"audio/wav\">\n"
+"   </audio>\n"
+"</figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/audio_waves.rst:11
+#: c649c7bf5b8f45698ed5c1710e8dedbd
+msgid ""
+"<figure>\n"
+"     <figcaption class=\"audio-capt\">Запись 1</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../_static/audio/vad/1.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/audio_waves.rst:20
+#: c649c7bf5b8f45698ed5c1710e8dedbd
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Запись 2</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../_static/audio/vad/2.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/audio_waves.rst:29
+#: c649c7bf5b8f45698ed5c1710e8dedbd
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Запись 3</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../_static/audio/vad/3.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/audio_waves.rst:38
+#: c649c7bf5b8f45698ed5c1710e8dedbd
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Запись 4</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../_static/audio/vad/4.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/audio_waves.rst:47
+#: c649c7bf5b8f45698ed5c1710e8dedbd
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Запись 5</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../_static/audio/vad/5.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:5 084d0fc9680341188295be3d391f581b
+msgid "Модуль детектирования речевой активности"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:6 084d0fc9680341188295be3d391f581b
+msgid ""
+"Команда для запуска детектирования речевой активности в аудиовизуальном "
+"сигнале:"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:8 9c4466466a0741ba9d6809f167b963fa
+msgid ""
+"python ./openav/api/vad.py --config "
+"<путь_к_вашему_конфигурационному_файлу>.yaml"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:13 5395495dc9a3499baff19844eeffb154
+msgid ""
+"Для запуска команды необходимо обязательно указать путь к "
+"конфигурационному файлу. Запускать программу необходимо из директории, "
+"где она расположена."
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:16 290181d4dcc5415dbadf7e69d892d5a0
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:18 2279b46521c742faa53dd3b736deddba
+msgid "Конфигурационный файл включает в себя следующие настройки:"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:20 d2e2f0666bbc44158ed3b36c0780714f
+msgid "Отображение процесса выполнения программы в терминале (командной строке)"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:21
+#: ../../source/user_guide/modules/vad.rst:45 7bcbc096da62440a95a72d54ad8bdbe5
+msgid "Работа с файловой системой"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:22
+#: ../../source/user_guide/modules/vad.rst:64 171e3029ef244b92816199dcd8655209
+msgid "Параметры детектора голосовой активности (VAD)"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:23
+#: ../../source/user_guide/modules/vad.rst:80 05b3ad5c68044e0f9b996a95125dc675
+msgid "Параметры кодирования выходного файла"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:27 8d6549f9db9b4e998937ef12d58e02fe
+msgid "|a_config| Пример конфигурационного файла |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:32 738b4d9aa22c41b29c4af9f70b36707f
+msgid "Отображение процесса выполнения команды в терминале"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 bc30acc19fdf41f7a05af383316558cd
+msgid "Параметр"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 73d5eb19e3594ca1b251f6f87a0e7a22
+msgid "Тип"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 bff82ae2fd794a1fbb3baf4f4aa8627d
+msgid "Значение по умолчанию"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 18bfd9c93a664b20a72db5e6474592b1
+msgid "Описание"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 acb5743f7bd44fdaa28393902ae4f512
+msgid "hide_metadata"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 e5a8aedc18c74c19a70e10f4ad997cd7
+msgid "bool"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 0f73870a8189425699583e46bc0c1075
+msgid "``false``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 468054725f654d348ec331a4741e0a6c
+msgid "Включение отображения метаданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 b39731d5866f4904b7c77820af05fd34
+msgid "hide_libs_vers"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 15ecbd9080784931bc3c2d26abd08493
+msgid "Включение отображения версий установленных  библиотек  в командной строке"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 5dbb5bb42abe4c4287ae7d90efe037ed
+msgid "path_to_save_model"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 a4d3c8c2a463418eba17f1b19084f734
+msgid "str"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 ec0cb28257b14f72b1ebca5257e6738b
+msgid "``<./models>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 2332774b333a49c2a56c9610bcf51855
+msgid ""
+"Директория, где будут размещаться скачанные модели, в данном случае "
+"модель для работоспособности  VAD"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 ca18a5c420f64789a07d8923e177d6d1
+msgid "path_to_dataset"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 769a39123b1a44d99071c98f2c6f2afc
+msgid "``<путь_к_исходным_данным>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 5db0abc52ece40158672f0ff878b030f
+msgid "Директория, где находятся данные, которые необходимо обработать VAD"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 c980120a4b044c7bb343de92d997fe52
+msgid "path_to_dataset_vad"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 8fc796079ca6478bac8e35a10a407499
+msgid "``<./dataset_vad>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 9e4b4422ee23482bb29854131c92dff2
+msgid ""
+"Директория, куда сохраняются фрагменты аудиовизуального сигнала после "
+"обработки VAD"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 91b6425e9e0c4305bb4276a611997fab
+msgid "dir_va_names"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 051f34a63f3e492baba24adeb6b8152f
+msgid "dict"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 201e97b906be48f48adc930321b4c5c3
+msgid "``{\"video\": \"Video\",`` |br| ``\"audio\": \"Audio\"}``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 eca657b1861c44aca3f683ded24c38e1
+msgid ""
+"Директории для сохранения видео и аудио файлов. Названия директорий могут"
+" быть произвольными"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 59a63624fd9144e1b6d3120ecefeb638
+msgid "force_reload"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 4bb5199728a04545b9f009f6ed5fa2a8
+msgid "Включение принудительной загрузки модели VAD из сети"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 af9241aa45464dc3a16371657dc91bb9
+msgid "clear_dirvad"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 42b10d66a3164f6a8479653f06793877
+msgid "``true``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 4315b96399b24ab69176d057e1a6fdd6
+msgid ""
+"Очистка директории, в которую сохраняются фрагменты аудиовизуального "
+"сигнала"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 4d146dc7eb0e4e1a9f699450d8c252d3
+msgid "depth"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 585e8ae6c6ee45c4829bc3f36d465405
+msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 3de93d0391fc48f29a05ab9dad16224a
+msgid "``1``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 524d7b8f453f4119a5943a56c29b71fb
+msgid ""
+"Глубина иерархии для получения данных. Указывается количество "
+"подкаталогов  в директории ``path_to_dataset``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 e3a28eed00254c82a1f4d543fc8d6547
+msgid "ext_search_files"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 6c63dfb0b6574ce094e69f6260c414d9
+msgid "list"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 d04229aefc444bc5acfbdeb26828fd3b
+msgid "``[\"mov\", \"mp4\", \"wav\"]``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 45de54367fde4f5099939780ed521361
+msgid ""
+"Список  расширений файлов, которые будут обрабатываться. Указывать  можно"
+" как для видео, так и для аудио"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 6052d72cff124c568206fcea1554098e
+msgid "sampling_rate"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 6568a2df12a94d24a1c815cc74994524
+msgid "``16000``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 f365b5939b02455586efff91ac3291a9
+msgid ""
+"Частота дискретизации. На текущий момент поддерживаются частоты: ``8000``"
+" и ``16000``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 52cbe99f518146a1ba1636b83d79ec55
+msgid "threshold"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 d87f7e1f2fca4fdd8133770ccde08486
+msgid "float"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 77a62fbeee30492c927c41947f54a8ba
+msgid "``0.5``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 bd5eaf4207ab4e7499989836def13b0a
+msgid ""
+"Порог вероятности речи (от ``0.0`` до ``1.0``). VAD выводит вероятности "
+"речи для каждого звукового фрагмента, вероятности выше установеленного "
+"значения считаются |b| речью. |/b| Параметр необходимо настраивать "
+"индивидуально в зависимости от набора данных. Например для шумных условий"
+" параметр рекомендуется устанавливать в значение от ``0.7`` до ``0.95``. "
+"В условиях низкого уровня шума или его отсутствия, параметр лучше "
+"устанавливать на низкие значения ``0.1`` — ``0.25``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 1e661110be994f709ddd2b5c4729b4d8
+msgid "min_speech_duration_ms"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 2e61fdf188ca4695a9595ee78019e55d
+msgid "``250``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 30eb91d676b84803ac7a6da8b5bfc669
+msgid ""
+"Минимальная длительность речевого фрагмента. Рекомендуется устанавливать "
+"в пределах от ``750`` мс до ``1000`` мс. Настройка также является "
+"индвидуальной, которую необходимо подбирать в зависимости от набора "
+"данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 5160c7873e9e49968d73091722dac8d8
+msgid "min_silence_duration_ms"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 a87280dd84eb49a39d984d4773aa0577
+msgid "``100``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 816637a7cc924364bb8fc0b1676bea3c
+msgid ""
+"Минимальная длительность тишины в выборках между отдельными речевыми "
+"фрагментами, прежде чем разделить его. Рекомендуется устанавливать в "
+"пределах ``500`` мс, для того, чтобы не разделялись предложения. Однако, "
+"можно настроить индивидуально, под свои условия"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 4d0f2ea8cb7842e08bcb1e8b1bf818e7
+msgid "window_size_samples"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 c21244edce464df58c87c6bbad9b3263
+msgid "``1536``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 91532e238a15458793eef82a3365bea6
+msgid ""
+"Количество выборок в каждом окне. |br| |b| Предупреждение! |/b| Модели "
+"VAD были обучены с использованием выборок ``512``, ``1024``, ``1536`` для"
+" частоты дискретизации ``16000`` и ``256``, ``512``, ``768`` для частоты "
+"дискретизации ``8000``. Настоятельно рекомендуется использовать эти "
+"значения, изменение значений может повлиять на производительность модели"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 59f9c46d57d74d74b393cce05ea3a303
+msgid "speech_pad_ms"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 751cf17f96304bdb9150599cfe32a86c
+msgid "``30``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 92a772680d674789b8fa4402d1e5b295
+msgid ""
+"Внутренние отступы для итоговых речевых фрагментов. Рекомендуется "
+"использовать значение ``250`` мс — ``400`` мс чтобы избежать обрезания "
+"фрагментов речи. Настройка также является индвидуальная и устанавливается"
+" в соответствии с условиями пользователя"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 83ee17ac50b24dad9819aacc17a9d4fc
+msgid "type_encode"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 901957e450c44e059431cb8e83db4124
+msgid "``crf``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 78d4062bb7924f238a30fdcaaf581d80
+msgid "Типы кодирования. Доступные варианты: ``['qscale', 'crf']``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 ca1aed2ce8b8410ea328f0061bed8e7f
+msgid "crf_value"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 26bccad4f3264db19b3118d16cda2d6f
+msgid "``23``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 5f15d56961b742b2b2a5ce44dfd83a0f
+msgid ""
+"Качество кодирования (от ``0`` до ``51``. Чем ниже значение, тем лучше "
+"качество и наоборот. Стоит учитывать, что изменения качества кодирования "
+"влияет на скорость обработки"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 15633827fb5e493f8726a14cb51049a8
+msgid "presets_crf_encode"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 ce2276720d974e3c80e07628139dae60
+msgid "``medium``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 af70b8c9f49946329561dc6d1a5288dd
+msgid ""
+"Скорость кодирования и сжатия. Доступные варианты: ``['ultrafast', "
+"'superfast', 'veryfast', 'faster', 'fast', 'medium', 'slow', 'slower', "
+"'veryslow']``. Изменения параметра влияет на скорость кодирования и "
+"степень сжатия"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 42bfbda927104c70bc752933e2210624
+msgid "sr_input_type"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 196b03a236f148e5b1476a5a8eed2aed
+msgid "``audio``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:1 a5ac5ecf3b774d76a739a2f1960d97d2
+msgid ""
+"Типы файлов для распознавания речи. Доступные варианты: ``['audio', "
+"'video']``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:95 fa2de0e56dd342ca82c912a3fecef89b
+msgid "Демонстрация работы детектора речевой активности"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:97 2a01fe4c4dd9419abe47b2e908da0ec6
+msgid ""
+"В этом разделе представлен результат работы детектора речевой активности "
+"на тестовой аудиозаписи с настройками, которые указаны в конфигурационном"
+" файле."
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:99 fa2de0e56dd342ca82c912a3fecef89b
+msgid "|b| Пример аудиозаписи до обработки детектором речевой активности: |/b|"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:101 b4c651018ac942d0b1eabd70b17a740e
+msgid "|audio_wo_vad|"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:103 fa2de0e56dd342ca82c912a3fecef89b
+msgid "|b| Пример аудиозаписи после обработки детектором речевой активности: |/b|"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad.rst:105 915e62a9b03c4fd69d129caee4a598b5
+msgid "|audio_1| |audio_2| |audio_3| |audio_4| |audio_5|"
+msgstr ""
+
+#~ msgid "Содержание:"
+#~ msgstr ""
+
+#~ msgid "Детектирование речевой активности в аудиовизуальном сигнале"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Пример конфигурационного файла "
+#~ "<https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.json>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<audio controls>\n"
+#~ "   <source src=\"./../_static/audio/vad/1.wav\" type=\"audio/wav\">\n"
+#~ "</audio>"
+#~ msgstr ""
+
+#~ msgid "</audio>"
+#~ msgstr ""
+
+#~ msgid "|audio|"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<a "
+#~ "href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.json\""
+#~ " target=\"_blank\">"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<figure>\n"
+#~ "   <figcaption>Аудиозапись до обработки ВАД</figcaption>\n"
+#~ "   <audio controls class=\"audio-wave\">\n"
+#~ "      <source "
+#~ "src=\"../../_static/audio/vad/before_vad.wav\" "
+#~ "type=\"audio/wav\">\n"
+#~ "   </audio>\n"
+#~ "</figure>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<audio controls class=\"audio-wave\">\n"
+#~ "   <source src=\"../../_static/audio/vad/1.wav\" type=\"audio/wav\">\n"
+#~ "</audio>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<audio controls class=\"audio-wave\">\n"
+#~ "   <source src=\"../../_static/audio/vad/2.wav\" type=\"audio/wav\">\n"
+#~ "</audio>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<audio controls class=\"audio-wave\">\n"
+#~ "   <source src=\"../../_static/audio/vad/3.wav\" type=\"audio/wav\">\n"
+#~ "</audio>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<audio controls class=\"audio-wave\">\n"
+#~ "   <source src=\"../../_static/audio/vad/4.wav\" type=\"audio/wav\">\n"
+#~ "</audio>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<audio controls class=\"audio-wave\">\n"
+#~ "   <source src=\"../../_static/audio/vad/5.wav\" type=\"audio/wav\">\n"
+#~ "</audio>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "python ./openav/api/vad.py --config "
+#~ "<путь_к_вашему_конфигурационному_файлу>.json"
+#~ msgstr ""
+
+#~ msgid "Аудио пример"
+#~ msgstr ""
+
+#~ msgid "Пример аудиозаписи до обработки детектором речевой активности:"
+#~ msgstr ""
+

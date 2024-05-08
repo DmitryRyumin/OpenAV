@@ -1,0 +1,34 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-07 16:03+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/user_guide/modules/test_index.rst:2
+#: b4b56d856dcc4049942bcacd5d80bb4b
+msgid "Модуль распознавания речи"
+msgstr ""
+
+#~ msgid "Модуль обучения нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid "Модуль тестирования обученных нейросетевых моделей"
+#~ msgstr ""
+

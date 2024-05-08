@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-11 14:23+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/vad/silero.rst:1 84bfaf61ffae40b18429311aea3bccbf
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/silero.rst:5 af75a066eafe49269b4c8169cc5555e1
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/silero.rst:9 99083f04dcd64898beffb2410d023d7f
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/silero.rst:13
+#: 1769b8d754914cbeb852403ee37c9aee
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/reuse_content/vad/silero.rst:17
+#: 4ba25cd47481416aa05ea531208deb86
+msgid "<a href=\"https://alphacephei.com/vosk/models\" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/reuse_content/vad/silero.rst:21
+#: 5bf1f981e6c1470680a06850bc97ba9d
+msgid "</a>"
+msgstr ""
+

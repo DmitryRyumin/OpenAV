@@ -1,0 +1,397 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-03 17:56+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/general.rst:1 50b64cb9b1e24655a5b266754ded2588
+#: c28d0205a9ef4e698143ff9cbe26e8e8
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 fc6ac939bb1c44979378b96e32fa4178
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 c4ac2f6f84a24eeabd69531308328aa3
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:14 284653102eb54cdda8e865f4104d1c6a
+#: f1709d790c3246f2b5e1139fda56181b
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:3
+#: 13d678fae36845a2ae98cfaf1dfa7552 16dbd3ad60244a23bb36a03cf8f54e0f
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/train_audio.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:7
+#: 13d678fae36845a2ae98cfaf1dfa7552
+msgid ""
+"<a href=\"https://pytorch.org/get-started/previous-versions/\" "
+"target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:12
+#: b70af62f70464f8b80437a34930eac6b
+msgid "Обучение акустических нейросетевых моделей"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:14
+#: f025abb13152465a90db6deb19515a8f
+msgid "Команда для запуска процесса обучения акустических нейросетевых моделей:"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:16
+#: 19e7475153564254887ade276ad802cb
+msgid ""
+"python ./openav/api/train_audio.py --config "
+"<путь_к_вашему_конфигурационному_файлу>.yaml"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:21
+#: 4702b41a169044aca3b76bab825cc1af
+msgid ""
+"Для запуска команды необходимо обязательно указать путь к "
+"конфигурационному файлу. Запускать программу необходимо из директории, "
+"где она расположена."
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:24
+#: e9e86a9ff7ff4a78a454bff864d9e5f3
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:26
+#: 3aac3508ed6b4dd4a635ddf644439d16
+msgid "Конфигурационный файл включает в себя следующие настройки:"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:28
+#: d1c705c576914fb5aace0dcc91f7cf17
+msgid "Отображение процесса выполнения программы в терминале (командной строке)"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:29
+#: ../../source/user_guide/modules/train/audio.rst:58
+#: 58f7518a65c04b47a944cb8b6d00219e
+msgid "Работа с файловой системой"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:30
+#: 629eb6b7e98b46c9bd05803f7145796b
+msgid "Параметры настройки процесса обучения нейросетевых моделей"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:34
+#: 87d1a734ac2442f392e7625988de8c34
+msgid "|a_config| Пример конфигурационного файла |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:38
+#: 57e66513dc9f43e3aa5bf691d3c81eb2
+msgid ""
+"Для обучения на видеоадапторе потребуется вручную установить библиотеку "
+"для машинного обучения PyTorch с использованием GPU."
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:40
+#: 69f2c0fc92ce40459099ef0a38609340
+msgid ""
+"|a_guide| Инструкция для обучения нейросетевых моделей с использованием "
+"GPU |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:45
+#: a4d249c63be145bea91c7cafa44d65e6
+msgid "Отображение процесса выполнения команды в терминале"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: f42e7cbf406b483fb3b0b0bdf20fe471
+msgid "Параметр"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 1b2047cc86d9486bb060618ccce04bb0
+msgid "Тип"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: c8907aec833c4756a5657be3fec51f79
+msgid "Значение по умолчанию"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 8d32e16eb5bd4a6a8e2275ec7cbc2ed7
+msgid "Описание"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: e8f63c7b9ae5494fa0212426eb82dc02
+msgid "hide_metadata"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: c6f7fae9ad384022a2eaf8eb4781b6a1
+msgid "bool"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 1421aba952b14f2480c194de92d57ad7
+msgid "``false``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 958130c36bb64b8393b4e96d12499581
+msgid "Включение отображения метаданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: b5b600b24cd84289b94eb803dcd28f13
+msgid "hide_libs_vers"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 2afa05b6369f448f88c02201da6809b1
+msgid "Включение отображения версий установленных  библиотек  в командной строке"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 0e928ca33eca45899d300e335a7ec9c2
+msgid "path_to_dataset"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 1b605dc5074d4f67ab01a4615a86e025
+msgid "str"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: d649a6f58fff4fb9906509732fa42eb5
+msgid "``<путь_к_набору_данных>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: bc7205a1e37547dfaf074e7b4d21b928
+msgid ""
+"Директория, где размещается подготовленный набор данных для обучения "
+"нейросетевых моделей"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:70
+#: c79973ca6a8d45d9a8351d618db04c59
+msgid "Параметры процесса обучения акустических нейросетевых моделей"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: b25809a66e8c42398c1ccd2f07f99acc
+msgid "len_audio"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 8121b53e6662490fa6c685e48321714a
+msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: a8a1334e1a2a47588188d03aabf1c054
+msgid "``ваше значение``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 8ea24350fc3d4769a427d5cf9ca41603
+msgid "Количество аудиофайлов"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: c82fb63441504266a197e84b71a91b5a
+msgid "size_spec"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 150f417d0a464c6ea2fe5343d293eed7
+msgid "``width: 224`` |br| ``height: 224``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 071019ca13174d2d86a666070deb3f56
+msgid "Размер входного изображения спектрограммы в ``px``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 2156e17818a94f74b2f1e1b332410d08
+msgid "padding_spec"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: d250bd3a7d7446a081a31bb2c3c20635
+msgid "``True``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 103fa6f8abe144b8bb46203d7d2be989
+msgid "Добавление отступов на изображениях спектрограмм"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 1459b935a6c842809a618907614718b7
+msgid "seed"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: c75f90adbdba4fcc83ed61d9c1d9afd8
+msgid "``42``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: b62875acf84c45bd92f85eb827737518
+msgid ""
+"Параметр для инициализации случайных процессов, который обеспечивает "
+"воспроизводимость результатов и одинаковые начальные условия"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 5e66cab03f4540d3aad1760a9acff980
+msgid "batch_size"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: d6c4b65ed68349e497e0c6240590ace7
+msgid "``8``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: db245153cc0d4d5a9012693b777ffd5f
+msgid ""
+"Размер батча. Общее число тренировочных объектов, представленных в одном "
+"батче. Устанавливается в зависимости от возможности вашего оборудования"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 186cee7956fb4c1eb7bded3c048aea9f
+msgid "channels_spec"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: ccc9551a72fc4c5b8ccd840755511d55
+msgid "``1``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 3399b151eee44d39b197acd4de5e6ca3
+msgid ""
+"Количество каналов изображения. ``1``- одноканальное изображение (в серых"
+" тонах), ``3`` - трёхканальное изображение (RGB)"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 6515799857524a90849a9f49cb8cb6e5
+msgid "lr"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 648c858adbfd4566b155cc3be4a03a04
+msgid "float"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 01da44989b1448e19d5f252432fc3fd0
+msgid "``0.0001``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 9517ca6846f044d2b94a93e6db7aabfb
+msgid ""
+"Коэффициент скорости обучения. Чем меньше значение, тем дольше будет идти"
+" обучение модели. Однако, стоит помнить, что может наступить переобучение"
+" модели. Данный коэффициент подбирается эмпирическим путем"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: f425c6c09e4d4563a56466272099cd84
+msgid "epoch"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: c5050942bd3a401bb0a9e338f8cb869f
+msgid "``100``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 57d1e8e074284c25976889889a57e99d
+msgid ""
+"Количество эпох обучения модели. Проход одной эпохи значит, что весь "
+"датасет прошел через нейронную сеть в прямом и обратном направлении "
+"только один раз. Параметр ``epoch_stop`` позволяет избежать переобучения "
+"модели"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 03650fb3b821441886f345e4340453f3
+msgid "epoch_stop"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: 0fb70ae3e51945a6b3e458a5a01e51ad
+msgid "``5``"
+msgstr ""
+
+#: ../../source/user_guide/modules/train/audio.rst:1
+#: a585ecff67ff4416ad840694a884cc0b
+msgid ""
+"Количество эпох, в течении которых модель не прогрессирует в обучении. "
+"Т.е. если по прошествии, например, ``5`` эпох модель не показывала "
+"прирост ``accuracy`` (либо ваша метрика), то в данном случае процесс "
+"обучения останавливается и сохраняется модель на эпохе с наибольшей "
+"точностью. Данный параметр позволяет предотвратить переобучение модели, а"
+" также снизить длительность обучения"
+msgstr ""
+
+#~ msgid ""
+#~ "Команда для запуска детектирования речевой "
+#~ "активности в аудиовизуальном сигнале:"
+#~ msgstr ""
+
+#~ msgid "Число seed"
+#~ msgstr ""
+
+#~ msgid "Включение паддингов"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Количество эпох, в течении которых "
+#~ "модель не прогрессирует в обучении. Т.е."
+#~ " если по прошествии, например, ``5`` "
+#~ "эпох модель не показывала прирост "
+#~ "``accuracy`` (либо ваша метрика), то в"
+#~ " данном случае процесс обучения "
+#~ "останавливается и сохраняется модель на "
+#~ "эпохе с наибольшей точностью. Данный "
+#~ "параметр позволяет предотварить переобучение "
+#~ "модели, а также снизить длительность "
+#~ "обучения"
+#~ msgstr ""
+

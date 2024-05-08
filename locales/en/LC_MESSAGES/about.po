@@ -1,0 +1,181 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-22 14:41+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/about.rst:1 87116a12d8c04ae48653c418b0fcea07
+#: b37dc23b27de47a4b8cc1cd0fbf75e8b
+msgid "<div class=\"cards\">"
+msgstr ""
+
+#: ../../source/about.rst:5 4f00d80bb3b442a18f2f1df35e0754cc
+#: 7583c882818a4ea79bbd613c44b1bf47 963b24649a4d4673bb76d0bb160b43b9
+msgid "<div class=\"card-item\">"
+msgstr ""
+
+#: ../../source/about.rst:9 00632b3404e84069a58a98d848b8f3e0
+#: 90f1b29230d64aa993dbbd7303256eb8 c0f79db1160b4b729fb3fd8bc0307724
+msgid "<div class=\"item-about\">"
+msgstr ""
+
+#: ../../source/about.rst:13 bfc94a3da8354e9aad153466eb006eb7
+#: ca64691a35a64cabbf0c4dd08fa8d093 e7494628fc564764953203548f18bf83
+msgid "<div class=\"item-header\">"
+msgstr ""
+
+#: ../../source/about.rst:17 2275ccb2048c4dc6b48daaefc55e0067
+#: 70f7ceddd9b64089858a3b377ebdf553 da67f11b1bd74b29849ba629a67b4e91
+msgid "<div class=\"item-desc\">"
+msgstr ""
+
+#: ../../source/about.rst:21 87116a12d8c04ae48653c418b0fcea07
+msgid "<div class=\"photo\">"
+msgstr ""
+
+#: ../../source/about.rst:25 90f1b29230d64aa993dbbd7303256eb8
+msgid "<div class=\"no-photo\">"
+msgstr ""
+
+#: ../../source/about.rst:29 09db87be1af74194aaa90ef309b61db1
+#: 11aebeb6b8434e7eafdc044c824b4969 4ff491c97b084fd3be96e87f6d695ab1
+#: 58d3fcac68c34cc7a0691a2846960d85 65df508e9fa44c68998b71f299aac51c
+#: 6c19edbfa3f0437d893e4e5644aab64c 7a0adf0097724b0ca24e9ce8f405d63a
+#: 94ccd4c99642441c91d76797de6e1254 9a1575b9f8e14dfabd973e5624dd0ed5
+#: b276c11bfe3f410b9ff618a6abea5ecc ead7153a1aae42b8bb9dec9030c93b19
+#: ef77e3f4af03423c9bd331548710a79c fd60a6b71ef64356903476105fb2033c
+msgid "</div>"
+msgstr ""
+
+#: ../../source/about.rst:33 272e31309bd94695a0dbb09df33316ca
+msgid "Иванько_Денис"
+msgstr ""
+
+#: ../../source/about.rst:34 1fd6307679474116bbcc0a5cfcf8c2b5
+msgid "Карпов_Алексей"
+msgstr ""
+
+#: ../../source/about.rst:35 7b867219cf42414c8388339e0e7f9a1f
+msgid "Маркитантов_Максим"
+msgstr ""
+
+#: ../../source/about.rst:36 c932443388d4495290b2e52c12fd369d
+msgid "Рюмин_Дмитрий"
+msgstr ""
+
+#: ../../source/about.rst:37 04c6d68852b446a697333fffff6df16e
+msgid "Шилов_Николай"
+msgstr ""
+
+#: ../../source/about.rst:38 04c6d68852b446a697333fffff6df16e
+msgid "no_photo"
+msgstr ""
+
+#: ../../source/about.rst:41 9d8da22b5ccc4ba1a8701e42b1d16e28
+msgid "Команда разработчиков"
+msgstr ""
+
+#: ../../source/about.rst:43 d340ca5534114548ba46532714515bda
+msgid ""
+"Библиотека OpenAV разработана и поддерживается исследовательской группой "
+"из лаборатории речевых и многомодальных интерфейсов (ЛРМИ) "
+"Санкт-Петербургского Федерального исследовательского центра Российской "
+"академии наук (СПб ФИЦ РАН):"
+msgstr ""
+
+#: ../../source/about.rst:45 ed37b0c8d65d434ca80b7f0289c9408d
+msgid ""
+"|div_cards| |div_card_item| |div_photo| |Иванько_Денис| |/div| "
+"|div_item_about| |div_item_header| Иванько Денис |/div| |div_item_desc| "
+"Руководитель проекта. Старший научный сотрудник Федерального "
+"государственного бюджетного учреждения науки «Санкт-Петербургский "
+"Федеральный исследовательский центр Российской академии наук» (СПб ФИЦ "
+"РАН) |/div| |/div| |/div| |div_card_item| |div_photo| |Рюмин_Дмитрий| "
+"|/div| |div_item_about| |div_item_header| Рюмин Дмитрий |/div| "
+"|div_item_desc| Главный разработчик программного обеспечения. Старший "
+"научный сотрудник Федерального государственного бюджетного учреждения "
+"науки «Санкт-Петербургский Федеральный исследовательский центр Российской"
+" академии наук» (СПб ФИЦ РАН) |/div| |/div| |/div| |div_card_item| "
+"|div_photo| |Маркитантов_Максим| |/div| |div_item_about| "
+"|div_item_header| Маркитантов Максим |/div| |div_item_desc| Программист, "
+"разработчик программного обеспечения. Младший научный сотрудник "
+"Федерального государственного бюджетного учреждения науки "
+"«Санкт-Петербургский Федеральный исследовательский центр Российской "
+"академии наук» (СПб ФИЦ РАН) |/div| |/div| |/div| |div_card_item| "
+"|div_no_photo| |no_photo| |/div| |div_item_about| |div_item_header| Шилов"
+" Николай |/div| |div_item_desc| Разработчик алгоритмов и методов "
+"обработки видеоданных. Старший научный сотрудник Федерального "
+"государственного бюджетного учреждения науки «Санкт-Петербургский "
+"Федеральный исследовательский центр Российской академии наук» (СПб ФИЦ "
+"РАН) |/div| |/div| |/div| |div_card_item| |div_photo| |Карпов_Алексей| "
+"|/div| |div_item_about| |div_item_header| Карпов Алексей |/div| "
+"|div_item_desc| Разработчик алгоритмов и методов обработки акустических "
+"данных, а также методов объединения аудиовизуальных данных. Главный "
+"научный сотрудник Федерального государственного бюджетного учреждения "
+"науки «Санкт-Петербургский Федеральный исследовательский центр Российской"
+" академии наук» (СПб ФИЦ РАН) |/div| |/div| |/div| |/div|"
+msgstr ""
+
+#~ msgid "Описание ..."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|div_cards| |div_card_item| |Иванько_Денис| "
+#~ "|div_item_about| |div_item_header| Иванько Денис "
+#~ "|/div| |div_item_desc| Руководитель проекта. "
+#~ "Старший научный сотрудник Федерального "
+#~ "государственного бюджетного учреждения науки "
+#~ "«Санкт-Петербургский Федеральный исследовательский "
+#~ "центр Российской академии наук» (СПб ФИЦ"
+#~ " РАН) |/div| |/div| |/div| |div_card_item|"
+#~ " |Рюмин_Дмитрий| |div_item_about| |div_item_header| "
+#~ "Рюмин Дмитрий |/div| |div_item_desc| Главный"
+#~ " разработчик программного обеспечения. Старший"
+#~ " научный сотрудник Федерального государственного"
+#~ " бюджетного учреждения науки «Санкт-Петербургский"
+#~ " Федеральный исследовательский центр Российской"
+#~ " академии наук» (СПб ФИЦ РАН) |/div|"
+#~ " |/div| |/div| |div_card_item| "
+#~ "|Маркитантов_Максим| |div_item_about| |div_item_header|"
+#~ " Маркитантов Максим |/div| |div_item_desc| "
+#~ "Программист, разработчик программного обеспечения."
+#~ " Младший научный сотрудник Федерального "
+#~ "государственного бюджетного учреждения науки "
+#~ "«Санкт-Петербургский Федеральный исследовательский "
+#~ "центр Российской академии наук» (СПб ФИЦ"
+#~ " РАН) |/div| |/div| |/div| |div_card_item|"
+#~ " |Шилов_Николай| |div_item_about| |div_item_header| "
+#~ "Шилов Николай |/div| |div_item_desc| "
+#~ "Разработчик алгоритмов и методов обработки "
+#~ "видеоданных. Старший научный сотрудник "
+#~ "Федерального государственного бюджетного учреждения"
+#~ " науки «Санкт-Петербургский Федеральный "
+#~ "исследовательский центр Российской академии "
+#~ "наук» (СПб ФИЦ РАН) |/div| |/div| "
+#~ "|/div| |div_card_item| |Карпов_Алексей| "
+#~ "|div_item_about| |div_item_header| Карпов Алексей"
+#~ " |/div| |div_item_desc| Разработчик алгоритмов"
+#~ " и методов обработки акустических данных,"
+#~ " а также методов объединения "
+#~ "аудиовизуальных данных. Главный научный "
+#~ "сотрудник Федерального государственного бюджетного"
+#~ " учреждения науки «Санкт-Петербургский "
+#~ "Федеральный исследовательский центр Российской "
+#~ "академии наук» (СПб ФИЦ РАН) |/div| "
+#~ "|/div| |/div| |/div|"
+#~ msgstr ""
+

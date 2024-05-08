@@ -1,0 +1,23 @@
+---
+hide_metadata: false
+hide_libs_vers: false
+path_to_dataset: "C:/Prgrm/_datasets"
+depth: 1
+ext_search_files:
+- mov
+- mp4
+- webm
+- wav
+path_to_dataset_audio: "./dataset_audio"
+sample_rate: 16000
+n_fft: 2048
+hop_length: 512
+n_mels: 128
+power: 2.0
+pad_mode: 'reflect'
+norm: 'slaney'
+center: true
+dpi: 600
+color_gradients: 'magma'
+clear_dir_audio: true
+save_raw_data: true

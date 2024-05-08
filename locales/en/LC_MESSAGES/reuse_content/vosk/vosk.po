@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-19 14:31+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/vosk/vosk.rst:1 1a7ade7ff0ff4f3688c1639847f82664
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vosk_sr.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/reuse_content/vosk/vosk.rst:5 2c0e75cd88f547698ec908a7f90da99f
+msgid "<a href=\"https://alphacephei.com/vosk/models\" target=\"_blank\">"
+msgstr ""
+
+#~ msgid "</br>"
+#~ msgstr ""
+
+#~ msgid "<b>"
+#~ msgstr ""
+
+#~ msgid "</b>"
+#~ msgstr ""
+
+#~ msgid "</a>"
+#~ msgstr ""
+

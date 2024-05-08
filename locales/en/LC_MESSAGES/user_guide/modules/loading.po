@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-19 14:31+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/general.rst:1 1a06d92061c64422bc278ee5f220e109
+#: 8c6eec8eb567439a9b604b23e6d4bace
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 f69e6c3bc550466bb97a7a2a2ca35feb
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 24c5c7eb260d43308d4ff18b9222b6dc
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:13 93004a4ff80140349f8becbde65db24d
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:4
+#: d7b4ba293b3849fb8af3bbbd7b592bb0
+msgid "Модуль загрузки данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:6
+#: f7f9469b32b54bb2876fbbf2d33e2598
+msgid ""
+"Данный модуль позволяет выполнять поиск, проверку и загрузку данных. "
+"Модуль предусматривает вложенность директорий."
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:9
+#: 2bb831265a49450b92c34ead58261acd
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:11
+#: ac16a4d5c81548548cc20c2da11b922a
+msgid "Конфигурационный файл включает в себя следующие настройки:"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:13
+#: 4ad3c560bfa54713837b216bde6483f9
+msgid "Отображение процесса выполнения программы в терминале (командной строке)"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:14
+#: ../../source/user_guide/modules/loading.rst:30
+#: 0ba667b8e7154b298f45dcf921a31db9
+msgid "Работа с файловой системой"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:17
+#: ed3704310f734e778193897706abfc75
+msgid "Отображение процесса выполнения команды в терминале"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 6b2ffd83f4554f0dbac1f6411d0bc60e
+msgid "Параметр"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: c98d7349a79b460585c59aa81827026c
+msgid "Тип"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 06cbf552c1d84262860c30033da81892
+msgid "Значение по умолчанию"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 30062cf1e9a24a488d03b59d2449cbd2
+msgid "Описание"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 60f5779d7b3544fcaf5bc3db9f555456
+msgid "hide_metadata"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 53d507e04b7d426f8c14c4d27d8520ba
+msgid "bool"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: d18fbfe0f2a14d689b30b375e5974b03
+msgid "``false``"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 3ac9afe374fe47aba79a590f180e7915
+msgid "Включение отображения метаданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 3aebbb85541144699015c7499aa5e792
+msgid "hide_libs_vers"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 3a4cbdf8419343bfa4edecc47548cf94
+msgid "Включение отображения версий установленных  библиотек  в командной строке"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: c8402e0c96944858a51bf40924c4d454
+msgid "path_to_dataset"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 073b9ee681f242ee9b50b21e2cb9c4d9
+msgid "str"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 778eae8987e54e49ad6def4c426e0565
+msgid "``<путь_к_исходным_данным>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 96bcbb4418464b11af84c6b7af205582
+msgid ""
+"Директория, где находятся данные, которые необходимо загрузить или "
+"проверить"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: faa91f0dc560407ba359d88af337d8e2
+msgid "depth"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 86449fbdaeb5478fb3f0ac639d235d2f
+msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: e402a5f7c080490fba5149aea158c77b
+msgid "``1``"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 81e5233fbe804194b6db1cb26513ef0e
+msgid ""
+"Глубина иерархии для получения данных. Указывается количество "
+"подкаталогов  в директории ``path_to_dataset``"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 8e09e11dfd7f4cd1a320a75b23376336
+msgid "ext_search_files"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 41949de422bf4ffb805a8310dfdaa1e6
+msgid "list"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: 6d242c734ecb4c1789da79a9e77729e8
+msgid "``[\"mov\", \"mp4\",`` |br| ``\"webm\", \"wav\"]``"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:1
+#: d8e2cba0e32c42c4841f9e9f4085ab7e
+msgid ""
+"Список  расширений файлов, которые будут обрабатываться. Указывать  можно"
+" как для видео, так и для аудио"
+msgstr ""
+

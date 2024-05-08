@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-11 15:44+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/modules/file_manager/yaml_manager.rst:2
+#: b47b5e49460642d4bf5feac889da7554
+msgid "Работа с YAML"
+msgstr ""
+
+#: 1ece0eae138b4998bb073e86490aa58e of
+#: openav.modules.file_manager.yaml_manager.YamlMessages:1
+msgid "Базовые классы: :py:class:`~openav.modules.file_manager.json_manager.Json`"
+msgstr ""
+
+#: 59bc7b50f8dc46f4865c8de8701f4bb4 of
+#: openav.modules.file_manager.yaml_manager.YamlMessages:1
+msgid "Класс для сообщений"
+msgstr ""
+
+#: 8406ac536b0a4ec5b1c1f37473ff645c 92974133b6834ef0944a636e08cf5259
+#: c24d96da32584138a8844af5cb4554a5 e51c83e7bcc345efaba602e8cc17a0a2 of
+#: openav.modules.file_manager.yaml_manager.Yaml
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources
+#: openav.modules.file_manager.yaml_manager.YamlMessages
+msgid "Параметры"
+msgstr ""
+
+#: 76b0c03d260b412db77eda43f5663b43 94a563a10d284d4b9baeb0f3a9517b3b of
+#: openav.modules.file_manager.yaml_manager.Yaml:3
+#: openav.modules.file_manager.yaml_manager.YamlMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 416b24d21e174b8f9878a51800576df3 ae2385b47fef4e548175ed5316bdf2b9 of
+#: openav.modules.file_manager.yaml_manager.Yaml:5
+#: openav.modules.file_manager.yaml_manager.YamlMessages:5
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
+msgstr ""
+
+#: c22261b4dfc740b7a20914b43e67fbcf of
+#: openav.modules.file_manager.yaml_manager.Yaml:1
+msgid ""
+"Базовые классы: "
+":py:class:`~openav.modules.file_manager.yaml_manager.YamlMessages`"
+msgstr ""
+
+#: 11a432643ac94a71b9cfc99b62ee939e of
+#: openav.modules.file_manager.yaml_manager.Yaml:1
+msgid "Класс для работы с YAML"
+msgstr ""
+
+#: d6bb9d479f7f4eefb21f3e59da75466b of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml:1
+msgid "Загрузка YAML файла"
+msgstr ""
+
+#: bf8c69df8e124da68eb3b2c752c88d22 of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml:3
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources:5
+msgid "Путь к файлу YAML"
+msgstr ""
+
+#: c0d04b1fadc1461ba0678583d2e986a0 of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml:5
+msgid "Создание файла YAML в случае его отсутствия"
+msgstr ""
+
+#: 331d41ae612547528c45784643a015c8 68293dba4ac447b0a2e7470b14b57d66 of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml:7
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources:7
+msgid "Печатать процесс выполнения"
+msgstr ""
+
+#: d8974cc1a2784b75921aa07396e1ff6f fc4d47e7d4b54b4db10d1270c0f0cb28 of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources
+msgid "Результат"
+msgstr ""
+
+#: 34482445362f48409e06b24ea6b326f4 6c342e59416540358e80aab6f96adffc of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml:10
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources:10
+msgid "Словарь из yaml файла"
+msgstr ""
+
+#: 3f0587afd863434cb91292305f31a89f 442634ad698a4cde80f61556aed68fdd of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources
+msgid "Тип результата"
+msgstr ""
+
+#: 20db4d29d5964c4cbf095d958f412369 of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources:1
+msgid "Загрузка YAML файла из ресурсов модуля"
+msgstr ""
+
+#: 8d7e568e791344268d14d412f938f545 of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources:3
+msgid "Модуль"
+msgstr ""
+
+#~ msgid "Загрузка JSON файла"
+#~ msgstr ""
+
+#~ msgid "Создание файла JSON в случае его отсутствия"
+#~ msgstr ""
+
+#~ msgid "Загрузка JSON файла из ресурсов модуля"
+#~ msgstr ""
+
+#~ msgid "Путь к файлу JSON"
+#~ msgstr ""
+
+#~ msgid "Словарь из json файла"
+#~ msgstr ""
+

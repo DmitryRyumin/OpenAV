@@ -1,0 +1,325 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-19 14:31+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/general.rst:1 bc593297b2cf4639a4d2e3013f240712
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 8acc199a576a43cb9a182a2b5bba13cf
+#: 947ff31fa9394821955d5c94bf906f87
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 b78d2114732f4888a4f3dadfaa608134
+#: bc593297b2cf4639a4d2e3013f240712
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:13 bc593297b2cf4639a4d2e3013f240712
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:4
+#: f10ea9a5abfb4e7d9c0165887fd975ef
+msgid "Модуль записи речевых аудиовизуальных данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:6
+#: 51d7d0f2af7a4698b04e885d58a4bd9e
+msgid ""
+"Модуль предназначен для записи аудиовизуальных данных с их последующей "
+"сортировкой по заданному словарю."
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:8
+#: ba2b3d917ef24741b1379d4842de6cc9
+msgid "Команда для запуска модуля записи данных:"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:10
+#: 4330cf2795ef4930b60db6f69f299f42
+msgid ""
+"python ./openav/api/recorder_app.py --config "
+"<путь_к_вашему_конфигурационному_файлу>.yaml"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:14
+#: 5e667dd4eaa9469fb7913367e8069da5
+msgid ""
+"После выполнения команды запускается локальный сервер, на котором "
+"развертывается приложение для записи данных. Для того чтобы начать "
+"использование графического интерфейса модуля перейдите по адресу в "
+"браузере ``http://127.0.0.1:5000``"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:17
+#: 140ea998878b423d91ae52f6e061f62b
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:19
+#: ecf791bb8ea246d8bf9b0a5754f0ccda
+msgid ""
+"В конфигурационном файле определены следующие функции, с помощью которых "
+"выполняется поиск доступных устройств и определение их технических "
+"характеристик для записи аудиовизуальных данных."
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:21
+#: c10c8d748d374d42b7ee9fe4e932400f
+msgid ""
+"Функция ``find_my_devices (camera = True, micro = True)`` определяет и "
+"возвращает название устройств, которые подключены в системе. Передаваемые"
+" параметры ``camera`` и ``micro`` по умолчанию имеют значение ``True``. "
+"Если вам не требуется использование камеры или микрофона, то необходимо "
+"передать значение ``False``."
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:23
+#: 94059c007d1b4ad2a745c73ef4032dfb
+msgid ""
+"|b| Пример использования данной функции. |/b| Переменным ``video`` и "
+"``audio`` присваиваются значения, являющиеся результатом выполнения "
+"функции."
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:26
+#: b5c6d201c8c84d5580d4fbc9144f1b42
+msgid "video, audio = find_my_devices(True, True)"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:30
+#: a807dcc409a14d9f9ee617968751866a
+msgid ""
+"Значения, возвращаемые из функции ``find_my_devices()`` необходимы для "
+"определения параметров изображения и звука, которые поддерживает "
+"найденное в системе устройство."
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:32
+#: 8f08cbf85b7e4a0d9f8c0c9605be7278
+msgid ""
+"Функция ``get_available_parameters (device)`` принимает название "
+"устройства ``<str> device``  и возвращает список параметров, которые "
+"поддерживает указанное устройство. В случае, если передается название "
+"вебкамеры, то возвращаемый список будет содержать все доступные параметры"
+" разрешения изображения и максимальное количество кадров, соответствующее"
+" этому разрешению."
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:34
+#: 525ae47d68474cab84799eeeecec30d2
+msgid ""
+"|b| Пример использования данной функции. |/b|  Переменной "
+"``available_camera_params`` присваивается список доступных параметров."
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:36
+#: 96a8d2cb749643a08493651edc7f16a3
+msgid "available_camera_params = get_available_parameters (video)"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:40
+#: bc22d88ab3b54c5580aefa039d502d92
+msgid ""
+"Функция ``get_camera_params (dict, prefer = 'max')`` возвращает выбранные"
+" параметры из полного списка доступных параметров вебкамеры. Обязательным"
+" принимаемым на вход аргументом является список ``dict``, который был "
+"получен с помощью предыдущей функции. Аргумент ``prefer = 'max'`` по "
+"умолчанию установлен на получение максимально допустимых параметров "
+"устройства. Данное значение передается в формате ``640x480``, либо "
+"``max`` или ``min``. Результатом выполнение функции является возврат "
+"значений ``available_size, fps``."
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:42
+#: 94059c007d1b4ad2a745c73ef4032dfb
+msgid ""
+"|b| Пример использования данной функции. |/b| Переменным "
+"``available_res`` и ``available_fps`` присваиваются значения, полученные "
+"в ходе выполнения функции ``get_camera_params``."
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:44
+#: 27369a3936be4f11804168f929f7b85e
+msgid ""
+"available_res, available_fps = get_camera_params(available_params, "
+"'640x480')"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:48
+#: 65b06441635741bc86440ca888264e83
+msgid ""
+"В конфигурационном файле также необходимо указать словарь, в соответствии"
+" с которым будет выполняться запись данных. Словарь имеет вид ``key-"
+"phrase``, где ``key`` выступает в качестве порядкового номера фразы в "
+"словаре."
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:50
+#: 495cbe32c97c49c89583ac9a73f0fc0b
+msgid "|b| Пример словаря |/b|"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:52
+#: 7701d17abd274a33a013b69ff63f3f3a
+msgid ""
+"dict = [\n"
+"     {'key': 0, 'phrase': 'Левая'},\n"
+"     {'key': 1, 'phrase': 'Правая'},\n"
+"     {'key': 2, 'phrase': 'Нажать левую'},\n"
+"     {'key': 3, 'phrase': 'Отпустить левую'},\n"
+"     {'key': 4, 'phrase': 'Нажать правую'},\n"
+"     {....................................},\n"
+"     {'key': 26, 'phrase': 'Завершить'}\n"
+"]"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:65
+#: 35fabbf82c2648eea3799a7980f91851
+msgid "Графический интерфейс модуля записи"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:67
+#: c6d00bbeac074d70bd4a18b12a6a885d
+msgid "Интерфейс модуля для состоит из двух частей:"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:69
+#: ea46f1f777fb4e41a73bd4bc008dbed2
+msgid ""
+"В левой части представлено изображение, получаемое с подключенной камеры "
+"и кнопка начать запись (Rec)"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:70
+#: 889e81140f674c4cb08e82e6a6f0e662
+msgid ""
+"В правой части располагается блок управление словарем. В этом блоке "
+"отображаются следующие элементы:"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:72
+#: 144d8d2dad934d99a339420ebe87442b
+msgid "Цифра в круге означает порядковый номер фразы в словаре"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:73
+#: 8c0bb4fd180e4298a5952a07697ed2ef
+msgid "Фраза из словаря"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:74
+#: a10f3942eeef471287dfa7d7335402b8
+msgid ""
+"Кнопки переключения элементов словаря |b| prev |/b| и |b| next |/b|, "
+"после нажатия на которые отображают предыдущую или следующую фразу "
+"соответственно"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:80
+#: ../../source/user_guide/modules/recorder.rst:89
+#: 5de7d42f4732403ebcc5d83cd4d28480 8f99fd61bed243c883624c0524d3ec29
+#: e0fa0f6fb3ae48c2b092ca7cd6d77103
+msgid "Интерфейс модуля для записи данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:82
+#: 2aa64066c3234f3b834bb41ed794f4bc
+msgid ""
+"Нажатие на кнопку записи (Rec) начинает процесс записи данных После "
+"нажатия на кнопку, она изменяет свой цвет, что означает об успешном "
+"запуске записи:"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:89
+#: 5430024daff8488d84c0bd1558d4f389
+msgid "Активное состояние кнопки записи"
+msgstr ""
+
+#: ../../source/user_guide/modules/recorder.rst:91
+#: 0474248bbea9432ba36a0261c9bddf8a
+msgid ""
+"Повторное нажатие на кнопку записи завершает процесс. Записанный файл "
+"сохраняется по пути, указанному в конфигурационном файле. Изменить "
+"словарь словарь также можно в конфигурационном файле."
+msgstr ""
+
+#~ msgid "Альтернативный текст"
+#~ msgstr ""
+
+#~ msgid "Активная кнопка записи"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Функция ``find_my_devices (camera = True, "
+#~ "micro = True)`` определяет и возвращает"
+#~ " название устройств, которые подключены в"
+#~ " системе. Передаваемые параметры ``camera`` "
+#~ "и ``micro`` по умолчанию имеют значение"
+#~ " ``True``. Если вам не требуется "
+#~ "использование камеры или микрофона, то "
+#~ "необходимо передать значение ``False``. |b|"
+#~ " Пример использования данной функции. |/b|"
+#~ " Переменным ``video`` и ``audio`` "
+#~ "присваиваются значения, являющиеся результатом "
+#~ "выполнения функции."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "dict = [\n"
+#~ "     {'key': 0, 'phrase': 'Левая'},\n"
+#~ "     {'key': 1, 'phrase': 'Правая'},\n"
+#~ "     {'key': 2, 'phrase': 'Нажать левую'},\n"
+#~ "     {'key': 3, 'phrase': 'Отпустить левую'},\n"
+#~ "     {'key': 4, 'phrase': 'Нажать правую'},\n"
+#~ "]"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Модуль предназначен для записи аудиовизуальных"
+#~ " данных с последующей сортировкой по "
+#~ "заданному словарю."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "После выполнения команды запускается локальный"
+#~ " сервер, на котором развертывается "
+#~ "приложение для записи данных. Для того"
+#~ " чтобы открыть использовать графический "
+#~ "интерфейс модуля перейдите по адресу в"
+#~ " браузере ``http://127.0.0.1:5000``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "dict = [\n"
+#~ "     {'key': 0, 'phrase': 'Левая'},\n"
+#~ "     {'key': 1, 'phrase': 'Правая'},\n"
+#~ "     {'key': 2, 'phrase': 'Нажать левую'},\n"
+#~ "     {'key': 3, 'phrase': 'Отпустить левую'},\n"
+#~ "     {'key': 4, 'phrase': 'Нажать правую'},\n"
+#~ "     .....................................,\n"
+#~ "     {'key': 26, 'phrase': 'Завершить'}\n"
+#~ "]"
+#~ msgstr ""
+

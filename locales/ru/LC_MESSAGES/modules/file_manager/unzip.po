@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-10 13:33+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/modules/file_manager/unzip.rst:2
+#: 7cd637ff3b30441494c35e5a96cc1d67
+msgid "Обработка архивов"
+msgstr ""
+
+#: 3bcbb0ee33854a7c9cd70d0cc2c7d2c3 of
+#: openav.modules.file_manager.unzip.UnzipMessages:1
+msgid "Базовые классы: :py:class:`~openav.modules.core.core.Core`"
+msgstr ""
+
+#: a10c4ff2e2ff42bb93c7b4bd71c97f8c of
+#: openav.modules.file_manager.unzip.UnzipMessages:1
+msgid "Класс для сообщений"
+msgstr ""
+
+#: 4fdff55a6f75404dbf55a91bffb8cf26 5786e534ed3b4d29893b066dca55da47
+#: 94bfb2bbfa8b44bca242026ccb48008d of openav.modules.file_manager.unzip.Unzip
+#: openav.modules.file_manager.unzip.Unzip.unzip
+#: openav.modules.file_manager.unzip.UnzipMessages
+msgid "Параметры"
+msgstr ""
+
+#: 8a2b25992a5f4a23a8b68c689c8b9f18 feb393323ad5493497e2932893435157 of
+#: openav.modules.file_manager.unzip.Unzip:3
+#: openav.modules.file_manager.unzip.UnzipMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 4fce3c252a0445029101504b90564771 b5c95a1337244ceb95d754c9385ac20c of
+#: openav.modules.file_manager.unzip.Unzip:5
+#: openav.modules.file_manager.unzip.UnzipMessages:5
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
+msgstr ""
+
+#: c4af0a9c3c634e19bf77814606481e08 of
+#: openav.modules.file_manager.unzip.Unzip:1
+msgid ""
+"Базовые классы: "
+":py:class:`~openav.modules.file_manager.unzip.UnzipMessages`"
+msgstr ""
+
+#: 4c0c98d2aba048d0bd3f962f4e0b35e2 of
+#: openav.modules.file_manager.unzip.Unzip:1
+msgid "Класс для обработки архивов"
+msgstr ""
+
+#: 6a6befac25984c2d83879e61dfbab19e of
+#: openav.modules.file_manager.unzip.Unzip.path_to_unzip:1
+msgid "Получение директории для разархивирования"
+msgstr ""
+
+#: c2b0c99b0ebd450c81d5e3c9ab456f20 fb4a95ccd1ad49a299264b9483435049 of
+#: openav.modules.file_manager.unzip.Unzip.path_to_unzip
+#: openav.modules.file_manager.unzip.Unzip.unzip
+msgid "Результат"
+msgstr ""
+
+#: 70961ad277974e0a8a0d50e1ab2c6395 of
+#: openav.modules.file_manager.unzip.Unzip.path_to_unzip:3
+msgid "Директория для разархивирования"
+msgstr ""
+
+#: 6b0fd98541bf4050b22b18d8b00ca93e c72104a366e84d3cba92b4b40331cb9a of
+#: openav.modules.file_manager.unzip.Unzip.path_to_unzip
+#: openav.modules.file_manager.unzip.Unzip.unzip
+msgid "Тип результата"
+msgstr ""
+
+#: c936e159c24f45359e7016c2728b0c23 of
+#: openav.modules.file_manager.unzip.Unzip.unzip:1
+msgid "Разархивирование архива"
+msgstr ""
+
+#: c5fa5b1cc50c4c6fba51e4a77a991cd4 of
+#: openav.modules.file_manager.unzip.Unzip.unzip:3
+msgid "Полный путь до архива"
+msgstr ""
+
+#: b4312d04ece34bbd8ae060fd9d3357f3 of
+#: openav.modules.file_manager.unzip.Unzip.unzip:5
+msgid "Имя директории для разархивирования"
+msgstr ""
+
+#: 51d0cc403d774902a1115a31dd6c4b76 of
+#: openav.modules.file_manager.unzip.Unzip.unzip:7
+msgid "Принудительное разархивирование"
+msgstr ""
+
+#: ebb4ea6c43144ac2a2478c2925974b68 of
+#: openav.modules.file_manager.unzip.Unzip.unzip:9
+msgid "Отображение"
+msgstr ""
+
+#: 803051420a284b11a32ae6a69c6ddf0f of
+#: openav.modules.file_manager.unzip.Unzip.unzip:12
+msgid "**True** если разархивирование прошло успешно, в обратном случае **False**"
+msgstr ""
+
+#~ msgid "Распаковка архивов"
+#~ msgstr ""
+
+#~ msgid "Аргументы:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "path_to_zipfile - Путь до архива "
+#~ "new_name - Имя директории для "
+#~ "разархивирования force_reload - Принудительное "
+#~ "разархивирование out - Отображение runtime "
+#~ "- Подсчет времени выполнения run - "
+#~ "Блокировка выполнения"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Возвращает: True если разархивирование прошло"
+#~ " успешно, в обратном случае False"
+#~ msgstr ""
+

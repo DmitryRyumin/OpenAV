@@ -31,4 +31,15 @@
 
 -----
 
-.. note:: Библиотека в разработке
+.. toctree::
+   :maxdepth: 1
+   :caption: Содержание:
+
+   user_guide/installation
+   user_guide/modules
+   api/index
+   api/class_diagram
+   dataset
+   about
+   faq
+   changelog

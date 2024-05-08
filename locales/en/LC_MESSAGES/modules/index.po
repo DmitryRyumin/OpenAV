@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-05 16:58+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/modules/index.rst:4
+msgid "Содержание:"
+msgstr ""
+
+#: ../../source/modules/index.rst:2 2f5de6c4e1ef4865a9e3f15abfe38770
+msgid "API"
+msgstr ""
+
+#: ../../source/modules/index.rst:27 34e57c90fcc9464fbe2576e855c56317
+msgid ":doc:`trml/shell`"
+msgstr ""
+
+#: ../../source/modules/index.rst:27 b5bcea16328c492fa314785754323de7
+msgid "Документация для файла ``modules/trml/shell.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:30 47ff308061d0474bb9230ed897f60013
+msgid ":doc:`core/exceptions`"
+msgstr ""
+
+#: ../../source/modules/index.rst:30 d71f763e00d54befa947f52dc198097c
+msgid "Документация для файла ``modules/core/exceptions.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:33 11651956142344ffb20f317946cd1df5
+msgid ":doc:`core/logging`"
+msgstr ""
+
+#: ../../source/modules/index.rst:33 6b4cd688292d4ea282a93549827e121a
+msgid "Документация для файла ``modules/core/logging.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:36 11651956142344ffb20f317946cd1df5
+msgid ":doc:`core/language`"
+msgstr ""
+
+#: ../../source/modules/index.rst:36 6b4cd688292d4ea282a93549827e121a
+msgid "Документация для файла ``modules/core/language.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:39 394fac9256c04cfeb92250b7d495edee
+msgid ":doc:`core/messages`"
+msgstr ""
+
+#: ../../source/modules/index.rst:39 7cb1dc2aa35f45dba9630965f6556043
+msgid "Документация для файла ``modules/core/messages.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:42 c877de00b1a547f98e2f73b76cb2d1a9
+msgid ":doc:`core/settings`"
+msgstr ""
+
+#: ../../source/modules/index.rst:42 fe0ed555cc9245e1b72bb3f5bf80648e
+msgid "Документация для файла ``modules/core/settings.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:45 a3bc6b54ca8241d1a8611924b44e05b0
+msgid ":doc:`core/core`"
+msgstr ""
+
+#: ../../source/modules/index.rst:45 b1228081ed5d4a5c83220899251e7710
+msgid "Документация для файла ``modules/core/core.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:48 73d8ce7d367a4dcfad3dd36a6bdab39e
+msgid ":doc:`file_manager/unzip`"
+msgstr ""
+
+#: ../../source/modules/index.rst:48 184edaef42224027ba93370b7036b21e
+msgid "Документация для файла ``modules/file_manager/unzip.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:51 b4a9245f14cd4a27ac35c87ffae9dcfc
+msgid ":doc:`file_manager/file_manager`"
+msgstr ""
+
+#: ../../source/modules/index.rst:51 067bcfce07f04d61843a9690732ea49a
+msgid "Документация для файла ``modules/file_manager/file_manager.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:54 1724d05da6914b1392c8ff3ac96692fc
+msgid ":doc:`file_manager/download`"
+msgstr ""
+
+#: ../../source/modules/index.rst:54 067bcfce07f04d61843a9690732ea49a
+msgid "Документация для файла ``modules/file_manager/download.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:57 ce0435f83e504ac9ac1c921e97201f56
+msgid ":doc:`file_manager/json_manager`"
+msgstr ""
+
+#: ../../source/modules/index.rst:57 067bcfce07f04d61843a9690732ea49a
+msgid "Документация для файла ``modules/file_manager/json_manager.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:60 ce0435f83e504ac9ac1c921e97201f56
+msgid ":doc:`file_manager/yaml_manager`"
+msgstr ""
+
+#: ../../source/modules/index.rst:60 067bcfce07f04d61843a9690732ea49a
+msgid "Документация для файла ``modules/file_manager/yaml_manager.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:63 708abf6b99aa41b3af9e3f04d233f563
+msgid ":doc:`lab/audio`"
+msgstr ""
+
+#: ../../source/modules/index.rst:63 184edaef42224027ba93370b7036b21e
+msgid "Документация для файла ``modules/lab/audio.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:66 8c7dc93253014d23a68504f5fcf4c9b1
+msgid ":doc:`lab/video`"
+msgstr ""
+
+#: ../../source/modules/index.rst:66 aa4a85f97f8b483c968b47dcfa78b961
+msgid "Документация для файла ``modules/lab/video.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:69 1b8cd49a75d24785a046f3143c354624
+msgid ":doc:`lab/audiovisual`"
+msgstr ""
+
+#: ../../source/modules/index.rst:69 067bcfce07f04d61843a9690732ea49a
+msgid "Документация для файла ``modules/lab/audiovisual.py``"
+msgstr ""
+
+#: ../../source/modules/index.rst:71 7da31b24777e4bf0baa956a7b32a6e42
+msgid ":doc:`lab/build`"
+msgstr ""
+
+#: ../../source/modules/index.rst:72 cebf93b513f34e19a68ebd3e9ff593ce
+msgid "Документация для файла ``modules/lab/build.py``"
+msgstr ""
+
+#~ msgid "Модули"
+#~ msgstr ""
+

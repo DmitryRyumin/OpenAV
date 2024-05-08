@@ -1,0 +1,190 @@
+.rst-content table.docutils td {
+    padding: 8px;
+    white-space: pre-line;
+}
+
+.rst-content table.docutils th {
+    padding: 8px;
+    white-space: pre-line;
+}
+
+.rst-content .important {
+    background: #ffedcc;
+}
+.rst-content .important .admonition-title {
+    background: #ff9a17;
+}
+
+.custom-table th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.shell-table tr td:nth-child(2) {
+    text-align: center;
+}
+
+.filesystem-table tr td:nth-child(2) {
+    text-align: center;
+}
+
+.vad-table tr td:nth-child(2) {
+    text-align: center;
+}
+
+.encode-table tr td:nth-child(2) {
+    text-align: center;
+}
+
+.shell-table tr td:nth-child(3) {
+    text-align: center;
+}
+
+.filesystem-table tr td:nth-child(3) {
+    text-align: center;
+}
+
+.vad-table tr td:nth-child(3) {
+    text-align: center;
+}
+
+.encode-table tr td:nth-child(3) {
+    text-align: center;
+}
+
+.config-link {
+    display: flex;
+    justify-content: center;
+}
+.config-link a {
+    display: inline-flex;
+    text-decoration: none;
+    border: 2px solid #BFE2FF;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 5px 25px;
+    color: #FFF;
+    font-weight: bold;
+    background: #2980b9;
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.config-link a:hover,
+.config-link a:active,
+.config-link a:focus {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 16px 20px rgba(0,0,0,0.2);
+    color: #FFF;
+}
+
+.config-link a:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, transparent, rgba(191, 226, 255, 0.3), transparent);
+    transition: left 0.7s;
+}
+
+.config-link a:hover:before,
+.config-link a:active:before,
+.config-link a:focus:before {
+    left: 100%;
+}
+
+/* Страница о разработчиках */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,  minmax(275px, 1fr));
+    /* gap: 50px 10px; */
+    grid-gap: 24px;
+    grid-auto-flow: dense;
+}
+
+.card-item {
+    display: inline-block;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.photo {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.no-photo {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.25;
+}
+
+.no-photo img{
+    width: 70%;
+    object-fit: cover
+}
+
+.item-about {
+    padding: 20px;
+}
+
+.item-header {
+    text-align: center;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: bold;
+}
+
+.item-desc {
+    margin-top: 15px;
+    line-height: 24px;
+}
+
+.audio-wave {
+    width: 100%;
+}
+
+.audio-capt {
+    text-align: center;
+    font-style: italic;
+}
+
+.tab-header {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 24px;
+}
+
+.first-header {
+    margin-top: 0;
+}
+
+.video-cap {
+    margin: 0;
+    font-style: italic;
+    text-align: center;
+}
+
+.dataset-table video {
+    width: 100%;
+}
+
+.dataset-table .video-cap {
+    font-weight: 400;
+    margin-top: 30px;
+
+}

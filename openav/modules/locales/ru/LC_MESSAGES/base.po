@@ -1,0 +1,127 @@
+# base Russian translation.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim Markitantov, Alexey Karpov
+# Dmitry Ryumin <dl_03.03.1991@@mail.ru>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: 2022-12-18 15:58+0300\n"
+"PO-Revision-Date: 2022-12-18 15:58+0300\n"
+"Last-Translator: Dmitry Ryumin <dl_03.03.1991@mail.ru>\n"
+"Language-Team: Russian <dl_03.03.1991@mail.ru>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+#: openav/api/vad.py:48
+msgid "Детектирование речевой активности в аудиовизуальном сигнале"
+msgstr ""
+
+#: openav/api/vad.py:51
+msgid "Проверка данных на валидность"
+msgstr ""
+
+#: openav/api/vad.py:88
+msgid "ФАЙЛ"
+msgstr ""
+
+#: openav/api/vad.py:89
+msgid "Путь к конфигурационному файлу"
+msgstr ""
+
+#: openav/api/vad.py:92
+msgid "Автоматическая проверка конфигурационного файла в момент работы программы (работает при заданном"
+msgstr ""
+
+#: openav/api/vad.py:95
+msgid "Не очищать консоль перед выполнением"
+msgstr ""
+
+#: openav/modules/core/messages.py:42
+msgid "OpenAV - библиотека распознавания речевых команд на пользовательском словаре с использованием аудиовизуальных данных диктора"
+msgstr ""
+
+#: openav/modules/core/messages.py:44
+msgid "Авторы"
+msgstr ""
+
+#: openav/modules/core/messages.py:44
+msgid "Версия"
+msgstr ""
+
+#: openav/modules/core/messages.py:44
+msgid "Лицензия"
+msgstr ""
+
+#: openav/modules/core/messages.py:44
+msgid "Сопровождающие"
+msgstr ""
+
+#: openav/modules/core/messages.py:51
+msgid "Неверные типы или значения аргументов в \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:40
+msgid "Необходимо указать название файла с расширением \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:41
+msgid "Вместо файла передана директория"
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:42
+msgid "Поиск \"{}\" файла"
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:44
+msgid "Расширение файла должно быть \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:45
+msgid "Файл \"{}\" не найден, но был создан"
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:46
+msgid "Файл \"{}\" не найден"
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:47
+msgid "Необходимо указать название директории"
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:48
+msgid "Поиск файлов с расширениями \"{}\" в директории \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:49
+msgid "В указанной директории необходимые файлы не найдены"
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:50
+msgid "Очистка директории \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/file_manager.py:51
+msgid "Директория \"{}\" не найдена"
+msgstr ""
+
+#: openav/modules/file_manager/json_manager.py:40
+msgid "Загрузка данных из файла \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/json_manager.py:41
+msgid "Данные не загружены"
+msgstr ""
+
+#: openav/modules/file_manager/json_manager.py:42
+msgid "Файл пуст"
+msgstr ""
+
+#: openav/modules/file_manager/json_manager.py:43
+msgid "Загрузка данных из ресурсов \"{}\""
+msgstr ""
+
+#: openav/modules/file_manager/json_manager.py:44
+msgid "Ресурс не найден"
+msgstr ""

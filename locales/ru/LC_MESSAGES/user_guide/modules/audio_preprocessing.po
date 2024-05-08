@@ -1,0 +1,710 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-23 12:02+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/general.rst:1 2e92f4a4eed24b489550e871e1cbb773
+#: 9a0329ae016d4e7e814fbc2437d53b00
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 4a7eadf9a92d47b485f990e4446cfd6c
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 044c1d7228ae43c598ffa13215a715e3
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:14 6e4b3a0dfda6452b8c1c923dac671907
+#: 8de4a335775a44b8936b2a2c5b9a0717
+msgid "</a>"
+msgstr ""
+
+#: ../../source/reuse_content/preprocessing/audio.rst:1
+#: 01510a5f7f184c4fb961bc50e17f2233
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/audio_preprocessing.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:5
+#: 9cef50f02d1b46ba898aea7d5ce4fabc
+msgid "Модуль предобработки речевых аудиоданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:7
+#: 38179b8bdde5411088b9944b886fedae
+msgid ""
+"Модуль выполняет предобработку речевых аудиоданных, в данном случае "
+"извлекается спектрограмма из исходной аудиодорожки. Команда для запуска "
+"предобработки речевых аудиоданных:"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:9
+#: 3f690689367244c2827b687120332760
+msgid ""
+"openav_preprocess_audio --config "
+"<путь_к_вашему_конфигурационному_файлу>.yaml"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:14
+#: 158deab48818452da7f66f1f697164c2
+msgid ""
+"Для запуска команды необходимо обязательно указать путь к "
+"конфигурационному файлу. Запускать программу необходимо из директории, "
+"где она расположена."
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:17
+#: 45969988a27741aabd76ccdb088f5d27
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:19
+#: a85479ff1b8a45c8b26107ff71e48215
+msgid "Конфигурационный файл включает в себя следующие настройки:"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:21
+#: 993ff7728d6742d299cf203aba84cb55
+msgid "Отображение процесса выполнения программы в терминале (командной строке)"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:22
+#: ../../source/user_guide/modules/audio_preprocessing.rst:45
+#: 693e0fa66db248cfaa6ff81f24fdcd7d
+msgid "Работа с файловой системой"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:23
+#: ../../source/user_guide/modules/audio_preprocessing.rst:62
+#: 9cef50f02d1b46ba898aea7d5ce4fabc
+msgid "Параметры предобработки речевых аудиоданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:27
+#: 8e5e2a5416da42b0a221ddec1bd46255
+msgid "|a_config| Пример конфигурационного файла |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:32
+#: 560a0fd317fa4771b29ae33a25dde47d
+msgid "Отображение процесса выполнения команды в терминале"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 3721248434f84b23a2708b121161d7f4
+msgid "Параметр"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: b8f886f3e60d4d9b800632e9ac0a34e6
+msgid "Тип"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 78855cff98844f14a1ca31e3f164485b
+msgid "Значение по умолчанию"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: fb6b6daf72d04de4b90e55c406038d9e
+msgid "Описание"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 0d462e60287c4217b85a5f97335c8312
+msgid "hide_metadata"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 37f6cf7d717c4690ab98b4a7c4b0dba3
+msgid "bool"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 4554c7b51492476899c01b64e62ec407
+msgid "``false``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: cd1e4b8f382c41eba76eff172bb864c5
+msgid "Включение отображения метаданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 2252488495eb469b8e3fa54f38588967
+msgid "hide_libs_vers"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 802a57411ef341d2b0d0ce4a0015eaed
+msgid "Включение отображения версий установленных  библиотек  в командной строке"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 8459f3e98aa4488798b42eb843791180
+msgid "path_to_dataset"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 5528eaa95bb7437eb2f788fd91f1545a
+msgid "str"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: db446aed6ea84724b17e1e2dab1cec1b
+msgid "``<путь_к_исходным_данным>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 70093afd05224092b8f397fcd6822529
+msgid ""
+"Директория, где находятся данные, которые необходимо загрузить или "
+"проверить"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 8a89344d7a9e45e3b76e267dd61e7745
+msgid "path_to_dataset_audio"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: db446aed6ea84724b17e1e2dab1cec1b
+msgid "``<путь_к_конечным_данным>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 5aeea8d08444489c9094ee7bd1720492
+msgid "Директория, в которую будут сохраняться аудиоданные после предобработки"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 8300dcc9ce94487886607fa806e81454
+msgid "depth"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: c571a4f213c34be6b84453b49e5ce4bf
+msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: a807ce5585064f3f9f05aab61df93f9d
+msgid "``1``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 6cb346aeafa842ef905e0501ddcd52c9
+msgid ""
+"Глубина иерархии для получения данных. Указывается количество "
+"подкаталогов  в директории ``path_to_dataset``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: e4b41cd89aec4843b9e057f0cbe33193
+msgid "ext_search_files"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: d72071fefe4a4bb2a477cb0fc8654e5d
+msgid "list"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 1c797897ce0042748aa5efa96b6d0352
+msgid "``[\"mov\", \"mp4\",`` |br| ``\"webm\", \"wav\"]``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 662db9eb5cd041ccb9c31e6666e32ab3
+msgid ""
+"Список  расширений файлов, которые будут обрабатываться. Указывать можно "
+"как для видео, так и для аудио"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 2c0c81b927584e38b914a374a47506ae
+msgid "clear_dir_audio"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: f5e55df369184fda8726a6c2c80d968c
+msgid "``true``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 6dbd5fb27996439aa6dc0d42a5ece621
+msgid "Предварительная очистка директории с предобработанными аудиоданными"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 7042bdafe7f9494b8149d749f80a3c84
+msgid "save_raw_data"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: cfcafe35f5ac4b588c4d31057f249907
+msgid "Сохранение данных в формате numpy"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 7042bdafe7f9494b8149d749f80a3c84
+msgid "sampling_rate"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: b65e053d01d84f35821dd4652f3be74e
+msgid "``16000``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: d6feb6ee2c034a849df4f40aa4af08cf
+msgid ""
+"Частота дискретизации аудиосигнала. Доступные значения ``16000; 22050; "
+"44100; 48000``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: d844233907d84280a5bc773d8022b143
+msgid "n_fft"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 02ceb55f240d485c86ea1b4f9b844c18
+msgid "``2048``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: d8f64e1c2c964dc2ba434a6491a542ea
+msgid ""
+"Размер параметра FFT, создает ``n_fft // 2 + 1`` бин. Допустимы значения "
+"в пределе от ``256`` до ``2048``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 6fa379fee44241efb64be071ece8d2bd
+msgid "hop_length"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: f42a607497824f18985b9535e00fe37a
+msgid "``512``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 17e239b5cdab4a96bdeed5a54af729a7
+msgid ""
+"Длина перехода между окнами STFT. Допустимы значения в пределе от ``64`` "
+"до ``512``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 5da9a2d1cee943beae823a833d4e56e6
+msgid "n_mels"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 8f0c3fd3812f483d9464452a42278464
+msgid "``128``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: ed33950829c44d6c882d00354ac8a5c7
+msgid ""
+"Количество фильтроблоков mel. Допустимы значения в пределе от ``20`` до "
+"``512``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: c120d17ceb8147b483bf37db974fb712
+msgid "power"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: e31b49f970a54429a0fdecdeeb1d72f2
+msgid "float"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: bc331a653a0743bcb066fb8f4651142d
+msgid "``2.0``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 48e857c1dcf94acb87a86c6b35d64cdf
+msgid ""
+"Показатель степени магнитудной спектрограммы. Должен быть либо ``1.0``, "
+"либо ``2.0``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: a544d1ff8f6a48a38a0d8b673877450a
+msgid "center"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: cd1a54ffa58d4065a0e7d5c335304764
+msgid ""
+"Включение установки отступов с обеих сторон относительно центральной "
+"части аудиодорожки"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 8459f3e98aa4488798b42eb843791180
+msgid "pad_mode"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: d4b6a934fe7f40c79ea1dcedb1788e9f
+msgid "``reflect``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: ce70e75eb6ba4565afe8b991d0538180
+msgid ""
+"Управление оступами, применяется когда значение параметра ``center = "
+"True``. Доступные значения ``constant, reflect, replicate, circular``. По"
+" умолчанию ``reflect``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 2d6b8e67c5264cf5b818394823d8d4d4
+msgid "norm"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: d4b6a934fe7f40c79ea1dcedb1788e9f
+msgid "``slaney``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 8f0b018fc9c14e4ba62724f91f5ba0c4
+msgid "Нормализация площади. Отношение треугольных мел-весов к ширине мел-зоны"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 085e910a686e40859f982fab5d26b26a
+msgid "dpi"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: b65e053d01d84f35821dd4652f3be74e
+msgid "``600``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: d6feb6ee2c034a849df4f40aa4af08cf
+msgid ""
+"Качество изображения спектрограммы. Доступные значения ``72; 96; 150; "
+"300; 600; 1200``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 19ee4fc4cb1447b6a3481082cbbd737e
+msgid "color_gradients"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: d4b6a934fe7f40c79ea1dcedb1788e9f
+msgid "``magma``"
+msgstr ""
+
+#: ../../source/user_guide/modules/audio_preprocessing.rst:1
+#: 20581299d9584e4bbbbe00a97c324386
+msgid ""
+"Выбор цветовой схемы итогового изображения спектрограммы. Доступные "
+"значения ``viridis, plasma, inferno, magma, cividis``"
+msgstr ""
+
+#~ msgid ""
+#~ "<a "
+#~ "href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.yaml\""
+#~ " target=\"_blank\">"
+#~ msgstr ""
+
+#~ msgid "<a href=\"https://alphacephei.com/vosk/models\" target=\"_blank\">"
+#~ msgstr ""
+
+#~ msgid "path_to_save_model"
+#~ msgstr ""
+
+#~ msgid "``<./models>``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Директория, где будут размещаться скачанные"
+#~ " модели, в данном случае модель для"
+#~ " работоспособности  VAD"
+#~ msgstr ""
+
+#~ msgid "Директория, где находятся данные, которые необходимо обработать VAD"
+#~ msgstr ""
+
+#~ msgid "path_to_dataset_vad"
+#~ msgstr ""
+
+#~ msgid "``<./dataset_vad>``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Директория, куда сохраняются фрагменты "
+#~ "аудиовизуального сигнала после обработки VAD"
+#~ msgstr ""
+
+#~ msgid "dir_va_names"
+#~ msgstr ""
+
+#~ msgid "dict"
+#~ msgstr ""
+
+#~ msgid "``{\"video\": \"Video\",`` |br| ``\"audio\": \"Audio\"}``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Директории для сохранения видео и аудио"
+#~ " файлов. Названия директорий могут быть "
+#~ "произвольными"
+#~ msgstr ""
+
+#~ msgid "force_reload"
+#~ msgstr ""
+
+#~ msgid "Включение принудительной загрузки модели VAD из сети"
+#~ msgstr ""
+
+#~ msgid "clear_dirvad"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Очистка директории, в которую сохраняются "
+#~ "фрагменты аудиовизуального сигнала"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Список  расширений файлов, которые будут "
+#~ "обрабатываться. Указывать можно как для "
+#~ "видео, так и для аудио"
+#~ msgstr ""
+
+#~ msgid "Параметры детектора голосовой активности (Silero VAD)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Частота дискретизации. На текущий момент "
+#~ "поддерживаются частоты: ``8000`` и ``16000``"
+#~ msgstr ""
+
+#~ msgid "threshold"
+#~ msgstr ""
+
+#~ msgid "``0.5``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Порог вероятности речи (от ``0.0`` до"
+#~ " ``1.0``). VAD выводит вероятности речи "
+#~ "для каждого звукового фрагмента, вероятности"
+#~ " выше установеленного значения считаются "
+#~ "|b| речью. |/b| Параметр необходимо "
+#~ "настраивать индивидуально в зависимости от "
+#~ "набора данных. Например для шумных "
+#~ "условий параметр рекомендуется устанавливать в"
+#~ " значение от ``0.7`` до ``0.95``. В"
+#~ " условиях низкого уровня шума или его"
+#~ " отсутствия, параметр лучше устанавливать "
+#~ "на низкие значения ``0.1`` — ``0.25``"
+#~ msgstr ""
+
+#~ msgid "min_speech_duration_ms"
+#~ msgstr ""
+
+#~ msgid "``250``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Минимальная длительность речевого фрагмента. "
+#~ "Рекомендуется устанавливать в пределах от "
+#~ "``750`` мс до ``1000`` мс. Настройка "
+#~ "также является индвидуальной, которую "
+#~ "необходимо подбирать в зависимости от "
+#~ "набора данных"
+#~ msgstr ""
+
+#~ msgid "min_silence_duration_ms"
+#~ msgstr ""
+
+#~ msgid "``100``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Минимальная длительность тишины в выборках "
+#~ "между отдельными речевыми фрагментами, прежде"
+#~ " чем разделить его. Рекомендуется "
+#~ "устанавливать в пределах ``500`` мс, для"
+#~ " того, чтобы не разделялись предложения."
+#~ " Однако, можно настроить индивидуально, под"
+#~ " свои условия"
+#~ msgstr ""
+
+#~ msgid "window_size_samples"
+#~ msgstr ""
+
+#~ msgid "``1536``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Количество выборок в каждом окне. |br|"
+#~ " |b| Предупреждение! |/b| Модели VAD "
+#~ "были обучены с использованием выборок "
+#~ "``512``, ``1024``, ``1536`` для частоты "
+#~ "дискретизации ``16000`` и ``256``, ``512``,"
+#~ " ``768`` для частоты дискретизации "
+#~ "``8000``. Настоятельно рекомендуется использовать"
+#~ " эти значения, изменение значений может "
+#~ "повлиять на производительность модели"
+#~ msgstr ""
+
+#~ msgid "speech_pad_ms"
+#~ msgstr ""
+
+#~ msgid "``30``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Внутренние отступы для итоговых речевых "
+#~ "фрагментов. Рекомендуется использовать значение "
+#~ "``250`` мс — ``400`` мс чтобы "
+#~ "избежать обрезания фрагментов речи. Настройка"
+#~ " также является индвидуальная и "
+#~ "устанавливается в соответствии с условиями "
+#~ "пользователя"
+#~ msgstr ""
+
+#~ msgid "Параметры кодирования выходного файла"
+#~ msgstr ""
+
+#~ msgid "type_encode"
+#~ msgstr ""
+
+#~ msgid "``crf``"
+#~ msgstr ""
+
+#~ msgid "Типы кодирования. Доступные варианты: ``['qscale', 'crf']``"
+#~ msgstr ""
+
+#~ msgid "crf_value"
+#~ msgstr ""
+
+#~ msgid "``23``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Качество кодирования (от ``0`` до "
+#~ "``51``. Чем ниже значение, тем лучше "
+#~ "качество и наоборот. Стоит учитывать, "
+#~ "что изменения качества кодирования влияет "
+#~ "на скорость обработки"
+#~ msgstr ""
+
+#~ msgid "presets_crf_encode"
+#~ msgstr ""
+
+#~ msgid "``medium``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Скорость кодирования и сжатия. Доступные "
+#~ "варианты: ``['ultrafast', 'superfast', 'veryfast',"
+#~ " 'faster', 'fast', 'medium', 'slow', "
+#~ "'slower', 'veryslow']``. Изменения параметра "
+#~ "влияет на скорость кодирования и степень"
+#~ " сжатия"
+#~ msgstr ""
+
+#~ msgid "sr_input_type"
+#~ msgstr ""
+
+#~ msgid "``audio``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Типы файлов для распознавания речи. "
+#~ "Доступные варианты: ``['audio', 'video']``"
+#~ msgstr ""
+
+#~ msgid "Модуль предобработки аудиоданных"
+#~ msgstr ""
+
+#~ msgid "Параметры предобработки аудиоданных"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Размер параметра FFT, создает ``n_fft //"
+#~ " 2 + 1`` бин. Значение по "
+#~ "умолчанию ``400``"
+#~ msgstr ""
+
+#~ msgid "onesided"
+#~ msgstr ""
+
+#~ msgid "Устарело"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Модуль выполняет предобработку речевых "
+#~ "аудиоданных, в данном случае извлекается "
+#~ "спектрограмма из исходной аудиодорожки."
+#~ msgstr ""
+
+#~ msgid "Частота дискретизации аудиосигнала"
+#~ msgstr ""
+
+#~ msgid "Размер параметра FFT, создает ``n_fft // 2 + 1`` бин"
+#~ msgstr ""
+
+#~ msgid "Длина перехода между окнами STFT"
+#~ msgstr ""
+
+#~ msgid "Количество фильтроблоков mel"
+#~ msgstr ""
+
+#~ msgid "Показатель степени магнитудной спектрограммы. Должно быть ``> 0``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "python ./openav/api/preprocess_audio.py --config "
+#~ "<путь_к_вашему_конфигурационному_файлу>.yaml"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Включение установки отступов с обеих "
+#~ "сторон относительно центра аудиодорожки"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Список  расширений файлов, которые будут "
+#~ "обрабатываться. Указывать  можно как для "
+#~ "видео, так и для аудио"
+#~ msgstr ""
+

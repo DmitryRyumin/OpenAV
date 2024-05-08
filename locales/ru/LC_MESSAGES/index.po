@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  1.0\n"
 "Report-Msgid-Bugs-To: dl_03.03.1991@mail.ru\n"
-"POT-Creation-Date: 2022-12-12 19:18+0300\n"
+"POT-Creation-Date: 2022-12-26 22:35+0300\n"
 "PO-Revision-Date: 2022-12-11 11:33+0300\n"
 "Last-Translator: Dmitry Ryumin <dl_03.03.1991@mail.ru>, Dmitry Ryumin "
 "<dl_03.03.1991@mail.ru>\n"
@@ -18,13 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/index.rst:-1 61d51473c5b64ebe8a7887b0f74b12b0
+#: ../../source/index.rst:34 ca6e805e7f5149f0b3a265d8c8073fde
+msgid "Содержание:"
+msgstr ""
+
+#: ../../source/index.rst:-1 8d19d13f99cd40f7a73720300b4262f6
 msgid ""
 "Библиотека распознавания речевых команд на пользовательском словаре с "
 "использованием аудиовизуальных данных диктора"
 msgstr ""
 
-#: ../../source/index.rst:-1 ea697e88be0b49a6aa71ae4c4c4f1073
+#: ../../source/index.rst:-1 2aff5db16f8b4ac389861abdc1e2c29c
 msgid ""
 "OpenAV, Lip Reading, Speech Recognition, Signal Processing, Data "
 "Augmentation, Artificial Neural Networks, Deep Machine Learning, Transfer"
@@ -76,6 +80,6 @@ msgstr ""
 msgid "Documentation Status"
 msgstr ""
 
-#: ../../source/index.rst:34 8985d30bb6ba4d1db246b0ded3b22ee9
-msgid "Библиотека в разработке"
-msgstr ""
+#~ msgid "Библиотека в разработке"
+#~ msgstr ""
+

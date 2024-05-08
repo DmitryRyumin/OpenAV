@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-10 13:28+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/vad/vad.rst:1 990f16292eea4d0dbde2d6ca18c9f1bd
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/vad.rst:5 e8811471d46b4c9886631f4824c75281
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/vad.rst:9 9e85d44fd6ac441cacd01092566f0ad8
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/vad/vad.rst:13 07e3e4c8b3bb4a438adcf31c918c4991
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/reuse_content/vad/vad.rst:17 a168166937ee4fd1b7484f4663b1c59d
+msgid "</a>"
+msgstr ""
+
+#~ msgid ""
+#~ "<a "
+#~ "href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vad.json\""
+#~ " target=\"_blank\">"
+#~ msgstr ""
+

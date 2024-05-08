@@ -1,0 +1,310 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-07 16:03+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/general.rst:1 a21fc4914fc1403580d1656f4fc21913
+#: ea653e8514724b39b39c783489c3e6be
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 65d9161607884438bda685be97e76641
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 263dbc76cd7c47d58438eb5ae0ea6369
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:14 218d8bafa65f429b9e28eb7610451875
+#: 6b88f51abb0447698280a7d54920dd72
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:3
+#: 5d5e0c2a08c64dae8e63116289c75b45 8b6e1c36035f4605a463f891cb67d183
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/test_audio.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:8
+#: d78a1992eebf4b8e9e452f2311b02f57
+msgid "Модуль распознавания акустической речи"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:10
+#: a80c80cde737490081431ebfd489c9a1
+msgid "Команда для запуска модуля распознавания акустической речи:"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:12
+#: b7eb1a19208d4364948601548ec166cb
+msgid ""
+"python ./openav/api/test_audio.py --config "
+"<путь_к_вашему_конфигурационному_файлу>.yaml"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:17
+#: d80e8d1e3d374028b69560e5d441fd83
+msgid ""
+"Для запуска команды необходимо обязательно указать путь к "
+"конфигурационному файлу. Запускать программу необходимо из директории, "
+"где она расположена."
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:20
+#: 76e28b54301c46e3963f2b72a8c65136
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:22
+#: 95f0ebe492c34dd38d146c9effd5ed58
+msgid "Конфигурационный файл включает в себя следующие настройки:"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:24
+#: 2a7a414d0c584a04855f9de6d9559f15
+msgid "Отображение процесса выполнения программы в терминале (командной строке)"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:25
+#: ../../source/user_guide/modules/testing/audio_test.rst:48
+#: 035eec77aa29412aa1d8cc69de15f30b 0ee042d271884f1394615226b91f3d47
+msgid "Работа с файловой системой"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:26
+#: ../../source/user_guide/modules/testing/audio_test.rst:62
+#: b41fae675e894855a4befc81f3bde80b
+msgid "Параметры процесса распознавания акустической речи"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:30
+#: cbca513e59a54c5194b33d1a6b4ccc3f
+msgid "|a_config| Пример конфигурационного файла |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:35
+#: 865e98e2a4f04105a49f7f56be42a954
+msgid "Отображение процесса выполнения команды в терминале"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 68fbc8f9b0e6425392ee4b5412988401 9f4ecf4636614642ba7b8850b146350c
+#: f0f7c7d100b64499b25ad6b1897af923
+msgid "Параметр"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 21f816e5cb02409bb31aefbbd2e8e116 81c1143194d1432b9609ca4428f59962
+#: e33ff029fd1e422f835b2df388a8e719
+msgid "Тип"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 56f001a8f52c4e97abb566c8adfd9996 7fb409486d754b8ca1f058e3d6a22800
+#: 9c1a5d4694344c3fa0e78e9b87871db5
+msgid "Значение по умолчанию"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 51dad0ec9031421b9cbdfd00314d0381 b47ea24e821a4f4a8afb8627100af36a
+#: b71b5856cf3e4f178f11667485e86343
+msgid "Описание"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 25bc59e0084147359553fcaf8019ab08
+msgid "hide_metadata"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 4f02b7eaafd5466c8d3ac58e3a91ef38 9a4f94b76a374e33b7b6704177f96f8d
+msgid "bool"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 4f2d2941639f453a9cf786ef94c2b504 be573f07df8745078b9ace11d7b64827
+msgid "``false``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: bcaea8e8eb764a66a2ea9ab2e2d870c3
+msgid "Включение отображения метаданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 77948b95e4084d9db8cfc2b2836c98b0
+msgid "hide_libs_vers"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: e360e4944a3e47beb8c92b5a7e2bb5e0
+msgid "Включение отображения версий установленных  библиотек  в командной строке"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 05018dc1bf444f5b9905d6c2ce458632
+msgid "path_to_dataset"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 6234411f27d649e5a3427538fa8e90ec c88060f3750949d5a6fba3e93027c948
+msgid "str"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 608945831fdb4ce8859f3f55b8c70c36
+msgid "``<путь_к_набору_данных>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 4bb93c33fdf14393b012bd4f9ec9b8ea
+msgid ""
+"Директория, где размещается подготовленный набор данных для тестирования "
+"обученных нейросетевых моделей"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 5813131a7bca43aa8b57ccfd102e588c
+msgid "path_to_model"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 0b8ee03e8d544ecdb77291581782474c
+msgid "``<путь_к_моделям>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: b41fae675e894855a4befc81f3bde80b
+msgid "Директория, где размещаются обученные нейросетевые модели"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: b159e39da17a4b96a24d0d0615214039
+msgid "depth"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: bb78f4c4ab064809b96a34e67e978065
+msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 4dab07a8ec87475aa77a98f9889d212f
+msgid "``3``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 32bfa82d7a5249e9844dc1bf635c4df9
+msgid ""
+"Глубина иерархии для получения данных. Указывается количество "
+"подкаталогов  в директории ``path_to_dataset``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 8a1b0790d7d346378fc17f627907e27a
+msgid "ext_search_files"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 1dda1d391a124a87b55423390923bf1a
+msgid "list"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 8a9347118a8e4b1e85b9116b693628b0
+msgid "``[\"wav\", \"aac\"]``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 682e53b23707478f84bde0449e5b1fc5
+msgid "Список расширений файлов, которые будут обрабатываться"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 6ed543406dfd40708f42d04813583276
+msgid "size_spec"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 7ba161d375ea4673aba87610c6188212
+msgid "``width: 224`` |br| ``height: 224``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 40d70b76d522447c8bf027ec46c62e59
+msgid "Размер входного изображения спектрограммы в ``px``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 6893f49b53314fc08d137b16b391383e
+msgid "channels_spec"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 840f911d8fbe4d35b07e0a09ab2e2828
+msgid "``1``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: effdc5a6bace430fb664fd675fa917e3
+msgid ""
+"Количество каналов изображения. ``1``- одноканальное изображение (в серых"
+" тонах), ``3`` - трёхканальное изображение (RGB)"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: e60d1bc2c64e445196f579d87cdee1fc
+msgid "metric"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 5aa45abce395413f917973fcd109a83c
+msgid "``accuracy``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/audio_test.rst:1
+#: 84e7ff3f5c234a20a4bd66c170864b0d
+msgid ""
+"Метрика, в соответствии с которой будет вывод результатов тестирования "
+"обученных нейросетевых моделей"
+msgstr ""
+
+#~ msgid "Тестирование обученных акустических нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Команда для запуска процесса тестирования "
+#~ "обученных акустических нейросетевых моделей:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Параметры настройки процесса тестирования "
+#~ "обученных нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Параметры процесса тестирования обученных "
+#~ "акустических нейросетевых моделей"
+#~ msgstr ""
+

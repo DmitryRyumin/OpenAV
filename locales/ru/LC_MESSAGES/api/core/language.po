@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-11 12:37+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/api/core/language.rst:2 bedfe825e05443a486a95a81b9e8e883
+msgid "Определение языка"
+msgstr ""
+
+#: a54f80176ec046e5b866b56341500704 of openav.modules.core.language.Language:1
+msgid "Базовые классы: :py:class:`~openav.modules.core.logging.Logging`"
+msgstr ""
+
+#: 4e98dbf423b44863afa5a5330c2e102a of openav.modules.core.language.Language:1
+msgid "Класс для интернационализации (I18N) и локализации (L10N)"
+msgstr ""
+
+#: 5590601635fe4985b14f209206a1cf4f ca4d034793c2487bb8cbf8d78012f8fc of
+#: openav.modules.core.language.Language
+#: openav.modules.core.language.Language.lang
+msgid "Параметры"
+msgstr ""
+
+#: 5529ad811c56408eb4f367e2ba7dcff1 of openav.modules.core.language.Language:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 7847b4e6927a42678bf0e37170bc656f f9bb5cda3ded42098ee93b06fb998cc2 of
+#: openav.modules.core.language.Language:5
+#: openav.modules.core.language.Language.lang:8
+msgid "Язык"
+msgstr ""
+
+#: c24f24ecc2224b4f93b37a32c1c17781 of
+#: openav.modules.core.language.Language.lang:1
+msgid "Получение/установка текущего языка"
+msgstr ""
+
+#: 4c0485d9cc374e01871cfaafd4595b31 of
+#: openav.modules.core.language.Language.lang:3
+msgid ""
+"Язык, доступные варианты:  * ``\"ru\"`` - Русский язык (``по умолчанию``)"
+" * ``\"en\"`` - Английский язык"
+msgstr ""
+
+#: 250e3629aed94c5b89c216c1d150c028 of
+#: openav.modules.core.language.Language.lang:3
+msgid "Язык, доступные варианты:"
+msgstr ""
+
+#: 9f7f13ed2cbd4e5c8332ce605c5411fc of
+#: openav.modules.core.language.Language.lang:5
+msgid "``\"ru\"`` - Русский язык (``по умолчанию``)"
+msgstr ""
+
+#: 0cae6abaa6384f1e9a5c585aac7f2c83 of
+#: openav.modules.core.language.Language.lang:6
+msgid "``\"en\"`` - Английский язык"
+msgstr ""
+
+#: 4302503430d64d6da4fe341b7c47e91f 6c49e0e9dae848ff9c484e91da4c25a9
+#: a8ede48a79624552be860335fb9a78dc of
+#: openav.modules.core.language.Language.lang
+#: openav.modules.core.language.Language.locales
+#: openav.modules.core.language.Language.path_to_locales
+msgid "Результат"
+msgstr ""
+
+#: 31e95b3c70fc44fda29a0afc043275e0 364b205458b849df98a29ccdc16f4ad0
+#: 500ce6055d534a9d898012115ea1f788 of
+#: openav.modules.core.language.Language.lang
+#: openav.modules.core.language.Language.locales
+#: openav.modules.core.language.Language.path_to_locales
+msgid "Тип результата"
+msgstr ""
+
+#: c3b5c03191334f348e9155c39cb3128e of
+#: openav.modules.core.language.Language.locales:1
+msgid "Получение поддерживаемых языков"
+msgstr ""
+
+#: 5f3383a2d6b14a13ab9d193257089185 of
+#: openav.modules.core.language.Language.locales:3
+msgid "Список поддерживаемых языков"
+msgstr ""
+
+#: 3f8b33ed301641a7851b2f56fa2e575f of
+#: openav.modules.core.language.Language.path_to_locales:1
+msgid "Получение директории с языковыми пакетами"
+msgstr ""
+
+#: f4f711efb6134362b737cf931b006be6 of
+#: openav.modules.core.language.Language.path_to_locales:3
+msgid "Директория с языковыми пакетами"
+msgstr ""
+

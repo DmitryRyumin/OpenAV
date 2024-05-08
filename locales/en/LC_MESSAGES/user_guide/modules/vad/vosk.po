@@ -1,0 +1,748 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-18 18:11+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/vosk/vosk.rst:1 675453458f154fb0a0587e723d5a6607
+#: ac8de5fa112548669fd7a5f394d39e58
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/vosk_sr.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/reuse_content/vosk/vosk.rst:5 675453458f154fb0a0587e723d5a6607
+msgid "<a href=\"https://alphacephei.com/vosk/models\" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/reuse_content/vosk/audio_waves.rst:1
+#: 922e4804db43480eb1c079d8fc6a7185
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Аудиозапись до обработки "
+"VAD</figcaption>\n"
+"   <audio controls class=\"audio-wave\">\n"
+"      <source src=\"../../../_static/audio/vad/before_vad.wav\" "
+"type=\"audio/wav\">\n"
+"   </audio>\n"
+"</figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vosk/audio_waves.rst:11
+#: a7dba874955a4645af2d6c92319a8a52
+msgid ""
+"<figure>\n"
+"     <figcaption class=\"audio-capt\">Фраза 1</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../../_static/audio/vad/1.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vosk/audio_waves.rst:20
+#: 922902cb36314cd6a8bc7fc575fa652d
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Фраза 2</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../../_static/audio/vad/2.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vosk/audio_waves.rst:29
+#: d4ad9c0e3d7a47509a4cba6acaf68f4e
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Фраза 3</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../../_static/audio/vad/3.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vosk/audio_waves.rst:38
+#: 249b83797ebd4d1dab47d2271ab7c7b9
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Фраза 4</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../../_static/audio/vad/4.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/vosk/audio_waves.rst:47
+#: 524ce3b6d5e2441aaa92a97a6befcd7f
+msgid ""
+"<figure>\n"
+"   <figcaption class=\"audio-capt\">Фраза 5</figcaption>\n"
+"     <audio controls class=\"audio-wave\">\n"
+"         <source src=\"../../../_static/audio/vad/5.wav\" "
+"type=\"audio/wav\">\n"
+"     </audio>\n"
+" </figure>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:1 1fa6292cee854e968847fdaeb84c0eee
+#: a469b9a610634302a6e2b9bc44b0a927
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 a7338f31fbcd411fa0a7b7f8d1f904c5
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 2946efc554634ccebd21c8703d325448
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:14 f19d50ca6e07476cac84c86e221383ef
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:6
+#: 2e7290aa4fc744a385809ebc7f148a98
+msgid "Детектирование речевой активности (Vosk)"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:8
+#: fba17c62e4d546e48c335e19ae2ae2d4
+msgid ""
+"Команда для запуска детектирования речевой активности в аудиовизуальном "
+"сигнале:"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:10
+#: 6344613751454ef1aa6b6acb1626f5ac
+msgid "openav_vosk_sr --config <путь_к_вашему_конфигурационному_файлу>.yaml"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:15
+#: 4ced27f0156c4095aac1ac538338e4d7
+msgid ""
+"Для запуска команды необходимо обязательно указать путь к "
+"конфигурационному файлу. Запускать программу необходимо из директории, "
+"где она расположена."
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:18
+#: f531fffdb911442a9115af8b5d789d6d
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:20
+#: 5d49e366203a4e11aa5f2d7e7fad0849
+msgid "Конфигурационный файл включает в себя следующие настройки:"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:22
+#: c8f52cd97e854572b9d1c51d7eea86d9
+msgid "Отображение процесса выполнения программы в терминале (командной строке)"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:23
+#: ../../source/user_guide/modules/vad/vosk.rst:47
+#: fb2185bb1ceb43858077cd1efe684beb
+msgid "Работа с файловой системой"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:24
+#: ../../source/user_guide/modules/vad/vosk.rst:67
+#: 35aab54069344b1a98e9bb2f42df4404
+msgid "Параметры детектора голосовой активности (Vosk)"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:25
+#: ../../source/user_guide/modules/vad/vosk.rst:84
+#: 4bd6cf9821f04bb79d86febeb37138eb
+msgid "Параметры кодирования выходного файла"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:29
+#: be9e8da502d445d0af41d20c376229cb
+msgid "|a_config| Пример конфигурационного файла |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:34
+#: f77de5eb8a7d4d8f898af327e6bcae0e
+msgid "Отображение процесса выполнения команды в терминале"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 93564d05ec7d4967b99c2ab28e4d6738
+msgid "Параметр"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 25ca93db8b704885822e02b3c092736c
+msgid "Тип"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 389f14a260364705942ee446eff5cb3b
+msgid "Значение по умолчанию"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 4e5aaf0cd2d348c5953ae80b35609716
+msgid "Описание"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: ca69206939e248a1943cd40348c02640
+msgid "hide_metadata"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 6d41bc2f7db04bbbad8ddb81067f5246
+msgid "bool"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: bf1f8da6502f4c1ca1cd61ae2d5e20a5
+msgid "``false``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: e276e3f66c1d4ff2b2de0298462d2d9c
+msgid "Включение отображения метаданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 49288fc6a3c14aae9da87816965e87ca
+msgid "hide_libs_vers"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: a3c0d2765c294b0cba451697454f7ce0
+msgid "Включение отображения версий установленных  библиотек  в командной строке"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 7b4ddf91fa4644da9764066cd81adeeb
+msgid "path_to_save_model"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: e38efea313de498cab45aa1321339ba8
+msgid "str"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 4eb5dcb1f0b346a69d89c60ad3f09d80
+msgid "``<./models>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 60d8ea6b1cc941aba3ee119f0073f5ac
+msgid ""
+"Директория, где будут размещаться скачанные модели, в данном случае "
+"модель для работоспособности  VAD"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 4f4f4870af244928adaccab638020173
+msgid "path_to_dataset"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: c9f19e8d11474493b338ce579b81590d
+msgid "``<путь_к_исходным_данным>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 35efecd206e1458ca600e8291849462c
+msgid "Директория, где находятся данные, которые необходимо обработать"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 3993a82383364fbc9ef236c44ba03207
+msgid "path_to_dataset_vosk_sr"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 4d30b7a490d540b29cd28532d0dc797f
+msgid "``<./dataset_vosk>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: a52b819594cf4e84acbfe00e150fe47c
+msgid ""
+"Директория, куда сохраняются фрагменты аудиовизуального сигнала после "
+"обработки"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 59ba0708121e44919d9685ef1ce33c70
+msgid "dir_va_names"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 55f2deaeb784478f8382198c36673f56
+msgid "dict"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: caa05c4046aa4a2791bfe374ea0367ba
+msgid "``{\"video\": \"Video\",`` |br| ``\"audio\": \"Audio\"}``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 55118c23013b4a939051e893f878d608
+msgid ""
+"Директории для сохранения видео и аудио файлов. Названия директорий могут"
+" быть произвольными"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: a993992a9f074efe9e55774a24f4e82d
+msgid "force_reload"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 0bdd475a9a97410cab9c916a62f4a0bf
+msgid "Включение принудительной загрузки модели Vosk из сети"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 345448187d5b4d3da9aa08eb66965323
+msgid "folder_name_unzip"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 1c2e551b03434e05b0708115fd51b35f
+msgid "``<название_папки>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 9ad94048c7194d1fa5f48dec1e7c2037
+msgid "Название папки, в которую будет извлекаться модель Vosk"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 2dc1960fcc9044789a237d6dde4cb06f
+msgid "clear_dirvosk_sr"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 97bbc6114b1e4844948b47161f383949
+msgid "``true``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: d4288cfe1a074c36a180390bd92ec7e2
+msgid ""
+"Очистка директории, в которую сохраняются фрагменты аудиовизуального "
+"сигнала"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 415a5e98787f4feebef0669e8708c814
+msgid "depth"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 1862c4c953b945ef88ff81391931b85b
+msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 0556a41ee8224f309e32c2f504b39590
+msgid "``1``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: f234bfb9adc54eddb1e7908883feb22a
+msgid ""
+"Глубина иерархии для получения данных. Указывается количество "
+"подкаталогов  в директории ``path_to_dataset``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: bd2e83bc3aba4f24a43cc8fcb5828a56
+msgid "ext_search_files"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: aac67a4df4e2496bac85c10c604afd61
+msgid "list"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 824dc01f44df4595b2a44bbdbc683484
+msgid "``[\"mov\", \"mp4\",`` |br| ``\"webm\", \"wav\"]``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 2135a26a7272489187a693639e60de38
+msgid ""
+"Список  расширений файлов, которые будут обрабатываться. Указывать  можно"
+" как для видео, так и для аудио"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: c60e3c95276b43d1b0f8fc9c30cbab96
+msgid "sampling_rate"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 9809b609ab834997a3be81a33d594b3d
+msgid "``16000``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 3426281cbebb46a09e8e9c7edd5ff417
+msgid ""
+"Частота дискретизации. На текущий момент поддерживаются частоты: ``8000``"
+" и ``16000``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 49dd0669d4f049d9b366f89a0a551d88
+msgid "speech_left_pad_ms"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 15dd377a57b54f5cbde077299deb2b95 4f3a957952af40c9a3d52be8fb536514
+msgid "float"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 0e80e91ab6924dd2b6fac024ef1c058c
+msgid "``0``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 8d885f1d629942a6aece92c235e21b37
+msgid ""
+"Внутренний отступ до начала речевого фрагмента. Настройка поможет "
+"избавиться от лишней тишина в начале обработанного фрагмента"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 2fb57b01a9ab4745b2e0697fd4bf297a
+msgid "speech_right_pad_ms"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 2fca3e3817fb4e58ad5496ed8f6d412e
+msgid "``300``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 924042bb54f4427fa300f817f00285e8
+msgid ""
+"Внутренний отступ в конце речевого фрагмента. Настройка поможет "
+"избавиться от лишней тишина в конце обработанного фрагмента, либо "
+"наоборот увеличить длительность речевого фрагмента, на случай, если фраза"
+" незначительно обрезается после обработки"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 7b4ddf91fa4644da9764066cd81adeeb
+msgid "lang_model"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 0e80e91ab6924dd2b6fac024ef1c058c
+msgid "``ru``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 41d1df5f75ad42f5b941c29153d89a09
+msgid ""
+"Выбор языка, на котором необходимо обработать данные. Поддерживаемые "
+"языки:  ``ru`` и ``en``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 0c2195e422614b11a84b93426cb0cd36
+msgid "dict_size"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 2fca3e3817fb4e58ad5496ed8f6d412e
+msgid "``big``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 6f1c52d6002a423bb84547f719db3dfc
+msgid ""
+"Размер словаря, на котором была обучена модель для распознавания. ``big``"
+" и ``small``. Влияет на качество работы модели, однако стоит учитывать, "
+"что малоресурсная модель будет работать быстрее, чем большая."
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:81
+#: 1cc8ca202ae84bb3a95926040c9ba443
+msgid ""
+"В текущей версии для русского языка используются модели  ``vosk-model-"
+"ru-0.42`` и ``vosk-model-small-ru-0.22``, обученные на большом и малом "
+"словарях соответственно. Более подробное описание моделей представлено по"
+" |a_model| ссылке |/a|."
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 6738ef121b764fb39aa648b66f457215
+msgid "type_encode"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 2fca3e3817fb4e58ad5496ed8f6d412e
+msgid "``crf``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: ec187202f9794c74972a797072d2a136
+msgid "Типы кодирования. Доступные варианты: ``['qscale', 'crf']``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 7b35cf6de1b0400599669dcec19da158
+msgid "crf_value"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: ed79cf6980eb4cb8bb489f07104d336d
+msgid "``23``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: 62e80bc1a9b946ada9edaa41c2a6b1d4
+msgid ""
+"Качество кодирования (от ``0`` до ``51``. Чем ниже значение, тем лучше "
+"качество и наоборот. Стоит учитывать, что изменения качества кодирования "
+"влияет на скорость обработки"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: c9dee30957424773be501eb8670cbe60
+msgid "presets_crf_encode"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: f4e64d609b65423a8a9c07eec15afc21
+msgid "``medium``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: d7d18c64925942c4a81184bf9c6e16c7
+msgid ""
+"Скорость кодирования и сжатия. Доступные варианты: ``['ultrafast', "
+"'superfast', 'veryfast', 'faster', 'fast', 'medium', 'slow', 'slower', "
+"'veryslow']``. Изменения параметра влияет на скорость кодирования и "
+"степень сжатия"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: b090b36977794adcb7a5c95bdb109a03
+msgid "sr_input_type"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: f10611b580ff4b5784bfebb0b36eae87
+msgid "``audio``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:1
+#: c369d405b14147f7bcf037b8756bb5ed
+msgid ""
+"Типы файлов для распознавания речи. Доступные варианты: ``['audio', "
+"'video']``"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:99
+#: f6fe32f147ed4ff1a1ef0d1684242ae4
+msgid "Демонстрация работы детектора речевой активности"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:101
+#: 6259a798ee584b128d29afeff1f44d51
+msgid ""
+"Ниже продемонстрированы результаты работы детектора речевой активности "
+"как для входного аудиовизуального сигнала, так и для акустического."
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:105
+#: 4ad93ed96bab4f91926d574cfaaef439
+msgid "Аудиовизуальный сигнал"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:110
+#: 27ec95abcc91462786b44eecc58123a1
+msgid "Пример видеозаписи до обработки детектором речевой активности"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:114
+#: 3aab6b8420404a07b110485373e40b01
+msgid "Видеозапись до обработки VAD"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:121
+#: ea4d32e541c549a8a54975cf3d0f5578
+msgid "Примеры видеозаписей после обработки детектором речевой активности"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:125
+#: 4b8efa2226664bb9ba6e367cf596ddc5
+msgid "Фраза 1"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:132
+#: 6d07a8c19bea47abaeb4588580f5143a
+msgid "Фраза 2"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:139
+#: fda6295e36a047f796ce3607d5d598ee
+msgid "Фраза 3"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:146
+#: a5ab84fcc7a544ec90c61ab2226cc9c3
+msgid "Фраза 4"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:153
+#: 7e272817d89342de9125d7d2b6551c66
+msgid "Фраза 5"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:158
+#: 4faf4fc2dd8b401e957ee3e2df47aef2
+msgid "Акустический сигнал"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:162
+#: 27ec95abcc91462786b44eecc58123a1
+msgid "Пример аудиозаписи до обработки детектором речевой активности"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:164
+#: c1b92ff58f08431f8bdeac6fd73ab098
+msgid "|audio_wo_vad|"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:168
+#: ea4d32e541c549a8a54975cf3d0f5578
+msgid "Примеры аудиозаписей после обработки детектором речевой активности"
+msgstr ""
+
+#: ../../source/user_guide/modules/vad/vosk.rst:170
+#: dc6b4ba7a371495587f61cb771803b73
+msgid "|audio_1| |audio_2| |audio_3| |audio_4| |audio_5|"
+msgstr ""
+
+#~ msgid "Детектирование речевой активности на основе распознавания речи"
+#~ msgstr ""
+
+#~ msgid "Параметры детектора голосовой активности (VAD)"
+#~ msgstr ""
+
+#~ msgid "language"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<figure>\n"
+#~ "   <figcaption class=\"audio-capt\">Аудиозапись "
+#~ "до обработки ВАД</figcaption>\n"
+#~ "   <audio controls class=\"audio-wave\">\n"
+#~ "      <source "
+#~ "src=\"../../../_static/audio/vad/before_vad.wav\" "
+#~ "type=\"audio/wav\">\n"
+#~ "   </audio>\n"
+#~ "</figure>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<figure>\n"
+#~ "     <figcaption class=\"audio-capt\">Запись 1</figcaption>\n"
+#~ "     <audio controls class=\"audio-wave\">\n"
+#~ "         <source src=\"../../../_static/audio/vad/1.wav\""
+#~ " type=\"audio/wav\">\n"
+#~ "     </audio>\n"
+#~ " </figure>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<figure>\n"
+#~ "   <figcaption class=\"audio-capt\">Запись 2</figcaption>\n"
+#~ "     <audio controls class=\"audio-wave\">\n"
+#~ "         <source src=\"../../../_static/audio/vad/2.wav\""
+#~ " type=\"audio/wav\">\n"
+#~ "     </audio>\n"
+#~ " </figure>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<figure>\n"
+#~ "   <figcaption class=\"audio-capt\">Запись 3</figcaption>\n"
+#~ "     <audio controls class=\"audio-wave\">\n"
+#~ "         <source src=\"../../../_static/audio/vad/3.wav\""
+#~ " type=\"audio/wav\">\n"
+#~ "     </audio>\n"
+#~ " </figure>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<figure>\n"
+#~ "   <figcaption class=\"audio-capt\">Запись 4</figcaption>\n"
+#~ "     <audio controls class=\"audio-wave\">\n"
+#~ "         <source src=\"../../../_static/audio/vad/4.wav\""
+#~ " type=\"audio/wav\">\n"
+#~ "     </audio>\n"
+#~ " </figure>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<figure>\n"
+#~ "   <figcaption class=\"audio-capt\">Запись 5</figcaption>\n"
+#~ "     <audio controls class=\"audio-wave\">\n"
+#~ "         <source src=\"../../../_static/audio/vad/5.wav\""
+#~ " type=\"audio/wav\">\n"
+#~ "     </audio>\n"
+#~ " </figure>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "В этом разделе представлен результат "
+#~ "работы детектора речевой активности на "
+#~ "тестовой аудиозаписи с настройками, которые"
+#~ " указаны в конфигурационном файле."
+#~ msgstr ""
+
+#~ msgid "|b| Пример аудиозаписи до обработки детектором речевой активности: |/b|"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|b| Пример аудиозаписи после обработки "
+#~ "детектором речевой активности: |/b|"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "python ./openav/api/vosk_sr.py --config "
+#~ "<путь_к_вашему_конфигурационному_файлу>.yaml"
+#~ msgstr ""
+

@@ -1,0 +1,316 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-07 16:03+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/general.rst:1 1ec6303ace5a4380bf6f018b7ab8418d
+#: ab8a86e37b7b4e48a31d1527f3b11012
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 bbdfb8e63b6148e2ab8b77f3473f95eb
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 a33968e242d44e49bd102acdfdc00712
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:14 d1878d86fa914fcf8fe12347b209d315
+#: e13079139fe64ffcadeb47239ab3f6e0
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:3
+#: 519511aa27d74ab0bbcdcac848f48a8c 852c9ead1d8445e790652e7bff791379
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/test_video.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:8
+#: f27d98e7ef324e088d2c9d488eb74b83
+msgid "Модуль распознавания визуальной речи"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:10
+#: ac7e323fcade4694a6756f48e24bffd2
+msgid "Команда для запуска модуля распознавания визуальной речи:"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:12
+#: f720db254771460c93f1596a4b353952
+msgid ""
+"python ./openav/api/test_video.py --config "
+"<путь_к_вашему_конфигурационному_файлу>.yaml"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:17
+#: 8b79609d24014d22b522140d225e6094
+msgid ""
+"Для запуска команды необходимо обязательно указать путь к "
+"конфигурационному файлу. Запускать программу необходимо из директории, "
+"где она расположена."
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:20
+#: 3af4fc9dc6bc47e4ad052328f36a7f67
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:22
+#: 5ace9f36ccff42a7b0367f3a98397420
+msgid "Конфигурационный файл включает в себя следующие настройки:"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:24
+#: c17291676ad14ea39798b35e0af83006
+msgid "Отображение процесса выполнения программы в терминале (командной строке)"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:25
+#: ../../source/user_guide/modules/testing/video_test.rst:48
+#: 7b2832246ed345568c4b22b72cbab01a c771e01e5c5e4f5d954110e71f82c55b
+msgid "Работа с файловой системой"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:26
+#: ../../source/user_guide/modules/testing/video_test.rst:63
+#: 08f92bc659be4804857676690cee986c
+msgid "Параметры процесса распознавания визуальной речи"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:30
+#: 07db2d3e680d46ab8d23191777958917
+msgid "|a_config| Пример конфигурационного файла |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:35
+#: 68389a12fd5444f680aa1a7b47dad8bd
+msgid "Отображение процесса выполнения команды в терминале"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 29aaa3a1458e4966a03dbaec061c858c afb9eded2bfc4667b5ebda20dc0e0e07
+#: bc4af746e3df4823afe1d326d5dc6f26
+msgid "Параметр"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: a67df2be12d64dc685eb30c78043d2fd be7281f8a6d64f699cd3465f688f40de
+#: e603c49e3481406c8c993f33d5e5f66b
+msgid "Тип"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 33deafc4593d4ad1b41739b1492e57d8 ee13cb7d60ea4ffd9f7754d42da06d36
+#: f8849119c9444ca08c287756601ac4bf
+msgid "Значение по умолчанию"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 06e7091efa05470ebff6447b6acb2218 72d849797fc641aba77c922de3333b2f
+#: b61d9ce99ca74503939cbe3e7d32430b
+msgid "Описание"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 89c5faf6259a4dcdbb3c0f929e52c8e7
+msgid "hide_metadata"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 7c4375edac764830b575ca95d7fa3095 ee1bdee643e141e3a2ad87d2754d4ac2
+msgid "bool"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 8c7f633e504040899cb3c6054ec1e569 9337e103dee5459fb3133fe01dd02fc0
+msgid "``false``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 6c2e580e7f784e249786b51d2fc125ec
+msgid "Включение отображения метаданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 3a387814e92d432086f8dd7ac53f3b23
+msgid "hide_libs_vers"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 2fc9cef6ac2246a48a2bd8af8fad7a98
+msgid "Включение отображения версий установленных  библиотек  в командной строке"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 87c2f27e712043e490d05975331d4b5b
+msgid "path_to_dataset"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 542758dab4f0460b96156832dd8d4979 b6316765b90847d185413271a4db38f1
+msgid "str"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: ffdce34908134d8da180573dc3a9cb62
+msgid "``<путь_к_набору_данных>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 15df5d2985004fc7ae75bd14127f5d3d
+msgid ""
+"Директория, где размещается подготовленный набор данных для тестирования "
+"обученных нейросетевых моделей"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 4dcb58abf0f1463fb2d732e24d9a3ea3
+msgid "path_to_model"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: aef972960e434a3da9c2ceafe21cf7ea
+msgid "``<путь_к_моделям>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 08f92bc659be4804857676690cee986c
+msgid "Директория, где размещаются обученные нейросетевые модели"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: bfd7e6ded39d4af7a726f5fdfa4080cb
+msgid "depth"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 086bc1ecc2e748f998b7adbdbd88c645
+msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: e952d5c791d84c6093e5127f81d4d43b
+msgid "``3``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: c81d5abfb290457bb5a0a79f6699420b
+msgid ""
+"Глубина иерархии для получения данных. Указывается количество "
+"подкаталогов  в директории ``path_to_dataset``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 786b50af0d8f44729861b92148cb5948
+msgid "ext_search_files"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 040027c170e041cfb34ab1a6823a1c14
+msgid "list"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: c29890aa5d7642568cab89d341596dde
+msgid "``[\"mov\", \"mp4\", \"webm\"]``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: c6bff51ff875402489817fb577972e28
+msgid "Список  расширений файлов, которые будут обрабатываться"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 9146ac96bad6464d8e1fb0c8c8890989
+msgid "size_lips"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 1b52418f870842a29e5ea2900df3466d
+msgid "``width: 112`` |br| ``height: 112``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: ebc0a4bab01944089530ac467f9c1633
+msgid "Размер входного изображения области губ в ``px``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: e85507cdcdbf439db4419b45fdfeefba
+msgid "channels_lips"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 672afd59fd3b415d837d36f973d5a990
+msgid "``1``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: e4355fa3cc7945dd9cdbb71188f1231a
+msgid ""
+"Количество каналов изображения. ``1``- одноканальное изображение (в серых"
+" тонах), ``3`` - трёхканальное изображение (RGB)"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 26d86cd34c084fea81410a1f83a25404
+msgid "metric"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 61b8785e2a014cc09633e8ab97af7c12
+msgid "``accuracy``"
+msgstr ""
+
+#: ../../source/user_guide/modules/testing/video_test.rst:1
+#: 077cd321b9554216866c6fc33988fd2b
+msgid ""
+"Метрика, в соответствии с которой будет вывод результатов тестирования "
+"обученных нейросетевых моделей"
+msgstr ""
+
+#~ msgid "``[\"mov\", \"mp4\",`` |br| ``\"webm\"]``"
+#~ msgstr ""
+
+#~ msgid "channels_spec"
+#~ msgstr ""
+
+#~ msgid "Тестирование обученных визуальных нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Команда для запуска процесса тестирования "
+#~ "обученных визуальных нейросетевых моделей:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Параметры настройки процесса тестирования "
+#~ "обученных нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Параметры процесса тестирования обученных "
+#~ "визуальных нейросетевых моделей"
+#~ msgstr ""
+

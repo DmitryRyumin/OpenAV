@@ -1,0 +1,517 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-24. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-07 16:10+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/reuse_content/general.rst:1 11daa439b3e94dcbb8710a0e8fb59682
+#: 1e084b740e8b4afcb031f951593469ed 2c1632cd07b246bd932b40e956635215
+#: 370441f264d94681bd72fd493f4a5d32 40da72d4c7ad4e3c8463fb00c53b08de
+#: 4f4bf8b870b74de9863e3d7b28b7d1da 61cf45f9e26b42f78ef62d5f860af7b2
+#: 7b7bc4dab2ef4652a8b8ce4c6aa24c57 832bdf19294b4d08991cf83d53243162
+#: 8bdc3cbfd9544e17888bae3e6139a478 b8abb5477c3847c780c4c1945bd4e2ed
+#: d17b08b06bc141dc8c8e70a808e6283e efaa585fe10f41579711ccecfb7d396e
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 99469730daba4d619a277bbef756a41c
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 ebaf6b55c4864952a23f285be2056001
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:14 7b25b32fe38040f285a9204e3f332dfe
+#: c6114ab466c541339fbe8fe521e2bd97
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:3
+#: 399677792c4143d4a11bf45617048599 eb077afad4eb4c07bf0506aeabbac684
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/openav/rsrs/test_audiovisual.yaml\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:7
+#: 318262bea6bd4fd9bf930a025a52d247
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/models/resnet18_torch_audio.pt\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:11
+#: 3922f46d960041e49c07ad2d0a7aa9d7
+msgid ""
+"<a "
+"href=\"https://github.com/DmitryRyumin/OpenAV/blob/develop/models/resnet18_lstm_torch_video.pt\""
+" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:17
+#: d430fa3b8e334abf9187b20e10acf844
+msgid "Модуль распознавания аудиовизуальной речи"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:19
+#: eef597779e0e401889ed9f7745d677a6
+msgid "Команда для запуска модуля распознавания аудиовизуальной речи:"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:21
+#: c44202ab09424ad0a4900f47532b96fe
+msgid ""
+"openav_test_audiovisual --config "
+"<путь_к_вашему_конфигурационному_файлу>.yaml"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:26
+#: e34d0b78ecd54366bd6b78b3e596dae5
+msgid ""
+"Для запуска команды необходимо обязательно указать путь к "
+"конфигурационному файлу. Запускать программу необходимо из директории, "
+"где она расположена."
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:29
+#: 177e04cfdf8140be82b28291becaa4fb
+msgid "Конфигурационный файл"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:31
+#: a254f49bacde4709a91ff69935243246
+msgid "Конфигурационный файл включает в себя следующие настройки:"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:33
+#: 2135a3dceb60438594944610c02da6ec
+msgid "Отображение процесса выполнения программы в терминале (командной строке)"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:34
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:57
+#: 6ad785d966c54db883c554fb2d528654 789613daee23477c975976275211612c
+msgid "Работа с файловой системой"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:35
+#: d430fa3b8e334abf9187b20e10acf844
+msgid "Параметры процесса распознавания аудиовизуальных речи"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:39
+#: 64b6ae6f43e34c589960fceb42ade3b8
+msgid "|a_config| Пример конфигурационного файла |/a|"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:44
+#: 83b4df29234247cba05c799dff54449c
+msgid "Отображение процесса выполнения команды в терминале"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 099496762f204fc79c63f28908ca52a8 6a583dab845440e983d1574d2e04f821
+#: 9bc382ed743a42af83780aeb21350aeb
+msgid "Параметр"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 00eff010050b46979e0cf79001828832 98b75c8c8e704f2b8828341034b9e39d
+#: cdd650f7dfb5410185ea996e5523996e
+msgid "Тип"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 214fe453d31d4fb682f790e74ce2cadf 3bd5bbb767fc4794832f9281a2125d2f
+#: f3b0cbc9cafe45e187cf1dbe6c12ca4a
+msgid "Значение по умолчанию"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 502f96f2f9ab4e6cb2671597f2771806 b34fe35f14a3480ea8e3cbd07e8f2bf4
+#: cecaf479e8cc4141ad0f69c19317ff25
+msgid "Описание"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 1fe6aa7ac0b94afda78a09d5a643514f
+msgid "hide_metadata"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 5865b128a55e477f8a025590d761be44 e89674b657ea44bd8197dc9d526b815c
+#: e92d07701bc84c18a8f672e140bc5b99
+msgid "bool"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 21d7b609e7ad43778c9d95d52de113b0 c5560a31b51f4859b8be4bbad3f41267
+msgid "``false``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 650afe662eb543868f26e806457480aa
+msgid "Включение отображения метаданных"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: b5b37e2ff5894452bbab3646feea7d72
+msgid "hide_libs_vers"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 9419d451b3e9400a8684af8e75a20b40
+msgid "Включение отображения версий установленных  библиотек  в командной строке"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: c3329397d80d47969b1cbb84b9ea6020
+msgid "path_to_dataset"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 8a4233e9d404498b991f9aaa1960ac22 95186cac6fe646ad8b1b4a23d9297ed8
+#: afa6a841d65b4899bb2eef67d15285bf babea82456c64b72a6b1d0fbd1f0c838
+msgid "str"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 2cd3e797087341189f375c6e04bf9027
+msgid "``<путь_к_набору_данных>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 460c1e1b384947038cf67e05b53e653b
+msgid ""
+"Директория, где размещается подготовленный набор данных для обучения "
+"нейросетевых моделей"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: a3bbf7c1292d451fb1e9b0aef4793512
+msgid "subfolders"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 66795c2b38624c9ab8855c5b2057c872
+msgid "``test: \"test\"``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 44f7b75fcae7405483d2c4282fd64506
+msgid "Директория с тестовой выборкой"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: b8b6408253654878ace3d2f6f47944d2
+msgid "path_to_model"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: b2e1c93743ed4f95b4dd999c80422674
+msgid "``<путь_к_обученной_модели>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 0c064295019641fe8b9b46b05cd98845
+msgid "Путь, по которому находится обученная нейросетевая модель"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 3253543c03924d7ca7fa96ffb3cf5b62
+msgid "path_to_save_confusion_matrix"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: cec74eb66a3c434eafb8019c976d78f5
+msgid "``<путь_сохранения_матриц_спутывания>``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 39d32357d34742afb3fba6cc0395a2ae
+msgid "Путь, по которому будут храниться матрицы спутывания"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:71
+#: db7a92805dd945e4bc51ce76c3ae68ec
+msgid "Параметры процесса распознавания аудиовизуальной речи"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: dca4139fabc44a899245c5ef76dd911f
+msgid "n_classes"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 2bdf30eb6b8b4cb3a17b2ad7b0235627 410444dc73d34fe69a1ea1234812f1c9
+#: 4cc2b09e5fef4eb396bafec56d5ebec2 5df7e140520948e69fdc2fa32b73ba72
+#: 5f37a77747294b18bf2c8c00b4a77a13 6a72dd8d326e438185bedf7589c25e61
+#: 80a77b684e7a453c8246c5ef2eb9ea90 bd9027d4de124e5a8b6dcdf6e7900a7f
+#: d3fd5fa6b87b4078ae387ef26700d534
+msgid "int"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 1eaff7b1842d4f4b88947cc5626c14d5
+msgid "``26``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: b4c6d43e7e4f4e9e8194d997ff171f2a
+msgid ""
+"Количество классов для задачи классификации. Соответствуют количеству "
+"фраз из базы данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 84501455cd674ebea6ca36b0e4cf8b12
+msgid "classes"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 255335c4b144476fb709c9ed6739068b
+msgid "list"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 52fa158b7fd244a3ac6c2e23b0179b56
+msgid "``[\"1_Левая\", \"2_Правая\",`` |br| ``...`` |br| ``\"26_Калибровка\"]``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 55775cba01674e3abd5e1d0a7e6ea852
+msgid "Список названий классов, которые представлены в базе данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: d305b8955e3a47ae8041a05f1fcc7953
+msgid "max_segment"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: c4d8c10c3a99450e9b26a8772b9fa6c6
+msgid "``2``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 6592b21f89fd46b2b8400d816d541218
+msgid ""
+"Гиперпараметр, определяющий максимальное количество перекрывающихся "
+"сегментов, на которые разбиваются длинные последовательности аудио и "
+"видео данных перед подачей их на вход нейронной сети для обучения или "
+"вывода"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: e5b299fab2bf4ab6b25eb2fe867c70e6
+msgid "hidden_units"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 1e3b15dac9c14567895d31c0b32fc77d
+msgid "``256``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: b3fe9bf7d0f244ec8516e2b861ceeee5
+msgid ""
+"Количество скрытых единиц (hidden units) в декодере нейронной сети. Этот "
+"параметр определяет размерность внутреннего представления данных в "
+"декодере, что влияет на емкость (expressive capacity) и способность "
+"декодера извлекать и обобщать сложные зависимости в данных"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 972a782b0f104ba49ccdafb66d5f0c56
+msgid "hidden_features"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 794027f981a0434fb6be2dfbdafcbde8
+msgid "``128``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 5b22eec7e4944f6099e8611ba7f812d7
+msgid ""
+"Количество скрытых признаков (hidden features) или временных шагов, "
+"используемых в нейросетевые модели. Этот гиперпараметр связан с тем, как "
+"модель обрабатывает последовательные данные, такие как аудио и видео. "
+"Увеличение этого параметра позволяет модели обрабатывать более длинные "
+"входные последовательности, но также увеличивает вычислительную сложность"
+" и требования к памяти, уменьшение может ускорить обучение, но при этом "
+"модель будет видеть только более короткие временные зависимости"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 79907da1402e40f9b9b04ccc002f28ad
+msgid "input_dim"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 3836e5b2277f43c9918706f5751848f5
+msgid "``512``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: d6dcc0b5eec7492080c809ee558f6469
+msgid ""
+"Размерность входных векторов признаков для аудио и видео данных, "
+"подаваемых в модель. Например, параметр ``input_dim=512`` указывает, что "
+"на вход нейронной сети будут подаваться векторы признаков размера 512 для"
+" каждого временного шага последовательности. Размер входного вектора "
+"обычно является результатом предварительной обработки и извлечения "
+"низкоуровневых признаков из исходных аудио/видео данных с помощью "
+"отдельных моделей или методов обработки сигналов."
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: ffd46684443c4e8a87cbd4a035f5e0be
+msgid "shape_audio"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: e67bb262e2bb446596d2ca08398593b3
+msgid "``channels: \"1\"`` |br| ``n_mels: \"64\"`` |br| ``samples: \"306\"``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 5ff3a40f76dc4e24b020bfcdd988c386
+msgid ""
+"Здесь определяется размерность входных тензоров аудиоданных, ожидаемые "
+"моделью. Это форма задается тремя числами ``channels`` - количество "
+"каналов в аудиоданных, чаще всего аудио является моно, поэтому здесь "
+"канал равен ``1``. При стерео он равен ``2``. ``n_mels`` - количество "
+"мел-частотных кепстральных коэффициентов (MFCC), используемых для "
+"представления аудиоданных. ``samples`` - количество временных выборок или"
+" окон, входящих в одно аудио представление. Являются фиксированными "
+"параметрами"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 16c2af4a1fe84dab81a10e5383c41cdc
+msgid "shape_video"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 14354376fc8a4c56acdb0fad2a9e14ca
+msgid ""
+"``frames: \"29\"`` |br| ``channels: \"3\"`` |br| ``width: \"88\"`` |br| "
+"``height: \"88\"``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: bdfb54d332f34b17943eb1dc32fcb444
+msgid ""
+"Здесь определяется размерность входных тензоров видеоданных, ожидаемые "
+"моделью. ``frames`` - это количество видеокадров в одном сегменте. "
+"``channels`` - это количество цветовых каналов (R, G, B) в видеокадре. "
+"Для изображения в серых тонах количество каналов равно ``1``. ``width`` -"
+" ширина видеокадра в пикселях. ``height`` - высота видеокадра в пикселях."
+" Являются фиксированными параметрами"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 52f324ba07af49c9aee309579831cb23
+msgid "encoder_decoder"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: ee67938ef9f44f7c8eb1f78b7fe2a9f5
+msgid "``5``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 0cc9a2303a1c47c59d3c7acafc9cf224
+msgid ""
+"Количество блоков энкодера и декодера в архитектуре трансформера, который"
+" используется в этой модели. Доступные значения от ``1`` до ``50``. "
+"Правильный выбор количества энкодер/декодер блоков является важным "
+"гиперпараметром и часто подбирается экспериментально в зависимости от "
+"размера данных, доступных вычислительных ресурсов и требуемого качества "
+"модели"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 8015ce011b614dcb873e8b38a6db19ae
+msgid "save_confusion_matrix"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: bcd62df21c6b492b88fa843fa1957fe7
+msgid "``true``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: b3e38104ff7d45edb67864c4307cd405
+msgid "Сохранение построенных матриц спутывания"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 644e7cccfd9c44f589d9f058bb2f493e
+msgid "figsize_confusion_matrix"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: 2089d68c25184de2ab9d0b0c9645fd3a
+msgid ""
+"``width: \"2600\"`` |br| ``height: \"2600\"`` |br| ``font_size: \"14\"`` "
+"|br| ``dpi: \"600\"`` |br| ``pad_inches: \"0\"``"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:1
+#: c76f68b7272743f79d525c7ada5bd77c
+msgid ""
+"Здесь определяются параметры отображения матрицы спутывания. ``width`` и "
+"``height`` - размер изображения матрицы спутывания в пикселях. "
+"``font_size`` - размер шрифта на изображении матрицы. ``dpi`` - влияет на"
+" качество изображения. ``pad_inches`` - величина отступов от построенной "
+"матрицы спутывания"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:92
+#: 02abf40627d54248b2259bcd7ba66b6c
+msgid "Пример построения матрицы спутывания"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:99
+#: 7804da933f174d5aa7299ce906b10352
+msgid "Пример построения матрицы спутывания для 26 классов"
+msgstr ""
+
+#: ../../source/user_guide/modules/fusion/audiovisual_test.rst:99
+#: daa861b6586c4b97b7b9eca9ca3ddfe9
+msgid "|br|"
+msgstr ""
+
+#~ msgid "Тестирование обученных аудиовизуальных нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Команда для запуска процесса процесса "
+#~ "тестирования обученных аудиовизуальных нейросетевых"
+#~ " моделей:"
+#~ msgstr ""
+
+#~ msgid "Параметры процесса тестирования аудиовизуальных нейросетевых моделей"
+#~ msgstr ""
+

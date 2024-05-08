@@ -1,0 +1,408 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-27 19:09+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/user_guide/installation.rst:4
+msgid "Содержание:"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:2 f17876dc528143c2ba355f73b5be416d
+msgid "Установка и обновление"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:10 d14537244a054f93b57bffc933358018
+msgid "Установка с помощью `PyPi <https://pypi.org/project/openav/>`_"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:12 8498a95b25d04b47a9206f0b525b7ccc
+msgid "pip install openav"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:17 3a0e2aef530f421792eb7db87c982146
+msgid "Обновление с помощью `PyPi <https://pypi.org/project/openav/>`_"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:19 1b8e74f642134130bd605d7f7a2ff84f
+msgid "pip install --upgrade openav"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:24 b438148ddd914a0e831d63b56cc98e6c
+msgid "Зависимости"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:26 6642f32eca8644ed9e94a65223b8de03
+msgid "Устанавливаются автоматически"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 1a2f5fdbe8fd4abea13ea1480007207c
+msgid "Библиотека"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 b1a9b9094575443e90428c68cdbe625d
+msgid "Рекомендуемая версия"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 7fbfd76030bc44afa7834b66856e9b30
+msgid "Текущая версия"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 d5176e8c66c04487af4fb5cac6aaece7
+msgid "ipython"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 05c0276c143c48d592503c2a1ca22574
+msgid "8.10.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 3fd34e23ec31444896e68f615653ad63
+msgid "colorama"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 dbb66facdfc3422ea00764e1bc7f62eb
+msgid "0.4.6"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 ce13e0218734454d8e8e393f4658da67
+msgid "numpy"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 4e2d9e8591da439da82f77a2ecd30d45
+msgid "1.24.2"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 a4152730cdcf488cb36de086f51e05af
+msgid "pandas"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 caca28d31b234df783ab7b840006a21f
+msgid "1.5.3"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 310b196685fc4787b8d42dc937fd13b3
+msgid "prettytable"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 2810ad70ae3248fb8cd5c75c62112919
+msgid "3.6.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 b0cfa0136deb4ff3aca72a00530bbaea
+msgid "torch"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 db0dd3e886ad4daf86e41f8331862924
+msgid "1.13.1"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 384a7760c6b74593ae6f6f42a37033a1
+msgid "torchaudio"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 0ec3b0286bc24f8f860333dbde49166c
+msgid "0.13.1"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 14dd0363b7994cfe88442f123b31b4ee
+msgid "torchvision"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 0844bb8c48ba44c8bde1982a1aeacd3d
+msgid "0.14.1"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 2b188fbda6ee43ca84771116cb33c02b
+msgid "vosk"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 8be8afb9d3c04f70bebcec3df75687ec
+msgid "0.3.44"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 a00f8a561a53462abfbb588d4330c345
+msgid "av"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 88bde99cb59d4d289f915edc0118b3c9
+msgid "10.0.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 c982e0cee48043d59bd665c5857e6db4
+msgid "filetype"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 c45ab35cfec64d9fadc2aaccbd01c1de
+msgid "1.2.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 f4970b830dba4b9399fca49139ee2150
+msgid "requests"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 c0ad990bc8914295bb55ca74e3a971a1
+msgid "2.28.2"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 501fd608353b4be5853394d65700eeb8
+msgid "pyyaml"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 3e3f8bfd7fc149bfbe7ca12f51b13969
+msgid "6.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 e2dc1f7237464f9ba3ba67082b9d9cbe
+msgid "streamlit"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 dacb0b7a5c6347c7b27cbce1bac883fe
+msgid "1.20.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 88c3e49e31f245e4a27074ce87efa432
+msgid "watchdog"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 fe8ce828e22540a38212a1195b5c8136
+msgid "2.3.1"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 4daff86db619451db497e99ac9e77c38
+msgid "pymediainfo"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 b71b34ca35864d6392abf5c9436a940d
+msgid "6.0.1"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 bef2c869abb7409abdfac14cd4e2854e
+msgid "pillow"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 e923610dba7f4e9e8ba2d90ce5b4e2d7
+msgid "9.5.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 ba884812a6d44a1fb1749687c4863e08
+msgid "imgaug"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 0c4d84f76fc0493a8a954aba2f59afd2
+msgid "0.4.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 ad37e5780ca046dab0a54eae6abed425
+msgid "flask"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 1e88701244e449959a9dd41295335ce3
+msgid "2.3.3"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 5f34492b8dd14348b553ba7ec9e433bb
+msgid "ffmpeg"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 42c55ddf315e47619784bc4efcfee12c
+msgid "1.4"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 d7514b3a9f5040b88808eb3ffdd0be0b
+msgid "librosa"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 decacb98cec845958798c63cd83bc84a
+msgid "0.10.1"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 97ddcb08e2ea476cb75b3416dfee3f62
+msgid "matplotlib"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 849584a65bc74aeda62f9f13d4252116
+msgid "3.6.3"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 6d29a6e4837c4d6ca745f3225fb16f7e
+msgid "mediapipe"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 8c52f175ab924f18878f2f33fde40de7
+msgid "0.9.3.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 edff4e5a1bda467b961cb1100e3c636f
+msgid "opencv_contrib_python"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 21c7d0313e854cc5bd9fffcf66f4e306
+msgid "4.9.0.80"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 d91268c835c9492d9df4473cc6e6ba82
+msgid "einops"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 e21e99b702ef4b89b22e4a4037bf12ae
+msgid "0.7.0"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 8d3292efa54c438d954404a2b67ec928
+msgid "lion_pytorch"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 96ea19ea0a3a420a8a77100a6c2181ee
+msgid "0.1.4"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 8dca7162696d453bbd871a868b5dce51
+msgid "scikit-learn"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 3cb5c723486c431c8925fada2c0dde4e
+msgid "1.4.2"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 7b8a15f39ab14098b1353767fa959b5c
+msgid "tqdm"
+msgstr ""
+
+#: ../../source/user_guide/installation.rst:1 67164949726147aea834a4ca79b27c49
+msgid "4.66.2"
+msgstr ""
+
+#~ msgid "8.7.0"
+#~ msgstr ""
+
+#~ msgid "1.24.0"
+#~ msgstr ""
+
+#~ msgid "1.5.2"
+#~ msgstr ""
+
+#~ msgid "3.5.0"
+#~ msgstr ""
+
+#~ msgid "Устанавливаются автоматически"
+#~ msgstr ""
+
+#~ msgid "Библиотека"
+#~ msgstr ""
+
+#~ msgid "Рекомендуемая версия"
+#~ msgstr ""
+
+#~ msgid "Текущая версия"
+#~ msgstr ""
+
+#~ msgid "ipython"
+#~ msgstr ""
+
+#~ msgid "8.10.0"
+#~ msgstr ""
+
+#~ msgid "colorama"
+#~ msgstr ""
+
+#~ msgid "0.4.6"
+#~ msgstr ""
+
+#~ msgid "numpy"
+#~ msgstr ""
+
+#~ msgid "1.24.2"
+#~ msgstr ""
+
+#~ msgid "pandas"
+#~ msgstr ""
+
+#~ msgid "1.5.3"
+#~ msgstr ""
+
+#~ msgid "prettytable"
+#~ msgstr ""
+
+#~ msgid "3.6.0"
+#~ msgstr ""
+
+#~ msgid "torch"
+#~ msgstr ""
+
+#~ msgid "1.13.1"
+#~ msgstr ""
+
+#~ msgid "torchaudio"
+#~ msgstr ""
+
+#~ msgid "0.13.1"
+#~ msgstr ""
+
+#~ msgid "torchvision"
+#~ msgstr ""
+
+#~ msgid "0.14.1"
+#~ msgstr ""
+
+#~ msgid "vosk"
+#~ msgstr ""
+
+#~ msgid "0.3.44"
+#~ msgstr ""
+
+#~ msgid "av"
+#~ msgstr ""
+
+#~ msgid "10.0.0"
+#~ msgstr ""
+
+#~ msgid "filetype"
+#~ msgstr ""
+
+#~ msgid "1.2.0"
+#~ msgstr ""
+
+#~ msgid "requests"
+#~ msgstr ""
+
+#~ msgid "2.28.2"
+#~ msgstr ""
+
+#~ msgid "pyyaml"
+#~ msgstr ""
+
+#~ msgid "6.0"
+#~ msgstr ""
+
+#~ msgid "streamlit"
+#~ msgstr ""
+
+#~ msgid "1.20.0"
+#~ msgstr ""
+
+#~ msgid "watchdog"
+#~ msgstr ""
+
+#~ msgid "2.3.1"
+#~ msgstr ""
+
+#~ msgid "pymediainfo"
+#~ msgstr ""
+
+#~ msgid "6.0.1"
+#~ msgstr ""
+

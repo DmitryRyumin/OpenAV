@@ -1,0 +1,239 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-10 13:31+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+#: ../../source/modules/core/settings.rst:2 8249727062d74203b3930795e8a91772
+msgid "Настройки"
+msgstr ""
+
+#: 987df2f524854073ba735391bbacaad4 of openav.modules.core.settings.Settings:1
+msgid "Базовые классы: :py:class:`~openav.modules.core.messages.Messages`"
+msgstr ""
+
+#: d60484bf58374a5ebc0b321f91f8e84a of openav.modules.core.settings.Settings:1
+msgid "Класс для настроек"
+msgstr ""
+
+#: 572d4348e71241299a5c30524bf169ca 7d125902da70470e9ceafe9da6a75a46
+#: 97c5b9c39903421491d1e94847ff2496 of openav.modules.core.settings.Settings
+#: openav.modules.core.settings.Settings.chunk_size
+#: openav.modules.core.settings.Settings.dir_va_names
+#: openav.modules.core.settings.Settings.ext_search_files
+#: openav.modules.core.settings.Settings.ignore_dirs
+#: openav.modules.core.settings.Settings.path_to_dataset
+#: openav.modules.core.settings.Settings.path_to_dataset_vad
+#: openav.modules.core.settings.Settings.path_to_dataset_vosk_sr
+#: openav.modules.core.settings.Settings.path_to_save_models
+msgid "Параметры"
+msgstr ""
+
+#: 893371600a48487d85e75661c0ca0bf0 of openav.modules.core.settings.Settings:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 893371600a48487d85e75661c0ca0bf0 of openav.modules.core.settings.Settings:5
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
+msgstr ""
+
+#: 9bc8e62992124d85b1474653b2c5008c of
+#: openav.modules.core.settings.Settings.chunk_size:1
+msgid "Получение/установка размера загрузки файла из сети за 1 шаг"
+msgstr ""
+
+#: 68cdc5eaf46b4541a3f10c3c7ef3f127 a8848896594946bd8ae4e0eb4d52af72 of
+#: openav.modules.core.settings.Settings.chunk_size:3
+#: openav.modules.core.settings.Settings.chunk_size:5
+msgid "Размер загрузки файла из сети за 1 шаг"
+msgstr ""
+
+#: e9e98be6f52b494dbb46a5730b2d25da of
+#: openav.modules.core.settings.Settings.chunk_size
+#: openav.modules.core.settings.Settings.clear_line
+#: openav.modules.core.settings.Settings.color_blue
+#: openav.modules.core.settings.Settings.color_green
+#: openav.modules.core.settings.Settings.color_red
+#: openav.modules.core.settings.Settings.dir_va_names
+#: openav.modules.core.settings.Settings.ext_search_files
+#: openav.modules.core.settings.Settings.ignore_dirs
+#: openav.modules.core.settings.Settings.path_to_dataset
+#: openav.modules.core.settings.Settings.path_to_dataset_vad
+#: openav.modules.core.settings.Settings.path_to_dataset_vosk_sr
+#: openav.modules.core.settings.Settings.path_to_save_models
+#: openav.modules.core.settings.Settings.text_bold
+#: openav.modules.core.settings.Settings.text_end
+msgid "Результат"
+msgstr ""
+
+#: 9e8a39251bf84ad8ae5ac45ae266382d of
+#: openav.modules.core.settings.Settings.chunk_size
+#: openav.modules.core.settings.Settings.clear_line
+#: openav.modules.core.settings.Settings.color_blue
+#: openav.modules.core.settings.Settings.color_green
+#: openav.modules.core.settings.Settings.color_red
+#: openav.modules.core.settings.Settings.dir_va_names
+#: openav.modules.core.settings.Settings.ext_search_files
+#: openav.modules.core.settings.Settings.ignore_dirs
+#: openav.modules.core.settings.Settings.path_to_dataset
+#: openav.modules.core.settings.Settings.path_to_dataset_vad
+#: openav.modules.core.settings.Settings.path_to_dataset_vosk_sr
+#: openav.modules.core.settings.Settings.path_to_save_models
+#: openav.modules.core.settings.Settings.text_bold
+#: openav.modules.core.settings.Settings.text_end
+msgid "Тип результата"
+msgstr ""
+
+#: a94fdb9a8b97495bafa5eabccb5a775d of
+#: openav.modules.core.settings.Settings.clear_line:1
+msgid "Получение очистки линии в терминале"
+msgstr ""
+
+#: a89311416a9040399fe760dd31a5ffae of
+#: openav.modules.core.settings.Settings.clear_line:3
+msgid "Очистка линии в терминале"
+msgstr ""
+
+#: 24b822a6868749c5b32475e340fcb60b of
+#: openav.modules.core.settings.Settings.color_blue:1
+msgid "Получение синего цвета текста в терминале"
+msgstr ""
+
+#: 2a780c74d2c245b48302faa5c31d8c6e of
+#: openav.modules.core.settings.Settings.color_blue:3
+#: openav.modules.core.settings.Settings.color_green:3
+#: openav.modules.core.settings.Settings.color_red:3
+msgid "Цвет текста в терминале"
+msgstr ""
+
+#: 65042a09a3b14523886a9002a720829d of
+#: openav.modules.core.settings.Settings.color_green:1
+msgid "Получение зеленого цвета текста в терминале"
+msgstr ""
+
+#: b90e3bd74f124d3ea85f3dbbbe357e5f of
+#: openav.modules.core.settings.Settings.color_red:1
+msgid "Получение красного цвета текста в терминале"
+msgstr ""
+
+#: b2a9b3c16edd4ffcb457418fd9ff3e89 of
+#: openav.modules.core.settings.Settings.dir_va_names:1
+msgid "Получение/установка списка с названиями директорий для видео и аудио"
+msgstr ""
+
+#: 24ac49c0ae834734b04c3c1055e3ce40 ed3cde7292ec455bbabb52dfddcfe837 of
+#: openav.modules.core.settings.Settings.dir_va_names:3
+#: openav.modules.core.settings.Settings.dir_va_names:5
+#: openav.modules.core.settings.Settings.ignore_dirs:3
+#: openav.modules.core.settings.Settings.ignore_dirs:5
+msgid "Список с директориями"
+msgstr ""
+
+#: 9bc8e62992124d85b1474653b2c5008c of
+#: openav.modules.core.settings.Settings.ext_search_files:1
+msgid "Получение/установка списка с расширениями искомых файлов"
+msgstr ""
+
+#: 021375cab60f4802bae578c4600619af c975d0830c8d4ceeac128bd69a39eda6 of
+#: openav.modules.core.settings.Settings.ext_search_files:3
+#: openav.modules.core.settings.Settings.ext_search_files:5
+msgid "Список с расширениями искомых файлов"
+msgstr ""
+
+#: 2416a59b564b4279849884b9cae58409 of
+#: openav.modules.core.settings.Settings.ignore_dirs:1
+msgid "Получение/установка списка с директориями не входящими в выборку"
+msgstr ""
+
+#: eaaa02006a5f43eea3719ffcb9230c9f of
+#: openav.modules.core.settings.Settings.path_to_dataset:1
+msgid "Получение/установка пути к директории набора данных"
+msgstr ""
+
+#: 29e6ba3708844468b974bde95e9f0fc2 795c8a74abe244b2b69174099a35da38
+#: 92b320e7333e4069a112880a2fe63fcf d8e83a661fe446c78c3b4d5d7cf740c3 of
+#: openav.modules.core.settings.Settings.path_to_dataset:3
+#: openav.modules.core.settings.Settings.path_to_dataset:5
+#: openav.modules.core.settings.Settings.path_to_dataset_vad:3
+#: openav.modules.core.settings.Settings.path_to_dataset_vad:5
+#: openav.modules.core.settings.Settings.path_to_dataset_vosk_sr:3
+#: openav.modules.core.settings.Settings.path_to_dataset_vosk_sr:5
+#: openav.modules.core.settings.Settings.path_to_save_models:3
+#: openav.modules.core.settings.Settings.path_to_save_models:5
+msgid "Путь"
+msgstr ""
+
+#: 7392ca6d370b4adcbdad5f4b566827a2 of
+#: openav.modules.core.settings.Settings.path_to_dataset_vad:1
+msgid ""
+"Получение/установка пути к директории набора данных состоящего из "
+"фрагментов аудиовизуального сигнала (VAD)"
+msgstr ""
+
+#: 7392ca6d370b4adcbdad5f4b566827a2 of
+#: openav.modules.core.settings.Settings.path_to_dataset_vosk_sr:1
+msgid ""
+"Получение/установка пути к директории набора данных состоящего из "
+"фрагментов аудиовизуального сигнала (VOSK)"
+msgstr ""
+
+#: f3964cac7414431ca668136e6d6a70f4 of
+#: openav.modules.core.settings.Settings.path_to_save_models:1
+msgid "Получение/установка пути к директории для сохранения моделей"
+msgstr ""
+
+#: f2b84cfd097c45f69adc9e08f8835736 of
+#: openav.modules.core.settings.Settings.text_bold:1
+msgid "Получение жирного начертания текста в терминале"
+msgstr ""
+
+#: c55df16d9ae14e0d8dac00736d2bf1dd of
+#: openav.modules.core.settings.Settings.text_bold:3
+msgid "Жирное начертание текста в терминале"
+msgstr ""
+
+#: 15e2e54ec53d4ff3a45cd8a036a2ab83 of
+#: openav.modules.core.settings.Settings.text_end:1
+msgid "Получение сброса оформления текста в терминале"
+msgstr ""
+
+#: f67eb02e9c2041d0845889f3d7532efa of
+#: openav.modules.core.settings.Settings.text_end:3
+msgid "Сброс оформления текста в терминале"
+msgstr ""
+
+#~ msgid "Путь к директории для сохранения данных"
+#~ msgstr ""
+
+#~ msgid "Получение/установка пути к директории для сохранения данных"
+#~ msgstr ""
+
+#~ msgid "путь"
+#~ msgstr ""
+
+#~ msgid "Язык"
+#~ msgstr ""
+
+#~ msgid "private (приватный аргумент)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Получение/установка пути к директории набора"
+#~ " данных состоящего из фрагментов "
+#~ "аудиовизуального сигнала"
+#~ msgstr ""
+
