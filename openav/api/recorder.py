@@ -56,7 +56,9 @@ processing_finished = False
 video_path = "temp_dir/video.mp4"
 output_dir = "cuted"
 
-global questions
+global questions, path_to_temp_dir
+
+path_to_temp_dir = ""
 
 questions = []
 
@@ -125,9 +127,9 @@ def upload():
     if "video" in request.files:
         video_file = request.files["video"]
         if video_file.filename != "":
-            if not os.path.exists("../modules/dataset_recording/temp_dir"):
-                os.makedirs("../modules/dataset_recording/temp_dir")
-            video_file.save("../modules/dataset_recording/temp_dir/video.webm")
+            if not os.path.exists(path_to_temp_dir):
+                os.makedirs(path_to_temp_dir)
+            video_file.save(os.path.join(path_to_temp_dir, "video.webm"))
 
             processing_finished = True
 
@@ -144,7 +146,9 @@ def download_processed_video():
 
     Скачивает файл с записью в формате webm
     """
-    processed_video_path = "../modules/dataset_recording/temp_dir/video.webm"
+    global path_to_temp_dir
+    processed_video_path = os.path.join(path_to_temp_dir, "video.webm")
+
     return send_file(processed_video_path, as_attachment=True)
 
 
@@ -199,7 +203,7 @@ class RunRecorder(MessagesRecorder):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 4  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 5  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_train: logging.Logger = logging.getLogger(__class__.__name__)
@@ -316,6 +320,14 @@ class RunRecorder(MessagesRecorder):
                     continue
 
                 curr_valid_layer += 1
+
+                curr_valid_layer += 1
+
+            # 1. Путь к временной директории
+            if key == "path_to_temp_dir":
+                # Проверка значения
+                if type(val) is not str or not val:
+                    continue
 
                 curr_valid_layer += 1
 
@@ -438,6 +450,8 @@ class RunRecorder(MessagesRecorder):
 
         for cnt, d in enumerate(self._args["dictionary"], start=1):
             questions.append({"QuestionNumber": cnt, "QuestionText": d, "Disable_time": self._args["sleep"]})
+
+        path_to_temp_dir = self._args["path_to_temp_dir"]
 
         app.run(debug=False)
 

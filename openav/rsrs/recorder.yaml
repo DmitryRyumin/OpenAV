@@ -2,6 +2,7 @@
 hide_metadata: false
 hide_libs_vers: false
 sleep: 2000
+path_to_temp_dir: "/Users/dl/GitHub/OpenAV/openav/modules/dataset_recording/temp_dir"
 dictionary:
 - "Левая"
 - "Правая"
