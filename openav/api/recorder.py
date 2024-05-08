@@ -125,9 +125,9 @@ def upload():
     if "video" in request.files:
         video_file = request.files["video"]
         if video_file.filename != "":
-            if not os.path.exists("temp_dir"):
-                os.makedirs("temp_dir")
-            video_file.save("temp_dir/video.webm")
+            if not os.path.exists("../modules/dataset_recording/temp_dir"):
+                os.makedirs("../modules/dataset_recording/temp_dir")
+            video_file.save("../modules/dataset_recording/temp_dir/video.webm")
 
             processing_finished = True
 
@@ -144,7 +144,7 @@ def download_processed_video():
 
     Скачивает файл с записью в формате webm
     """
-    processed_video_path = "temp_dir/video.webm"
+    processed_video_path = "../modules/dataset_recording/temp_dir/video.webm"
     return send_file(processed_video_path, as_attachment=True)
 
 
