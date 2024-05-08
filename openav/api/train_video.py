@@ -258,8 +258,6 @@ class RunTrainVideo(MessagesTrainVideo):
 
                 curr_valid_layer += 1
 
-        print(self._all_layer_in_yaml, curr_valid_layer)
-
         # Сравнение общего количества ожидаемых настроек и валидных настроек в конфигурационном файле
         if self._all_layer_in_yaml != curr_valid_layer:
             try:

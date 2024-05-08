@@ -33,10 +33,10 @@ librosa >= 0.10.1
 matplotlib >= 3.6.3
 mediapipe == 0.9.3.0
 opencv_contrib_python >= 4.9.0.80
-flask == 2.3.3
 werkzeug == 3.0.1
 einops >= 0.7.0
 lion_pytorch >= 0.1.4
 scikit-learn >= 1.4.2
 tqdm >= 4.66.2
 seaborn >= 0.13.2
+Flask >= 3.0.3

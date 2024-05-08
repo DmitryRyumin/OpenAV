@@ -183,6 +183,7 @@ openav/__garbage__.py
 openav/samples/__test__.py
 jlab/
 models/*
+temp_dir/
 
 # Не игнорировать
 !models/resnet18_lstm_torch_video.pt
