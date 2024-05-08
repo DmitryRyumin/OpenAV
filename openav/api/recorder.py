@@ -41,6 +41,7 @@ from openav import rsrs  # Ресурсы библиотеки
 
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
 
+
 app = Flask(
     __name__,
     template_folder="../modules/dataset_recording/templates",
@@ -55,19 +56,9 @@ processing_finished = False
 video_path = "temp_dir/video.mp4"
 output_dir = "cuted"
 
+global questions
 
-def read_questions_from_csv():
-    questions = []
-    # with open("questions.csv", mode="r", newline="", encoding="utf-8") as file:
-    # csv_reader = csv.DictReader(file)
-    # for row in csv_reader:
-    #     question_number = int(row["QuestionNumber"])
-    #     question_text = row["QuestionText"]
-    #     disable_time = row["Disable_time"]
-    #     questions.append(
-    #         {"QuestionNumber": question_number, "QuestionText": question_text, "Disable_time": disable_time}
-    #     )
-    return questions
+questions = []
 
 
 @app.route("/get_questions", methods=["GET"])
@@ -78,12 +69,12 @@ def get_questions():
 
     Возвращает список вопросов в json формате
     """
-    questions = read_questions_from_csv()
+
     return jsonify(questions=questions)
 
 
 # Configure the upload folder for recorded videos
-app.config["UPLOAD_FOLDER"] = "/Users/dl/GitHub/OpenAV/openav/modules/dataset_recording/static/recorded-video"
+app.config["UPLOAD_FOLDER"] = "../modules/dataset_recording/static/recorded-video"
 
 if not os.path.exists(app.config["UPLOAD_FOLDER"]):
     os.makedirs(app.config["UPLOAD_FOLDER"])
@@ -134,14 +125,10 @@ def upload():
     if "video" in request.files:
         video_file = request.files["video"]
         if video_file.filename != "":
-            video_path = os.path.join(app.config["UPLOAD_FOLDER"], video_file.filename) + ".webm"
-            print(video_path)
-            # video_file.save(video_path)
             if not os.path.exists("temp_dir"):
                 os.makedirs("temp_dir")
             video_file.save("temp_dir/video.webm")
-            # convert_webm_to_mp4('temp_dir/video.webm', 'temp_dir/video.mp4')
-            print("Done")
+
             processing_finished = True
 
             return "DONE"
@@ -195,6 +182,8 @@ class MessagesRecorder(Run):
 
         self._check_config_file_valid = self._("Проверка данных на валидность") + self._em
 
+        self._recorder_url = self._("Для записи перейдите по адресу: http://127.0.0.1:5000") + self._em
+
 
 # ######################################################################################################################
 # Выполняем только в том случае, если файл запущен сам по себе
@@ -210,7 +199,7 @@ class RunRecorder(MessagesRecorder):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 3  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 4  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_train: logging.Logger = logging.getLogger(__class__.__name__)
@@ -319,6 +308,14 @@ class RunRecorder(MessagesRecorder):
                     # Проверка значения
                     if type(v) is not str or not v:
                         continue
+
+            # Задержка
+            if key == "sleep":
+                # Проверка значения
+                if type(val) is not int or not (0 <= val <= 10000):
+                    continue
+
+                curr_valid_layer += 1
 
                 curr_valid_layer += 1
 
@@ -433,6 +430,14 @@ class RunRecorder(MessagesRecorder):
         if self._args["hide_libs_vers"] is False and out is True:
             self.libs_vers(out=out)
             Shell.add_line()  # Добавление линии во весь экран
+
+        self.message_info(
+            self._recorder_url,
+            out=out,
+        )
+
+        for cnt, d in enumerate(self._args["dictionary"], start=1):
+            questions.append({"QuestionNumber": cnt, "QuestionText": d, "Disable_time": self._args["sleep"]})
 
         app.run(debug=False)
 

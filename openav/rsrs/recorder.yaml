@@ -1,6 +1,7 @@
 ---
 hide_metadata: false
 hide_libs_vers: false
+sleep: 2000
 dictionary:
 - "Левая"
 - "Правая"
