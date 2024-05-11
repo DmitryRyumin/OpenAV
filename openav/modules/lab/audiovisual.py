@@ -43,7 +43,7 @@ from openav.modules.lab.audio import Audio  # Аудиомодальность
 from openav.modules.lab.video import Video  # Видеомодальность
 from openav.modules.nn.av_dataset import AVDataset, AVTest
 from openav.modules.nn.utils import fix_seeds, train_one_epoch, val_one_epoch, save_conf_matrix
-from openav.modules.nn.models import AVModel
+from openav.modules.nn.models import AVModel, Decoder
 
 # ######################################################################################################################
 # Константы
@@ -734,7 +734,6 @@ class AV(AVMessages):
             hierarchy_from_paths = self.__get_hierarchy_from_paths(nested_paths, depth)
 
             path_test, lb_test = [], []
-            lb_test_names = []
 
             # Проход по всем вложенным директориям
             for nested_path in hierarchy_from_paths:
@@ -748,9 +747,10 @@ class AV(AVMessages):
                             if nested_path[-1] == subfolders[SUBFOLDERS_TEST[0]]:
                                 path_test.append(p.resolve())
                                 lb_test.append(classes.index(nested_path[0].lower()))
-                                lb_test_names.append(nested_path[0])
                             else:
                                 pass
+
+            lb_test_names = [classes[val] for val in set(lb_test)]
 
             # Директории с поднаборами данных не содержат визуальных файлов с необходимыми расширениями
             try:
@@ -815,7 +815,7 @@ class AV(AVMessages):
                     save_conf_matrix(
                         y_true=lb_test,
                         y_pred=preds,
-                        name_labels=list(set(lb_test_names)),
+                        name_labels=["_".join(val.split("_")[1:]).capitalize() for val in lb_test_names],
                         filename=os.path.join(path_to_save_confusion_matrix, date_path),
                         figsize_w=figsize_confusion_matrix[FIGSIZE_CONFUSION_MATRIX[0]],
                         figsize_h=figsize_confusion_matrix[FIGSIZE_CONFUSION_MATRIX[1]],
