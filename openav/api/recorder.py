@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Автоматическое обучение на аудиоданных
+"""
+Запись речевых аудиовизуальных данных
 """
 
 import os
@@ -25,6 +26,9 @@ from dataclasses import dataclass  # Класс данных
 
 import logging  # Логирование Функции создающие итераторы для эффективного цикла
 
+from flask import Flask, request, render_template, jsonify, send_file
+from werkzeug.middleware.proxy_fix import ProxyFix
+
 # Типы данных
 from typing import Dict, Union, Any
 from types import ModuleType
@@ -38,11 +42,136 @@ from openav import rsrs  # Ресурсы библиотеки
 from openav.modules.core.logging import ARG_PATH_TO_LOGS
 
 
+app = Flask(
+    __name__,
+    template_folder="../modules/dataset_recording/templates",
+    static_folder="../modules/dataset_recording/static",
+)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
+
+global video_path, output_dir
+global processing_finished
+
+processing_finished = False
+video_path = "temp_dir/video.mp4"
+output_dir = "cuted"
+
+global questions, path_to_temp_dir
+
+path_to_temp_dir = ""
+
+questions = []
+
+
+@app.route("/get_questions", methods=["GET"])
+def get_questions():
+    """Получение списка вопросов
+
+    GET /get_questions
+
+    Возвращает список вопросов в json формате
+    """
+
+    return jsonify(questions=questions)
+
+
+# Configure the upload folder for recorded videos
+app.config["UPLOAD_FOLDER"] = "../modules/dataset_recording/static/recorded-video"
+
+if not os.path.exists(app.config["UPLOAD_FOLDER"]):
+    os.makedirs(app.config["UPLOAD_FOLDER"])
+
+
+@app.route("/")
+def index():
+    """Отображение основной страницы записи
+
+    GET /
+
+    Отображает статику страницы записи. Является точкой входа в приложение
+    """
+    global processing_finished
+    processing_finished = False
+    return render_template("index_home.html")
+
+
+@app.route("/store_timing_data", methods=["POST"])
+def store_timing_data():
+    """Сохранение файла временных отметок записи
+
+    POST /store_timing_data
+
+    Сохраняет файл временных отметок записи, который предается в виде json в теле запроса
+    """
+    if request.method == "POST":
+        data = request.json
+        if os.path.exists("timing_data.txt"):
+            os.remove("timing_data.txt")
+        with open("timing_data.txt", "w", encoding="utf-8") as file:
+            for item in data:
+                file.write(f"Question: {item['question']}, Timestamp: {item['timestamp']}\n")
+
+            file.close()
+        return "Data stored successfully"
+
+
+@app.route("/upload", methods=["POST"])
+def upload():
+    """Сохранение файла записи
+
+    POST /upload
+
+    Сохраняет файл записи, который предается в виде файла видео в теле запроса
+    """
+    global processing_finished
+    if "video" in request.files:
+        video_file = request.files["video"]
+        if video_file.filename != "":
+            if not os.path.exists(path_to_temp_dir):
+                os.makedirs(path_to_temp_dir)
+            video_file.save(os.path.join(path_to_temp_dir, "video.webm"))
+
+            processing_finished = True
+
+            return "DONE"
+
+    return "No video data received."
+
+
+@app.route("/download_processed_video")
+def download_processed_video():
+    """Выгрузка файла записи
+
+    GET /download_processed_video
+
+    Скачивает файл с записью в формате webm
+    """
+    global path_to_temp_dir
+    processed_video_path = os.path.join(path_to_temp_dir, "video.webm")
+
+    return send_file(processed_video_path, as_attachment=True)
+
+
+@app.route("/download_timing_data")
+def download_timing_data():
+    """Выгрузка файла временных отметок записи
+
+    GET /download_processed_video
+
+    Скачивает файл временных отметок записи в формате txt
+    """
+    timing_data_path = "timing_data.txt"  # Path to the file
+    # Set cache-control headers to prevent caching
+    response = send_file(timing_data_path, as_attachment=True, mimetype="text/plain")
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    return response
+
+
 # ######################################################################################################################
 # Сообщения
 # ######################################################################################################################
 @dataclass
-class MessagesTrainAudio(Run):
+class MessagesRecorder(Run):
     """Класс для сообщений"""
 
     # ------------------------------------------------------------------------------------------------------------------
@@ -52,18 +181,20 @@ class MessagesTrainAudio(Run):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._description: str = self._("Автоматическое обучение на аудиоданных")
+        self._description: str = self._("Запись речевых аудиовизуальных данных")
         self._description_time: str = "{}" * 2 + self._description + self._em + "{}"
 
         self._check_config_file_valid = self._("Проверка данных на валидность") + self._em
+
+        self._recorder_url = self._("Для записи перейдите по адресу: http://127.0.0.1:5000") + self._em
 
 
 # ######################################################################################################################
 # Выполняем только в том случае, если файл запущен сам по себе
 # ######################################################################################################################
 @dataclass
-class RunTrainAudio(MessagesTrainAudio):
-    """Класс для автоматического обучения на аудиоданных"""
+class RunRecorder(MessagesRecorder):
+    """Класс для записи речевых аудиовизуальных данных"""
 
     # ------------------------------------------------------------------------------------------------------------------
     # Конструктор
@@ -72,7 +203,7 @@ class RunTrainAudio(MessagesTrainAudio):
     def __post_init__(self):
         super().__post_init__()  # Выполнение конструктора из суперкласса
 
-        self._all_layer_in_yaml = 12  # Общее количество настроек в конфигурационном файле
+        self._all_layer_in_yaml = 5  # Общее количество настроек в конфигурационном файле
 
         #  Регистратор логирования с указанным именем
         self._logger_run_train: logging.Logger = logging.getLogger(__class__.__name__)
@@ -163,97 +294,39 @@ class RunTrainAudio(MessagesTrainAudio):
         for key, val in config.items():
             # 1. Скрытие метаданных
             # 2. Скрытие версий установленных библиотек
-            # 3. Растягивать спектрограммы до указанных размеров или заполнять 0
-            if key == "hide_metadata" or key == "hide_libs_vers" or key == "padding_spec":
+            if key == "hide_metadata" or key == "hide_libs_vers":
                 # Проверка значения
                 if type(val) is not bool:
                     continue
 
                 curr_valid_layer += 1
 
-            # 1. Путь к директории набора данных
-            if key == "path_to_dataset":
+            # Словарь
+            if key == "dictionary":
                 # Проверка значения
-                if type(val) is not str or not val:
+                if type(val) is not list or len(val) == 0:
                     continue
 
-                curr_valid_layer += 1
-
-            # Длина аудио
-            if key == "len_audio":
-                # Проверка значения
-                if type(val) is not int or not (0 <= val <= 50000):
-                    continue
-
-                curr_valid_layer += 1
-
-            # Размер спектрограмм
-            if key == "size_spec":
-                all_layer_2 = 2  # Общее количество подразделов в текущем разделе
-                curr_valid_layer_2 = 0  # Валидное количество подразделов в текущем разделе
-
-                # Проверка значения
-                if type(val) is not dict or len(val) == 0:
-                    continue
-
-                # Проход по всем подразделам текущего раздела
-                for k, v in val.items():
+                # Проход по всем классам
+                for v in val:
                     # Проверка значения
-                    if type(v) is not int or not (0 <= v <= 512):
+                    if type(v) is not str or not v:
                         continue
 
-                    # 1. Ширина
-                    # 2. Высота
-                    if k == "width" or k == "height":
-                        curr_valid_layer_2 += 1
-
-                if all_layer_2 == curr_valid_layer_2:
-                    curr_valid_layer += 1
-
-            # Случайное число для запуска процесса обучения
-            if key == "seed":
-                # Проверка значения
-                if type(val) is not int or not 0 <= val:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Размер пакетов для обучения
-            if key == "batch_size":
-                # Проверка значения
-                if type(val) is not int or not 1 <= val or not val % 2 == 0:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Количество каналов в изображении
-            if key == "channels_spec":
-                # Проверка значения
-                if type(val) is not int or (1 != val and 3 != val):
-                    continue
-
-                curr_valid_layer += 1
-
-            # Скорость обучения
-            if key == "lr":
-                # Проверка значения
-                if type(val) is not float or not 0 <= val:
-                    continue
-
-                curr_valid_layer += 1
-
-            # Количество эпох
-            if key == "epoch":
+            # Задержка
+            if key == "sleep":
                 # Проверка значения
                 if type(val) is not int or not (0 <= val <= 10000):
                     continue
 
                 curr_valid_layer += 1
 
-            # Прерывание если точность не улучшается в течение N эпох
-            if key == "epoch_stop":
+                curr_valid_layer += 1
+
+            # 1. Путь к временной директории
+            if key == "path_to_temp_dir":
                 # Проверка значения
-                if type(val) is not int or not (0 <= val <= 50):
+                if type(val) is not str or not val:
                     continue
 
                 curr_valid_layer += 1
@@ -268,7 +341,7 @@ class RunTrainAudio(MessagesTrainAudio):
 
         return True  # Результат
 
-    def _load_config_yaml(self, resources: ModuleType = rsrs, config="train_audio.yaml", out: bool = True) -> bool:
+    def _load_config_yaml(self, resources: ModuleType = rsrs, config="recorder.yaml", out: bool = True) -> bool:
         """Загрузка и проверка конфигурационного файла
 
         Args:
@@ -316,7 +389,7 @@ class RunTrainAudio(MessagesTrainAudio):
     # ------------------------------------------------------------------------------------------------------------------
 
     def run(self, metadata: ModuleType = openav, resources: ModuleType = rsrs, out: bool = True) -> bool:
-        """Запуск процесса обучения
+        """Запуск записи речевых аудиовизуальных данных
 
         Args:
             metadata (ModuleType): Модуль из которого необходимо извлечь информацию
@@ -324,7 +397,7 @@ class RunTrainAudio(MessagesTrainAudio):
             out (bool): Печатать процесс выполнения
 
         Returns:
-             bool: **True** если процесс обучения нейросетевой модели произведен успешно,
+             bool: **True** если процесс записи речевых аудиовизуальных данных произведен успешно,
                    в обратном случае **False**
         """
 
@@ -370,19 +443,25 @@ class RunTrainAudio(MessagesTrainAudio):
             self.libs_vers(out=out)
             Shell.add_line()  # Добавление линии во весь экран
 
-        self.path_to_dataset = self._args["path_to_dataset"]  # Путь к директории набора данных
+        self.message_info(
+            self._recorder_url,
+            out=out,
+        )
 
-        # self.train(
-        #     out=out,
-        # )
+        for cnt, d in enumerate(self._args["dictionary"], start=1):
+            questions.append({"QuestionNumber": cnt, "QuestionText": d, "Disable_time": self._args["sleep"]})
+
+        path_to_temp_dir = self._args["path_to_temp_dir"]
+
+        app.run(debug=False)
 
         return True
 
 
 def main():
-    # Запуск процесса обучения
-    vad = RunTrainAudio(lang="ru", path_to_logs="./openav/logs")
-    vad.run(out=True)
+    # Запуск процесса записи
+    recorder = RunRecorder(lang="ru", path_to_logs="./openav/logs")
+    recorder.run(out=True)
 
 
 if __name__ == "__main__":

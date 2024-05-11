@@ -28,7 +28,6 @@ REQUIRED_PACKAGES = [
     "pymediainfo >= 6.0.1",
     "pillow >= 9.5.0",
     "imgaug >= 0.4.0",
-    "flask >= 2.3.3",
     "ffmpeg >= 1.4",
     "librosa >= 0.10.1",
     "matplotlib >= 3.6.3",
@@ -39,6 +38,7 @@ REQUIRED_PACKAGES = [
     "scikit-learn >= 1.4.2",
     "tqdm >= 4.66.2",
     "Seaborn >= 0.13.2",
+    "Flask >= 3.0.3",
 ]
 
 CLASSIFIERS = """\

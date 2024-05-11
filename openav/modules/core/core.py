@@ -40,6 +40,7 @@ import einops
 import tqdm
 import sklearn
 import seaborn as sns
+import flask
 
 from datetime import datetime  # Работа со временем
 from prettytable import PrettyTable  # Отображение таблиц в терминале
@@ -665,6 +666,7 @@ class Core(CoreMessages):
                     "Librosa",
                     "MediaPipe",
                     "OpenCV",
+                    "Flask",
                     "Einops",
                     "Tqdm",
                     "Scikit-learn",
@@ -692,6 +694,7 @@ class Core(CoreMessages):
                         librosa,
                         mp,
                         cv2,
+                        flask,
                         einops,
                         tqdm,
                         sklearn,
