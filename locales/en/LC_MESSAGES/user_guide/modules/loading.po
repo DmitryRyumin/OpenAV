@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 14:31+0300\n"
+"POT-Creation-Date: 2024-05-12 13:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "</b>"
 msgstr ""
 
-#: ../../source/reuse_content/general.rst:13 93004a4ff80140349f8becbde65db24d
+#: ../../source/reuse_content/general.rst:14 93004a4ff80140349f8becbde65db24d
 msgid "</a>"
 msgstr ""
 
@@ -49,28 +49,38 @@ msgid ""
 "Модуль предусматривает вложенность директорий."
 msgstr ""
 
-#: ../../source/user_guide/modules/loading.rst:9
+#: ../../source/user_guide/modules/loading.rst:8
+#: 150af1154faf40b9a827d21fa2c76dbb
+msgid "Команда для запуска модуля загрузки данных:"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:10
+#: 1e280ce5c91a4543aee4ede438449167
+msgid "openav_download --config <путь_к_вашему_конфигурационному_файлу>.yaml"
+msgstr ""
+
+#: ../../source/user_guide/modules/loading.rst:16
 #: 2bb831265a49450b92c34ead58261acd
 msgid "Конфигурационный файл"
 msgstr ""
 
-#: ../../source/user_guide/modules/loading.rst:11
+#: ../../source/user_guide/modules/loading.rst:18
 #: ac16a4d5c81548548cc20c2da11b922a
 msgid "Конфигурационный файл включает в себя следующие настройки:"
 msgstr ""
 
-#: ../../source/user_guide/modules/loading.rst:13
+#: ../../source/user_guide/modules/loading.rst:20
 #: 4ad3c560bfa54713837b216bde6483f9
 msgid "Отображение процесса выполнения программы в терминале (командной строке)"
 msgstr ""
 
-#: ../../source/user_guide/modules/loading.rst:14
-#: ../../source/user_guide/modules/loading.rst:30
+#: ../../source/user_guide/modules/loading.rst:21
+#: ../../source/user_guide/modules/loading.rst:37
 #: 0ba667b8e7154b298f45dcf921a31db9
 msgid "Работа с файловой системой"
 msgstr ""
 
-#: ../../source/user_guide/modules/loading.rst:17
+#: ../../source/user_guide/modules/loading.rst:24
 #: ed3704310f734e778193897706abfc75
 msgid "Отображение процесса выполнения команды в терминале"
 msgstr ""
