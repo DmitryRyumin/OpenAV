@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-24 20:21+0300\n"
+"POT-Creation-Date: 2024-05-13 07:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -40,7 +40,7 @@ msgstr ""
 
 #: ../../source/dataset.rst:3 061634df806a45b783c7c8df6efa7372
 #: 1641360ebd004566bbddcb4b1e66a0b4
-msgid "<a href=\"https://disk.yandex.ru/d/K-1j8o5YRdOHjA\" target=\"_blank\">"
+msgid "<a href=\"https://files.sberdisk.ru/s/o2oi5pHPXYG2UrP\" target=\"_blank\">"
 msgstr ""
 
 #: ../../source/dataset.rst:9 5095fe9742fe4651b038f05646ec0988
@@ -92,5 +92,8 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "*Ответ ...*"
+#~ msgstr ""
+
+#~ msgid "<a href=\"https://disk.yandex.ru/d/K-1j8o5YRdOHjA\" target=\"_blank\">"
 #~ msgstr ""
 
