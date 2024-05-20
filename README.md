@@ -9,15 +9,22 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/dmitryryumin/openav)
 ![Documentation Status](https://readthedocs.org/projects/openav/badge/?version=latest)
 
-<h4 align="center"><span style="color:#EC256F;">Description</span></h4>
+<h4 align="center"><span style="color:#EC256F;">Описание</span></h4>
 
 ---
 
-> **[OpenAV](https://github.com/DmitryRyumin/openav)** is an open-source library for recognition of speech commands in the user dictionary using audiovisual data of the speaker.
+> **[OpenAV](https://github.com/DmitryRyumin/openav/blob/main/README_RU.md)** - библиотека с открытым исходным кодом, предназначена для решения задач автоматического распознавания речевых команд на основе интеллектуального анализа аудиовизуальных данных.
 
 ---
 
-| [Documentation in Russian](https://github.com/DmitryRyumin/openav/blob/main/README_RU.md) |
-|-------------------------------------------------------------------------------------------|
+| [Документация на английском](https://github.com/DmitryRyumin/openav) |
+|----------------------------------------------------------------------|
 
-> The library under development
+## Содержание
+
+- [Установка и обновление](https://openav.readthedocs.io/ru/latest/user_guide/installation.html)
+- [Модули](https://openav.readthedocs.io/ru/latest/user_guide/modules.html)
+- [API](https://openav.readthedocs.io/ru/latest/api/index.html)
+- [Диаграмма классов](https://openav.readthedocs.io/ru/latest/api/class_diagram.html)
+- [Набор аудиовизуальных данных](https://openav.readthedocs.io/ru/latest/dataset.html)
+- [Команда разработчиков](https://openav.readthedocs.io/ru/latest/about.html)
