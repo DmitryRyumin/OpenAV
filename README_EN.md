@@ -17,5 +17,5 @@
 
 ---
 
-| [Documentation in Russian](https://github.com/DmitryRyumin/openav/blob/main/README_RU.md) |
-|-------------------------------------------------------------------------------------------|
+| [Documentation in Russian](https://github.com/DmitryRyumin/openav/blob/main/README.md) |
+|----------------------------------------------------------------------------------------|
