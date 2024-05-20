@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 12:37+0300\n"
+"POT-Creation-Date: 2024-05-12 12:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -21,11 +21,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: ../../source/api/class_diagram.rst:2 5119d9c0ca5e467181d791c386089a5a
+#: ../../source/reuse_content/general.rst:1 5f90cfdb7cc84aecae03306d1c340da1
+#: 94d35eca30254aa5aeb3b23c0bae1daa
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 87cf08fc397a4ad4877d68d01fbfc18e
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 4b9d5d4d1c9f4dd09e1ff3a713d6d63c
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:14 d85eec992a854afead4ae5b7c4a86008
+msgid "</a>"
+msgstr ""
+
+#: ../../source/api/class_diagram.rst:4 ../../source/api/class_diagram.rst:10
+#: 46df9b847c254a4098c5eec96f0d655c 5119d9c0ca5e467181d791c386089a5a
 msgid "Диаграмма классов"
 msgstr ""
 
-#: ../../source/api/class_diagram.rst:4 71e9a35cd9a6495da090a7707d82d842
-msgid "SVG диаграмм классов ..."
+#: ../../source/api/class_diagram.rst:10 d97a4405cc9840ee8fc44fc2e5ab2c86
+msgid "|br|"
 msgstr ""
+
+#~ msgid "SVG диаграмм классов ..."
+#~ msgstr ""
 

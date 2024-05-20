@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-02 14:43+0300\n"
+"POT-Creation-Date: 2024-05-12 13:06+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "</b>"
 msgstr ""
 
-#: ../../source/reuse_content/general.rst:13 18d9626b4f6b49d7a40645d9ef12dbf6
+#: ../../source/reuse_content/general.rst:14 18d9626b4f6b49d7a40645d9ef12dbf6
 #: 909d47779fbe40819954eb6e5248417a
 msgid "</a>"
 msgstr ""
@@ -60,9 +60,7 @@ msgstr ""
 
 #: ../../source/user_guide/modules/augmentation.rst:11
 #: 4c5f926a91404753849a0dc2f8bc64c2
-msgid ""
-"python ./openav/api/augmentation.py --config "
-"<путь_к_вашему_конфигурационному_файлу>.yaml"
+msgid "openav_augmentation --config <путь_к_вашему_конфигурационному_файлу>.yaml"
 msgstr ""
 
 #: ../../source/user_guide/modules/augmentation.rst:16
@@ -679,5 +677,10 @@ msgstr ""
 #~ "Максимальное значение коэффициента контрастности "
 #~ "по оси Y. Диапазон значений от "
 #~ "``-10.0`` и ``10.0``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "python ./openav/api/augmentation.py --config "
+#~ "<путь_к_вашему_конфигурационному_файлу>.yaml"
 #~ msgstr ""
 

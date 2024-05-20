@@ -2,7 +2,7 @@
 
 .. |a_dataset| raw:: html
 
-   <a href="https://disk.yandex.ru/d/K-1j8o5YRdOHjA" target="_blank">
+   <a href="https://files.sberdisk.ru/s/o2oi5pHPXYG2UrP" target="_blank">
 
 
 Набор аудиовизуальных данных
