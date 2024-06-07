@@ -15,6 +15,7 @@ import numpy as np
 import torch
 from tqdm import tqdm
 from sklearn.metrics import accuracy_score, confusion_matrix
+from collections import Counter
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -95,7 +96,15 @@ def save_conf_matrix(
     pad_inches=0,
     font_scale=1,
 ):
-    c_m = confusion_matrix(y_true, y_pred)
+    y_true_2 = []
+    y_pred_2 = []
+    for idx, val in enumerate(y_pred):
+        if val not in set(Counter(y_pred).keys()) ^ set(Counter(y_true).keys()):
+            y_true_2.append(y_true[idx])
+            y_pred_2.append(val)
+
+    c_m = confusion_matrix(y_true_2, y_pred_2)
+
     conf_matrix = pd.DataFrame(c_m, name_labels, name_labels)
 
     group_counts = ["{0:0.0f}".format(value) for value in conf_matrix.values.flatten()]

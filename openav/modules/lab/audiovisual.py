@@ -43,7 +43,7 @@ from openav.modules.lab.audio import Audio  # Аудиомодальность
 from openav.modules.lab.video import Video  # Видеомодальность
 from openav.modules.nn.av_dataset import AVDataset, AVTest
 from openav.modules.nn.utils import fix_seeds, train_one_epoch, val_one_epoch, save_conf_matrix
-from openav.modules.nn.models import AVModel, Decoder
+from openav.modules.nn.models import AVModel
 
 # ######################################################################################################################
 # Константы
@@ -737,7 +737,8 @@ class AV(AVMessages):
 
             # Проход по всем вложенным директориям
             for nested_path in hierarchy_from_paths:
-                if nested_path[0].lower() in classes:
+                nested_path_0 = nested_path[0].replace("--и--", "й").lower()
+                if nested_path_0 in classes:
                     # Формирование списка с видеофайлами
                     for p in Path(os.path.join(self.path_to_dataset, *reversed(nested_path))).glob("*"):
                         # Добавление текущего пути к видеофайлу в список
@@ -746,7 +747,7 @@ class AV(AVMessages):
 
                             if nested_path[-1] == subfolders[SUBFOLDERS_TEST[0]]:
                                 path_test.append(p.resolve())
-                                lb_test.append(classes.index(nested_path[0].lower()))
+                                lb_test.append(classes.index(nested_path_0))
                             else:
                                 pass
 
