@@ -1,7 +1,7 @@
 ---
 hide_metadata: false
 hide_libs_vers: false
-path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/LRW_TEST"
+path_to_dataset: "/Users/dl/@DmitryRyumin/Databases/OpenAV_DB"
 subfolders:
   test: "test"
 n_classes: 62
