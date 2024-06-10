@@ -52,7 +52,7 @@ class Messages(Language):
             self._("Лицензия"),
         ]
 
-        self._format_time: str = "%Y-%m-%d %H:%M:%S"  # Формат времени
+        self._format_time: str = "%Y-%m-%d %H:%M:%S.%f"  # Формат времени
 
         self._em: str = " ..."  # Конец сообщений (End Messages)
 

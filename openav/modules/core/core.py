@@ -251,7 +251,7 @@ class Core(CoreMessages):
             if out is True:
                 print(
                     "[{}{}{}] {}".format(
-                        self.color_red, datetime.now().strftime(self._format_time), self.text_end, inv_args
+                        self.color_red, datetime.now().strftime(self._format_time)[:-3], self.text_end, inv_args
                     )
                 )
 
@@ -341,7 +341,7 @@ class Core(CoreMessages):
                     ns
                     + " " * space
                     + "[{}{}{}] {}".format(
-                        self.color_red, datetime.now().strftime(self._format_time), self.text_end, message
+                        self.color_red, datetime.now().strftime(self._format_time)[:-3], self.text_end, message
                     ),
                     end=ne,
                 )
@@ -414,7 +414,7 @@ class Core(CoreMessages):
                     ns
                     + " " * space
                     + "[{}{}{}] {}".format(
-                        self.color_green, datetime.now().strftime(self._format_time), self.text_end, message
+                        self.color_green, datetime.now().strftime(self._format_time)[:-3], self.text_end, message
                     ),
                     end=ne,
                 )
@@ -468,7 +468,10 @@ class Core(CoreMessages):
                 if end is False:
                     ne = "\r"
 
-                print(ns + " " * space + "[{}] {}".format(datetime.now().strftime(self._format_time), message), end=ne)
+                print(
+                    ns + " " * space + "[{}] {}".format(datetime.now().strftime(self._format_time)[:-3], message),
+                    end=ne,
+                )
 
                 for character in self.__list_of_chars:
                     message = message.replace(character, "")
@@ -564,7 +567,7 @@ class Core(CoreMessages):
                         f"{space}{self._metadata[4]}: {openav.__license__}",
                     )
 
-                print("{}".format(f"[{datetime.now().strftime(self._format_time)}] {metadata()}"))
+                print("{}".format(f"[{datetime.now().strftime(self._format_time)[:-3]}] {metadata()}"))
                 self._logger_core.info(metadata())
 
     def message_progressbar(self, message: str = "", space: int = 0, close: bool = False, out: bool = True) -> str:
@@ -613,7 +616,7 @@ class Core(CoreMessages):
                     "\r"
                     + self.clear_line
                     + (" " * space)
-                    + "[{}] {}".format(datetime.now().strftime(self._format_time), message)
+                    + "[{}] {}".format(datetime.now().strftime(self._format_time)[:-3], message)
                 )
 
                 if close is True:
