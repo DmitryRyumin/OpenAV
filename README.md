@@ -88,4 +88,5 @@
 - **Накопитель**: Твердотельный накопитель (SSD).
 - **Операционная система**: Windows 8 64-bit или новее / Linux Ubuntu 18.04 или новее.
 
-> **[Пример использования библиотеки OpenAV](https://github.com/DmitryRyumin/openav/blob/main/examples/guide.md)**
+> **[Пример обучения аудиовизуальных моделей распознавания речи на основе библиотеки OpenAV](https://github.com/DmitryRyumin/openav/blob/main/examples/train_openav.md)**
+> **[Пример тестирования библиотеки OpenAV](https://github.com/DmitryRyumin/openav/blob/main/examples/test_openav.md)**
