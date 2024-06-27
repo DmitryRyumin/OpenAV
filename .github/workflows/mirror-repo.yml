@@ -4,9 +4,9 @@ on: [push, pull_request, delete]
 
 jobs:
   call-nss-ops-mirror-workflow:
-    uses: ITMO-NSS-team/NSS-Ops/.github/workflows/mirror-repo.yml@master
+    uses: aimclub/open-source-ops/.github/workflows/mirror-repo.yml@master
     with:
-      GITLAB_URL: 'https://gitlab.actcognitive.org/DmitryRyumin/openav'
+      GITLAB_URL: 'https://gitlab.actcognitive.org/DmitryRyumin/openav.git'
     secrets:
       GITLAB_USER: ${{ secrets.GITLAB_USER }}
       GITLAB_PASSWORD: ${{ secrets.GITLAB_PASSWORD }}
