@@ -12,7 +12,7 @@ import openav
 REQUIRED_PACKAGES = [
     "ipython >= 8.10.0",
     "colorama >= 0.4.6",
-    "numpy >= 1.24.2",
+    "numpy >= 1.24.2, < 2.0.0",
     "pandas >= 1.5.3",
     "prettytable >= 3.6.0",
     "torch >= 1.13.1",
