@@ -174,6 +174,8 @@ dataset_vad/
 dataset_vosk/
 dataset_audio/
 dataset_video/
+dataset_video_aug/
+dataset_aug/
 openav/dataset/
 openav/dataset_vad/
 openav/dataset_vosk/

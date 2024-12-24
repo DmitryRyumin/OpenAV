@@ -1,8 +1,8 @@
 ---
 hide_metadata: false
 hide_libs_vers: false
-path_to_input_directory: "C:/Prgrm/_datasets/denis/"
-path_to_output_directory: "C:/Prgrm/_datasets/denis/aug_img"
+path_to_input_directory: "/Users/dl/GitHub/OpenAV/dataset_video_aug"
+path_to_output_directory: "./dataset_aug"
 clear_diraug: true
 depth: 1
 ext_search_files:
