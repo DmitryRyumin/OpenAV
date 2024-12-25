@@ -1,0 +1,338 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-24. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-25 10:50+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/user_guide/installation/dependencies.rst:2
+#: 9fd23089a6764f46bc70c3e34737c330
+msgid "Зависимости"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:4
+#: 86b155eb33384ef088f1fd0d5990eea5
+msgid "Необходимая версия Python 3.10 и выше."
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:6
+#: 1b4cfbc56e3c4cb98a0c9cdbfe637f43
+msgid "Устанавливаются автоматически"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 6c7bf96a033a467392f27a0dc6a81cb3
+msgid "Библиотека"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 9d96fcae589a4948a9ee52d9390d8828
+msgid "Рекомендуемая версия"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 9126f714989b4227a1dca1261802eb03
+msgid "Текущая версия"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 2d8637bc552d4cdc96828eb716c6722c
+msgid "ipython"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 428b9336c46f46b1b0c7640d1303f428
+msgid "8.31.0"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 8336c6b066ff4f1fa4c0140a9d1e412c
+msgid "colorama"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 04e52fe2797b4f58b0ecc344776fd25c
+msgid "0.4.6"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: a4ac414990a1433aa946be931345e4b3
+msgid "numpy"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 840811d3334449bcb0ea61a19c686c5b
+msgid "1.26.4"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: af2688a770a04fe5949cfdbeb53527f0
+msgid "pandas"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 696d7d26d86b46d2963f0b13bb491309
+msgid "2.2.3"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 6b4c6f32bef84857be3e5ab927410ece
+msgid "prettytable"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 428b9336c46f46b1b0c7640d1303f428
+msgid "3.12.0"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: f76c77c1bf344fec873e383fbee3ba35
+msgid "torch"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 18b3974b5df741a7aa8458b2ecaaffa9
+msgid "2.2.2"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: afd9faa47a764d9b855237c3cf114aa3
+msgid "torchaudio"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: b240268ca9df485a82772fd22d86578a
+msgid "torchvision"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 9ccbe8b1bcad4385aad036d77232f8ea
+msgid "0.17.2"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 3a95d8df5bab49558e4d39e9f8d56654
+msgid "vosk"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 626d7061c402405b9c9d58bca0c88152
+msgid "0.3.44"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: b1bd63ef39fa44cfa4a96578e1c78201
+msgid "av"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 75f3639a2f474b088099b407cf4a0d2e
+msgid "14.0.1"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 4b9d62577a1a46998e3f8787fcfdbc73
+msgid "filetype"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 6bf80d0354b644128f3e0a67999c5e82
+msgid "1.2.0"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: d03cd07db24b48ac9d9679451f46514e
+msgid "requests"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 696d7d26d86b46d2963f0b13bb491309
+msgid "2.32.3"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 58eed494d74f4e2bb2fb53e777f4430e
+msgid "pyyaml"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: af41af0ccaaf45998911477247903b61
+msgid "6.0.2"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 8c8db1f695f843cca1c417cd5abf068e
+msgid "streamlit"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 4e4bab0ca99c470982c702d7ca31dbc8
+msgid "1.41.1"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 502ffda7c4fb4d58ba9efd9580bfa43f
+msgid "watchdog"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: af41af0ccaaf45998911477247903b61
+msgid "6.0.0"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 37d21a6afe43407db23ed4154dc0474c
+msgid "pymediainfo"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 428b9336c46f46b1b0c7640d1303f428
+msgid "6.1.0"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 564b28d4b33c49b98a1d595ea2e732f6
+msgid "pillow"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 75f3639a2f474b088099b407cf4a0d2e
+msgid "11.0.0"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 10f6fb22197b424c8ca1e10554fffc2d
+msgid "imgaug"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: b63d54830cda494aba81159d2b790854
+msgid "0.4.0"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 31d2f1344c4647d9b7a440a66ba6adf2
+msgid "ffmpeg"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 13dfffb50ab14101ab87c6e239a2b07f
+msgid "1.4"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 9b908989f3a1404594d76590201169c7
+msgid "librosa"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: ef7d3ec1203f47e6b97540fb75a9b229
+msgid "0.10.2.post1"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 89a0fd44a8284fb4b7ff9faf3a9729d2
+msgid "matplotlib"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 428b9336c46f46b1b0c7640d1303f428
+msgid "3.10.0"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: bbee65ae33fd4d0aae152c56b8f6bf62
+msgid "mediapipe"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 428b9336c46f46b1b0c7640d1303f428
+msgid "0.10.20"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 6f6856fcc1364992a4128c1d6f9ef713
+msgid "opencv_contrib_python"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 61129c17fb5e4896aac6e9f3891825c8
+msgid "4.10.0.84"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 68e4a295a02f49c18eb6173a11aea6ff
+msgid "einops"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: f0af47a23204463bbb43e9c932a4db74
+msgid "0.8.0"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 4094545ef9434f3ab85c87ce419db553
+msgid "lion_pytorch"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: f0af47a23204463bbb43e9c932a4db74
+msgid "0.2.3"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 3c9232e52b0e44508598ef40fa1818e2
+msgid "scikit-learn"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: ffd11babad6b47b082a86b725441c83d
+msgid "1.6.0"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 6d00606588a649f6a0b7cc68650584c9
+msgid "tqdm"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 921956b5a3ae4ba4ac4d9bf357e32060
+msgid "4.67.1"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: 6919ebf0ab7d4eadaa27bfcae29ebd3b
+msgid "seaborn"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: dae84e0fbbea456ca8a470c385630de2
+msgid "0.13.2"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: b5703361eacc436cb323e0cf3ee3b2eb
+msgid "Flask"
+msgstr ""
+
+#: ../../source/user_guide/installation/dependencies.rst:1
+#: ffd11babad6b47b082a86b725441c83d
+msgid "3.1.0"
+msgstr ""
+

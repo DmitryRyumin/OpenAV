@@ -1,0 +1,164 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-24. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-25 12:45+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/reuse_content/general.rst:1 2131423a5cd942ac977137e5c6e78d18
+#: 2761f6f4c8474e2685c906799095a803 4394124845e448b7bd9f3f25a89f4ac4
+#: 5a5913249c9042beaa3eefa337adec03 609b9be49d39481482ab93faab39cc32
+#: a8a5831260214e9eb621d13fec807a92 d4f39b1bf7fd46819fc2298d4d9f58c6
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 dd34bfbefd064cdaaef9497eb63ea5b4
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 12b47affe9fa4f5a9e5adee8dc6a9b4b
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:14 b224cb8cac1342c28c5b3ab3b6b6e811
+#: be7db9d1ecc8420db612b12d5c0b3ce0
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:3
+#: a4719db1065043eaa5a735f1dc48f49d e3f7ba051c9e405b96d4fe276ccc5c09
+msgid "<a href=\"https://www.python.org/downloads/windows/\" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:8
+#: 326c063e2ab14c7bb49551d96c075b61
+msgid "Установка и обновление на операционной системе Windows"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:11
+#: d587df57e9f546b49c4af8c20eef6ece
+msgid "Подготовка рабочего пространства и оздание изолированной среды OpenAV"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:13
+#: cb605c53b07b41f1ba5b0f11687030de
+msgid ""
+"Перейти на сайт и |a_download| скачать необходимый дистрибутив |/a| "
+"(например Python 3.12.8)"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:19
+#: 6e803f68961440288c22b21ad8e995df
+msgid "Загрузка дистрибутива"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:19
+#: ../../source/user_guide/installation/installation_win.rst:27
+#: ../../source/user_guide/installation/installation_win.rst:39
+#: ../../source/user_guide/installation/installation_win.rst:51
+#: ../../source/user_guide/installation/installation_win.rst:65
+#: ../../source/user_guide/installation/installation_win.rst:80
+#: 22caf39f4b3246d1b3b2db7ed4ff474f 2d8d7a0413cd464b8d38e220ca193b57
+#: 4ef06ee5b40449908ff357bcced3da6f 672b0bcba2304fbebd2bd532c05a848e
+#: c50bb9c0b90d4e878c4b0fe3bf7f7ab4 d90d1a414bfd4deeb8797d07e167c062
+msgid "|br|"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:21
+#: 900437eb1b0d44ae945ff867db6ba4f1
+msgid "Установить Python"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:27
+#: d4818dee115248a0891834ef6cf5d6f3
+msgid "Завершенный процесс установки Python"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:29
+#: 06087060da4b4463a7cdb1a4c3c7a32b
+msgid "Перейти в подготовленный каталог с проектом:"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:31
+#: 4a8e63b76a4a45659dc6c3c0ab670956
+msgid "cd ПУТЬ_К_ДИРЕКТОРИИ"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:39
+#: 0dc6cc640283455eaae91092865500ee
+msgid "Переход в директорию с проектом через команду «cd»"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:41
+#: 377bc7f246a741cea1648c0a8999cb1c
+msgid ""
+"Разместить новую виртуальную среду OpenAV в указанной директории с "
+"указанной версией Python (с помощью команды ``py --list`` можно проверить"
+" установленные версии Python):"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:43
+#: 6f8da40111b34428aed5c11fde168e7e
+msgid "py -3.12 -m venv env"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:51
+#: 5ba788520de64620811d9cdd5f639785
+msgid ""
+"Размещение новой виртуальной среды OpenAV в указанной директории с "
+"указанной версией Python"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:53
+#: ac1fc7c59cfe494595b8295ddd9f7936
+msgid "Активировать созданную виртуальную среду OpenAV в директории:"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:55
+#: c8601489a84746bf9711e37fe32c575a
+msgid ""
+"cd env/Scripts/\n"
+"./activate\n"
+"cd ../../"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:65
+#: 50584e609e4142bc9e13adffea14fd53
+msgid "Активация созданной виртуальной среды OpenAV в директории с проектом"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:68
+#: 0024d3c32b204550bcf01b18b6f12bd9
+msgid "Работа с библиотекой OpenAV"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:70
+#: 3a6ef8ca31954880a0b34b0cabe2295b
+msgid "Установить библиотеку OpenAV:"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:72
+#: 418283621b6c4260aaef4f5e78bd9a04
+msgid "pip install openav"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_win.rst:80
+#: ab0ab15ecb074c88a7692d3364b452de
+msgid "Установленная библиотека OpenAV со всеми зависимостями"
+msgstr ""
+

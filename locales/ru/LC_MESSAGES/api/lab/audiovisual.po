@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 13:48+0300\n"
+"POT-Creation-Date: 2024-12-25 10:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,217 +19,129 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.11.0\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: ../../source/api/lab/audiovisual.rst:2 5880e5746ce54ecbbdf1b4f690eecc3d
 msgid "Мультимодальное объединение аудио- и видеомодальностей"
 msgstr ""
 
-#: 641adb30f94242f1a77d4f5a39c54687 of
-#: openav.modules.lab.audiovisual.AVMessages:1
-msgid ""
-"Базовые классы: :py:class:`~openav.modules.lab.audio.Audio`, "
-":py:class:`~openav.modules.lab.video.Video`"
-msgstr ""
+#~ msgid ""
+#~ "Базовые классы: "
+#~ ":py:class:`~openav.modules.lab.audio.Audio`, "
+#~ ":py:class:`~openav.modules.lab.video.Video`"
+#~ msgstr ""
 
-#: 37d891e50eb54bc0b94a3b319ea0a836 of
-#: openav.modules.lab.audiovisual.AVMessages:1
-msgid "Класс для сообщений"
-msgstr ""
+#~ msgid "Класс для сообщений"
+#~ msgstr ""
 
-#: aad3608ffca347988a777089084ff069 c2d78e8f7274454285dfdbb968d557b2
-#: d0c7f0b6cb754f339d5abadc13bc6f61 fd0c768ac1124a4d9291fc65dc75b1e2 of
-#: openav.modules.lab.audiovisual.AV
-#: openav.modules.lab.audiovisual.AV.test_audiovisual
-#: openav.modules.lab.audiovisual.AV.train_audiovisual
-#: openav.modules.lab.audiovisual.AVMessages
-msgid "Параметры"
-msgstr ""
+#~ msgid "Параметры"
+#~ msgstr ""
 
-#: 880c274e61464683b33844e5bff3707d e4edd880f29449e8af53870089aa02cb of
-#: openav.modules.lab.audiovisual.AV:3
-#: openav.modules.lab.audiovisual.AVMessages:3
-msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
-msgstr ""
+#~ msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+#~ msgstr ""
 
-#: 876d317f8bdc411ba3a292632882e6d3 af104f215cf84505aff0a2ccee0d161c of
-#: openav.modules.lab.audiovisual.AV:5
-#: openav.modules.lab.audiovisual.AVMessages:5
-msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
-msgstr ""
+#~ msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
+#~ msgstr ""
 
-#: 039290b779f149478e54fb38698c05b0 of openav.modules.lab.audiovisual.AV:1
-msgid "Базовые классы: :py:class:`~openav.modules.lab.audiovisual.AVMessages`"
-msgstr ""
+#~ msgid "Базовые классы: :py:class:`~openav.modules.lab.audiovisual.AVMessages`"
+#~ msgstr ""
 
-#: 43d4fd495908431e8811080e74bb1c18 of openav.modules.lab.audiovisual.AV:1
-msgid "Класс для мультимодального объединения аудио- и видеомодальностей"
-msgstr ""
+#~ msgid "Класс для мультимодального объединения аудио- и видеомодальностей"
+#~ msgstr ""
 
-#: 34daf8c9adee4a4a8e05ddf6dc700e62 of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:1
-msgid "Автоматическое тестирование на аудиовизуальных данных"
-msgstr ""
+#~ msgid "Автоматическое тестирование на аудиовизуальных данных"
+#~ msgstr ""
 
-#: 2026c3548ecb49f18828936f45fb591b fbceccabdd96499ba0e392d9d9e584c4 of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:3
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:3
-msgid "Словарь с подкаталогами с данными"
-msgstr ""
+#~ msgid "Словарь с подкаталогами с данными"
+#~ msgstr ""
 
-#: 4d0835cd90b14007a8d412e7dd286501 9f57f42e7104471c9263ee8804266184 of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:5
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:5
-msgid "Количество классов"
-msgstr ""
+#~ msgid "Количество классов"
+#~ msgstr ""
 
-#: 128be959ef59405ca9df9095d751ef65 49a2c10aa29b45c1a541988b3eb91154 of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:7
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:7
-msgid "Список классов"
-msgstr ""
+#~ msgid "Список классов"
+#~ msgstr ""
 
-#: b0d2f65ef3314cbc85a3fbde33d42d5f of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:9
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:9
-msgid "Количество энкодеров и декодеров"
-msgstr ""
+#~ msgid "Количество энкодеров и декодеров"
+#~ msgstr ""
 
-#: c80c98052ce24100bca1947700d02559 of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:11
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:13
-msgid "Максимальная длительность сегмента видео"
-msgstr ""
+#~ msgid "Максимальная длительность сегмента видео"
+#~ msgstr ""
 
-#: b0d2f65ef3314cbc85a3fbde33d42d5f of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:13
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:27
-msgid "Количество скрытых нейронов"
-msgstr ""
+#~ msgid "Количество скрытых нейронов"
+#~ msgstr ""
 
-#: bf5480cef3d74fc9843d8d84602da12d of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:15
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:29
-msgid "Количество скрытых признаков"
-msgstr ""
+#~ msgid "Количество скрытых признаков"
+#~ msgstr ""
 
-#: 74a84fb7d6734789992fde3138fb5195 of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:17
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:31
-msgid "Количество входных признаков"
-msgstr ""
+#~ msgid "Количество входных признаков"
+#~ msgstr ""
 
-#: a579655106994c4d8ea205a33a82204a of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:19
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:33
-msgid "Входная размерность аудио лог-мел спектрограммы"
-msgstr ""
+#~ msgid "Входная размерность аудио лог-мел спектрограммы"
+#~ msgstr ""
 
-#: 89d93fc1273e486fa20236d43d219d47 of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:21
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:35
-msgid "Входная размерность видеокадров"
-msgstr ""
+#~ msgid "Входная размерность видеокадров"
+#~ msgstr ""
 
-#: 7277f1f8c4654b1c90d376aabb833b1c of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:23
-msgid "Сохранение матрицы спутывания"
-msgstr ""
+#~ msgid "Сохранение матрицы спутывания"
+#~ msgstr ""
 
-#: 50331c329dd54abb834f43c56d067c52 of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:25
-msgid "Путь к директории для сохранения матрицы спутывания"
-msgstr ""
+#~ msgid "Путь к директории для сохранения матрицы спутывания"
+#~ msgstr ""
 
-#: 2ff2efc60c16464990c1edef6d8294a3 of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:27
-msgid "Настройки для формирования изображения матрицы спутывания"
-msgstr ""
+#~ msgid "Настройки для формирования изображения матрицы спутывания"
+#~ msgstr ""
 
-#: 9701d7ffc80442d5a9099b4b76e21c61 of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:29
-msgid "Путь к нейросетевой аудиовизуальной модели"
-msgstr ""
+#~ msgid "Путь к нейросетевой аудиовизуальной модели"
+#~ msgstr ""
 
-#: 2ec03ea734764d7d8ca5aad8d8f2a5ed of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual
-#: openav.modules.lab.audiovisual.AV.train_audiovisual
-msgid "Результат"
-msgstr ""
+#~ msgid "Результат"
+#~ msgstr ""
 
-#: 015d6827ef6b43fbb6c75a774f4e9023 of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual:34
-msgid ""
-"**True** если автоматическое тестирование на аудиовизуальных данных "
-"произведено, в обратном случае **False**"
-msgstr ""
+#~ msgid ""
+#~ "**True** если автоматическое тестирование на"
+#~ " аудиовизуальных данных произведено, в "
+#~ "обратном случае **False**"
+#~ msgstr ""
 
-#: f7a3180148bc4908831c94f1a5ae8c17 of
-#: openav.modules.lab.audiovisual.AV.test_audiovisual
-#: openav.modules.lab.audiovisual.AV.train_audiovisual
-msgid "Тип результата"
-msgstr ""
+#~ msgid "Тип результата"
+#~ msgstr ""
 
-#: 34daf8c9adee4a4a8e05ddf6dc700e62 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:1
-msgid "Автоматическое обучение на аудиовизуальных данных"
-msgstr ""
+#~ msgid "Автоматическое обучение на аудиовизуальных данных"
+#~ msgstr ""
 
-#: ecf8d00ee9404844b7f76b3c61d59780 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:11
-msgid "Размер батча"
-msgstr ""
+#~ msgid "Размер батча"
+#~ msgstr ""
 
-#: 717b463f7e084240a73488136c018071 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:15
-msgid "Количество неудачных эпох"
-msgstr ""
+#~ msgid "Количество неудачных эпох"
+#~ msgstr ""
 
-#: 9f57f42e7104471c9263ee8804266184 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:17
-msgid "Количество эпох"
-msgstr ""
+#~ msgid "Количество эпох"
+#~ msgstr ""
 
-#: 6d27eabd7cfc4a748bc998f6ed0fa861 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:19
-msgid "Начальное состояние обучения"
-msgstr ""
+#~ msgid "Начальное состояние обучения"
+#~ msgstr ""
 
-#: 30218bcd72f941d2bef0a40bdfc50383 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:21
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:23
-msgid "Скорость обучения"
-msgstr ""
+#~ msgid "Скорость обучения"
+#~ msgstr ""
 
-#: b29052aea942448a8e028868f884e257 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:25
-msgid "Оптимизатор"
-msgstr ""
+#~ msgid "Оптимизатор"
+#~ msgstr ""
 
-#: 9701d7ffc80442d5a9099b4b76e21c61 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:37
-msgid "Путь к нейросетевой модели (аудио)"
-msgstr ""
+#~ msgid "Путь к нейросетевой модели (аудио)"
+#~ msgstr ""
 
-#: 04b0b13f989f4a99be6591ad5e2fe286 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:39
-msgid "Путь к нейросетевой модели (видео)"
-msgstr ""
+#~ msgid "Путь к нейросетевой модели (видео)"
+#~ msgstr ""
 
-#: 50331c329dd54abb834f43c56d067c52 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:41
-msgid "Путь к директории для сохранения моделей"
-msgstr ""
+#~ msgid "Путь к директории для сохранения моделей"
+#~ msgstr ""
 
-#: 7bd57e202abc49008b5e440f776b8542 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:43
-msgid "Заморозка слоев для извлечения ауди и видео признаков"
-msgstr ""
+#~ msgid "Заморозка слоев для извлечения ауди и видео признаков"
+#~ msgstr ""
 
-#: 015d6827ef6b43fbb6c75a774f4e9023 of
-#: openav.modules.lab.audiovisual.AV.train_audiovisual:48
-msgid ""
-"**True** если автоматическое обучение на аудиовизуальных данных "
-"произведено, в обратном случае **False**"
-msgstr ""
+#~ msgid ""
+#~ "**True** если автоматическое обучение на "
+#~ "аудиовизуальных данных произведено, в обратном"
+#~ " случае **False**"
+#~ msgstr ""
 

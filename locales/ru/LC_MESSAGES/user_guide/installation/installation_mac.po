@@ -1,0 +1,199 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-24. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-25 12:02+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/reuse_content/general.rst:1 0fb1b25538564eb4bbd2ef882c13ce14
+#: 1e532c04df8440f8a24b8e9d31e5ba96 5526819fbb89462da49b2b75cca79eca
+#: 5b67e808a4064223adad6fe805e79834 caf6dbae40494340b8d55b21025bcc0b
+#: ea24d6b6d3ae48bd8c80a6bd426f0d56 ec382c8b21634e86ad10f51209ad73b9
+#: fbf1d7d8aa984bc98f7ae8821b462446
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 f74d86a9db3a4c5c8934fbec6fe2de58
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 20ba8c26cd9442cd953fa44f7b22f640
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:14 5e7d1466f1e647678a6f26e8da4c0808
+#: e205eae02d6249e8836539f575dab7e5
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:3
+#: 61c63cc9f5bc48489e1d3066e4c3e680
+msgid "<a href=\"https://www.python.org/downloads/macos/\" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:8
+#: 47f6c9493df142c0b0e75490f466b0cc
+msgid "Установка и обновление на операционных системах MacOS/Linux"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:11
+#: 87b162fb193744f1b68b793f3e567c45
+msgid "Подготовка рабочего пространства"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:13
+#: df68da5eec7c45d199d343d22bdadd29
+msgid ""
+"Перейти на сайт и |a_download_mac| скачать необходимый дистрибутив |/a| "
+"(например Python 3.12.8)"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:19
+#: bc9f10795e874e93a1544be4e85734f5
+msgid "Загрузка дистрибутива"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:19
+#: ../../source/user_guide/installation/installation_mac.rst:27
+#: ../../source/user_guide/installation/installation_mac.rst:39
+#: ../../source/user_guide/installation/installation_mac.rst:51
+#: ../../source/user_guide/installation/installation_mac.rst:66
+#: ../../source/user_guide/installation/installation_mac.rst:78
+#: ../../source/user_guide/installation/installation_mac.rst:90
+#: ../../source/user_guide/installation/installation_mac.rst:105
+#: 2704956dca384f4b9cd68f64cfb0d1fd 3fdb6221c4df4e96b9ed018df5d5cc32
+#: 4b89fefea23540209f3de3e66e709d45 9c71ed5f4242442ea7d9fafbaf335a15
+#: c4a7f4b6bea741388282e988eac0b213 e689f14348bb4345ba5e6ec38a4e5741
+msgid "|br|"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:21
+#: 14040a2b065d459f9e67631610567f5d
+msgid "Установить Python"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:27
+#: 37585b6f47cc4a4f8ff0054e996a6929
+msgid "Завершенный процесс установки Python"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:29
+#: f762d849ae894f16b4cdb53cf8a1d6f6
+msgid "Установить библиотеку virtualenv для создания изолированных сред Python:"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:31
+#: eed271240b004f32991ea315232df3f4
+msgid "pip install virtualenv"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:39
+#: 37585b6f47cc4a4f8ff0054e996a6929
+msgid "Завершенный процесс установки библиотеки virtualenv"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:41
+#: d211ef7dbefe484cbb36291a895f7eac
+msgid "Добавить путь к вашей версии Python 3.10 и выше в PATH:"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:43
+#: b79653fcb5e14d1cb4523e63d0e77f6c
+msgid "export PATH=\"ПУТЬ_К_PYTHON:$PATH\""
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:51
+#: 37585b6f47cc4a4f8ff0054e996a6929
+msgid "Добавление пути к установленному Python в PATH"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:54
+#: b8239520bb704bb3863ee2bc3eaabbaf
+msgid "Создание изолированной среды OpenAV"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:56
+#: cdfd61896712447d9edc502ff31e9823
+msgid "Создать директорию envs и перейти в нее:"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:58
+#: 0384c1811b804e19ae9aad5352024046
+msgid "cd ПУТЬ_К_ДИРЕКТОРИИ"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:66
+#: 37585b6f47cc4a4f8ff0054e996a6929
+msgid "Переход в директорию envs через команду «cd»"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:68
+#: 73e147ce3f974c70b7ce58d8b94f0305
+msgid ""
+"Разместить новую виртуальную среду OpenAV в указанной директории с "
+"указанной версией Python:"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:70
+#: 9b797e889b9a43c394c40a86aa4d6d21
+msgid "virtualenv --python=ПУТЬ_К_PYTHON OpenAV"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:78
+#: 37585b6f47cc4a4f8ff0054e996a6929
+msgid ""
+"Размещение новой виртуальной среды OpenAV в указанной директории с "
+"указанной версией Python"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:80
+#: a5406d326387416fbb7bfde4c96b9ad1
+msgid "Активировать созданную виртуальную среду OpenAV в директории:"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:82
+#: a7e48c6ae6474cdba08760a7678b9398
+msgid "source OpenAV/bin/activate"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:90
+#: 37585b6f47cc4a4f8ff0054e996a6929
+msgid "Активация созданной виртуальной среды OpenAV в директории"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:93
+#: c583e3b9db004ff0976947138ec2a7fa
+msgid "Работа с библиотекой OpenAV"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:95
+#: f820d3344bd54092a7466d95703bb11b
+msgid "Установить библиотеку OpenAV:"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:97
+#: 428ba6155e944862b842b9e3e48f934c
+msgid "pip install openav"
+msgstr ""
+
+#: ../../source/user_guide/installation/installation_mac.rst:105
+#: 37585b6f47cc4a4f8ff0054e996a6929
+msgid "Установленная библиотека OpenAV со всеми зависимостями"
+msgstr ""
+
