@@ -9,11 +9,13 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/dmitryryumin/openav)
 ![Documentation Status](https://readthedocs.org/projects/openav/badge/?version=latest)
 
-<h4 align="center"><span style="color:#EC256F;">Описание</span></h4>
+<h1 align="center"><span style="color:#EC256F;">Описание</span></h1>
 
 ---
 
 > **[OpenAV](https://github.com/DmitryRyumin/openav/blob/main/README.md)** - библиотека с открытым исходным кодом, предназначена для решения задач автоматического распознавания речевых команд на основе интеллектуального анализа аудиовизуальных данных.
+
+**[Подробная документация по использованию библиотеки OpenAV](https://openav.readthedocs.io/ru/latest/)**
 
 ---
 
