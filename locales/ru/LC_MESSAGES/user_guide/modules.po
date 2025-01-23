@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-22 15:03+0300\n"
+"POT-Creation-Date: 2025-01-23 18:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,12 +19,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.11.0\n"
+"Generated-By: Babel 2.16.0\n"
 
-#: ../../source/user_guide/modules.rst:2 c986e81b38514041bc4489de5c7f5505
-msgid "Модули"
+#: ../../source/user_guide/modules.rst:2 9cc9abab423d41c19a5c6826dccca081
+msgid "Программные модули"
 msgstr ""
 
 #~ msgid "Содержание:"
+#~ msgstr ""
+
+#~ msgid "Модули"
 #~ msgstr ""
 
