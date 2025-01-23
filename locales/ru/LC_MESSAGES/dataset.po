@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-13 07:55+0300\n"
+"POT-Creation-Date: 2025-01-23 17:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,7 +19,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.11.0\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: ../../source/reuse_content/general.rst:1 e8f73b52324b4a28a29271ed199bb5bd
 msgid "</br>"
@@ -38,9 +38,12 @@ msgstr ""
 msgid "</a>"
 msgstr ""
 
-#: ../../source/dataset.rst:3 061634df806a45b783c7c8df6efa7372
-#: 1641360ebd004566bbddcb4b1e66a0b4
-msgid "<a href=\"https://files.sberdisk.ru/s/o2oi5pHPXYG2UrP\" target=\"_blank\">"
+#: ../../source/dataset.rst:3 08b76a7001cc4ba9a748d2c6aaafb0a1
+#: b3dff6db41104b36ade5764593f8cb71
+msgid ""
+"<a "
+"href=\"https://huggingface.co/datasets/DenisIvanko/OpenAV/blob/main/ICANDO.rar\""
+" target=\"_blank\">"
 msgstr ""
 
 #: ../../source/dataset.rst:9 5095fe9742fe4651b038f05646ec0988
@@ -95,5 +98,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "<a href=\"https://disk.yandex.ru/d/K-1j8o5YRdOHjA\" target=\"_blank\">"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<a href=\"https://files.sberdisk.ru/s/o2oi5pHPXYG2UrP\" "
+#~ "target=\"_blank\">"
 #~ msgstr ""
 

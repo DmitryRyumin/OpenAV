@@ -2,7 +2,7 @@
 
 .. |a_dataset| raw:: html
 
-   <a href="https://files.sberdisk.ru/s/o2oi5pHPXYG2UrP" target="_blank">
+   <a href="https://huggingface.co/datasets/DenisIvanko/OpenAV/blob/main/ICANDO.rar" target="_blank">
 
 
 Набор аудиовизуальных данных
