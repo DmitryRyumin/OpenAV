@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-25 12:02+0300\n"
+"POT-Creation-Date: 2025-01-23 14:25+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -49,7 +49,7 @@ msgstr ""
 
 #: ../../source/user_guide/installation/installation_mac.rst:8
 #: 47f6c9493df142c0b0e75490f466b0cc
-msgid "Установка и обновление на операционных системах MacOS/Linux"
+msgid "Установка библиотеки на операционных системах MacOS/Linux"
 msgstr ""
 
 #: ../../source/user_guide/installation/installation_mac.rst:11
@@ -196,4 +196,7 @@ msgstr ""
 #: 37585b6f47cc4a4f8ff0054e996a6929
 msgid "Установленная библиотека OpenAV со всеми зависимостями"
 msgstr ""
+
+#~ msgid "Установка и обновление на операционных системах MacOS/Linux"
+#~ msgstr ""
 

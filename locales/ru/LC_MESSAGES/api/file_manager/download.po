@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-25 10:23+0300\n"
+"POT-Creation-Date: 2025-01-23 15:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -24,6 +24,107 @@ msgstr ""
 #: ../../source/api/file_manager/download.rst:2
 #: e33a5cc42c4a45b298c3f8e4b1fedc20
 msgid "Загрузка файлов"
+msgstr ""
+
+#: d3a8983891de4d67a60072b6fac2fd3f of
+#: openav.modules.file_manager.download.DownloadMessages:1
+msgid ""
+"Базовые классы: "
+":py:class:`~openav.modules.file_manager.file_manager.FileManager`"
+msgstr ""
+
+#: 34cff7001b964929b8b20babe4ae557d of
+#: openav.modules.file_manager.download.DownloadMessages:1
+msgid "Класс для сообщений"
+msgstr ""
+
+#: 3aa9e0a834704757b00f8ce303adb146 a8dfccd051104b998f360ab14d7430f1
+#: ac7ccfa50d5c43b4a4dbc7ce6a68e16f of
+#: openav.modules.file_manager.download.Download
+#: openav.modules.file_manager.download.Download.download_file_from_url
+#: openav.modules.file_manager.download.DownloadMessages
+msgid "Параметры"
+msgstr ""
+
+#: 15d86b16da094ba287d8b8a17c4b4618 67f4ad0d412f4c4787196cc32fce7fd1 of
+#: openav.modules.file_manager.download.Download:3
+#: openav.modules.file_manager.download.DownloadMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 4d650adefd06459cb743538a81b12215 d3948158643f479a9bc881a56188416c of
+#: openav.modules.file_manager.download.Download:5
+#: openav.modules.file_manager.download.DownloadMessages:5
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
+msgstr ""
+
+#: 676eeba09fca438793ca643f256c8644 of
+#: openav.modules.file_manager.download.Download:1
+msgid ""
+"Базовые классы: "
+":py:class:`~openav.modules.file_manager.download.DownloadMessages`"
+msgstr ""
+
+#: db65b83c48f643adbd40c5fa24cde5ec of
+#: openav.modules.file_manager.download.Download:1
+msgid "Класс для загрузки файлов"
+msgstr ""
+
+#: 3938033bf7884e35a8d13b913a3430f4 of
+#: openav.modules.file_manager.download.Download.download_file_from_url:1
+msgid "Загрузка файла из URL"
+msgstr ""
+
+#: d056c6199c424caa845d38dd8fc36e15 of
+#: openav.modules.file_manager.download.Download.download_file_from_url:3
+msgid "Полный путь к файлу"
+msgstr ""
+
+#: baac92cb233740fb9394377df07d5324 of
+#: openav.modules.file_manager.download.Download.download_file_from_url:5
+msgid "Принудительная загрузка файла из сети"
+msgstr ""
+
+#: b9da532d445a45e28ace778966946e63 of
+#: openav.modules.file_manager.download.Download.download_file_from_url:7
+msgid "Отображение"
+msgstr ""
+
+#: 715ec006fe4846368f5c508a81d7dbd1 of
+#: openav.modules.file_manager.download.Download.download_file_from_url
+msgid "Результат"
+msgstr ""
+
+#: 8cbded1fdb774c71a9534c72f3adc93a of
+#: openav.modules.file_manager.download.Download.download_file_from_url:10
+msgid ""
+"Код статуса ответа:      * ``200`` - Файл загружен     * ``400`` - Ошибка"
+" при проверке аргументов     * ``404`` - Не удалось скачать файл"
+msgstr ""
+
+#: 4740e6127ef4424084d581c5873e945e of
+#: openav.modules.file_manager.download.Download.download_file_from_url:12
+msgid "Код статуса ответа:"
+msgstr ""
+
+#: 97576c25291c4549bc19e62a92c50ea6 of
+#: openav.modules.file_manager.download.Download.download_file_from_url:14
+msgid "``200`` - Файл загружен"
+msgstr ""
+
+#: 28f87e965a4140bc9513fb71fbc10abf of
+#: openav.modules.file_manager.download.Download.download_file_from_url:15
+msgid "``400`` - Ошибка при проверке аргументов"
+msgstr ""
+
+#: 7d403453314645499ac88e307e69cac7 of
+#: openav.modules.file_manager.download.Download.download_file_from_url:16
+msgid "``404`` - Не удалось скачать файл"
+msgstr ""
+
+#: b9ba4fdf740e461f940fd6f15adb493f of
+#: openav.modules.file_manager.download.Download.download_file_from_url
+msgid "Тип результата"
 msgstr ""
 
 #~ msgid ""

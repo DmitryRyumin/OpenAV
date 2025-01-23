@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-25 10:23+0300\n"
+"POT-Creation-Date: 2025-01-23 15:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -24,6 +24,99 @@ msgstr ""
 #: ../../source/api/file_manager/json_manager.rst:2
 #: 764a7e27e37e44b1b06165c6de950990
 msgid "Работа с JSON"
+msgstr ""
+
+#: c390dd226afd4179be697eeb0ab2b4c1 of
+#: openav.modules.file_manager.json_manager.JsonMessages:1
+msgid "Базовые классы: :py:class:`~openav.modules.file_manager.download.Download`"
+msgstr ""
+
+#: dd44c483daf64c02a222a86598059fa6 of
+#: openav.modules.file_manager.json_manager.JsonMessages:1
+msgid "Класс для сообщений"
+msgstr ""
+
+#: 6ea357645dc34f35bd5bace27bf168dc 97f3bf5bf72746349bd0d7555757d292
+#: ab1716fb15a94189bfd90a853228003b bba51cdb4432479782404280c8eb5e8e of
+#: openav.modules.file_manager.json_manager.Json
+#: openav.modules.file_manager.json_manager.Json.load_json
+#: openav.modules.file_manager.json_manager.Json.load_json_resources
+#: openav.modules.file_manager.json_manager.JsonMessages
+msgid "Параметры"
+msgstr ""
+
+#: 0aef1b0c41d749d79593e711302f6fbc f91c55d086a445b9a124b52f7efee54a of
+#: openav.modules.file_manager.json_manager.Json:3
+#: openav.modules.file_manager.json_manager.JsonMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 5d9b4e558bf1435fad937e60c1b1aa1c 783521d1e79f43efb3f77b239b377af0 of
+#: openav.modules.file_manager.json_manager.Json:5
+#: openav.modules.file_manager.json_manager.JsonMessages:5
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
+msgstr ""
+
+#: c3809ad5b75a45a6943e2e27217332cd of
+#: openav.modules.file_manager.json_manager.Json:1
+msgid ""
+"Базовые классы: "
+":py:class:`~openav.modules.file_manager.json_manager.JsonMessages`"
+msgstr ""
+
+#: 0bacff8ddab6402ea9007f1e25845bf8 of
+#: openav.modules.file_manager.json_manager.Json:1
+msgid "Класс для работы с JSON"
+msgstr ""
+
+#: ad7568ffeafa4cedb7bbc5a7b33ee3f4 of
+#: openav.modules.file_manager.json_manager.Json.load_json:1
+msgid "Загрузка JSON файла"
+msgstr ""
+
+#: 771b2cb4b8104e08848f08463e6e2d08 c21e0c6270374db1a069b9e204526380 of
+#: openav.modules.file_manager.json_manager.Json.load_json:3
+#: openav.modules.file_manager.json_manager.Json.load_json_resources:5
+msgid "Путь к файлу JSON"
+msgstr ""
+
+#: 5f8b0ceaf3aa406a82a64eafdbea4eec of
+#: openav.modules.file_manager.json_manager.Json.load_json:5
+msgid "Создание файла JSON в случае его отсутствия"
+msgstr ""
+
+#: cc1212948af4446f99041e2524368c9b e1a89a658b2f46f8b91e8049cc470710 of
+#: openav.modules.file_manager.json_manager.Json.load_json:7
+#: openav.modules.file_manager.json_manager.Json.load_json_resources:7
+msgid "Печатать процесс выполнения"
+msgstr ""
+
+#: 1791d3da30e64340b8ee356bf4bf9adb 5ee42d23e6114ec1b202d87f78605b64 of
+#: openav.modules.file_manager.json_manager.Json.load_json
+#: openav.modules.file_manager.json_manager.Json.load_json_resources
+msgid "Результат"
+msgstr ""
+
+#: 1c3b28ddb94645639b8aa641c52befec ad1ff8f97f0f475289970379f157b301 of
+#: openav.modules.file_manager.json_manager.Json.load_json:10
+#: openav.modules.file_manager.json_manager.Json.load_json_resources:10
+msgid "Словарь из json файла"
+msgstr ""
+
+#: 00c69908202f4b42a5ed314cf79fe4cc d5aa2844cfb8406eb3b6ee4c8e1335da of
+#: openav.modules.file_manager.json_manager.Json.load_json
+#: openav.modules.file_manager.json_manager.Json.load_json_resources
+msgid "Тип результата"
+msgstr ""
+
+#: dbec9e050ffc45808693aae665b74766 of
+#: openav.modules.file_manager.json_manager.Json.load_json_resources:1
+msgid "Загрузка JSON файла из ресурсов модуля"
+msgstr ""
+
+#: 9dd32a11af4340b6bb80afcf299d3677 of
+#: openav.modules.file_manager.json_manager.Json.load_json_resources:3
+msgid "Модуль"
 msgstr ""
 
 #~ msgid ""

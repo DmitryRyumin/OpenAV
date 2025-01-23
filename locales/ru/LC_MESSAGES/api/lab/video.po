@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-25 10:23+0300\n"
+"POT-Creation-Date: 2025-01-23 15:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -23,6 +23,106 @@ msgstr ""
 
 #: ../../source/api/lab/video.rst:2 31e2bb2b8d494ad4be7573d28eb6ee8c
 msgid "Видео"
+msgstr ""
+
+#: 6f54210a651b4763bf8162f83d4ad4e3 of openav.modules.lab.video.VideoMessages:1
+msgid "Базовые классы: :py:class:`~openav.modules.file_manager.json_manager.Json`"
+msgstr ""
+
+#: 559489dbaffb4ae998b3a7e8ce0b4d59 of openav.modules.lab.video.VideoMessages:1
+msgid "Класс для сообщений"
+msgstr ""
+
+#: 2b0f84998ef144ca86e09aa44e20411c 475fd06d4cd0401f89599f9b085f86e7
+#: 61d5be42b1df424bb28c2d56482b35c0 of openav.modules.lab.video.Video
+#: openav.modules.lab.video.Video.preprocess_video
+#: openav.modules.lab.video.VideoMessages
+msgid "Параметры"
+msgstr ""
+
+#: a8898e0a3816450bb3c4a2a7c0aa5229 d079393138b44aeb96c668357a84cd53 of
+#: openav.modules.lab.video.Video:3 openav.modules.lab.video.VideoMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: b257ef6096ba46e18de6c39f98793bc3 da79a4729c01475882fece99a7c7f15f of
+#: openav.modules.lab.video.Video:5 openav.modules.lab.video.VideoMessages:5
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
+msgstr ""
+
+#: 6526743a01a1478a96f0ca189e7317d9 of openav.modules.lab.video.Video:1
+msgid "Базовые классы: :py:class:`~openav.modules.lab.video.VideoMessages`"
+msgstr ""
+
+#: acad3bbb60144d42b13645260783731b of openav.modules.lab.video.Video:1
+msgid "Класс для обработки видеомодальности"
+msgstr ""
+
+#: e66800b4e75b4b05b7173b1cbb61bd76 of
+#: openav.modules.lab.video.Video.preprocess_video:1
+msgid "Предобработка речевых видеоданных"
+msgstr ""
+
+#: 4b2a078b56f94ff693499dce498f8e6a of
+#: openav.modules.lab.video.Video.preprocess_video:3
+msgid "Глубина иерархии для получения данных"
+msgstr ""
+
+#: 8ee2d5912e8240f78b1cdd22ee6cdfdd of
+#: openav.modules.lab.video.Video.preprocess_video:5
+msgid "Изменение размера кадра с найденной областью губ"
+msgstr ""
+
+#: 9b6a037624d5481aa524b40085821014 of
+#: openav.modules.lab.video.Video.preprocess_video:7
+msgid "Фильтр для масштабирования"
+msgstr ""
+
+#: c6057271132a4a3a9f7ffa2c4b1aafce of
+#: openav.modules.lab.video.Video.preprocess_video:9
+msgid "Ширина области губ"
+msgstr ""
+
+#: 8a10b2e3d4d24cd5bcfc64790f3615dd of
+#: openav.modules.lab.video.Video.preprocess_video:11
+msgid "Высота области губ"
+msgstr ""
+
+#: 3cb42a83e5344752a6f2f462937729b9 of
+#: openav.modules.lab.video.Video.preprocess_video:13
+msgid "Цветовая гамма"
+msgstr ""
+
+#: 178d83bbdbec49709dca50ff086e24fd of
+#: openav.modules.lab.video.Video.preprocess_video:15
+msgid "DPI"
+msgstr ""
+
+#: ee1f430778ef4f1a8ecb37b51b98cebb of
+#: openav.modules.lab.video.Video.preprocess_video:17
+msgid "Сохранение сырых данных с областями губ в формате .npy"
+msgstr ""
+
+#: 383c37f60b7c47ddb04efc535fa4ac04 of
+#: openav.modules.lab.video.Video.preprocess_video:19
+msgid "Очистка директории для сохранения видео данных после предобработки"
+msgstr ""
+
+#: cd4c1a1248924983bd5e5c9213017a29 of
+#: openav.modules.lab.video.Video.preprocess_video
+msgid "Результат"
+msgstr ""
+
+#: c245dbfc271448ae91ef1298d3f03211 of
+#: openav.modules.lab.video.Video.preprocess_video:24
+msgid ""
+"**True** если предобработка речевых видеоданных произведена, в обратном "
+"случае **False**"
+msgstr ""
+
+#: 0d46febb5e1d4646b60114922fc2df7f of
+#: openav.modules.lab.video.Video.preprocess_video
+msgid "Тип результата"
 msgstr ""
 
 #~ msgid ""

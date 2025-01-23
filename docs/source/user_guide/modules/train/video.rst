@@ -6,7 +6,7 @@
 
 .. |a_guide| raw:: html
 
-    <a href="https://pytorch.org/get-started/previous-versions/" target="_blank">
+    <a href="https://pytorch.org/get-started/" target="_blank">
 
 
 Обучение визуальных нейросетевых моделей

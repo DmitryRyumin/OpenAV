@@ -9,28 +9,160 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-26 22:35+0300\n"
+"POT-Creation-Date: 2025-01-23 16:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.11.0\n"
+"Generated-By: Babel 2.16.0\n"
 
-#: ../../source/faq.rst:2 7fbc28a1585a42c3a4c74fd9b99202b5
+#: ../../source/faq.rst:2 c64f069b7c684e1cb7bec09385810f71
 msgid "Ответы на часто задаваемые вопросы"
 msgstr ""
 
-#: ../../source/faq.rst:4 acbcb9480db94c259b24da20dcfffefa
+#: ../../source/faq.rst:4 0f2eecacdcc141e18d3407d85ff7a587
 msgid "Это список часто задаваемых вопросов о `OpenAV` и ответов на них."
 msgstr ""
 
-#: ../../source/faq.rst:-1 9a3c1363d0914cd0a17558b519e5558c
-msgid "`OpenAV` это?"
+#: ../../source/faq.rst:2 b644f3c2dce748089638a06cc628bbd5
+msgid "Какие минимальные системные требования для использования библиотеки?"
 msgstr ""
 
-#: ../../source/faq.rst:8 3b39293335654614a7f6814b299ddb50
-msgid "*Ответ ...*"
+#: ../../source/faq.rst:8 75ca282469684af3b9b74dded5fe961e
+msgid "**Процессор**: 4-х ядерный процессор 2.8 ГГц или больше."
 msgstr ""
+
+#: ../../source/faq.rst:9 1668dbc63ad24ba0adc65cd8cd569299
+msgid "**Видеокарта (GPU)**: 16 ГБ или больше."
+msgstr ""
+
+#: ../../source/faq.rst:10 c0352ccc1988473882f8b9fa320cdc27
+msgid "**ОЗУ**: 32 ГБ или больше."
+msgstr ""
+
+#: ../../source/faq.rst:11 96ff3abd5c024017962f091827a211e9
+msgid "**Накопитель**: Твердотельный накопитель (SSD)."
+msgstr ""
+
+#: ../../source/faq.rst:12 74e33370db0440a4a5eccc671bf8e319
+msgid ""
+"**Операционная система**: Windows 8 64-bit или новее / Linux Ubuntu 18.04"
+" или новее."
+msgstr ""
+
+#: ../../source/faq.rst:2 0ebad8f40e6d45c2bb1759ec21a4b5eb
+msgid ""
+"Каковы рекомендуемые технические требования для достижения максимальной "
+"точности и скорости обработки?"
+msgstr ""
+
+#: ../../source/faq.rst:16 7a7abb394abd4d9c901a8dc690de2274
+msgid "**Процессор**: AMD Ryzen 5950x или лучше."
+msgstr ""
+
+#: ../../source/faq.rst:17 16722cd28e8944dc86ef500edaadef8b
+msgid "**Видеокарта (GPU)**: NVIDIA GeForce 4090 RTX или лучше."
+msgstr ""
+
+#: ../../source/faq.rst:18 643f223ef37f47c083a762bd17622eea
+msgid "**ОЗУ**: 128 ГБ или больше."
+msgstr ""
+
+#: ../../source/faq.rst:19 fde4d40359794b32bc850535be7a606f
+msgid "**Накопитель**: Твердотельный накопитель (SSD) или лучше (NVMe SSD M.2)."
+msgstr ""
+
+#: ../../source/faq.rst:20 e2d077e8accd4660a3f9553966e39e6c
+msgid ""
+"**Операционная система**: Windows 8 64-bit или новее / Linux Ubuntu 20.04"
+" или новее."
+msgstr ""
+
+#: ../../source/faq.rst:2 96ac111a29974bd2ab5be916c3e8460c
+msgid "Какие типы данных поддерживает библиотека OpenAV?"
+msgstr ""
+
+#: ../../source/faq.rst:24 f53f9ef0294a4622929e80666fbb6ff6
+msgid "Библиотека OpenAV поддерживает следующие типы данных:"
+msgstr ""
+
+#: ../../source/faq.rst:26 6fe810f5e536473d9c1fa74953458772
+msgid "**Аудиофайлы**: WAV, MP3, FLAC."
+msgstr ""
+
+#: ../../source/faq.rst:27 aeb4c81c30664599bae0d6042613a0af
+msgid "**Видеофайлы**: MP4, AVI, MKV."
+msgstr ""
+
+#: ../../source/faq.rst:28 ee98ebe86401498390e659e12cc49d38
+msgid "**Текстовые метаданные**: Для аннотации данных."
+msgstr ""
+
+#: ../../source/faq.rst:2 a45182c3531d4cafa04a073d74f1be45
+msgid "Как начать работу с библиотекой OpenAV?"
+msgstr ""
+
+#: ../../source/faq.rst:32 af06b9058876474cb2b1b75f890085da
+msgid "Чтобы начать работу с библиотекой, выполните следующие шаги:"
+msgstr ""
+
+#: ../../source/faq.rst:34 0d6af4a1c5d94b5aa911387fe511fc4f
+msgid "Установите библиотеку с помощью pip."
+msgstr ""
+
+#: ../../source/faq.rst:35 85dbf7442d0243c4a9cb460971c4dfe3
+msgid "Загрузите и подготовьте аудиовизуальные данные для обучения модели."
+msgstr ""
+
+#: ../../source/faq.rst:36 0a0140fb0f144a9bb2b97fe4dab8e8c8
+msgid ""
+"Используйте примеры из репозитория, чтобы запустить обучение модели и "
+"протестировать её."
+msgstr ""
+
+#: ../../source/faq.rst:38 850cb0fad3dc4c4d8875b5ce8461940f
+msgid ""
+"`Пример обучения модели "
+"<https://github.com/DmitryRyumin/openav/blob/main/examples/train_openav.md>`_"
+msgstr ""
+
+#: ../../source/faq.rst:39 af916bb2b6a14634865f28a4871b3441
+msgid ""
+"`Пример тестирования модели "
+"<https://github.com/DmitryRyumin/openav/blob/main/examples/test_openav.md>`_"
+msgstr ""
+
+#: ../../source/faq.rst:2 dbbe3a5a1f9342aeb39380de6a5003fd
+msgid "Как связаться с командой разработчиков?"
+msgstr ""
+
+#: ../../source/faq.rst:43 e54201f6eb2042b99461ddccde35aa72
+msgid "Вы можете связаться с нами через:"
+msgstr ""
+
+#: ../../source/faq.rst:46 a3c0e19e911c401a86235c195f5c666b
+msgid "**Электронная почта**:"
+msgstr ""
+
+#: ../../source/faq.rst:46 e07ce013ca1648289415d00096188d4a
+msgid "denis.ivanko11@gmail.com"
+msgstr ""
+
+#: ../../source/faq.rst:47 d30a36fc5f634b45bed2793df9b57bc2
+msgid "dl_03.03.1991@mail.ru"
+msgstr ""
+
+#: ../../source/faq.rst:48 77946105bbf24223933d8c0e279aa66c
+msgid ""
+"**Репозиторий на GitHub**: `OpenAV Issues "
+"<https://github.com/DmitryRyumin/OpenAV/issues>`_"
+msgstr ""
+
+#~ msgid "`OpenAV` это?"
+#~ msgstr ""
+
+#~ msgid "*Ответ ...*"
+#~ msgstr ""
 

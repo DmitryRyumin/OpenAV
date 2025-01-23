@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-25 12:45+0300\n"
+"POT-Creation-Date: 2025-01-23 14:25+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -47,7 +47,7 @@ msgstr ""
 
 #: ../../source/user_guide/installation/installation_win.rst:8
 #: 326c063e2ab14c7bb49551d96c075b61
-msgid "Установка и обновление на операционной системе Windows"
+msgid "Установка библиотеки на операционной системе Windows"
 msgstr ""
 
 #: ../../source/user_guide/installation/installation_win.rst:11
@@ -161,4 +161,7 @@ msgstr ""
 #: ab0ab15ecb074c88a7692d3364b452de
 msgid "Установленная библиотека OpenAV со всеми зависимостями"
 msgstr ""
+
+#~ msgid "Установка и обновление на операционной системе Windows"
+#~ msgstr ""
 

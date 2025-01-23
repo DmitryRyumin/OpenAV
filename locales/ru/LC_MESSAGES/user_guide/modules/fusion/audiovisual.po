@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 16:10+0300\n"
+"POT-Creation-Date: 2025-01-23 14:25+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,7 +19,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.11.0\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: ../../source/reuse_content/general.rst:1 483de71de8804c39963fa339de7344fc
 #: 5130e1af8217475a94358986e9ffcf8d 60d8407831524453838b70e3f819a93a
@@ -70,9 +70,7 @@ msgstr ""
 
 #: ../../source/user_guide/modules/fusion/audiovisual.rst:15
 #: e0363915eff94870a3b75a5f46e5b447 f4c90bd664e740449e0574afe400c3e1
-msgid ""
-"<a href=\"https://pytorch.org/get-started/previous-versions/\" "
-"target=\"_blank\">"
+msgid "<a href=\"https://pytorch.org/get-started\" target=\"_blank\">"
 msgstr ""
 
 #: ../../source/user_guide/modules/fusion/audiovisual.rst:20
@@ -652,5 +650,10 @@ msgstr ""
 #~ msgid ""
 #~ "Параметры настройки процесса обучения "
 #~ "аудиовизуальных нейросетевых моделей"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<a href=\"https://pytorch.org/get-started/previous-"
+#~ "versions/\" target=\"_blank\">"
 #~ msgstr ""
 

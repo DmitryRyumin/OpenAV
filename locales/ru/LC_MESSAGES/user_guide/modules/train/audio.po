@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-03 17:56+0300\n"
+"POT-Creation-Date: 2025-01-23 14:25+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,7 +19,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.11.0\n"
+"Generated-By: Babel 2.16.0\n"
 
 #: ../../source/reuse_content/general.rst:1 50b64cb9b1e24655a5b266754ded2588
 #: c28d0205a9ef4e698143ff9cbe26e8e8
@@ -49,9 +49,7 @@ msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:7
 #: 13d678fae36845a2ae98cfaf1dfa7552
-msgid ""
-"<a href=\"https://pytorch.org/get-started/previous-versions/\" "
-"target=\"_blank\">"
+msgid "<a href=\"https://pytorch.org/get-started/\" target=\"_blank\">"
 msgstr ""
 
 #: ../../source/user_guide/modules/train/audio.rst:12
@@ -393,5 +391,10 @@ msgstr ""
 #~ "параметр позволяет предотварить переобучение "
 #~ "модели, а также снизить длительность "
 #~ "обучения"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<a href=\"https://pytorch.org/get-started/previous-"
+#~ "versions/\" target=\"_blank\">"
 #~ msgstr ""
 

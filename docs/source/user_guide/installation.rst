@@ -7,3 +7,4 @@
    installation/installation_win
    installation/installation_mac
    installation/dependencies
+   installation/guides

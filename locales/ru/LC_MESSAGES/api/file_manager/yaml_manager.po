@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-25 10:23+0300\n"
+"POT-Creation-Date: 2025-01-23 15:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -24,6 +24,99 @@ msgstr ""
 #: ../../source/api/file_manager/yaml_manager.rst:2
 #: 4470a3b403ef4cccb3cbb1fb1d24b732
 msgid "Работа с YAML"
+msgstr ""
+
+#: 02845037df7c48fe8c886eb6bb1e12ad of
+#: openav.modules.file_manager.yaml_manager.YamlMessages:1
+msgid "Базовые классы: :py:class:`~openav.modules.file_manager.json_manager.Json`"
+msgstr ""
+
+#: dc40e9d255424147a869e9a78edf116a of
+#: openav.modules.file_manager.yaml_manager.YamlMessages:1
+msgid "Класс для сообщений"
+msgstr ""
+
+#: 19f5005001684d0c98cefb6fa0d8702b 3bdd9e09f76f49e78a0fd3fc3802e636
+#: 8a4105ef1ac6453eb83608ff16891a7b 99ea0c0eba2f4eeca14827e16abdec00 of
+#: openav.modules.file_manager.yaml_manager.Yaml
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources
+#: openav.modules.file_manager.yaml_manager.YamlMessages
+msgid "Параметры"
+msgstr ""
+
+#: 098aa409696e4a0f91964bcc9b127a0e 19325e8ff15d45cd81f145ea44f19467 of
+#: openav.modules.file_manager.yaml_manager.Yaml:3
+#: openav.modules.file_manager.yaml_manager.YamlMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 6443ad9f16bf4478be39ecf8633b0d3e ca883ce3382c4f128ee57165b13235ce of
+#: openav.modules.file_manager.yaml_manager.Yaml:5
+#: openav.modules.file_manager.yaml_manager.YamlMessages:5
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
+msgstr ""
+
+#: abb7eff7cdc742da8f7691b2414542f3 of
+#: openav.modules.file_manager.yaml_manager.Yaml:1
+msgid ""
+"Базовые классы: "
+":py:class:`~openav.modules.file_manager.yaml_manager.YamlMessages`"
+msgstr ""
+
+#: b56cc14d51d044e281d8833c081f39e6 of
+#: openav.modules.file_manager.yaml_manager.Yaml:1
+msgid "Класс для работы с YAML"
+msgstr ""
+
+#: 052d74ac1425466788c0a249ba709f00 of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml:1
+msgid "Загрузка YAML файла"
+msgstr ""
+
+#: 09d660ff8b78474ea8113dd9881ce32f ab2fa2759a7647a0baa3114163e26b9b of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml:3
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources:5
+msgid "Путь к файлу YAML"
+msgstr ""
+
+#: 843467c1669d40d9841e7c40a8893478 of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml:5
+msgid "Создание файла YAML в случае его отсутствия"
+msgstr ""
+
+#: 060a8f06ef4c42f2a5255aa2d3b3ee14 3d7bbfa4ce614e45a898c446802a07bc of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml:7
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources:7
+msgid "Печатать процесс выполнения"
+msgstr ""
+
+#: cff7d437a51f4258bba931138e7f0b26 e40df03bbf84480b8ea45b047b29b93e of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources
+msgid "Результат"
+msgstr ""
+
+#: 15ba274c7320442d9e1451a5810f33a9 cf086c565ef04a1d874cb3ee0bbc2d3b of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml:10
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources:10
+msgid "Словарь из yaml файла"
+msgstr ""
+
+#: 0b3586d853734b33872be525aa30a4ff 34e86919c9324bd7b273152f67cc4889 of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources
+msgid "Тип результата"
+msgstr ""
+
+#: d3ba0a58e82d4254ba154ade9029e5ca of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources:1
+msgid "Загрузка YAML файла из ресурсов модуля"
+msgstr ""
+
+#: 94baae2694f44885a6702f3607c3e262 of
+#: openav.modules.file_manager.yaml_manager.Yaml.load_yaml_resources:3
+msgid "Модуль"
 msgstr ""
 
 #~ msgid ""

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-25 10:23+0300\n"
+"POT-Creation-Date: 2025-01-23 15:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -24,6 +24,197 @@ msgstr ""
 #: ../../source/api/file_manager/file_manager.rst:2
 #: 73a0ec9ccb4e4a7da595e7258943024a
 msgid "Работа с файлами"
+msgstr ""
+
+#: 3968654c25854483ae1e596c488c961a of
+#: openav.modules.file_manager.file_manager.FileManagerMessages:1
+msgid "Базовые классы: :py:class:`~openav.modules.file_manager.unzip.Unzip`"
+msgstr ""
+
+#: e0a89579b9844ee3a18fe49077f18ff0 of
+#: openav.modules.file_manager.file_manager.FileManagerMessages:1
+msgid "Класс для сообщений"
+msgstr ""
+
+#: 17a63a88449749c49a31e2669475c886 204d58fe5517478c9789259fe0247bee
+#: 3cb198b959b5498785c549a26968b1c6 4817734b69aa40cfa90c8dce9d80a52d
+#: 867b395a24334541a4ef2a26eefa5417 9768b9dd5cc24a49beff2c0b1d24c6a4
+#: c152d14bd1f84a45a1c934002aa78263 e089e9417a0242388d018a8e0b6f412e of
+#: openav.modules.file_manager.file_manager.FileManager
+#: openav.modules.file_manager.file_manager.FileManager.clear_folder
+#: openav.modules.file_manager.file_manager.FileManager.create_folder
+#: openav.modules.file_manager.file_manager.FileManager.get_paths
+#: openav.modules.file_manager.file_manager.FileManager.re_inv_chars
+#: openav.modules.file_manager.file_manager.FileManager.search_file
+#: openav.modules.file_manager.file_manager.FileManager.search_files
+#: openav.modules.file_manager.file_manager.FileManagerMessages
+msgid "Параметры"
+msgstr ""
+
+#: 9fcf7364f512417ea6ca5906facfc1d0 c46af7611a594b69a05b1dd8691880a6 of
+#: openav.modules.file_manager.file_manager.FileManager:3
+#: openav.modules.file_manager.file_manager.FileManagerMessages:3
+msgid "Смотреть :attr:`~openav.modules.core.logging.Logging.path_to_logs`"
+msgstr ""
+
+#: 4c8975c07fbb4897981837b15c16633f 650a4d8d1ab040e1a655b1f0e60205c2 of
+#: openav.modules.file_manager.file_manager.FileManager:5
+#: openav.modules.file_manager.file_manager.FileManagerMessages:5
+msgid "Смотреть :attr:`~openav.modules.core.language.Language.lang`"
+msgstr ""
+
+#: 3cf2404832b04164bc3bfb95ebfe854e of
+#: openav.modules.file_manager.file_manager.FileManager:1
+msgid ""
+"Базовые классы: "
+":py:class:`~openav.modules.file_manager.file_manager.FileManagerMessages`"
+msgstr ""
+
+#: 1e82c68d629f420ba5a9d502fa8c17f1 of
+#: openav.modules.file_manager.file_manager.FileManager:1
+msgid "Класс для работы с файлами"
+msgstr ""
+
+#: afbc542b9a944f85bffeefed5ec19255 of
+#: openav.modules.file_manager.file_manager.FileManager.clear_folder:1
+msgid "Очистка директории"
+msgstr ""
+
+#: 17426e77359c40ca914a0c9e3588f3fa 3f430411e64b415282f12749140925bb
+#: ecf052dc9be9450783a99c229a349c56 of
+#: openav.modules.file_manager.file_manager.FileManager.clear_folder:3
+#: openav.modules.file_manager.file_manager.FileManager.create_folder:3
+#: openav.modules.file_manager.file_manager.FileManager.get_paths:3
+msgid "Путь к директории"
+msgstr ""
+
+#: 518827bd272a4abd9270909df3914442 5badb57b96c3426c88ca9ca912b6cc77
+#: baa8d9f6e67a4dc383cef83f233154bb fff1524e501340869eefb4bfa3885421 of
+#: openav.modules.file_manager.file_manager.FileManager.clear_folder:5
+#: openav.modules.file_manager.file_manager.FileManager.create_folder:5
+#: openav.modules.file_manager.file_manager.FileManager.search_file:9
+#: openav.modules.file_manager.file_manager.FileManager.search_files:9
+msgid "Печатать процесс выполнения"
+msgstr ""
+
+#: 1c8ca7de7f224c16b86389cf3a01fcca 2eca1a31ff8f4e938fd9ab389f1edd19
+#: 828691ab17d34373adb1e7c82f95eeaa be4a015918044f46b0691710a36c6055
+#: e78526a4feca4623adfc17af7b16d3b5 fdc2035877824bcdbcd05c081ce94acb of
+#: openav.modules.file_manager.file_manager.FileManager.clear_folder
+#: openav.modules.file_manager.file_manager.FileManager.create_folder
+#: openav.modules.file_manager.file_manager.FileManager.get_paths
+#: openav.modules.file_manager.file_manager.FileManager.re_inv_chars
+#: openav.modules.file_manager.file_manager.FileManager.search_file
+#: openav.modules.file_manager.file_manager.FileManager.search_files
+msgid "Результат"
+msgstr ""
+
+#: e29ca1b818904857afd0d456de0aa1d1 of
+#: openav.modules.file_manager.file_manager.FileManager.clear_folder:8
+msgid "**True** если директория очищена, в обратном случае **False**"
+msgstr ""
+
+#: 039a7f7037524d54b299a313885df702 1140fbfda0924222b0208b8e174ab90d
+#: 5a3878bccd23437fa07f6bef81cfcec4 8be1a6ed98d44bd9865e73709575736e
+#: cc8ec73616274b259517a84c77253889 cf66818688d94de780f4464ee8f903fb of
+#: openav.modules.file_manager.file_manager.FileManager.clear_folder
+#: openav.modules.file_manager.file_manager.FileManager.create_folder
+#: openav.modules.file_manager.file_manager.FileManager.get_paths
+#: openav.modules.file_manager.file_manager.FileManager.re_inv_chars
+#: openav.modules.file_manager.file_manager.FileManager.search_file
+#: openav.modules.file_manager.file_manager.FileManager.search_files
+msgid "Тип результата"
+msgstr ""
+
+#: 213ff52f13dc43b183593537b539dee2 of
+#: openav.modules.file_manager.file_manager.FileManager.create_folder:1
+msgid "Создание директории"
+msgstr ""
+
+#: da796cc726c84e57b82d9b03ac766da3 of
+#: openav.modules.file_manager.file_manager.FileManager.create_folder:8
+msgid "**True** если директория создана, в обратном случае **False**"
+msgstr ""
+
+#: 6b8f49e0525b48b3b5809a512dd91ec3 of
+#: openav.modules.file_manager.file_manager.FileManager.get_paths:1
+msgid "Получение поддиректорий"
+msgstr ""
+
+#: 2281eef025e946c19ee81eab96d26f35 of
+#: openav.modules.file_manager.file_manager.FileManager.get_paths:5
+msgid "Глубина иерархии для извлечения поддиректорий"
+msgstr ""
+
+#: 73cbbb3b6ff84a639b5d338cd97034a6 of
+#: openav.modules.file_manager.file_manager.FileManager.get_paths:7
+msgid "Отображение"
+msgstr ""
+
+#: 0ec3b08c92e547a998886383f8464c74 of
+#: openav.modules.file_manager.file_manager.FileManager.get_paths:10
+msgid "Список с поддиректориями"
+msgstr ""
+
+#: d148d9da926c4f2a8e1054321a478901 of
+#: openav.modules.file_manager.file_manager.FileManager.re_inv_chars:1
+msgid "Удаление недопустимых символов из пути"
+msgstr ""
+
+#: 590e72474943478683ca159a2ca705a3 b6bf6820f5ba404ebbb3064fb17fa57e of
+#: openav.modules.file_manager.file_manager.FileManager.re_inv_chars:3
+#: openav.modules.file_manager.file_manager.FileManager.re_inv_chars:6
+msgid "Путь"
+msgstr ""
+
+#: 919176fc5cce4ef89ced18563b09b051 of
+#: openav.modules.file_manager.file_manager.FileManager.search_file:1
+msgid "Поиск файла"
+msgstr ""
+
+#: 429b058cd8404226977e9b6bfc68d9d0 of
+#: openav.modules.file_manager.file_manager.FileManager.search_file:3
+msgid "Путь к файлу"
+msgstr ""
+
+#: 2300f0a4cafb42d69ac55e9832146347 of
+#: openav.modules.file_manager.file_manager.FileManager.search_file:5
+msgid "Расширение файла"
+msgstr ""
+
+#: 589e293ef0ea429aa74690b55aae1e2f of
+#: openav.modules.file_manager.file_manager.FileManager.search_file:7
+msgid "Создание файла в случае его отсутствия"
+msgstr ""
+
+#: 84883ee3858a48a89e5858c738c70e6c of
+#: openav.modules.file_manager.file_manager.FileManager.search_file:12
+msgid "**True** если файл найден, в обратном случае **False**"
+msgstr ""
+
+#: badfb3ffb6d8463aa95ed56f0e513ef0 of
+#: openav.modules.file_manager.file_manager.FileManager.search_files:1
+msgid "Поиск файлов в указанной директории"
+msgstr ""
+
+#: c3561eb148744d9b8e3b0cc4e2b81a8b of
+#: openav.modules.file_manager.file_manager.FileManager.search_files:3
+msgid "Путь к директории с файлами"
+msgstr ""
+
+#: 224983dd500f42568a3497b82706db35 of
+#: openav.modules.file_manager.file_manager.FileManager.search_files:5
+msgid "Расширения файлов"
+msgstr ""
+
+#: 6e2fe2a623bf48dd9d347304f6a052fc of
+#: openav.modules.file_manager.file_manager.FileManager.search_files:7
+msgid "Сортировать файлы"
+msgstr ""
+
+#: 7001b5a73e7448cb8ed1c154c5e2839c of
+#: openav.modules.file_manager.file_manager.FileManager.search_files:12
+msgid "список с найденными файлами"
 msgstr ""
 
 #~ msgid "Базовые классы: :py:class:`~openav.modules.file_manager.unzip.Unzip`"

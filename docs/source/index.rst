@@ -42,4 +42,3 @@
    dataset
    about
    faq
-   changelog
