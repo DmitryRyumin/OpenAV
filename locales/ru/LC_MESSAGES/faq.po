@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-23 16:45+0300\n"
+"POT-Creation-Date: 2025-01-23 17:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,81 +80,93 @@ msgid ""
 " или новее."
 msgstr ""
 
-#: ../../source/faq.rst:2 96ac111a29974bd2ab5be916c3e8460c
-msgid "Какие типы данных поддерживает библиотека OpenAV?"
-msgstr ""
-
-#: ../../source/faq.rst:24 f53f9ef0294a4622929e80666fbb6ff6
-msgid "Библиотека OpenAV поддерживает следующие типы данных:"
-msgstr ""
-
-#: ../../source/faq.rst:26 6fe810f5e536473d9c1fa74953458772
-msgid "**Аудиофайлы**: WAV, MP3, FLAC."
-msgstr ""
-
-#: ../../source/faq.rst:27 aeb4c81c30664599bae0d6042613a0af
-msgid "**Видеофайлы**: MP4, AVI, MKV."
-msgstr ""
-
-#: ../../source/faq.rst:28 ee98ebe86401498390e659e12cc49d38
-msgid "**Текстовые метаданные**: Для аннотации данных."
-msgstr ""
-
 #: ../../source/faq.rst:2 a45182c3531d4cafa04a073d74f1be45
 msgid "Как начать работу с библиотекой OpenAV?"
 msgstr ""
 
-#: ../../source/faq.rst:32 af06b9058876474cb2b1b75f890085da
+#: ../../source/faq.rst:24 af06b9058876474cb2b1b75f890085da
 msgid "Чтобы начать работу с библиотекой, выполните следующие шаги:"
 msgstr ""
 
-#: ../../source/faq.rst:34 0d6af4a1c5d94b5aa911387fe511fc4f
+#: ../../source/faq.rst:26 0d6af4a1c5d94b5aa911387fe511fc4f
 msgid "Установите библиотеку с помощью pip."
 msgstr ""
 
-#: ../../source/faq.rst:35 85dbf7442d0243c4a9cb460971c4dfe3
+#: ../../source/faq.rst:27 85dbf7442d0243c4a9cb460971c4dfe3
 msgid "Загрузите и подготовьте аудиовизуальные данные для обучения модели."
 msgstr ""
 
-#: ../../source/faq.rst:36 0a0140fb0f144a9bb2b97fe4dab8e8c8
+#: ../../source/faq.rst:28 0a0140fb0f144a9bb2b97fe4dab8e8c8
 msgid ""
 "Используйте примеры из репозитория, чтобы запустить обучение модели и "
 "протестировать её."
 msgstr ""
 
-#: ../../source/faq.rst:38 850cb0fad3dc4c4d8875b5ce8461940f
+#: ../../source/faq.rst:30 850cb0fad3dc4c4d8875b5ce8461940f
 msgid ""
 "`Пример обучения модели "
 "<https://github.com/DmitryRyumin/openav/blob/main/examples/train_openav.md>`_"
 msgstr ""
 
-#: ../../source/faq.rst:39 af916bb2b6a14634865f28a4871b3441
+#: ../../source/faq.rst:31 af916bb2b6a14634865f28a4871b3441
 msgid ""
 "`Пример тестирования модели "
 "<https://github.com/DmitryRyumin/openav/blob/main/examples/test_openav.md>`_"
+msgstr ""
+
+#: ../../source/faq.rst:2 96ac111a29974bd2ab5be916c3e8460c
+msgid "Какие типы данных поддерживает библиотека OpenAV?"
+msgstr ""
+
+#: ../../source/faq.rst:35 f53f9ef0294a4622929e80666fbb6ff6
+msgid "Библиотека OpenAV поддерживает следующие типы данных:"
+msgstr ""
+
+#: ../../source/faq.rst:37 6fe810f5e536473d9c1fa74953458772
+msgid "**Аудиофайлы**: WAV, MP3, FLAC."
+msgstr ""
+
+#: ../../source/faq.rst:38 aeb4c81c30664599bae0d6042613a0af
+msgid "**Видеофайлы**: MP4, AVI, MKV."
+msgstr ""
+
+#: ../../source/faq.rst:39 ee98ebe86401498390e659e12cc49d38
+msgid "**Текстовые метаданные**: Для аннотации данных."
+msgstr ""
+
+#: ../../source/faq.rst:-1 96ac111a29974bd2ab5be916c3e8460c
+msgid "Как реализовано логирование в библиотеке OpenAV?"
+msgstr ""
+
+#: ../../source/faq.rst:43 a2228f41d109485d9125d08a9b9ec22e
+msgid ""
+"В библиотеке OpeanAV используется автоматическое логирование, наследуемое"
+" из всех зависимых библиотек (numpy, matplotlib, pillow и др.) список "
+"которых приведен в начале файла log. Дополнительное специальное "
+"логирования не реализовано."
 msgstr ""
 
 #: ../../source/faq.rst:2 dbbe3a5a1f9342aeb39380de6a5003fd
 msgid "Как связаться с командой разработчиков?"
 msgstr ""
 
-#: ../../source/faq.rst:43 e54201f6eb2042b99461ddccde35aa72
+#: ../../source/faq.rst:47 e54201f6eb2042b99461ddccde35aa72
 msgid "Вы можете связаться с нами через:"
 msgstr ""
 
-#: ../../source/faq.rst:46 a3c0e19e911c401a86235c195f5c666b
+#: ../../source/faq.rst:50 a3c0e19e911c401a86235c195f5c666b
 msgid "**Электронная почта**:"
 msgstr ""
 
-#: ../../source/faq.rst:46 e07ce013ca1648289415d00096188d4a
+#: ../../source/faq.rst:50 e07ce013ca1648289415d00096188d4a
 msgid "denis.ivanko11@gmail.com"
 msgstr ""
 
-#: ../../source/faq.rst:47 d30a36fc5f634b45bed2793df9b57bc2
+#: ../../source/faq.rst:51 d30a36fc5f634b45bed2793df9b57bc2
 msgid "dl_03.03.1991@mail.ru"
 msgstr ""
 
-#: ../../source/faq.rst:48 77946105bbf24223933d8c0e279aa66c
+#: ../../source/faq.rst:52 77946105bbf24223933d8c0e279aa66c
 msgid ""
 "**Репозиторий на GitHub**: `OpenAV Issues "
 "<https://github.com/DmitryRyumin/OpenAV/issues>`_"
