@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-23 14:25+0300\n"
+"POT-Creation-Date: 2025-01-23 18:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -138,9 +138,7 @@ msgstr ""
 
 #: ../../source/user_guide/modules/fusion/audiovisual.rst:48
 #: b320a21dbc5648e9be6501c6fc2468a1
-msgid ""
-"|a_guide| Инструкция для обучения нейросетевых моделей с использованием "
-"GPU |/a|"
+msgid "|a_guide| Инструкция для установки PyTorch с использованием GPU |/a|"
 msgstr ""
 
 #: ../../source/user_guide/modules/fusion/audiovisual.rst:53
@@ -654,5 +652,10 @@ msgstr ""
 #~ msgid ""
 #~ "<a href=\"https://pytorch.org/get-started/previous-"
 #~ "versions/\" target=\"_blank\">"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|a_guide| Инструкция для обучения нейросетевых"
+#~ " моделей с использованием GPU |/a|"
 #~ msgstr ""
 
