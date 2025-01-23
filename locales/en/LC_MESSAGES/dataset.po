@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenAV 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-23 17:01+0300\n"
+"POT-Creation-Date: 2025-01-23 19:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/dataset.rst:9 5095fe9742fe4651b038f05646ec0988
-msgid "Набор аудиовизуальных данных"
+msgid "Набор аудиовизуальных данных ICANDO"
 msgstr ""
 
 #: ../../source/dataset.rst:11 7b638d27490149958cf7641dd1592c9c
@@ -57,7 +57,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/dataset.rst:15 e64d42ee06074604bc41495b31681e75
-msgid "|a_dataset| Полный набор данных |/a|"
+msgid "|a_dataset| Полный набор данных ICANDO |/a|"
 msgstr ""
 
 #: ../../source/dataset.rst:26 f88a0c97ada8408f81d2474f3b5c0554
@@ -102,5 +102,11 @@ msgstr ""
 #~ msgid ""
 #~ "<a href=\"https://files.sberdisk.ru/s/o2oi5pHPXYG2UrP\" "
 #~ "target=\"_blank\">"
+#~ msgstr ""
+
+#~ msgid "Набор аудиовизуальных данных"
+#~ msgstr ""
+
+#~ msgid "|a_dataset| Полный набор данных |/a|"
 #~ msgstr ""
 
