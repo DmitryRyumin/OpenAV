@@ -29,7 +29,7 @@
    "ffmpeg", "1.4", ".. image:: https://img.shields.io/pypi/v/ffmpeg"
    "librosa", "0.10.2.post1", ".. image:: https://img.shields.io/pypi/v/librosa"
    "matplotlib", "3.10.0", ".. image:: https://img.shields.io/pypi/v/matplotlib"
-   "mediapipe", "0.10.20", ".. image:: https://img.shields.io/pypi/v/mediapipe"
+   "mediapipe", "0.10.13", ".. image:: https://img.shields.io/pypi/v/mediapipe"
    "opencv_contrib_python", "4.10.0.84", ".. image:: https://img.shields.io/pypi/v/opencv_contrib_python"
    "einops", "0.8.0", ".. image:: https://img.shields.io/pypi/v/einops"
    "lion_pytorch", "0.2.3", ".. image:: https://img.shields.io/pypi/v/lion_pytorch"

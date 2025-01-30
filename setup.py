@@ -31,7 +31,7 @@ REQUIRED_PACKAGES = [
     "ffmpeg == 1.4",
     "librosa == 0.10.2.post1",
     "matplotlib == 3.10.0",
-    "mediapipe == 0.10.20",
+    "mediapipe == 0.10.13",
     "opencv_contrib_python == 4.10.0.84",
     "einops == 0.8.0",
     "lion_pytorch == 0.2.3",
