@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022-24. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim
+# Markitantov, Alexey Karpov
+# This file is distributed under the same license as the OpenAV package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenAV 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-27 15:59+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: ../../source/reuse_content/general.rst:1 0fa38b4699ea49fbad97e26b51122113
+#: 5e8abb34f3e94941b5811f6b23024188 9c6211671918473eabd8b74cdaccc106
+msgid "</br>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:5 8f2d36409d6d43bab62b9dce4121ce62
+msgid "<b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:9 15e098911c7641a7ac8c68f9c0f85fc0
+msgid "</b>"
+msgstr ""
+
+#: ../../source/reuse_content/general.rst:14 04265dfa35ca47aea11a23aec1c0e8f1
+msgid "</a>"
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:3
+#: 40aa0d07777e4e9cb0abf5c2ec0e0307 e4d34883d3a240d489d1718c1894db7d
+msgid "<a href=\"https://pytorch.org/get-started/locally/\" target=\"_blank\">"
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:8
+#: fa444b06f53b46a18477bec48b1c330d
+msgid "Использование GPU при работе с библиотекой"
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:10
+#: 79642b46b5514c4491cd806c3565b430
+msgid ""
+"Для того чтобы использовать видеоадаптер (GPU) для работы с библиотекой "
+"(по умолчанию используется CPU) неоходимо выполнить следующие шаги:"
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:12
+#: 71518c1113eb4e87916f22365722755b
+msgid ""
+"Перейти на |a_download| сайт и выбрать необходимую версию PyTorch с "
+"поддержкой GPU для CUDA, которая установлена у вас в системе."
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:18
+#: 8b8ea83552464b78aba5b150f38c238d
+msgid "Выбор версии PyTorch с поддержкой GPU"
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:18
+#: ../../source/user_guide/installation/use_gpu.rst:37
+#: 38a53003d7854132a6805effb23aed84 f4f8b8d66d764b9883b538f5be31d7d5
+msgid "|br|"
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:20
+#: 9f3e6a651c4f43b3aa53fd41097edee6
+msgid ""
+"Либо установить версию с помощью прямой команды (актуальная версия "
+"PyTorch с поддержкой CUDA 11.8):"
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:22
+#: 23ba811601cd41cd831f9323a17e938e
+msgid ""
+"pip3 install torch torchvision torchaudio --index-url "
+"https://download.pytorch.org/whl/cu118"
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:27
+#: c9d7330958ba4e3f82f8fc7bf8e6a6db
+msgid ""
+"Убедитесь, что библиотека PyTorch с поддержкой GPU установилась корректно"
+" (все пакеты, относящиеся к torch должны иметь в версиях подпись "
+"``+cu118`` или версию, которую вы выбрали):"
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:29
+#: cbfeae866e7c47478d736150ad7515a5
+msgid "pip list"
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:37
+#: b55ae045ded747d784e4f8ee980c26d3
+msgid "Установленные версии пакетов"
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:39
+#: 25993acadd474e3fa1f728da716695c1
+msgid ""
+"В случае, если пакеты установились некорректно, либо они уже были "
+"установлены, но без поддержки GPU, то необходимо удалить зависимости "
+"PyTorch, а затем установить их как указано в шаге №1:"
+msgstr ""
+
+#: ../../source/user_guide/installation/use_gpu.rst:41
+#: 2caa42e263a64486b83c05cb99a8b2c7
+msgid "pip uninstall pytorch, torchvision и torchaudio"
+msgstr ""
+
+#~ msgid "Завершенный процесс установки Python"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Перейти на сайт и |a_download| и "
+#~ "выбрать необходимую версию PyTorch с "
+#~ "поддержкой GPU для CUDA, которая "
+#~ "установлена у вас в системе."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Либо установить версию с помощью прямой"
+#~ " команды (Актуальная версия PyTorch с "
+#~ "поддержкой CUDA 11.8):"
+#~ msgstr ""
+

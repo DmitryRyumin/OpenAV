@@ -7,4 +7,5 @@
    installation/installation_win
    installation/installation_mac
    installation/dependencies
+   installation/use_gpu
    installation/guides
