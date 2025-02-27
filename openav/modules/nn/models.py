@@ -273,7 +273,7 @@ class AVModel(nn.Module):
         self.fc_audio = nn.Linear(shape_audio[1], h_f)
         self.feature_video = CNNLSTMPyTorch()
         self.fc_video = nn.Linear(shape_video[1], h_f)
-        self.fusion = Transformer(input_dim=input_dim, h_u=h_u, n_class=n_class, encoder_decoder=5)
+        self.fusion = Transformer(input_dim=input_dim, h_u=h_u, n_class=n_class, encoder_decoder=encoder_decoder)
 
     def forward(self, audio, video):
         audio_n = rearrange(audio, "b g c n l-> (b g) c n l")

@@ -18,7 +18,7 @@ __summary__ = "OpenAV"
 __uri__ = "https://github.com/DmitryRyumin/openav"
 
 __version__ = "1.0"
-__release__ = __version__ + ".0-a17"
+__release__ = __version__ + ".0-a20"
 
 __author__ru__ = "Рюмин Дмитрий, Иванько Денис, Шилов Николай, Маркитантов Максим, Карпов Алексей"
 __author__en__ = "Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim Markitantov, Alexey Karpov"
@@ -31,4 +31,4 @@ __maintainer__en__ = "Dmitry Ryumin"
 __maintainer_email__ = "dl_03.03.1991@mail.ru"
 
 __license__ = "MIT"
-__copyright__ = "2022-24. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim Markitantov, Alexey Karpov"
+__copyright__ = "2022-25. Dmitry Ryumin, Denis Ivanko, Nikolay Shilov, Maxim Markitantov, Alexey Karpov"

@@ -263,7 +263,7 @@ msgstr ""
 
 #: ../../source/user_guide/installation/dependencies.rst:1
 #: 428b9336c46f46b1b0c7640d1303f428
-msgid "0.10.20"
+msgid "0.10.13"
 msgstr ""
 
 #: ../../source/user_guide/installation/dependencies.rst:1
