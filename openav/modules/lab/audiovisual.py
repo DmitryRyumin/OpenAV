@@ -37,6 +37,7 @@ from lion_pytorch import Lion
 from tqdm import tqdm
 from sklearn.metrics import accuracy_score
 
+
 # Персональные
 from openav.modules.core.exceptions import IsNestedCatalogsNotFoundError
 from openav.modules.lab.audio import Audio  # Аудиомодальность
@@ -59,38 +60,38 @@ EXT_MODELS: str = "pt"
 EXTH_MODELS: str = "pth"
 OPTIMIZERS: List[str] = ["adam", "adamw", "sgd", "lion"]
 REQUIRED_GRAD: List[str] = ["none", "a", "v", "av"]
-CLASSES_TEST: List[str] = [
-    "1_Позвонить",
-    "2_Набрать_номер",
-    "3_Отправить_сообщение",
-    "6_Завершить_вызов",
-    "7_Радио",
-    "8_Музыка",
-    "9_Воспроизвести",
-    "11_Случа--и--ны--и--_выбор",
-    "12_Отключить_случа--и--ны--и--_выбор",
-    "13_Повтор",
-    "16_Избегать_платных_дорог",
-    "17_Карта",
-    "19_Предыдущие_места_назначения",
-    "20_Как_там_на_дорогах",
-    "22_Надолго_пробка",
-    "24_На_работу",
-    "25_Максимальное_увеличение",
-    "27_Остановить_маршрут",
-    "28_Возобновить_маршрут",
-    "29_Сколько_мне_еще_ехать",
-    "30_Во_сколько_я_приеду",
-    "32_Сбросить_маршрут",
-    "34_На--и--ти_больницу",
-    "36_На--и--ти_аптеку",
-    "37_На--и--ти_банк",
-    "39_На--и--ти_ресторан",
-    "42_На--и--ти_железнодорожны--и--_вокзал",
-    "47_Нет",
-    "48_Предыдущая",
-    "49_Следующая",
-]
+# CLASSES_TEST: List[str] = [
+#     "1_Позвонить",
+#     "2_Набрать_номер",
+#     "3_Отправить_сообщение",
+#     "6_Завершить_вызов",
+#     "7_Радио",
+#     "8_Музыка",
+#     "9_Воспроизвести",
+#     "11_Случа--и--ны--и--_выбор",
+#     "12_Отключить_случа--и--ны--и--_выбор",
+#     "13_Повтор",
+#     "16_Избегать_платных_дорог",
+#     "17_Карта",
+#     "19_Предыдущие_места_назначения",
+#     "20_Как_там_на_дорогах",
+#     "22_Надолго_пробка",
+#     "24_На_работу",
+#     "25_Максимальное_увеличение",
+#     "27_Остановить_маршрут",
+#     "28_Возобновить_маршрут",
+#     "29_Сколько_мне_еще_ехать",
+#     "30_Во_сколько_я_приеду",
+#     "32_Сбросить_маршрут",
+#     "34_На--и--ти_больницу",
+#     "36_На--и--ти_аптеку",
+#     "37_На--и--ти_банк",
+#     "39_На--и--ти_ресторан",
+#     "42_На--и--ти_железнодорожны--и--_вокзал",
+#     "47_Нет",
+#     "48_Предыдущая",
+#     "49_Следующая",
+# ]
 
 
 # ######################################################################################################################
@@ -404,25 +405,32 @@ class AV(AVMessages):
 
             # Проход по всем вложенным директориям
             for nested_path in hierarchy_from_paths:
-                nested_path_0 = nested_path[0].replace("--и--", "й").lower()
-                if nested_path_0 in classes:
-                    # Формирование списка с видеофайлами
+                # if nested_path_0 in classes:
+                # nested_path_0 = nested_path[0].replace("--и--", "й").lower()
+                if nested_path[0].lower() in classes:
+                # Формирование списка с видеофайлами
                     for p in Path(os.path.join(self.path_to_dataset, *reversed(nested_path))).glob("*"):
                         # Добавление текущего пути к видеофайлу в список
                         if p.suffix.lower().replace(".", "") in EXT_AV_VIDEO:
-                            [index for index, cls in enumerate(classes) if cls.lower() == nested_path_0]
+                            [index for index, cls in enumerate(classes) if cls.lower() == nested_path[0].lower()]
+                            # [index for index, cls in enumerate(classes) if cls.lower() == nested_path_0]
 
                             if nested_path[-1] == subfolders[SUBFOLDERS[0]]:
                                 path_train.append(p.resolve())
-                                lb_train.append(classes.index(nested_path_0))
+                                lb_train.append(classes.index(nested_path[0].lower()))
+                                # lb_train.append(classes.index(nested_path_0))
                             elif nested_path[-1] == subfolders[SUBFOLDERS[1]]:
-                                if (nested_path[0] in CLASSES_TEST) is True:
-                                    path_val.append(p.resolve())
-                                    lb_val.append(classes.index(nested_path_0))
+                                # if (nested_path[0] in CLASSES_TEST) is True:
+                                #     path_val.append(p.resolve())
+                                #     lb_val.append(classes.index(nested_path_0))
+                                path_val.append(p.resolve())
+                                lb_val.append(classes.index(nested_path[0].lower()))
                             elif nested_path[-1] == subfolders[SUBFOLDERS[2]]:
-                                if (nested_path[0] in CLASSES_TEST) is True:
-                                    path_test.append(p.resolve())
-                                    lb_test.append(classes.index(nested_path_0))
+                                # if (nested_path[0] in CLASSES_TEST) is True:
+                                #     path_test.append(p.resolve())
+                                #     lb_test.append(classes.index(nested_path_0))
+                                path_test.append(p.resolve())
+                                lb_test.append(classes.index(nested_path[0].lower()))
                             else:
                                 pass
 
@@ -499,6 +507,10 @@ class AV(AVMessages):
                 val_dataloader = DataLoader(val_data, batch_size=batch_size, shuffle=False)
                 test_dataloader = DataLoader(test_data, batch_size=batch_size, shuffle=False)
 
+                #train_dataloader = DataLoader(train_data, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True)
+                #val_dataloader = DataLoader(val_data, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
+                #test_dataloader = DataLoader(test_data, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
+                
                 torch.autograd.set_detect_anomaly(True)
 
                 stop_flag_training = 0
@@ -570,8 +582,13 @@ class AV(AVMessages):
                         ),
                         out=out,
                     )
-
+                    
                     model.train()
+                    
+                    # print(f"Model is on {next(model.parameters()).device}")
+                    # print(torch.cuda.memory_allocated())
+                    # print(torch.cuda.memory_reserved())
+                    #if __name__ == "__main__":
                     avg_loss = train_one_epoch(train_dataloader, optimizer, criterion, model, self.__device)
 
                     model.eval()
